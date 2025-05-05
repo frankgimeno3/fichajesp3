@@ -3,33 +3,33 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-export default function Home() {
+export default function Admin() {
   const router = useRouter();
 
-  const handleRedirectToAdmin = () => {
-    router.push('/admin');
+  const handleRedirectToHome = () => {
+    router.push('/');
   };
 
-  const [employeeNumber, setEmployeeNumber] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     // Aquí iría la lógica de autenticación
-    console.log('Employee Number:', employeeNumber, 'Password:', password);
+    console.log('Email:', email, 'Password:', password);
   };
 
   return (
     <div className="flex flex-col min-h-screen bg-black text-white p-8 gap-8">
       {/* NAVBAR */}
       <div className="flex flex-row justify-between items-center">
-        <p className="text-xl font-bold">FICHAJES P3</p>
+        <p className="text-xl font-bold">FICHAJES P3 (ADMIN)</p>
         <div>
           <button
-            onClick={handleRedirectToAdmin}
+            onClick={handleRedirectToHome}
             className="bg-white text-black px-4 py-2 rounded hover:bg-gray-300 transition"
           >
-            Ir a Admin
+            Ir a HOME
           </button>
         </div>
       </div>
@@ -40,13 +40,13 @@ export default function Home() {
           onSubmit={handleLogin}
           className="flex flex-col gap-4 bg-gray-900 p-8 rounded shadow-md w-full max-w-md"
         >
-          <h2 className="text-2xl font-semibold mb-4 text-center">Login</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-center">Login como ADMIN</h2>
 
           <input
-            type="text"
-            placeholder="Número de Empleado"
-            value={employeeNumber}
-            onChange={(e) => setEmployeeNumber(e.target.value)}
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="p-2 rounded bg-black border border-gray-700 text-white placeholder-gray-400"
             required
           />
