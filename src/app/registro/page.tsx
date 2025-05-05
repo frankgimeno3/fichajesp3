@@ -7,8 +7,8 @@ import { useRouter } from "next/navigation";
 interface RegistroProps { }
 
 const Registro: FC<RegistroProps> = () => {
-  const [employeeId, setEmployeeId] = useState("");
-  const [password, setPassword] = useState("");
+  const [employeeId] = useState("");
+  const [password] = useState("");
   const [event, setEvent] = useState("Fichar entrada");
   const [comments, setComments] = useState("");
   const [showPopup, setShowPopup] = useState(false);

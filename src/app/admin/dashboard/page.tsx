@@ -12,7 +12,7 @@ type Evento = {
 
 const Dashboard: FC = () => {
   const router = useRouter();
-  const [resultados, setResultados] = useState<Evento[]>([
+  const [resultados] = useState<Evento[]>([
     {
       autor: 'Juan Pérez',
       evento: 'Inicio sesión',

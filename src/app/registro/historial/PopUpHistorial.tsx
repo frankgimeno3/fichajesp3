@@ -53,6 +53,7 @@ const PopUpHistorialHistorial: FC<PopUpHistorialHistorialProps> = ({
         </h3>
         <div className="space-y-4 text-sm text-gray-700 mb-4">
           <div>
+            <p>Ip: {ipAddress}</p>
             <label className="block text-gray-600 font-semibold mb-1">Evento:</label>
             <select
               name="event"
