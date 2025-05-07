@@ -3,7 +3,6 @@ import React, { FC, useEffect, useState } from "react";
 interface PopUpProps {
   data: {
     employeeId: string;
-    password: string;
     event: string;
     comments: string;
   };

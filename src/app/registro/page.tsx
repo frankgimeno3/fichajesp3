@@ -2,17 +2,15 @@
 
 import React, { FC, useState } from "react";
 import PopUp from "./PopUp";
-import { useRouter } from "next/navigation";
+import RegistroNav from "./registrocomponents/registronav";
 
 interface RegistroProps { }
 
 const Registro: FC<RegistroProps> = () => {
   const [employeeId] = useState("");
-  const [password] = useState("");
   const [event, setEvent] = useState("Fichar entrada");
   const [comments, setComments] = useState("");
   const [showPopup, setShowPopup] = useState(false);
-  const router = useRouter()
 
   const handleReset = () => {
     window.location.reload();
@@ -23,26 +21,10 @@ const Registro: FC<RegistroProps> = () => {
     setShowPopup(false);
   };
 
-  const handleLogout = () => {
-    console.log('logout')
-  }
-  const handleHistory = () => {
-    router.push('/registro/historial')
-  }
 
   return (
     <>
-      <nav className="flex flex-row justify-between p-5 px-12 items-center border-b border-gray-600" style={{ backgroundColor: 'rgb(255, 255, 255, 0.04)' }}>
-        <p className=" text-2xl text-gray-300">Página de registro de fichajes</p>
-        <div className="flex flex-row">
-          <button className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90"
-            onClick={() => handleHistory()}>
-            Historial</button>
-          <button className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90"
-            onClick={() => handleLogout()}>
-            Cerrar sesión</button> 
-        </div>
-      </nav>
+      <RegistroNav/>
       <div className="min-h-screen bg-gray-500 pt-12">
       <div className="max-w-md mx-auto p-6 bg-white shadow-xl rounded-2xl space-y-6 text-gray-700">
         <h2 className="text-2xl font-bold text-center">Registro de Evento de Fichaje</h2>
@@ -86,7 +68,7 @@ const Registro: FC<RegistroProps> = () => {
 
         {showPopup && (
           <PopUp
-            data={{ employeeId, password, event, comments }}
+            data={{ employeeId, event, comments }}
             onClose={() => setShowPopup(false)}
             onCancel={() => setShowPopup(false)}
             onConfirm={handleConfirm}

@@ -1,8 +1,8 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
 import PopUpCrear from './PopUpCrear';
 import PopUpEditar from './PopUpEditar';
+import AdminNav from '../admincomponents/AdminNav';
 
 interface Usuario {
   nombre: string;
@@ -12,20 +12,7 @@ interface Usuario {
 }
 
 const Usuarios: FC = () => {
-  const router = useRouter();
 
-  const handleLogout = () => {
-    console.log('logout');
-  };
-  const handleDashboard = () => {
-    router.push('/admin/dashboard');
-  };
-  const handleInformes = () => {
-    router.push('/admin/dashboard/informes');
-  };
-  const handleUsuarios = () => {
-    router.push('/admin/dashboard/usuarios');
-  };
 
   const handleCrearUsuario = () => {
     setShowPopUpCrear(true);
@@ -83,15 +70,7 @@ const Usuarios: FC = () => {
 
   return (
     <div>
-      <nav className="flex flex-row justify-between p-5 px-12 items-center border-b border-gray-600" style={{ backgroundColor: 'rgb(255, 255, 255, 0.04)' }}>
-        <p className="text-2xl text-gray-300" onClick={handleDashboard}>Dashboard ADMIN</p>
-        <div className="flex flex-row">
-          <button className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90" onClick={handleInformes}>Sacar informes</button>
-          <button className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90" onClick={handleUsuarios}>Gestionar usuarios</button>
-          <button className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90" onClick={handleLogout}>Cerrar sesión</button>
-        </div>
-      </nav>
-
+      <AdminNav/>
       <div className="p-6 px-12 bg-gray-100 min-h-screen ">
         <div className="flex justify-between items-center mb-4">
           <p className="text-xl text-gray-600">Usuarios</p>

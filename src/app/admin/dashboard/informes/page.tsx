@@ -1,40 +1,21 @@
 'use client'
-import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
+import AdminNav from '../admincomponents/AdminNav';
 
 interface InformesProps {}
 
 const Informes: FC<InformesProps> = ({}) => {
-    const router = useRouter();
     const [empleados, setEmpleados] = useState('');
     const [fechaDesde, setFechaDesde] = useState('');
     const [fechaHasta, setFechaHasta] = useState('');
-    const [resultados, setResultados] = useState<any[]>([]);  // Para almacenar los resultados de los informes
-
-    const handleLogout = () => {
-        console.log('logout');
-    };
-
-    const handleInformes = () => {
-        router.push('/admin/dashboard/informes');
-    };
-
-    const handleUsuarios = () => {
-        router.push('/admin/dashboard/usuarios');
-    };
-    const handleDashboard = () => {
-        router.push('/admin/dashboard');
-    };
+    const [resultados, setResultados] = useState<any[]>([]);   
 
     const handleDescargarCSV = () => {
-        // Aquí implementamos la lógica para descargar los resultados como CSV
         console.log('Descargar CSV');
     };
 
     const handleFiltrar = () => {
-        // Lógica para filtrar los datos por empleados y fechas
         console.log('Filtrando informes...');
-        // Aquí puedes hacer una llamada a una API o lógica de filtrado.
         setResultados([
             {
                 autor: 'Juan Pérez',
@@ -57,22 +38,12 @@ const Informes: FC<InformesProps> = ({}) => {
 
     return (
         <div className='text-gray-600'>
-            <nav className="flex flex-row justify-between p-5 px-12 items-center border-b border-gray-600" style={{ backgroundColor: 'rgb(255, 255, 255, 0.04)' }}>
-                <p className="text-2xl text-gray-300" onClick={()=>{handleDashboard()}}>Dashboard ADMIN</p>
-                <div className="flex flex-row text-white">
-                    <button className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90" onClick={handleInformes}>Sacar informes</button>
-                    <button className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90" onClick={handleUsuarios}>Gestionar usuarios</button>
-                    <button className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90" onClick={handleLogout}>Cerrar sesión</button>
-                </div>
-            </nav>
-
+            <AdminNav/>
             <div className="p-6 px-12 bg-gray-100 min-h-screen">
                 <div className="flex flex-col space-y-4 mb-6">
-                    {/* Primer div: configuración de los filtros */}
                     <div className="flex flex-col space-y-4 bg-white shadow p-4  rounded">
                         <p className="text-lg text-gray-600">Configurar Filtros</p>
                         <div className="flex flex-col space-y-2">
-                            {/* Filtro por empleados */}
                             <div>
                                 <label htmlFor="empleados" className="text-sm">Empleados (números separados por comas)</label>
                                 <input
