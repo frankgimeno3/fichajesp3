@@ -1,42 +1,45 @@
-import {COGNITO} from "../../../env.js";
-import {CognitoJwtVerifier} from "aws-jwt-verify";
+import { COGNITO } from "../../../env.js";
+import { CognitoJwtVerifier } from "aws-jwt-verify";
+
+// Validar que las variables de entorno están definidas
+if (!COGNITO?.USER_POOL_ID || !COGNITO?.CLIENT_ID) {
+  throw new Error("Cognito USER_POOL_ID or CLIENT_ID is missing or undefined.");
+}
 
 const idVerifier = CognitoJwtVerifier.create({
-    userPoolId: COGNITO.USER_POOL_ID,
-    clientId: COGNITO.CLIENT_ID,
-    tokenUse: 'id',
-})
+  userPoolId: COGNITO.USER_POOL_ID,
+  clientId: COGNITO.CLIENT_ID,
+  tokenUse: "id",
+});
 
 const accessVerifier = CognitoJwtVerifier.create({
-    userPoolId: COGNITO.USER_POOL_ID,
-    clientId: COGNITO.CLIENT_ID,
-    tokenUse: 'access',
-})
+  userPoolId: COGNITO.USER_POOL_ID,
+  clientId: COGNITO.CLIENT_ID,
+  tokenUse: "access",
+});
 
-export async function POST(request, res){
+export async function POST(request) {
+  try {
+    const baseKey = `CognitoIdentityServiceProvider.${COGNITO.CLIENT_ID}`;
+    const username = request.cookies.get(`${baseKey}.LastAuthUser`)?.value;
 
-    const username = request.cookies.get(`CognitoIdentityServiceProvider.${COGNITO.CLIENT_ID}.LastAuthUser`)?.value;
     if (!username) {
-        return new Response('Bad Request', {
-            status: 400,
-        })
+      return new Response("Missing username cookie", { status: 400 });
     }
 
-    let idToken = request.cookies.get(`CognitoIdentityServiceProvider.${COGNITO.CLIENT_ID}.${username}.idToken`)?.value
-    let accessToken = request.cookies.get(`CognitoIdentityServiceProvider.${COGNITO.CLIENT_ID}.${username}.accessToken`)?.value
+    const idToken = request.cookies.get(`${baseKey}.${username}.idToken`)?.value;
+    const accessToken = request.cookies.get(`${baseKey}.${username}.accessToken`)?.value;
 
-    try {
-        await idVerifier.verify(idToken);
-        await accessVerifier.verify(accessToken);
-    } catch (e) {
-        const username = request.cookies.get(`CognitoIdentityServiceProvider.${COGNITO.CLIENT_ID}.LastAuthUser`)?.value;
-        if (!username) {
-            return new Response('Invalid Token', {
-                status: 400,
-            })
-        }
+    if (!idToken || !accessToken) {
+      return new Response("Missing token(s)", { status: 400 });
     }
-    return new Response('Ok', {
-        status: 200
-    })
+
+    await idVerifier.verify(idToken);
+    await accessVerifier.verify(accessToken);
+
+    return new Response("Ok", { status: 200 });
+  } catch (error) {
+    console.error("Token verification failed:", error);
+    return new Response("Invalid Token", { status: 401 });
+  }
 }
