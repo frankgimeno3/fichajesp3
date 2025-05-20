@@ -3,9 +3,7 @@ import {useRouter} from 'next/navigation';
 import {useState} from 'react';
 import AuthenticationService from "@/app/service/AuthenticationService";
 
-
 export default function Home() {
-
     const router = useRouter();
 
     const handleRedirectToAdmin = () => {
@@ -14,21 +12,24 @@ export default function Home() {
 
     const [employeeNumber, setEmployeeNumber] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState<string | null>(null); // NUEVO estado para errores
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
+        setError(null); // Limpiar errores anteriores
+
         try {
             const payload: any = await AuthenticationService.login(employeeNumber, password);
             const roles: any = payload['cognito:groups'] || [];
             const isAdmin = roles.includes('admin');
 
             if (isAdmin) return router.replace('/admin/dashboard');
-            return router.replace('/registro')
-        } catch (e) {
-            console.log(e);
+            return router.replace('/registro');
+        } catch (e: any) {
+            console.error(e);
+            setError(e?.message || 'Error al iniciar sesión. Verifica tus credenciales.');
         }
 
-        // Aquí iría la lógica de autenticación
         console.log('Employee Number:', employeeNumber, 'Password:', password);
     };
 
@@ -72,6 +73,13 @@ export default function Home() {
                         className="p-2 rounded bg-black border border-gray-700 text-white placeholder-gray-400"
                         required
                     />
+
+                    {/* MOSTRAR ERROR */}
+                    {error && (
+                        <div className="text-red-500 text-sm text-center">
+                            {error}
+                        </div>
+                    )}
 
                     <button
                         type="submit"
