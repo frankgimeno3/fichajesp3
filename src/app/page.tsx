@@ -12,11 +12,11 @@ export default function Home() {
 
     const [employeeNumber, setEmployeeNumber] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState<string | null>(null); // NUEVO estado para errores
+    const [error, setError] = useState<string | null>(null);  
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
-        setError(null); // Limpiar errores anteriores
+        setError(null);  
 
         try {
             const payload: any = await AuthenticationService.login(employeeNumber, password);
@@ -58,7 +58,7 @@ export default function Home() {
 
                     <input
                         type="text"
-                        placeholder="Número de Empleado"
+                        placeholder="Introduzca su email"
                         value={employeeNumber}
                         onChange={(e) => setEmployeeNumber(e.target.value)}
                         className="p-2 rounded bg-black border border-gray-700 text-white placeholder-gray-400"
@@ -67,7 +67,7 @@ export default function Home() {
 
                     <input
                         type="password"
-                        placeholder="Password"
+                        placeholder="Introduzca su contraseña"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         className="p-2 rounded bg-black border border-gray-700 text-white placeholder-gray-400"

@@ -25,7 +25,7 @@ export default class AuthenticationService {
         });
 
         if (response.nextStep?.signInStep === 'CONFIRM_SIGN_IN_WITH_NEW_PASSWORD_REQUIRED') {
-            const newPassword = prompt("Please enter a new password");
+            const newPassword = prompt("Por favor, introduzca nueva contraseña");
 
             await confirmSignIn({
                 challengeResponse: newPassword,
@@ -35,7 +35,7 @@ export default class AuthenticationService {
         const session = await fetchAuthSession();
 
         if (!session.tokens?.idToken) {
-            throw new Error("User is not authenticated.");
+            throw new Error("Usuario no autenticado.");
         }
         const { payload } = decodeJWT(session.tokens.idToken.toString());
 
