@@ -2,18 +2,31 @@ import apiClient from "../apiClient.js";
 
 export class TimeLogService{
     static async createTimeLog(type, comment){
-        return apiClient.post('/api/v1/time-log',{
+        const response = await apiClient.post('/api/v1/time-log',{
             type,
             comment
         })
+
+        return response.data;
     }
 
-    static async getTimeLogs(afterTime, beforeTime){
-        return apiClient.get('/api/v1/time-logs',{
+    static async getUserTimeLogs(afterTime, beforeTime){
+        const response = await apiClient.get('/api/v1/time-logs',{
             params:{
                 afterTime,
                 beforeTime
             }
         })
+        return response.data;
+    }
+
+    static async getUsersTimeLogs(afterTime, beforeTime){
+        const response = await apiClient.get('/api/v1/admin/time-logs',{
+            params:{
+                afterTime,
+                beforeTime
+            }
+        })
+        return response.data;
     }
 }

@@ -32,6 +32,7 @@ ModificationModel.init({
     timeLogId: {type: DataTypes.BIGINT, allowNull: false},
     status: {type: DataTypes.ENUM(...Object.values(ModificationStatusEnum)), allowNull: false},
     newType: {type: DataTypes.ENUM(...Object.values(TimeLogTypeEnum)), allowNull: false},
+    newDate: {type: DataTypes.DATE},
     comment: {type: DataTypes.TEXT},
     createdBy: {type: DataTypes.STRING, allowNull: false},
     reviewedBy: {type: DataTypes.STRING},

@@ -2,11 +2,11 @@ import React, { FC, useEffect, useState } from "react";
 
 interface PopUpHistorialHistorialProps {
   data: {
-    employeeId: string;
-    dia: string;
-    hora: string;
-    event: string;
-    comments: string;
+      createdBy: string;
+      type: string;
+      createdAt: any,
+      comment: string;
+      modifications: any
   };
   onClose: () => void;
   onConfirm: () => void;
@@ -22,9 +22,9 @@ const PopUpHistorialHistorial: FC<PopUpHistorialHistorialProps> = ({
   const [ipAddress, setIpAddress] = useState<string>("");
 
   const [formState, setFormState] = useState({
-    employeeId: data.employeeId,
-    event: data.event,
-    comments: data.comments || ""
+    employeeId: data.createdBy,
+    event: data.type,
+    comments: data.comment || ""
   });
 
   useEffect(() => {
@@ -61,9 +61,9 @@ const PopUpHistorialHistorial: FC<PopUpHistorialHistorialProps> = ({
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             >
-              <option>Fichar entrada</option>
-              <option>Fichar pausa</option>
-              <option>Fichar salida</option>
+              <option value='in'>Fichar entrada</option>
+              <option value='break'>Fichar pausa</option>
+              <option value='out'>Fichar salida</option>
             </select>
           </div>
 
@@ -71,7 +71,7 @@ const PopUpHistorialHistorial: FC<PopUpHistorialHistorialProps> = ({
             <label className="block text-gray-600 font-semibold mb-1">Día de registro:</label>
             <input
               type="text"
-              value={data.dia}
+              value={new Date(data.createdAt).getDay()}
               readOnly
               className="w-full px-3 py-1 border rounded-lg bg-gray-100"
             />
@@ -81,7 +81,7 @@ const PopUpHistorialHistorial: FC<PopUpHistorialHistorialProps> = ({
             <label className="block text-gray-600 font-semibold mb-1">Hora de registro:</label>
             <input
               type="text"
-              value={data.hora}
+              value={new Date(data.createdAt).getHours()}
               readOnly
               className="w-full px-3 py-1 border rounded-lg bg-gray-100"
             />
@@ -100,7 +100,7 @@ const PopUpHistorialHistorial: FC<PopUpHistorialHistorialProps> = ({
         </div>
         <div className="flex justify-end gap-2">
           <button
-            onClick={onConfirm}
+            onClick={()=>onConfirm(formState.event)}
             className="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700"
           >
             Confirmar

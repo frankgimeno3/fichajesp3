@@ -1,20 +1,23 @@
 "use client";
 
-import React, {FC, useEffect, useState} from 'react';
+import React, {FC, use, useEffect, useState} from 'react';
 import EventoHistorial from './EventoHistorial';
 import PopUpHistorial from './PopUpHistorial';
 import FiltroTemporal from './FiltroTemporal';
 import RegistroNav from '../registrocomponents/registronav';
 import {TimeLogService} from "@/app/service/TimeLogService";
+import {ModificationService} from "@/app/service/ModificationService";
 
 const Historial: FC = () => {
     const [showPopup, setShowPopup] = useState(false);
+    const [timeLogs, setTimeLogs] = useState([]);
     const [selectedEvent, setSelectedEvent] = useState<{
-        employeeId: string;
-        dia: string;
-        hora: string;
-        event: string;
-        comments: string;
+        id: string;
+        createdBy: string;
+        type: string;
+        createdAt: any,
+        comment: string;
+        modifications: any
     } | null>(null);
 
 
@@ -23,8 +26,13 @@ const Historial: FC = () => {
         setShowPopup(true);
     };
 
-    const handleConfirm = () => {
-        alert("Evento registrado correctamente");
+    const handleConfirm = async (newType: any) => {
+        try{
+            const modification = await ModificationService.createModification(selectedEvent.id,newType,selectedEvent?.comment)
+            alert("Evento registrado correctamente");
+        } catch (e : any){
+            alert(e.message)
+        }
         setShowPopup(false);
     };
 
@@ -41,10 +49,10 @@ const Historial: FC = () => {
         }
     }, [])
 
-    async function getTimeLogs(beforeTime: any, afterTime: any){
+    async function getTimeLogs(afterTime: any, beforeTime: any){
         try {
-            const timeLogs = await TimeLogService.getTimeLogs(afterTime,beforeTime);
-            console.log(timeLogs);
+            const timeLogs = await TimeLogService.getUserTimeLogs(afterTime,beforeTime);
+            setTimeLogs(timeLogs);
         } catch (error){
             alert(error)
         }
@@ -86,7 +94,7 @@ const Historial: FC = () => {
                     <FiltroTemporal onFiltrar={handleFilter} />
 
 
-                    {eventos.map((evento, index) => (
+                    {timeLogs.map((evento, index) => (
                         <EventoHistorial key={index} data={evento} onEdit={handleEdit} />
                     ))}
                 </div>

@@ -12,7 +12,23 @@ export async function createTimeLog(userId, type, comment) {
     return timeLog;
 }
 
-export async function getTimeLogs(userId, afterTime, beforeTime) {
+export async function getUsersTimeLogs(afterTime, beforeTime) {
+    const timeLogs = await TimeLogModel.findAll({
+        where: {
+            [Op.and]: [
+                afterTime ? {created_at: {[Op.gte]: afterTime}} : {},
+                beforeTime ? {created_at: {[Op.lte]: beforeTime}} : {},
+            ]
+        },
+        order: [
+            ['created_at', 'DESC']
+        ],
+    });
+
+    return timeLogs;
+}
+
+export async function getUserTimeLogs(userId, afterTime, beforeTime) {
     const timeLogs = await TimeLogModel.findAll({
         where: {
             [Op.and]: [
