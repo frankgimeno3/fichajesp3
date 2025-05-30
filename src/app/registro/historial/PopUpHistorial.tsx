@@ -9,7 +9,7 @@ interface PopUpHistorialHistorialProps {
       modifications: any
   };
   onClose: () => void;
-  onConfirm: () => void;
+  onConfirm: (newType: string) => void;
   onCancel: () => void;
 }
 

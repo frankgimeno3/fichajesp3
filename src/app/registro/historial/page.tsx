@@ -28,7 +28,7 @@ const Historial: FC = () => {
 
     const handleConfirm = async (newType: any) => {
         try{
-            const modification = await ModificationService.createModification(selectedEvent.id,newType,selectedEvent?.comment)
+            const modification = await ModificationService.createModification(selectedEvent?.id,newType,selectedEvent?.comment)
             alert("Evento registrado correctamente");
         } catch (e : any){
             alert(e.message)
@@ -66,22 +66,6 @@ const Historial: FC = () => {
         const beforeTime = new Date(year, month + 1, 0, 23, 59, 59).toISOString();
         getTimeLogs(afterTime, beforeTime);
     }
-    const eventos = [
-        {
-            employeeId: '001',
-            dia: '1/12/2024',
-            hora: '12:33:21',
-            event: 'Fichaje de entrada',
-            comments: 'Descripción del comentario',
-        },
-        {
-            employeeId: '001',
-            dia: '1/12/2024',
-            hora: '14:00:00',
-            event: 'Fichaje de salida',
-            comments: 'Sin observaciones',
-        }
-    ];
 
     return (
         <div className='flex flex-col'>
