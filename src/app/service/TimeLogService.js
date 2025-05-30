@@ -7,4 +7,13 @@ export class TimeLogService{
             comment
         })
     }
+
+    static async getTimeLogs(afterTime, beforeTime){
+        return apiClient.get('/api/v1/time-logs',{
+            params:{
+                afterTime,
+                beforeTime
+            }
+        })
+    }
 }

@@ -27,7 +27,6 @@ export async function POST(request) {
 
         return new Response("Ok", {status: 200});
     } catch (error) {
-        console.error("Token verification failed:", error);
         return new Response("Invalid Token", {status: 401});
     }
 }
