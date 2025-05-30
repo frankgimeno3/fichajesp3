@@ -1,6 +1,10 @@
 import {defineAssociations} from "./server/database/associations.js";
 import Database from "./server/database/database.js";
 
+// IMPORT HERE ALL MODELS SO SEQUELIZE COULD PROCESS THEM
+import './server/modification/ModificationModel.js';
+import './server/timeLog/TimeLogModel.js';
+
 const database = Database.getInstance();
 
 try {

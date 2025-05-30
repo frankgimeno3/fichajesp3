@@ -1,6 +1,5 @@
 import {Sequelize} from "sequelize";
 
-
 class Database {
     static #instance;
     #sequelize;
