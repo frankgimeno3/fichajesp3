@@ -1,5 +1,5 @@
-import TimeLogModel from "../timeLog/TimeLogModel.js";
-import ModificationModel from "../modification/ModificationModel.js";
+import TimeLogModel from "../features/timeLog/TimeLogModel.js";
+import ModificationModel from "../features/modification/ModificationModel.js";
 
 export function defineAssociations() {
     TimeLogModel.hasMany(ModificationModel, {

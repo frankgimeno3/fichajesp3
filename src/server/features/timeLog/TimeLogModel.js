@@ -1,4 +1,4 @@
-import Database from "../database/database.js";
+import Database from "../../database/database.js";
 import {Model, DataTypes} from "sequelize";
 import {TimeLogTypeEnum} from "./TimeLogTypeEnum.js";
 

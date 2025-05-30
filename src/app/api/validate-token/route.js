@@ -1,5 +1,5 @@
 import {COGNITO} from "../../../env.js";
-import {verifyAccessToken, verifyIdToken} from "../../../server/authentication/AuthenticationService.js";
+import {verifyAccessToken, verifyIdToken} from "../../../server/features/authentication/AuthenticationService.js";
 
 // Validar que las variables de entorno están definidas
 if (!COGNITO?.USER_POOL_ID || !COGNITO?.CLIENT_ID) {

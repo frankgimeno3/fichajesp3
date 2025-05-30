@@ -1,31 +1,7 @@
 import {NextResponse} from "next/server";
 import {COGNITO} from "./env.js";
 import {decodeJWT} from "@aws-amplify/core";
-
-async function fetchNewTokens(refresh_token) {
-    const tokenEndpoint = `https://${COGNITO.DOMAIN}.auth.${COGNITO.REGION}.amazoncognito.com/oauth2/token`;
-
-    const body = new URLSearchParams({
-        grant_type: 'refresh_token',
-        client_id: COGNITO.CLIENT_ID,
-        refresh_token,
-    })
-
-    const response = await fetch(tokenEndpoint, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: body.toString(),
-    })
-
-    if (!response.ok) {
-        const errorText = await response.text()
-        throw new Error(`Failed to fetch tokens: ${response.status} ${errorText}`)
-    }
-
-    return await response.json();
-}
+import {fetchNewTokens} from "./server/features/authentication/AuthenticationService.js";
 
 export async function middleware(request) {
     const response = NextResponse.next();
@@ -42,7 +18,6 @@ export async function middleware(request) {
     const goToAdminPanel = () => {
         return NextResponse.redirect(new URL('/admin/dashboard', request.url));
     }
-
 
     const username = request.cookies.get(`CognitoIdentityServiceProvider.${COGNITO.CLIENT_ID}.LastAuthUser`)?.value;
     if (!username) return goToLogin();
