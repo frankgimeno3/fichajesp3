@@ -64,7 +64,7 @@ async function checkTokens(request, response) {
         isRefreshed = true;
     }
     const {payload} = decodeJWT(accessToken);
-    return [username, payload.sub, isRefreshed, accessToken, idToken, cookieKeys];
+    return [username, payload.sub, isRefreshed, accessToken, idToken, cookieKeys, data.expires_in];
 }
 
 export function createEndpoint(callback, validationSchema = null, isProtected = false, roles = []) {
@@ -77,10 +77,10 @@ export function createEndpoint(callback, validationSchema = null, isProtected = 
             return new Response(e.message, {status: 400});
         }
 
-        let username, sub, isRefreshed, accessToken, idToken, cookieKeys;
+        let username, sub, isRefreshed, accessToken, idToken, cookieKeys, cookieExpiresIn;
         if (isProtected) {
             try {
-                [username, sub, isRefreshed, accessToken, idToken, cookieKeys] = await checkTokens(request, response);
+                [username, sub, isRefreshed, accessToken, idToken, cookieKeys, cookieExpiresIn] = await checkTokens(request, response);
                 request.sub = sub;
             } catch (error) {
                 return new Response(error.message, {status: 400});
@@ -97,19 +97,19 @@ export function createEndpoint(callback, validationSchema = null, isProtected = 
         }
 
         try {
-            const response = await callback(request);
+            const response = await callback(request, body);
             if(isRefreshed){
                 response.cookies.set({
                     name: cookieKeys.access,
                     value: accessToken,
                     secure: true,
-                    maxAge: data.expires_in
+                    maxAge: cookieExpiresIn
                 })
                 response.cookies.set({
                     name: cookieKeys.id,
                     value: idToken,
                     secure: true,
-                    maxAge: data.expires_in
+                    maxAge: cookieExpiresIn
                 })
             }
             return response;
