@@ -16,5 +16,5 @@ export const POST = createEndpoint(async (request, body)=>{
     logId: Joi.any().required(),
     newType: Joi.string().valid(...Object.values(TimeLogTypeEnum)).required(),
     comment: Joi.string().optional()
-}),true, ['admin'])
+}),true)
 

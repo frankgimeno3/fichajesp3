@@ -9,7 +9,6 @@ import {defineAssociations} from "./associations.js";
 const database = Database.getInstance();
 const sequelize = database.getSequelize();
 
-
 TimeLogModel.init({
     id: {type: DataTypes.BIGINT, primaryKey: true, unique: true, autoIncrement: true},
     createdBy: {type: DataTypes.STRING, allowNull: false},
@@ -25,7 +24,6 @@ TimeLogModel.init({
         {fields: ['created_at']}
     ]
 });
-
 
 ModificationModel.init({
     id: {type: DataTypes.BIGINT, primaryKey: true, unique: true, autoIncrement: true},
