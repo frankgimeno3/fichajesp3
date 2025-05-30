@@ -1,5 +1,5 @@
-import {defineAssociations} from "./database/associations.js";
-import Database from "./database/database.js";
+import {defineAssociations} from "./server/database/associations.js";
+import Database from "./server/database/database.js";
 
 const database = Database.getInstance();
 
