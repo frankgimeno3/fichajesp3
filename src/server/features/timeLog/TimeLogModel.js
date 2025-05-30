@@ -11,7 +11,7 @@ class TimeLogModel extends Model {
 
 TimeLogModel.init({
     id: {type: DataTypes.BIGINT, primaryKey: true, unique: true, autoIncrement: true},
-    createdBy: {type: DataTypes.BIGINT, allowNull: false},
+    createdBy: {type: DataTypes.STRING, allowNull: false},
     type: {type: DataTypes.ENUM(...Object.values(TimeLogTypeEnum)), allowNull: false},
     comment: {type: DataTypes.TEXT},
 }, {

@@ -16,8 +16,8 @@ ModificationModel.init({
     status: {type: DataTypes.ENUM(...Object.values(ModificationStatusEnum)), allowNull: false},
     newType: {type: DataTypes.ENUM(...Object.values(TimeLogTypeEnum)), allowNull: false},
     comment: {type: DataTypes.TEXT},
-    createdBy: {type: DataTypes.BIGINT, allowNull: false},
-    reviewedBy: {type: DataTypes.BIGINT},
+    createdBy: {type: DataTypes.STRING, allowNull: false},
+    reviewedBy: {type: DataTypes.STRING},
     reviewedAt: {type: DataTypes.DATE},
 }, {
     sequelize,

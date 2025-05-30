@@ -9,7 +9,6 @@ async function validate(request, schema) {
     if (!schema) return;
     const contentType = request.headers.get('content-type') ?? '';
     const method = request.method
-
     let data;
     let body;
 
@@ -27,7 +26,6 @@ async function validate(request, schema) {
     } else {
         throw Error('Solicitud incorrecta');
     }
-
     const {value, error} = schema.validate(data);
     if (error) {
         throw new Error(`Solicitud no paso validacion: ${error}`);
@@ -54,25 +52,27 @@ async function checkTokens(request, response) {
         refresh: `CognitoIdentityServiceProvider.${COGNITO.CLIENT_ID}.${username}.refreshToken`
     }
 
+    let expiresIn;
     try {
         await Promise.all([verifyIdToken(idToken), verifyAccessToken(accessToken)]);
     } catch (e) {
         const refreshToken = request.cookies.get(cookieKeys.refresh)?.value
         const data = await fetchNewTokens(refreshToken);
+        expiresIn = data.expires_in;
         idToken = data.id_token;
         accessToken = data.accessToken;
         isRefreshed = true;
     }
     const {payload} = decodeJWT(accessToken);
-    return [username, payload.sub, isRefreshed, accessToken, idToken, cookieKeys, data.expires_in];
+    return [username, payload.sub, isRefreshed, accessToken, idToken, cookieKeys, expiresIn];
 }
 
-export function createEndpoint(callback, validationSchema = null, isProtected = false, roles = []) {
+export function createEndpoint(callback, schema = null, isProtected = false, roles = []) {
     return async (request) => {
         const response = NextResponse.next();
-        let data;
+        let body;
         try {
-            data = await validate();
+            body = await validate(request, schema);
         } catch (e) {
             return new Response(e.message, {status: 400});
         }

@@ -14,11 +14,11 @@ const accessVerifier = CognitoJwtVerifier.create({
 });
 
 export async function verifyIdToken(idToken){
-    return idVerifier.verify(idToken);
+    return await idVerifier.verify(idToken);
 }
 
 export async function verifyAccessToken(accessToken){
-    return accessVerifier.verify(accessToken);
+    return await accessVerifier.verify(accessToken);
 }
 
 export async function fetchNewTokens(refresh_token) {

@@ -3,12 +3,14 @@
 import React, { FC, useState } from "react";
 import PopUp from "./PopUp";
 import RegistroNav from "./registrocomponents/registronav";
+import {comment} from "postcss";
+import {TimeLogService} from "@/app/service/TimeLogService";
 
 interface RegistroProps { }
 
 const Registro: FC<RegistroProps> = () => {
   const [employeeId] = useState("");
-  const [event, setEvent] = useState("Fichar entrada");
+  const [event, setEvent] = useState("in");
   const [comments, setComments] = useState("");
   const [showPopup, setShowPopup] = useState(false);
 
@@ -16,9 +18,15 @@ const Registro: FC<RegistroProps> = () => {
     window.location.reload();
   };
 
-  const handleConfirm = () => {
-    alert("Evento registrado correctamente");
-    setShowPopup(false);
+  const handleConfirm = async () => {
+      try {
+          await TimeLogService.createTimeLog(event, comments);
+          alert("Evento registrado correctamente");
+      } catch (e){
+          alert(e);
+      } finally {
+          setShowPopup(false);
+      }
   };
 
 
@@ -35,9 +43,9 @@ const Registro: FC<RegistroProps> = () => {
             onChange={(e) => setEvent(e.target.value)}
             className="w-full px-4 py-2 border rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option>Fichar entrada</option>
-            <option>Fichar pausa</option>
-            <option>Fichar salida</option>
+            <option value="in">Fichar entrada</option>
+            <option value="break">Fichar pausa</option>
+            <option value="out">Fichar salida</option>
           </select>
         </div>
 
