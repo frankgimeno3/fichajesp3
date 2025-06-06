@@ -47,7 +47,7 @@ export async function middleware(request) {
         try {
             const data = await fetchNewTokens(refreshToken);
             idToken = data.id_token;
-            accessToken = data.accessToken;
+            accessToken = data.access_token;
             response.cookies.set({
                 name: cookieKeys.access,
                 value: accessToken,
@@ -74,6 +74,7 @@ export async function middleware(request) {
         if (!isAdmin && (pathname === "/" || pathname === "/admin")) return goToPanel();
         if (!isAdmin && pathname.includes('/admin/dashboard')) return goToPanel();
     } catch (e) {
+        console.log(e);
         return goToLogin();
     }
 

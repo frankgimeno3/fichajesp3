@@ -10,5 +10,6 @@ export const GET = createEndpoint(async (request, body)=>{
 
     return NextResponse.json(modifications);
 }, Joi.object({
-    status: Joi.string().valid(...Object.values(ModificationStatusEnum)).optional()
+    status: Joi.string().valid(...Object.values(ModificationStatusEnum)).optional(),
+
 }),true, ['admin'])

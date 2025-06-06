@@ -60,7 +60,7 @@ async function checkTokens(request, response) {
         const data = await fetchNewTokens(refreshToken);
         expiresIn = data.expires_in;
         idToken = data.id_token;
-        accessToken = data.accessToken;
+        accessToken = data.access_token;
         isRefreshed = true;
     }
     const {payload} = decodeJWT(accessToken);
@@ -76,16 +76,19 @@ export function createEndpoint(callback, schema = null, isProtected = false, rol
         } catch (e) {
             return new Response(e.message, {status: 400});
         }
-
         let username, sub, isRefreshed, accessToken, idToken, cookieKeys, cookieExpiresIn;
         if (isProtected) {
             try {
                 [username, sub, isRefreshed, accessToken, idToken, cookieKeys, cookieExpiresIn] = await checkTokens(request, response);
                 request.sub = sub;
             } catch (error) {
+                console.error(error);
+
                 return new Response(error.message, {status: 400});
             }
         }
+
+
         if (isProtected && roles.length > 0) {
             try {
                 const userRoles = await getUserRoles(username);
