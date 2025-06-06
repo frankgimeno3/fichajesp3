@@ -6,7 +6,14 @@ import {NextResponse} from "next/server";
 
 export const POST = createEndpoint(async (request, body)=>{
     const {type, comment} = body;
-    const timeLog = await createTimeLog(request.sub,type, comment);
+
+    const forwardedFor = request.headers.get('x-forwarded-for');
+    const ip =
+        forwardedFor?.split(',').shift().trim() ||
+        request.socket?.remoteAddress ||
+        null;
+
+    const timeLog = await createTimeLog(request.email,type, comment, ip);
 
     return NextResponse.json(timeLog);
 },Joi.object({

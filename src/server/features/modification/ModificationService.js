@@ -3,7 +3,7 @@ import {ModificationStatusEnum} from "./ModificationStatusEnum.js";
 import {ModificationNotFound} from "./ModificationError.js";
 import {TimeLogNotFound} from "../timeLog/TimeLogError.js";
 
-export async function createModification(logId, newType, comment, creatorId){
+export async function createModification(logId, newType,newDate, comment, creatorUsername){
     const timeLog = await TimeLogModel.findByPk(logId);
 
     if(!timeLog) throw new TimeLogNotFound("Este fichaje no existe");
@@ -12,8 +12,9 @@ export async function createModification(logId, newType, comment, creatorId){
         timeLogId: logId,
         status: ModificationStatusEnum.pending,
         newType: newType,
+        newDate: newDate,
         comment: comment,
-        createdBy: creatorId
+        createdBy: creatorUsername
     })
 
     return modification;

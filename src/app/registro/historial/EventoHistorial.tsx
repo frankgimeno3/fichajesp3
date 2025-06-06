@@ -42,9 +42,14 @@ const EventoHistorial: FC<EventoHistorialProps> = ({data, onEdit}) => {
                                     <p className='pl-2'>{modification.createdBy}</p>
                                 </div>
                                 <div className='flex flex-row'>
-                                    <p>Fecha de modificacion:</p>
+                                    <p>Fecha de solicitacion:</p>
                                     <p className='pl-2'>{new Date(modification.createdAt).toLocaleDateString('es-ES')}</p>
-                                    <p className='pl-2'>{new Date(modification.createdAt).toLocaleTimeString('es-ES', { hour12: false })}</p>
+                                    <p className='pl-2'>{new Date(modification.createdAt).toLocaleTimeString('es-ES', {hour12: false})}</p>
+                                </div>
+                                <div className='flex flex-row'>
+                                    <p>Nueva fecha:</p>
+                                    <p className='pl-2'>{new Date(modification.newDate).toLocaleDateString('es-ES')}</p>
+                                    <p className='pl-2'>{new Date(modification.newDate).toLocaleTimeString('es-ES', {hour12: false})}</p>
                                 </div>
                                 <div className='flex flex-row'>
                                     <p>Cambios realizados:</p>

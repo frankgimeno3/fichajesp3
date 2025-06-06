@@ -1,5 +1,5 @@
 export const TimeLogTypeEnum = {
-    "in":"in",
-    "break":"break",
-    "out":"out"
+    "entrada":"entrada",
+    "descanso":"descanso",
+    "salid":"salida"
 }

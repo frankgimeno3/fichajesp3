@@ -4,12 +4,12 @@ interface PopUpHistorialHistorialProps {
   data: {
       createdBy: string;
       type: string;
-      createdAt: any,
+      createdAt: Date,
       comment: string;
       modifications: any
   };
   onClose: () => void;
-  onConfirm: (newType: string) => void;
+  onConfirm: (newType: string, newDate: string, comment: string) => void;
   onCancel: () => void;
 }
 
@@ -20,7 +20,7 @@ const PopUpHistorialHistorial: FC<PopUpHistorialHistorialProps> = ({
   onCancel
 }) => {
   const [ipAddress, setIpAddress] = useState<string>("");
-
+  const [date, setDate] = useState(new Date(data.createdAt).toISOString().slice(0, 16));
   const [formState, setFormState] = useState({
     employeeId: data.createdBy,
     event: data.type,
@@ -68,21 +68,13 @@ const PopUpHistorialHistorial: FC<PopUpHistorialHistorialProps> = ({
           </div>
 
           <div>
-            <label className="block text-gray-600 font-semibold mb-1">Día de registro:</label>
+            <label className="block text-gray-600 font-semibold mb-1">Nueva fecha de registro:</label>
             <input
-              type="text"
-              value={new Date(data.createdAt).getDay()}
-              readOnly
-              className="w-full px-3 py-1 border rounded-lg bg-gray-100"
-            />
-          </div>
-
-          <div>
-            <label className="block text-gray-600 font-semibold mb-1">Hora de registro:</label>
-            <input
-              type="text"
-              value={new Date(data.createdAt).getHours()}
-              readOnly
+              type="datetime-local"
+              value={date}
+              onChange={(event)=>{
+                  setDate(event.target.value);
+              }}
               className="w-full px-3 py-1 border rounded-lg bg-gray-100"
             />
           </div>
@@ -100,7 +92,7 @@ const PopUpHistorialHistorial: FC<PopUpHistorialHistorialProps> = ({
         </div>
         <div className="flex justify-end gap-2">
           <button
-            onClick={()=>onConfirm(formState.event)}
+            onClick={()=>onConfirm(formState.event, date, formState.comments)}
             className="bg-green-600 text-white px-4 py-2 rounded-xl hover:bg-green-700"
           >
             Confirmar

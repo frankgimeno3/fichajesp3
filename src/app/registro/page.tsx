@@ -3,14 +3,13 @@
 import React, { FC, useState } from "react";
 import PopUp from "./PopUp";
 import RegistroNav from "./registrocomponents/registronav";
-import {comment} from "postcss";
 import {TimeLogService} from "@/app/service/TimeLogService";
 
 interface RegistroProps { }
 
 const Registro: FC<RegistroProps> = () => {
   const [employeeId] = useState("");
-  const [event, setEvent] = useState("in");
+  const [event, setEvent] = useState("entrada");
   const [comments, setComments] = useState("");
   const [showPopup, setShowPopup] = useState(false);
 
@@ -43,9 +42,9 @@ const Registro: FC<RegistroProps> = () => {
             onChange={(e) => setEvent(e.target.value)}
             className="w-full px-4 py-2 border rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="in">Fichar entrada</option>
-            <option value="break">Fichar pausa</option>
-            <option value="out">Fichar salida</option>
+            <option value="entrada">Fichar entrada</option>
+            <option value="descanso">Fichar pausa</option>
+            <option value="salida">Fichar salida</option>
           </select>
         </div>
 

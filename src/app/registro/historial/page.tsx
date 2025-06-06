@@ -15,7 +15,7 @@ const Historial: FC = () => {
         id: string;
         createdBy: string;
         type: string;
-        createdAt: any,
+        createdAt: Date,
         comment: string;
         modifications: any
     } | null>(null);
@@ -26,39 +26,39 @@ const Historial: FC = () => {
         setShowPopup(true);
     };
 
-    const handleConfirm = async (newType: any) => {
-        try{
-            const modification = await ModificationService.createModification(selectedEvent?.id,newType,selectedEvent?.comment)
+    const handleConfirm = async (newType: string, newDate: string, comment: string) => {
+        try {
+            const modification = await ModificationService.createModification(selectedEvent?.id, newType, newDate, comment);
             alert("Evento registrado correctamente");
-        } catch (e : any){
+        } catch (e: any) {
             alert(e.message)
         }
         setShowPopup(false);
     };
 
 
-    useEffect(()=>{
+    useEffect(() => {
         try {
             const now = new Date();
             handleFilter(
                 String(now.getMonth() + 1),
                 String(now.getFullYear())
             );
-        } catch (error){
+        } catch (error) {
             alert(error)
         }
     }, [])
 
-    async function getTimeLogs(afterTime: any, beforeTime: any){
+    async function getTimeLogs(afterTime: any, beforeTime: any) {
         try {
-            const timeLogs = await TimeLogService.getUserTimeLogs(afterTime,beforeTime);
+            const timeLogs = await TimeLogService.getUserTimeLogs(afterTime, beforeTime);
             setTimeLogs(timeLogs);
-        } catch (error){
+        } catch (error) {
             alert(error)
         }
     }
 
-    function handleFilter(monthStr: string, yearStr: string){
+    function handleFilter(monthStr: string, yearStr: string) {
         const month = parseInt(monthStr, 10) - 1;
         const year = parseInt(yearStr, 10);
 
@@ -69,17 +69,15 @@ const Historial: FC = () => {
 
     return (
         <div className='flex flex-col'>
-           <RegistroNav/>
+            <RegistroNav/>
 
             <div className='p-5 text-gray-700 bg-gray-100 justify-left '>
                 <p className='font-bold text-3xl py-6 px-12'>Eventos de registro del usuario x</p>
 
                 <div className='px-12'>
-                    <FiltroTemporal onFiltrar={handleFilter} />
-
-
+                    <FiltroTemporal onFiltrar={handleFilter}/>
                     {timeLogs.map((evento, index) => (
-                        <EventoHistorial key={index} data={evento} onEdit={handleEdit} />
+                        <EventoHistorial key={index} data={evento} onEdit={handleEdit}/>
                     ))}
                 </div>
             </div>

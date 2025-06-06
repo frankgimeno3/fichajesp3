@@ -20,11 +20,23 @@ export class TimeLogService{
         return response.data;
     }
 
-    static async getUsersTimeLogs(afterTime, beforeTime){
+    static async getUsersTimeLogs(afterTime, beforeTime, users = ""){
         const response = await apiClient.get('/api/v1/admin/time-logs',{
             params:{
                 afterTime,
-                beforeTime
+                beforeTime,
+                users
+            }
+        })
+        return response.data;
+    }
+
+    static async getUsersTimeLogsInCsv(afterTime, beforeTime, users = ""){
+        const response = await apiClient.get('/api/v1/admin/time-logs/csv',{
+            params:{
+                afterTime,
+                beforeTime,
+                users
             }
         })
         return response.data;

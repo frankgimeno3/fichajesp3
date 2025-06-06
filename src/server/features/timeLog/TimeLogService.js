@@ -2,23 +2,56 @@ import {Op} from "sequelize";
 import ModificationModel from "../modification/ModificationModel.js";
 import {TimeLogModel} from "../../database/models.js";
 
-export async function createTimeLog(userId, type, comment) {
+export async function createTimeLog(username, type, comment, ip) {
     const timeLog = await TimeLogModel.create({
-        createdBy: userId,
+        createdBy: username,
         type: type,
-        comment: comment
+        comment: comment,
+        ip
     })
 
     return timeLog;
 }
 
-export async function getUsersTimeLogs(afterTime, beforeTime) {
+export async function getUsersTimeLogs(afterTime, beforeTime, users = []) {
+    const whereClauses = [];
+
+    if (typeof beforeTime === "string" && /^\d+$/.test(beforeTime)) {
+        beforeTime = Number(beforeTime);
+    }
+    if (typeof afterTime === "string" && /^\d+$/.test(afterTime)) {
+        afterTime = Number(afterTime);
+    }
+
+    if (afterTime) {
+        whereClauses.push({ created_at: { [Op.gte]: afterTime } });
+    }
+    if (beforeTime) {
+        whereClauses.push({ created_at: { [Op.lte]: beforeTime } });
+    }
+    if (Array.isArray(users) && users.length > 0) {
+        whereClauses.push({ created_by: { [Op.in]: users } });
+    }
+
+    const modificationWhere = [];
+    if (afterTime) {
+        modificationWhere.push({ created_at: { [Op.gte]: afterTime } });
+    }
+    if (beforeTime) {
+        modificationWhere.push({ created_at: { [Op.lte]: beforeTime } });
+    }
+
     const timeLogs = await TimeLogModel.findAll({
         where: {
-            [Op.and]: [
-                afterTime ? {created_at: {[Op.gte]: afterTime}} : {},
-                beforeTime ? {created_at: {[Op.lte]: beforeTime}} : {},
-            ]
+            [Op.and]: whereClauses
+        },
+        include: {
+            model: ModificationModel,
+            as: 'modifications',
+            where: modificationWhere.length > 0
+                ? { [Op.and]: modificationWhere }
+                : undefined,
+            required: false
         },
         order: [
             ['created_at', 'DESC']
