@@ -5,6 +5,7 @@ import {TimeLogModel} from "../../database/models.js";
 export async function createTimeLog(username, type, comment, ip) {
     const timeLog = await TimeLogModel.create({
         createdBy: username,
+        date: new Date(),
         type: type,
         comment: comment,
         ip
@@ -62,12 +63,15 @@ export async function getUsersTimeLogs(afterTime, beforeTime, users = []) {
 }
 
 export async function getUserTimeLogs(userId, afterTime, beforeTime) {
+    afterTime = typeof afterTime === "string" ? new Date(afterTime) : afterTime;
+    beforeTime = typeof beforeTime === "string" ? new Date(beforeTime) : beforeTime;
+
     const timeLogs = await TimeLogModel.findAll({
         where: {
             [Op.and]: [
                 {createdBy: userId},
-                afterTime ? {created_at: {[Op.gte]: afterTime}} : {},
-                beforeTime ? {created_at: {[Op.lte]: beforeTime}} : {},
+                afterTime ? {date: {[Op.gte]: afterTime}} : {},
+                beforeTime ? {date: {[Op.lte]: beforeTime}} : {},
             ]
         },
         include: {model: ModificationModel, as: 'modifications'},

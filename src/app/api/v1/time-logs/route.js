@@ -5,7 +5,7 @@ import {NextResponse} from "next/server.js";
 
 export const GET = createEndpoint(async (request, body) => {
     const {afterTime, beforeTime} = body;
-    const timeLogs = await getUserTimeLogs(request.sub, afterTime, beforeTime);
+    const timeLogs = await getUserTimeLogs(request.email, afterTime, beforeTime);
 
     return NextResponse.json(timeLogs);
 }, Joi.object({

@@ -6,16 +6,16 @@ import {
     createModification
 } from "../../../../../server/features/modification/ModificationService.js";
 
-export const POST = createEndpoint(async (request, body)=>{
-    const {logId, newType,newDate, comment} = body;
+export const POST = createEndpoint(async (request, body) => {
+    const {logId, newType, newDate, comment} = body;
 
-    const modification = await createModification(logId, newType,newDate, comment, request.email);
+    const modification = await createModification(logId, newType, newDate, comment, request.email);
 
     return NextResponse.json(modification);
-},Joi.object({
+}, Joi.object({
     logId: Joi.any().required(),
     newType: Joi.string().valid(...Object.values(TimeLogTypeEnum)).required(),
     newDate: Joi.string().optional(),
     comment: Joi.string().optional()
-}),true)
+}), true)
 

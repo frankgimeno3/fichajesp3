@@ -61,9 +61,9 @@ const PopUpHistorialHistorial: FC<PopUpHistorialHistorialProps> = ({
               onChange={handleChange}
               className="w-full px-3 py-1 border rounded-lg"
             >
-              <option value='in'>Fichar entrada</option>
-              <option value='break'>Fichar pausa</option>
-              <option value='out'>Fichar salida</option>
+              <option value='entrada'>Fichar entrada</option>
+              <option value='descanso'>Fichar pausa</option>
+              <option value='salida'>Fichar salida</option>
             </select>
           </div>
 

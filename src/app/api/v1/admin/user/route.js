@@ -2,7 +2,6 @@ import {createEndpoint} from "../../../../../server/createEndpoint.js";
 import {NextResponse} from "next/server";
 import {createUser, getAllUsers, updateUser} from "../../../../../server/features/user/UserSerivce.js";
 import Joi from "joi";
-import {AdminUpdateUserAttributesCommand} from "@aws-sdk/client-cognito-identity-provider";
 
 export const GET = createEndpoint(async () => {
     const users = await getAllUsers();

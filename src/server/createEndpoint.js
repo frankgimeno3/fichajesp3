@@ -90,13 +90,14 @@ export function createEndpoint(callback, schema = null, isProtected = false, rol
             }
         }
 
-
         if (isProtected && roles.length > 0) {
             try {
                 const userRoles = await getUserRoles(username);
                 const hasAccess = userRoles.some(role => roles.includes(role));
+                console.log(userRoles);
                 if(!hasAccess) return new Response("Prohibido ", {status: 403});
             } catch (e) {
+                console.log(e);
                 return new Response("Prohibido ", {status: 403});
             }
         }

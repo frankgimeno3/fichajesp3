@@ -3,7 +3,6 @@ import {signIn, confirmSignIn} from "aws-amplify/auth/cognito";
 import {cognitoUserPoolsTokenProvider } from 'aws-amplify/auth/cognito';
 import {CookieStorage, decodeJWT, fetchAuthSession} from "@aws-amplify/core";
 import {signOut} from "aws-amplify/auth";
-import {getCurrentUser} from "@aws-amplify/auth";
 
 Amplify.configure({
     Auth: {

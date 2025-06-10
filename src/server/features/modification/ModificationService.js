@@ -11,7 +11,9 @@ export async function createModification(logId, newType,newDate, comment, creato
     const modification = await ModificationModel.create({
         timeLogId: logId,
         status: ModificationStatusEnum.pending,
+        oldType: timeLog.type,
         newType: newType,
+        oldDate: timeLog.date,
         newDate: newDate,
         comment: comment,
         createdBy: creatorUsername
@@ -21,16 +23,29 @@ export async function createModification(logId, newType,newDate, comment, creato
 }
 
 export async function setModificationStatus(modificationId, newStatus){
-    const found = await ModificationModel.findByPk(modificationId);
+    const modification = await ModificationModel.findByPk(modificationId,{
+        include: {
+            model: TimeLogModel,
+            as: 'timeLog'
+        }
+    });
 
-    if(!found) throw new ModificationNotFound("No encontrado")
+    if(!modification) throw new ModificationNotFound("No encontrado")
 
-    found.status = newStatus;
-    found.reviewedAt = new Date();
+    modification.status = newStatus;
+    modification.reviewedAt = new Date();
 
-    await found.save();
+    if(modification.status === ModificationStatusEnum.approved){
+        const timeLog = modification.timeLog;
+        timeLog.type = modification.newType;
+        timeLog.date = modification.newDate;
 
-    return found;
+        await timeLog.save();
+    }
+
+    await modification.save();
+
+    return modification;
 }
 
 export async function getUsersModifications(status){
