@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 
 interface Evento {
-  autor: string;
-  evento: 'Entrada' | 'Pausa' | 'Salida';
-  diaHora: string;
-  comentarios: string;
+  createdBy: string;
+  type: 'in' | 'break' | 'out';
+  createdAt: string;
+  comment: string;
 }
 
 interface EventosHoyProps {
@@ -28,10 +28,10 @@ const EventosHoy: FC<EventosHoyProps> = ({ eventos }) => {
           <tbody>
             {eventos.map((evento, index) => (
               <tr key={index} className="border-t">
-                <td className="p-2">{evento.autor}</td>
-                <td className="p-2">{evento.evento}</td>
-                <td className="p-2">{evento.diaHora}</td>
-                <td className="p-2">{evento.comentarios}</td>
+                <td className="p-2">{evento.createdBy}</td>
+                <td className="p-2">{evento.type}</td>
+                <td className="p-2">{new Date(evento.createdAt).toTimeString()}</td>
+                <td className="p-2">{evento.comment}</td>
               </tr>
             ))}
           </tbody>

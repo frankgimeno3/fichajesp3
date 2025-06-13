@@ -38,12 +38,13 @@ export default class AuthenticationService {
             throw new Error("Usuario no autenticado.");
         }
         const { payload } = decodeJWT(session.tokens.idToken.toString());
-
+        localStorage.setItem('username', username);
         return payload
     }
 
     static async logout(){
         cognitoUserPoolsTokenProvider.setKeyValueStorage(new CookieStorage());
+        localStorage.removeItem('username');
         await signOut();
     }
 }
