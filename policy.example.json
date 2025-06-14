@@ -26,7 +26,7 @@
         "cognito-idp:ListUsers",
         "cognito-idp:AdminCreateUser"
       ],
-      "Resource": "arn:aws:cognito-idp:[REGION]:[USER_ID]:userpool/[USER_POOL_ID]"
+      "Resource": "arn:aws:cognito-idp:eu-south-2:815658686339:userpool/eu-south-2_aVu7gdmhw"
     }
   ]
 }
