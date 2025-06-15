@@ -2,7 +2,7 @@ import type {NextConfig} from "next";
 
 const nextConfig: NextConfig = {
     output: 'standalone',
-    serverExternalPackages: ['sequelize'],
+    serverExternalPackages: ['sequelize', 'pg', 'pg-hstore'],
     outputFileTracingIncludes: {
         '*': ['./certs/**/*']
     },
