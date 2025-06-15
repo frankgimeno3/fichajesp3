@@ -1,10 +1,9 @@
 import {Sequelize} from "sequelize";
 import * as fs from "node:fs";
 import path from "node:path";
-import {fileURLToPath} from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const caPath = path.resolve(process.cwd(), 'certs', 'rds-ca.pem');
+const sslCA  = fs.readFileSync(caPath, 'utf8');
 
 class Database {
     static #instance;
@@ -24,7 +23,7 @@ class Database {
                 dialectOptions:{
                     ssl: {
                         require: true,
-                        ca: fs.readFileSync(path.join(__dirname,'rds-ca.pem')).toString(),
+                        ca: sslCA.toString(),
                         rejectUnauthorized: process.env.NODE_ENV !== 'development',
                     }
                 }
