@@ -1,4 +1,10 @@
 import {Sequelize} from "sequelize";
+import * as fs from "node:fs";
+import path from "node:path";
+import pg from "pg";
+
+const caPath = path.resolve(process.cwd(), 'certs', 'rds-ca.pem');
+const sslCA  = fs.readFileSync(caPath, 'utf8');
 
 class Database {
     static #instance;
@@ -15,9 +21,11 @@ class Database {
                 host: process.env.DATABASE_HOST,
                 port: process.env.DATABASE_PORT,
                 dialect: 'postgres',
+                dialectModule: pg,
                 dialectOptions:{
                     ssl: {
                         require: true,
+                        ca: sslCA.toString(),
                         rejectUnauthorized: process.env.NODE_ENV !== 'development',
                     }
                 }
