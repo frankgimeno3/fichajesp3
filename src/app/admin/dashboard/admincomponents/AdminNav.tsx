@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import AuthenticationService from "@/app/service/AuthenticationService";
 
 interface AdminNavProps {
@@ -8,6 +8,8 @@ interface AdminNavProps {
 
 const AdminNav: FC<AdminNavProps> = ({ }) => {
     const router = useRouter();
+    const pathname = usePathname();
+
     const handleLogout = async () => {
         await AuthenticationService.logout();
         router.replace('/admin');
@@ -23,33 +25,44 @@ const AdminNav: FC<AdminNavProps> = ({ }) => {
     const handleDashboard = () => {
       router.push('/admin/dashboard');
     };
+
+    const getSubtitle = () => {
+      if (pathname === '/admin/dashboard/informes') {
+        return 'Página de informes';
+      } else if (pathname === '/admin/dashboard/usuarios') {
+        return 'Página de gestión de usuarios';
+      }
+      return 'Página principal de administración';
+    };
+
   return (
-    <nav
-    className="flex flex-row justify-between p-5 px-12 items-center border-b border-gray-600"
-    style={{ backgroundColor: 'rgb(255, 255, 255, 0.04)' }}
-  >
-        <p className="text-2xl text-gray-300" onClick={handleDashboard}>Dashboard ADMIN</p>
-        <div className="flex flex-row">
-      <button
-        className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90"
-        onClick={handleInformes}
-      >
-        Sacar informes
-      </button>
-      <button
-        className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90"
-        onClick={handleUsuarios}
-      >
-        Gestionar usuarios
-      </button>
-      <button
-        className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90"
-        onClick={handleLogout}
-      >
-        Cerrar sesión
-      </button>
-    </div>
-  </nav>  );
+    <nav className="flex flex-row justify-between p-5 px-12 items-center bg-blue-950 text-gray-100">
+      <div className='flex flex-col text-left cursor-pointer' onClick={()=>handleDashboard()}>
+        <p className="text-2xl font-bold">Dashboard ADMIN</p>
+        <p className="">{getSubtitle()}</p>
+      </div>
+      <div className="flex flex-row gap-12 text-lg">
+        <button
+          className="text-gray-300 hover:text-white transition-colors duration-[2000ms] cursor-pointer"
+          onClick={handleInformes}
+        >
+          Sacar informes
+        </button>
+        <button
+          className="text-gray-300 hover:text-white transition-colors duration-[2000ms] cursor-pointer"
+          onClick={handleUsuarios}
+        >
+          Gestionar usuarios
+        </button>
+        <button
+          className="text-gray-300 hover:text-white transition-colors duration-[2000ms] cursor-pointer"
+          onClick={handleLogout}
+        >
+          Cerrar sesión
+        </button>
+      </div>
+    </nav>
+  );
 };
 
 export default AdminNav;
