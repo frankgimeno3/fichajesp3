@@ -54,7 +54,7 @@ export default function Admin() {
           className="flex flex-col gap-4 bg-gray-900 p-8 rounded shadow-md w-full max-w-md"
         >
           <h2 className="text-2xl font-semibold mb-4 text-center text-white">Login como ADMIN</h2>
-
+ 
           <input
             type="email"
             placeholder="Email"
