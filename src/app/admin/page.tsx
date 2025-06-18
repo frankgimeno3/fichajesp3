@@ -14,9 +14,11 @@ export default function Admin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
     try {
       const payload: any = await AuthenticationService.login(email, password);
       const roles: any = payload['cognito:groups'] || [];
@@ -24,8 +26,9 @@ export default function Admin() {
 
       if (isAdmin) return router.replace('/admin/dashboard');
       return router.replace('/registro');
-    } catch (e) {
-      // TODO implement error handling
+    } catch (e: any) {
+      console.error(e);
+      setError(e?.message || 'Error al iniciar sesión. Verifica tus credenciales.');
     }
   };
 
@@ -96,6 +99,14 @@ export default function Admin() {
           >
             Login
           </button>
+
+          {/* MOSTRAR ERROR */}
+          {error && (
+            <div className="flex flex-col text-red-500 text-sm text-center">
+              <p>ERROR:</p>
+              <p>{error}</p>
+            </div>
+          )}
         </form>
       </div>
     </div>
