@@ -4,7 +4,6 @@ import React, {FC, use, useEffect, useState} from 'react';
 import EventoHistorial from './EventoHistorial';
 import PopUpHistorial from './PopUpHistorial';
 import FiltroTemporal from './FiltroTemporal';
-import RegistroNav from '../registrocomponents/registronav';
 import {TimeLogService} from "@/app/service/TimeLogService";
 import {ModificationService} from "@/app/service/ModificationService";
 
@@ -69,8 +68,6 @@ const Historial: FC = () => {
 
     return (
         <div className='flex flex-col'>
-            <RegistroNav/>
-
             <div className='p-5 text-gray-700 bg-gray-100 justify-left '>
                 <p className='font-bold text-3xl py-6 px-12'>Eventos de registro del usuario x</p>
 

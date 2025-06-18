@@ -1,43 +1,56 @@
 import React, { FC } from 'react';
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import AuthenticationService from "@/app/service/AuthenticationService";
 
 interface RegistroNavProps {
-  
+
 }
 
 const RegistroNav: FC<RegistroNavProps> = ({ }) => {
-    const router = useRouter()
+  const router = useRouter()
+  const pathname = usePathname()
 
-      const handleLogout = async () => {
-        await AuthenticationService.logout();
-        router.replace('/')
-      }
-      const handleHistory = () => {
-        router.push('/registro/historial')
-      }
-      const handleIrRegistro = () => {
-        router.push('/registro');
-    };
+  const handleLogout = async () => {
+    await AuthenticationService.logout();
+    router.replace('/')
+  }
+  const handleHistory = () => {
+    router.push('/registro/historial')
+  }
+  const handleIrRegistro = () => {
+    router.push('/registro');
+  };
 
   return (
-    <nav className="flex flex-row justify-between p-5 px-12 items-center border-b border-gray-600" style={{ backgroundColor: 'rgb(255, 255, 255, 0.04)' }}>
-    <p className=" text-2xl text-gray-300">Página de registro de fichajes</p>
-    <div className="flex flex-row">
-      <button className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90"
-        onClick={() => handleHistory()}>
-        Historial</button>
+    <nav className="flex flex-row justify-between p-5 px-12 items-center bg-blue-950 text-gray-100">
+      <div className='flex flex-col text-left'>
+        <p className="text-2xl font-bold">Sistema de fichaje PROPORCIÓN 3, S.A.</p>
+        <p className="">
+          {pathname === '/registro/historial' 
+            ? 'Página de historial de cambios en los fichajes'
+            : 'Página de registro de fichajes'
+          }
+        </p>
+      </div>
+      <div className="flex flex-row gap-12 text-lg">
         <button
-                        className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90"
-                        onClick={handleIrRegistro}
-                    >
-                        Fichar Eventos
-                    </button>
-      <button className="p-1 border border-gray-100 m-1 rounded px-4 hover:bg-gray-100 hover:text-black hover:opacity-90"
-        onClick={() => handleLogout()}>
-        Cerrar sesión</button> 
-    </div>
-  </nav>  );
+          className="text-gray-300 hover:text-white transition-colors duration-[2000ms] cursor-pointer"
+          onClick={handleIrRegistro}
+        >
+          Fichar eventos
+        </button>
+        <button 
+          className="text-gray-300 hover:text-white transition-colors duration-[2000ms] cursor-pointer"
+          onClick={() => handleHistory()}>
+          Historial
+        </button>
+        <button 
+          className="text-gray-300 hover:text-white transition-colors duration-[2000ms] cursor-pointer"
+          onClick={() => handleLogout()}>
+          Cerrar sesión
+        </button>
+      </div>
+    </nav>);
 };
 
 export default RegistroNav;

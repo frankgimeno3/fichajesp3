@@ -2,7 +2,6 @@
 
 import React, { FC, useState } from "react";
 import PopUp from "./PopUp";
-import RegistroNav from "./registrocomponents/registronav";
 import {TimeLogService} from "@/app/service/TimeLogService";
 
 interface RegistroProps { }
@@ -30,9 +29,7 @@ const Registro: FC<RegistroProps> = () => {
 
 
   return (
-    <>
-      <RegistroNav/>
-      <div className="min-h-screen bg-gray-500 pt-12">
+    <div className="min-h-screen bg-gray-500 pt-12">
       <div className="max-w-md mx-auto p-6 bg-white shadow-xl rounded-2xl space-y-6 text-gray-700">
         <h2 className="text-2xl font-bold text-center">Registro de Evento de Fichaje</h2>
         <div className="space-y-2">
@@ -82,9 +79,7 @@ const Registro: FC<RegistroProps> = () => {
           />
         )}
       </div>
-      </div>
-    </>
-
+    </div>
   );
 };
 
