@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 import { useRouter, usePathname } from "next/navigation";
 import AuthenticationService from "@/app/service/AuthenticationService";
 
-interface RegistroNavProps {
+interface LoggedNavProps {
 }
 
-const RegistroNav: FC<RegistroNavProps> = ({ }) => {
+const LoggedNav: FC<LoggedNavProps> = ({ }) => {
   const router = useRouter()
   const pathname = usePathname()
 
@@ -50,4 +50,4 @@ const RegistroNav: FC<RegistroNavProps> = ({ }) => {
     </nav>);
 };
 
-export default RegistroNav;
+export default LoggedNav;

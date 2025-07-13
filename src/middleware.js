@@ -12,7 +12,7 @@ export async function middleware(request) {
         }
     }
     const goToPanel = () => {
-        return NextResponse.redirect(new URL('/registro', request.url));
+        return NextResponse.redirect(new URL('/dashboard', request.url));
     }
 
     const goToAdminPanel = () => {

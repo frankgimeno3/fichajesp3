@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import RegistroNav from "./registrocomponents/registronav";
-import RegistroLeftMenu from "./registrocomponents/registroLeftMenu";
+import LoggedNav from "./0dashboardcomponents/loggedNav";
+import LoggedLeftMenu from "./0dashboardcomponents/loggedLeftMenu";
 
 export default function RegistroLayout({
   children,
@@ -11,9 +11,9 @@ export default function RegistroLayout({
 }) {
   return (
     <>
-      <RegistroNav />
+      <LoggedNav />
       <div className="flex flex-row w-full ">
-      <RegistroLeftMenu/>
+      <LoggedLeftMenu/>
       <div className="flex flex-col w-full">
       {children}
       </div>
