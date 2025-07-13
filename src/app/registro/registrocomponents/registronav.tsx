@@ -3,7 +3,6 @@ import { useRouter, usePathname } from "next/navigation";
 import AuthenticationService from "@/app/service/AuthenticationService";
 
 interface RegistroNavProps {
-
 }
 
 const RegistroNav: FC<RegistroNavProps> = ({ }) => {
@@ -14,13 +13,11 @@ const RegistroNav: FC<RegistroNavProps> = ({ }) => {
     await AuthenticationService.logout();
     router.replace('/')
   }
-  const handleHistory = () => {
-    router.push('/registro/historial')
-  }
-  const handleIrRegistro = () => {
-    router.push('/registro');
-  };
 
+  const handleRedirection = (path:string)=>{
+     router.push(path)
+  }
+  
   return (
     <nav className="flex flex-row justify-between p-5 px-12 items-center bg-blue-950 text-gray-100">
       <div className='flex flex-col text-left'>
@@ -35,13 +32,13 @@ const RegistroNav: FC<RegistroNavProps> = ({ }) => {
       <div className="flex flex-row gap-12 text-lg">
         <button
           className="text-gray-300 hover:text-white transition-colors duration-[2000ms] cursor-pointer"
-          onClick={handleIrRegistro}
+          onClick={()=>{handleRedirection('/registro/historial')}}
         >
           Fichar eventos
         </button>
         <button 
           className="text-gray-300 hover:text-white transition-colors duration-[2000ms] cursor-pointer"
-          onClick={() => handleHistory()}>
+          onClick={()=>{handleRedirection('/registro')}}>
           Historial
         </button>
         <button 
