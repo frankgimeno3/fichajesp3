@@ -104,6 +104,42 @@ const LoggedLeftMenu: FC = () => {
           </div>
         )}
       </div>
+      
+      {/* PRODUCCION */}
+      <div className="mb-4">
+        <div
+          onClick={() => setIsPropuestasOpen(!isPropuestasOpen)}
+          className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
+        >
+          <span className="font-medium">Propuestas</span>
+          <ArrowIcon isOpen={isPropuestasOpen} />
+        </div>
+        {isPropuestasOpen && (
+          <div className="ml-4 mt-2 space-y-2">
+            <button
+              onClick={() => router.push('/dashboard/propuestas')}
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              hover:text-white transition cursor-pointer"
+            >
+              Seguimiento de materiales
+            </button>
+            <button
+              onClick={() => router.push('/dashboard/propuestas')}
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              hover:text-white transition cursor-pointer"
+            >
+              Páginas preferentes
+            </button>
+            <button
+              onClick={() => router.push('/dashboard/propuestas/crear')}
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              hover:text-white transition cursor-pointer"
+            >
+              Planillos de revista
+            </button>
+          </div>
+        )}
+      </div>
 
       {/* CLIENTES */}
       <div className="mb-4">
@@ -158,6 +194,41 @@ const LoggedLeftMenu: FC = () => {
               hover:text-white transition cursor-pointer"
             >
               Crear Servicio
+            </button>
+          </div>
+        )}
+      </div>
+      {/* ADMINISTRACION */}
+      <div className="mb-4">
+        <div
+          onClick={() => setIsServiciosOpen(!isServiciosOpen)}
+          className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
+        >
+          <span className="font-medium">Servicios</span>
+          <ArrowIcon isOpen={isServiciosOpen} />
+        </div>
+        {isServiciosOpen && (
+          <div className="ml-4 mt-2 space-y-2">
+            <button
+              onClick={() => router.push('/dashboard/servicios')}
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              hover:text-white transition cursor-pointer"
+            >
+              CAMPAÑAS
+            </button>
+            <button
+              onClick={() => router.push('/dashboard/servicios/crear')}
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              hover:text-white transition cursor-pointer"
+            >
+              CONTROL ADMINISTRATIVO
+            </button>
+             <button
+              onClick={() => router.push('/dashboard/servicios/crear')}
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              hover:text-white transition cursor-pointer"
+            >
+              INFORMESCOMERCIALES
             </button>
           </div>
         )}
