@@ -210,21 +210,21 @@ const LoggedLeftMenu: FC = () => {
         {isServiciosOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
-              onClick={() => router.push('/dashboard/administracion/campañas')}
+              onClick={() => router.push('/dashboard/administracion/campanas')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
               hover:text-white transition cursor-pointer"
             >
               CAMPAÑAS
             </button>
             <button
-              onClick={() => router.push('/dashboard/servicios/crear')}
+              onClick={() => router.push('/dashboard/administracion/controladministrativo')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
               hover:text-white transition cursor-pointer"
             >
               CONTROL ADMINISTRATIVO
             </button>
              <button
-              onClick={() => router.push('/dashboard/servicios/crear')}
+              onClick={() => router.push('/dashboard/administracion/informescomerciales')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
               hover:text-white transition cursor-pointer"
             >
