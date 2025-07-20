@@ -7,10 +7,12 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
   const [usuarioActual] = useState("Usuario");
   const [userType] = useState("superadmin");
 
-  const modificaciones = [
+  const notificaciones = [
     { titulo: "Modificación de entrada aprobada", fechaHora: "2025-07-19 14:35", estado: "Completado" },
     { titulo: "Modificación de salida rechazada aprobada", fechaHora: "2025-07-18 10:20", estado: "Pendiente" },
-    { titulo: "Mantenimiento programado", fechaHora: "2025-07-17 08:00", estado: "En progreso" },
+    { titulo: "Nuevo seguimiento añadido por Frank", fechaHora: "2025-07-17 08:00", estado: "En progreso" },
+    { titulo: "Alerta generada por seguimiento", fechaHora: "2025-07-17 08:00", estado: "En progreso" },
+    { titulo: "Nuevo comentario de Frank en seguimientos", fechaHora: "2025-07-17 08:00", estado: "En progreso" },
   ];
 
   return (
@@ -30,11 +32,11 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
             </tr>
           </thead>
           <tbody>
-            {modificaciones.map((mod, index) => (
+            {notificaciones.map((notif, index) => (
               <tr key={index} className='hover:bg-gray-50'>
-                <td className='p-2 border-b'>{mod.titulo}</td>
-                <td className='p-2 border-b'>{mod.fechaHora}</td>
-                <td className='p-2 border-b'>{mod.estado}</td>
+                <td className='p-2 border-b'>{notif.titulo}</td>
+                <td className='p-2 border-b'>{notif.fechaHora}</td>
+                <td className='p-2 border-b'>{notif.estado}</td>
               </tr>
             ))}
           </tbody>
