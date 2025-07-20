@@ -26,7 +26,8 @@ const LoggedLeftMenu: FC = () => {
   
 
   return (
-    <div className="flex flex-col min-h-screen w-64 bg-white border-r border-gray-200 p-4 shadow-sm text-gray-800">
+    <div className="flex flex-col min-h-screen w-64 bg-white border-r border-gray-200 p-4 
+    pl-6 shadow-sm text-gray-800">
 
       {/* FICHAJES */}
       <div className="mb-4">
