@@ -8,11 +8,17 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
   const [userType] = useState("superadmin");
 
   const notificaciones = [
-    { titulo: "Modificación de entrada aprobada", fechaHora: "2025-07-19 14:35", estado: "Completado" },
+    { titulo: "Modificación de entrada aprobada", fechaHora: "2025-07-19 14:35", estado: "Pendiente" },
     { titulo: "Modificación de salida rechazada aprobada", fechaHora: "2025-07-18 10:20", estado: "Pendiente" },
-    { titulo: "Nuevo seguimiento añadido por Frank", fechaHora: "2025-07-17 08:00", estado: "En progreso" },
-    { titulo: "Alerta generada por seguimiento", fechaHora: "2025-07-17 08:00", estado: "En progreso" },
-    { titulo: "Nuevo comentario de Frank en seguimientos", fechaHora: "2025-07-17 08:00", estado: "En progreso" },
+    { titulo: "Nuevo seguimiento añadido por Frank", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
+    { titulo: "Alerta generada por seguimiento", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
+    { titulo: "Nuevo comentario de Frank en seguimientos", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
+    { titulo: "Alerta de seguimiento de materiales", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
+    { titulo: "Una página preferente ofrecida ya no está disponible", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
+    { titulo: "Una página preferente ofrecida tiene una nueva oferta competidora", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
+    { titulo: "Nuevo planillo de revista disponible", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
+    { titulo: "Tu cliente X ha recibido una modificación", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
+    { titulo: "Uno de tus informes está listo", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
   ];
 
   return (

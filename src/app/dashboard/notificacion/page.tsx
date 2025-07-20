@@ -50,7 +50,7 @@ const Notificacion: FC<NotificacionProps> = ({ }) => {
             <h2 className='text-lg font-semibold mb-4 pt-24'>Detalles de la notificación:</h2>
             <p>{notificationData.detalles}</p>
             <button
-                className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
+                className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 mt-5'
                 onClick={() => handleRedirection(notificationData.rutaCTA)}
             >
                 {notificationData.contenidoCTA}
