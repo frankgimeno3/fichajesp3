@@ -25,7 +25,7 @@ export default function Home() {
             const isAdmin = roles.includes('admin');
 
             if (isAdmin) return router.replace('/admin/dashboard');
-            return router.replace('/registro');
+            return router.replace('/dashboard');
         } catch (e: any) {
             console.error(e);
             setError(e?.message || 'Error al iniciar sesión. Verifica tus credenciales.');
