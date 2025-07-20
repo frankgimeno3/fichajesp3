@@ -21,6 +21,9 @@ const LoggedLeftMenu: FC = () => {
   const [isPropuestasOpen, setIsPropuestasOpen] = useState(false);
   const [isClientesOpen, setIsClientesOpen] = useState(false);
   const [isServiciosOpen, setIsServiciosOpen] = useState(false);
+  const [isProduccionOpen, setIsProduccionOpen] = useState(false);
+  const [isAdministracionOpen, setIsAdministracionOpen] = useState(false);
+  
 
   return (
     <div className="flex flex-col min-h-screen w-64 bg-white border-r border-gray-200 p-4 shadow-sm text-gray-800">
@@ -108,30 +111,30 @@ const LoggedLeftMenu: FC = () => {
       {/* PRODUCCION */}
       <div className="mb-4">
         <div
-          onClick={() => setIsPropuestasOpen(!isPropuestasOpen)}
+          onClick={() => setIsProduccionOpen(!isProduccionOpen)}
           className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
         >
-          <span className="font-medium">Propuestas</span>
-          <ArrowIcon isOpen={isPropuestasOpen} />
+          <span className="font-medium">Producción</span>
+          <ArrowIcon isOpen={isProduccionOpen} />
         </div>
-        {isPropuestasOpen && (
+        {isProduccionOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
-              onClick={() => router.push('/dashboard/propuestas')}
+              onClick={() => router.push('/dashboard/produccion/materiales')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
               hover:text-white transition cursor-pointer"
             >
               Seguimiento de materiales
             </button>
             <button
-              onClick={() => router.push('/dashboard/propuestas')}
+              onClick={() => router.push('/dashboard/produccion/preferentes')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
               hover:text-white transition cursor-pointer"
             >
               Páginas preferentes
             </button>
             <button
-              onClick={() => router.push('/dashboard/propuestas/crear')}
+              onClick={() => router.push('/dashboard/produccion/planillos')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
               hover:text-white transition cursor-pointer"
             >
@@ -201,13 +204,13 @@ const LoggedLeftMenu: FC = () => {
       {/* ADMINISTRACION */}
       <div className="mb-4">
         <div
-          onClick={() => setIsServiciosOpen(!isAdministracionOpen)}
+          onClick={() => setIsAdministracionOpen(!isAdministracionOpen)}
           className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
         >
           <span className="font-medium">Administración</span>
           <ArrowIcon isOpen={isAdministracionOpen} />
         </div>
-        {isServiciosOpen && (
+        {isAdministracionOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/administracion/campanas')}
