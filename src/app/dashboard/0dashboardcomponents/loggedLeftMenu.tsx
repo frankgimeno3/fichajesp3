@@ -217,21 +217,21 @@ const LoggedLeftMenu: FC = () => {
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
               hover:text-white transition cursor-pointer"
             >
-              CAMPAÑAS
+              Campañas
             </button>
             <button
               onClick={() => router.push('/dashboard/administracion/controladministrativo')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
               hover:text-white transition cursor-pointer"
             >
-              CONTROL ADMINISTRATIVO
+              Control administrativo
             </button>
              <button
               onClick={() => router.push('/dashboard/administracion/informescomerciales')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
               hover:text-white transition cursor-pointer"
             >
-              INFORMESCOMERCIALES
+              Informes comerciales
             </button>
           </div>
         )}
