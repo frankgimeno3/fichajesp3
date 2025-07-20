@@ -1,9 +1,12 @@
 "use client"
+import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
 
-interface DashboardProps {}
+interface DashboardProps { }
 
 const Dashboard: FC<DashboardProps> = ({ }) => {
+  const router = useRouter()
+
   const [usuarioActual] = useState("Usuario");
   const [userType] = useState("superadmin");
 
@@ -20,6 +23,10 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
     { titulo: "Tu cliente X ha recibido una modificación", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
     { titulo: "Uno de tus informes está listo", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
   ];
+
+  const handleRedirection = (param:string) =>{
+    router.push(param)
+  }
 
   return (
     <div className='bg-white h-full min-h-screen p-12 text-gray-600'>
@@ -39,7 +46,11 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
           </thead>
           <tbody>
             {notificaciones.map((notif, index) => (
-              <tr key={index} className='hover:bg-gray-50'>
+              <tr
+                key={index}
+                className={`hover:bg-gray-50 cursor-pointer ${notif.estado !== "Visualizado" ? "bg-white" : "bg-gray-200/60"
+                  }`} onClick={()=>{handleRedirection('/dashboard/notificacion')}}
+              >
                 <td className='p-2 border-b'>{notif.titulo}</td>
                 <td className='p-2 border-b'>{notif.fechaHora}</td>
                 <td className='p-2 border-b'>{notif.estado}</td>
@@ -48,7 +59,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
           </tbody>
         </table>
       </div>
-      <button className='mt-12  bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'> 
+      <button className='mt-12  bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'>
         Ver todas las notificaciones</button>
     </div>
   );
