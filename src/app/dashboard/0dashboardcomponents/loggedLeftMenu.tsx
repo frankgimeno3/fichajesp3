@@ -74,7 +74,14 @@ const LoggedLeftMenu: FC = () => {
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
               hover:text-white transition cursor-pointer"
             >
-              Ver seguimientos
+              Seguimiento de gestiones
+            </button>
+            <button
+              onClick={() => router.push('/dashboard/campanas')}
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              hover:text-white transition cursor-pointer"
+            >
+              Campañas en curso
             </button>
           </div>
         )}

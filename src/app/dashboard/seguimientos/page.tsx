@@ -70,6 +70,8 @@ const Seguimientos: FC<SeguimientosProps> = () => {
           ))}
         </tbody>
       </table>
+
+      
     </div>
   );
 };
