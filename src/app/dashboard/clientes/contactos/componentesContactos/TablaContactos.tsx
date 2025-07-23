@@ -97,7 +97,7 @@ const TablaContactos: FC<TablaContactosProps> = ({
   });
 
   const handleRedirection = (id: number) => {
-    router.push(`/dashboard/contactos/${id}`);
+    router.push(`/dashboard/clientes/contactos/ficha`);
   };
 
   return (

@@ -100,7 +100,7 @@ const TablaClientes: FC<TablaClientesProps> = ({
             <tr
               key={res.id}
               className='border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer'
-              onClick={() => handleRedirection('/dashboard/Clientes/cliente')}
+              onClick={() => handleRedirection('/dashboard/clientes/ficha')}
             >
               <td className='px-4 py-2'>{res.nombreEmpresa}</td>
               <td className='px-4 py-2'>{res.codigoCRM}</td>
