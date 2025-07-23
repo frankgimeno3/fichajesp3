@@ -1,16 +1,13 @@
 "use client"
 import { useRouter } from 'next/navigation';
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 
-interface DashboardProps { }
+interface NotificacionesProps {
+  
+}
 
-const Dashboard: FC<DashboardProps> = ({ }) => {
-  const router = useRouter()
-
-  const [usuarioActual] = useState("Usuario");
-  const [userType] = useState("superadmin");
-
-  const notificaciones = [
+const Notificaciones: FC<NotificacionesProps> = ({ }) => {
+      const notificaciones = [
     { titulo: "Modificación de entrada aprobada", fechaHora: "2025-07-19 14:35", estado: "Pendiente" },
     { titulo: "Modificación de salida rechazada aprobada", fechaHora: "2025-07-18 10:20", estado: "Pendiente" },
     { titulo: "Nuevo seguimiento añadido por Frank", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
@@ -23,15 +20,10 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
     { titulo: "Tu cliente X ha recibido una modificación", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
     { titulo: "Uno de tus informes está listo", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
   ];
-
-
+    const router = useRouter()
+  
   return (
     <div className='bg-white h-full min-h-screen p-12 text-gray-600'>
-      <p className='text-xl'>Bienvenido, {usuarioActual}</p>
-      <p>Haz click en uno de los desplegables del menú izquierdo para comenzar.</p>
-      <p>Se mostrarán módulos para usuario tipo {userType}.</p>
-
-      <div className='mt-8'>
         <h2 className='text-lg font-semibold mb-4'>Tabla de Notificaciones</h2>
         <table className='min-w-full border border-gray-300'>
           <thead className='bg-gray-100'>
@@ -55,12 +47,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
             ))}
           </tbody>
         </table>
-      </div>
-      <button className='mt-12  bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-      onClick={()=>{router.push('/dashboard/notificaciones')}}>
-        Ver todas las notificaciones</button>
-    </div>
-  );
+      </div>  );
 };
 
-export default Dashboard;
+export default Notificaciones;
