@@ -8,7 +8,7 @@ const PropSvg: FC<PropSvgProps> = () => {
       viewBox="0 0 120 140"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="w-28 h-28 text-gray-700"
+      className="w-10 h-10 text-gray-700 cursor-pointer"
     >
       {/* Fondo del documento */}
       <rect x="10" y="10" width="100" height="120" rx="10" fill="white" stroke="currentColor" strokeWidth="2" />

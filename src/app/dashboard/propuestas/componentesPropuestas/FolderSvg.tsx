@@ -1,17 +1,15 @@
 import React, { FC } from 'react';
 
-interface FolderSvgProps {
-  contenido: string;
-}
+interface FolderSvgProps {}
 
-const FolderSvg: FC<FolderSvgProps> = ({ contenido }) => {
+const FolderSvg: FC<FolderSvgProps> = ({ }) => {
   return (
-    <div className="relative w-[200px] h-[200px]">
+    <div className="relative">
       <svg
         viewBox="0 0 64 64"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-70 h-70 text-gray-700"
+        className="w-10 h-10 text-gray-700 cursor-pointer "
       >
         {/* Solapa superior de la carpeta */}
         <path
@@ -30,13 +28,6 @@ const FolderSvg: FC<FolderSvgProps> = ({ contenido }) => {
           className="opacity-60"
         />
       </svg>
-
-      {/* Texto sobrepuesto */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <span className="text-white text-xl font-bold uppercase text-center drop-shadow-md">
-          {contenido}
-        </span>
-      </div>
     </div>
   );
 };
