@@ -68,9 +68,7 @@ const TablaPropuestasCliente: FC<TablaPropuestasProps> = ({
   });
 
   const router = useRouter();
-  const handleRedirection = (params: string) => {
-    router.push(params);
-  };
+
 
   return (
     <div className='overflow-x-auto'>
@@ -91,7 +89,7 @@ const TablaPropuestasCliente: FC<TablaPropuestasProps> = ({
               key={res.id}
               className='border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer'
               onClick={() => {
-                handleRedirection('/dashboard/propuestas/cliente');
+                router.push('/dashboard/propuestas/propuesta');
               }}
             >
               <td className='px-4 py-2'><PropSvg /></td>
