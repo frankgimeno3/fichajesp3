@@ -170,6 +170,20 @@ const LoggedLeftMenu: FC = () => {
             >
               Crear cliente
             </button>
+             <button
+              onClick={() => router.push('/dashboard/clientes/contactos')}
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              hover:text-white transition cursor-pointer"
+            >
+              Contactos
+            </button>
+             <button
+              onClick={() => router.push('/dashboard/clientes/contactos/crear')}
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              hover:text-white transition cursor-pointer"
+            >
+              Crear contacto
+            </button>
           </div>
         )}
       </div>
