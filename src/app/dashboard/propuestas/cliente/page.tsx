@@ -30,8 +30,18 @@ const PropuestasCliente: FC<PropuestasClienteProps> = ({ }) => {
         </button>
       </div>
 
-      <div className='mt-12 p-3 rounded-lg shadow-xl bg-white'>
+      <div className='flex flex-col mt-12 p-3 rounded-lg shadow-xl bg-white'>
+        <div className='flex flex-row w-full justify-between'>
         <h2 className="text-lg font-semibold mb-4 py-3">Propuestas hechas al cliente {nombreCliente}</h2>
+        <div>
+        <button
+          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
+          onClick={() => router.push('/dashboard/clientes/ficha')}
+        >
+          <p>Ficha del cliente</p>
+        </button>
+        </div>
+        </div>
 
         <TablaPropuestasCliente
           clienteFiltro={clienteFiltro}

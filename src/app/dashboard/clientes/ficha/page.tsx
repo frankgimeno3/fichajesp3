@@ -16,21 +16,29 @@ const FichaCliente: FC<FichaClienteProps> = ({ }) => {
     <div className="bg-gray-100 min-h-screen p-12 text-gray-600">
       {/* Encabezado */}
       <div className='flex flex-row justify-between w-full items-center'>
-        <h2 className="text-lg font-semibold mb-4">
+        <h2 className="text-lg font-semibold">
           Ficha de cliente   
           <span className='px-6 font-light'>Código: 01234</span> 
           <span className='px-6 font-light'>Nombre: Turomas</span>
         </h2>
+        <div className='flex flex-row gap-4 items-center  '>
+        <button 
+          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
+          onClick={() => router.push('/dashboard/propuestas/cliente')}
+        >
+          <p>Propuestas</p>
+        </button>
         <button 
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
           onClick={() => router.push('/dashboard/Clientes/ficha/editar')}
         >
           <p>Editar</p>
-        </button>
+        </button>   
+        </div>
       </div>
 
       {/* Pestañas superpuestas */}
-      <div className="flex flex-row mt-12 relative">
+      <div className="flex flex-row mt-3 relative">
         <div
           className={`p-3 rounded-tr-lg  cursor-pointer w-60 text-center transition-all duration-300
             ${pestana === 'general' ? 'bg-white z-30 rounded-tl-lg' : 'bg-gray-200/70 z-10  hover:bg-gray-200'}`}
