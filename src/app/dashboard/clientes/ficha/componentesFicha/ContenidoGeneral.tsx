@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import ContactoCard from './cards/ContactoCard';
 
 interface ContenidoGeneralProps {
   
@@ -25,6 +26,15 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ }) => {
         <p>Grupo: <span className='pl-5'>Valor</span></p> 
         <p>Filiales: <span className='pl-5'>Valor</span></p> 
         <p>Categoría comercial: <span className='pl-5'>Valor</span></p> 
+      </div>
+
+            <div className='py-12'>
+        <p>Contactos de la empresa</p> 
+        <ContactoCard/>
+        <ContactoCard/>
+        <ContactoCard/>
+        <ContactoCard/>
+        <ContactoCard/>
       </div>
 
     </div>
