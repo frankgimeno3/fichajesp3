@@ -28,7 +28,7 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ }) => {
         <p>Categoría comercial: <span className='pl-5'>Valor</span></p> 
       </div>
 
-            <div className='py-12'>
+        <div className='flex flex-col py-12 gap-5'>
         <p>Contactos de la empresa</p> 
         <ContactoCard/>
         <ContactoCard/>
