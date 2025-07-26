@@ -1,21 +1,19 @@
-"use client"
+'use client'
 import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
+import ContenidoGeneral from './componentesFicha/ContenidoGeneral';
+import ContenidoAdministrativo from './componentesFicha/ContenidoAdministrativo';
+import ContenidoRegistro from './componentesFicha/ContenidoRegistro';
 
 interface FichaClienteProps {}
 
 const FichaCliente: FC<FichaClienteProps> = ({ }) => {
   const router = useRouter();
-  const [pestana, setPestana] = useState('general');
-
-  const tabs = [
-    { id: 'general', label: 'General' },
-    { id: 'administrativo', label: 'Administrativo' },
-    { id: 'registro', label: 'Registro' },
-  ];
+  const [pestana, setPestana] = useState<'general' | 'comentarios' |'administrativo' | 'registro'>('general');
 
   return (
-    <div className="bg-gray-100 h-full min-h-screen p-12 text-gray-600">
+    <div className="bg-gray-100 min-h-screen p-12 text-gray-600">
+      {/* Encabezado */}
       <div className='flex flex-row justify-between w-full items-center'>
         <h2 className="text-lg font-semibold mb-4">
           Ficha de cliente   
@@ -29,23 +27,61 @@ const FichaCliente: FC<FichaClienteProps> = ({ }) => {
           <p>Editar</p>
         </button>
       </div>
-      
-      <div className='flex flex-row mt-12 gap-4'>
-        {tabs.map(tab => (
-          <p
-            key={tab.id}
-            className={`p-3 rounded-lg shadow-xl cursor-pointer hover:bg-white/70 ${
-              pestana === tab.id ? 'bg-white' : 'bg-gray-200/80'
-            }`}
-            onClick={() => setPestana(tab.id)}
-          >
-            {tab.label}
-          </p>
-        ))}
+
+      {/* Pestañas superpuestas */}
+      <div className="flex flex-row mt-12 relative">
+        <div
+          className={`p-3 rounded-tr-lg  cursor-pointer w-60 text-center transition-all duration-300
+            ${pestana === 'general' ? 'bg-white z-30 rounded-tl-lg' : 'bg-gray-200/70 z-10  hover:bg-gray-200'}`}
+          style={{
+            position: 'relative',
+            marginLeft: '0px',
+          }}
+          onClick={() => setPestana('general')}
+        >
+          Datos Generales
+        </div>
+        <div
+          className={`p-3 rounded-tr-lg  cursor-pointer w-60 text-center transition-all duration-300
+            ${pestana === 'comentarios' ? 'bg-white z-30 rounded-tl-lg' : 'bg-gray-200/70 z-20  hover:bg-gray-200'}`}
+          style={{
+            position: 'relative',
+            marginLeft: '-5px',
+          }}
+          onClick={() => setPestana('comentarios')}
+        >
+          Comentarios
+        </div>
+                <div
+          className={`p-3 rounded-tr-lg  cursor-pointer w-60 text-center transition-all duration-300
+            ${pestana === 'administrativo' ? 'bg-white z-30 rounded-tl-lg' : 'bg-gray-200/70 z-20  hover:bg-gray-200'}`}
+          style={{
+            position: 'relative',
+            marginLeft: '-5px',
+          }}
+          onClick={() => setPestana('administrativo')}
+        >
+          Contenido Administrativo
+        </div>
+        <div
+          className={`p-3 rounded-tr-lg  cursor-pointer w-60 text-center transition-all duration-300
+            ${pestana === 'registro' ? 'bg-white z-30 rounded-tl-lg' : 'bg-gray-200/70 z-10  hover:bg-gray-200'}`}
+          style={{
+            position: 'relative',
+            marginLeft: '-5px',
+          }}
+          onClick={() => setPestana('registro')}
+        >
+          Registro
+        </div>
       </div>
 
-      <div className='bg-white p-12 mt-6'>
-        <p>Nombre de la empresa</p>
+      {/* Contenido según pestaña */}
+      <div className='bg-white p-12 shadow-xl rounded-b-lg'>
+        {pestana === 'general' && <ContenidoGeneral />}
+        {pestana === 'comentarios' && <ContenidoAdministrativo />}
+        {pestana === 'administrativo' && <ContenidoAdministrativo />}
+        {pestana === 'registro' && <ContenidoRegistro />}
       </div>
     </div>
   );
