@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import CardComentario from './CardComentario';
+import CardComentario from './cards/CardComentario';
 
 interface ContenidoComentariosProps {
 
