@@ -4,6 +4,7 @@ import React, { FC, useState } from 'react';
 import ContenidoGeneral from './componentesFicha/ContenidoGeneral';
 import ContenidoAdministrativo from './componentesFicha/ContenidoAdministrativo';
 import ContenidoRegistro from './componentesFicha/ContenidoRegistro';
+import ContenidoComentarios from './componentesFicha/ContenidoComentarios';
 
 interface FichaClienteProps {}
 
@@ -79,7 +80,7 @@ const FichaCliente: FC<FichaClienteProps> = ({ }) => {
       {/* Contenido según pestaña */}
       <div className='bg-white p-12 shadow-xl rounded-b-lg'>
         {pestana === 'general' && <ContenidoGeneral />}
-        {pestana === 'comentarios' && <ContenidoAdministrativo />}
+        {pestana === 'comentarios' && <ContenidoComentarios />}
         {pestana === 'administrativo' && <ContenidoAdministrativo />}
         {pestana === 'registro' && <ContenidoRegistro />}
       </div>
