@@ -14,7 +14,7 @@ const Campañas: FC<CampañasProps> = ({ }) => {
       <div className="flex flex-row relative mb-4">
         <div
           className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
-            ${pestana === 'cliente' ? 'bg-gray-100 z-30 rounded-tl-lg' : 'bg-blue-950 text-white z-10 hover:bg-blue-950/80'}`}
+            ${pestana === 'cliente' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-100 hover:bg-gray-200'}`}
           style={{ marginLeft: '0px' }}
           onClick={() => setPestana('cliente')}
         >
@@ -22,7 +22,7 @@ const Campañas: FC<CampañasProps> = ({ }) => {
         </div>
         <div
           className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
-            ${pestana === 'publicacion' ? 'bg-gray-100 z-30 rounded-tl-lg' : 'bg-blue-950 text-white z-10 hover:bg-blue-950/80'}`}
+            ${pestana === 'publicacion' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-100 hover:bg-gray-200'}`}
           style={{ marginLeft: '-5px' }}
           onClick={() => setPestana('publicacion')}
         >

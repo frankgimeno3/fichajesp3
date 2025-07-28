@@ -60,26 +60,26 @@ const ContenidoPorPublicacion: FC<ContenidoPorPublicacionProps> = ({ }) => {
   return (
     <div className='flex flex-col'>
       
-        <table className='min-w-full border border-gray-200 text-sm text-left text-gray-700'>
-          <thead className='bg-gray-100 text-gray-600 '>
+        <table className='min-w-full '>
+          <thead className='bg-blue-950 text-white '>
             <tr>
-              <th className='px-4 py-2 border'>Fecha deadline</th>
-              <th className='px-4 py-2 border'>Nombre de la publicación</th>
-              <th className='px-4 py-2 border'>Fecha publicación</th>
-              <th className='px-4 py-2 border'>Empresa</th>
-              <th className='px-4 py-2 border'>Estado materiales</th>
-              <th className='px-4 py-2 border'>Campaña completa</th>
+              <th className='text-left p-2 font-light'>Fecha deadline</th>
+              <th className='text-left p-2 font-light'>Nombre de la publicación</th>
+              <th className='text-left p-2 font-light'>Fecha publicación</th>
+              <th className='text-left p-2 font-light'>Empresa</th>
+              <th className='text-left p-2 font-light'>Estado materiales</th>
+              <th className='text-left p-2 font-light'>Campaña completa</th>
             </tr>
           </thead>
           <tbody>
             {mockData.map((fila, idx) => (
-              <tr key={idx} className='hover:bg-gray-50 cursor-pointer'>
-                <td className='px-4 py-2 border'>{fila.deadline}</td>
-                <td className='px-4 py-2 border'>{fila.nombre}</td>
-                <td className='px-4 py-2 border'>{fila.fechaPublicacion}</td>
-                <td className='px-4 py-2 border'>{fila.empresa}</td>
-                <td className='px-4 py-2 border'>{fila.estadoMateriales}</td>
-                <td className='px-4 py-2 border'>
+              <tr key={idx} className='hover:bg-gray-50 '>
+                <td className='p-2 border-b border-gray-200'>{fila.deadline}</td>
+                <td className='p-2 border-b border-gray-200'>{fila.nombre}</td>
+                <td className='p-2 border-b border-gray-200'>{fila.fechaPublicacion}</td>
+                <td className='p-2 border-b border-gray-200'>{fila.empresa}</td>
+                <td className='p-2 border-b border-gray-200'>{fila.estadoMateriales}</td>
+                <td className='p-2 border-b border-gray-200'>
                    <button
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
           onClick={() => router.push('/dashboard/seguimientos/campanas/resumen')}
