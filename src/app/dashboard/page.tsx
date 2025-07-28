@@ -1,6 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
+import VentanaFichaje from './0dashboardcomponents/VentanaFichaje';
 
 interface DashboardProps { }
 
@@ -27,11 +28,17 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
 
   return (
     <div className='bg-white h-full min-h-screen p-12 text-gray-600'>
-      <p className='text-xl'>Bienvenido, {usuarioActual}</p>
-      <p>Haz click en uno de los desplegables del menú izquierdo para comenzar.</p>
-      <p>Se mostrarán módulos para usuario tipo {userType}.</p>
+      <div className='flex flex-row justify-between items-center'>
+        <div className='flex flex-col '>
+          <p className='text-xl'>Bienvenido, {usuarioActual}</p>
+          <p>Haz click en uno de los desplegables del menú izquierdo para comenzar.</p>
+          <p>Se mostrarán módulos para usuario tipo {userType}.</p>
+        </div>
+          <VentanaFichaje />
+      </div>
 
-      <div className='mt-8'>
+
+      <div className='mt-2'>
         <h2 className='text-lg font-semibold mb-4'>Tabla de Notificaciones</h2>
         <table className='min-w-full border border-gray-300'>
           <thead className='bg-gray-100'>
@@ -46,7 +53,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
               <tr
                 key={index}
                 className={`hover:bg-gray-50 cursor-pointer ${notif.estado !== "Visualizado" ? "bg-white" : "bg-gray-200/60"
-                  }`} onClick={()=>{router.push('/dashboard/notificaciones/notificacion')}}
+                  }`} onClick={() => { router.push('/dashboard/notificaciones/notificacion') }}
               >
                 <td className='p-2 border-b'>{notif.titulo}</td>
                 <td className='p-2 border-b'>{notif.fechaHora}</td>
@@ -57,7 +64,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
         </table>
       </div>
       <button className='mt-12  bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-      onClick={()=>{router.push('/dashboard/notificaciones')}}>
+        onClick={() => { router.push('/dashboard/notificaciones') }}>
         Ver todas las notificaciones</button>
     </div>
   );
