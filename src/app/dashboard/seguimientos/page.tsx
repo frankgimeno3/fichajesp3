@@ -59,21 +59,21 @@ const Seguimientos: FC<SeguimientosProps> = () => {
         </button>
       </div> 
 
-      <table className="min-w-full border border-gray-300">
-        <thead className="bg-gray-100">
+      <table className="min-w-full">
+          <thead className='bg-blue-950 text-white '>
           <tr>
-            <th className="text-left p-2 border-b">Tema</th>
-            <th className="text-left p-2 border-b">Descripción de las gestiones</th>
-            <th className="text-left p-2 border-b">Link al excel</th>
+            <th className="text-left p-2 font-light">Tema</th>
+            <th className="text-left p-2 font-light">Descripción de las gestiones</th>
+            <th className="text-left p-2 font-light">Link al excel</th>
           </tr>
         </thead>
         <tbody>
           {seguimientoData.map((item, index) => (
             <tr key={index} className="hover:bg-gray-50">
-              <td className="p-2 border-b">{item.tema}</td>
-              <td className="p-2 border-b">{item.descripcion}</td>
-              <td className="p-2 border-b">
-                <a href={item.link} className="text-blue-500 underline" target="_blank" rel="noopener noreferrer">
+              <td className="p-2 border-b border-gray-200">{item.tema}</td>
+              <td className="p-2 border-b border-gray-200">{item.descripcion}</td>
+              <td className="p-2 border-b border-gray-200">
+                <a href={item.link} className="text-blue-950 hover:text-blue-800 underline" target="_blank" rel="noopener noreferrer">
                   Ver enlace
                 </a>
               </td>
