@@ -10,79 +10,51 @@ interface FichaClienteProps {}
 
 const FichaCliente: FC<FichaClienteProps> = ({ }) => {
   const router = useRouter();
-  const [pestana, setPestana] = useState<'general' | 'comentarios' |'administrativo' | 'registro'>('general');
+  const [pestana, setPestana] = useState<'general' | 'comentarios' | 'administrativo' | 'registro'>('general');
 
   return (
-    <div className="bg-gray-100 min-h-screen p-12 text-gray-600">
+    <div className="bg-white min-h-screen p-12 text-gray-600">
       {/* Encabezado */}
       <div className='flex flex-row justify-between w-full items-center'>
         <h2 className="text-lg font-semibold">
-          Ficha de cliente   
-          <span className='px-6 font-light'>Código: 01234</span> 
+          Ficha de cliente
+          <span className='px-6 font-light'>Código: 01234</span>
           <span className='px-6 font-light'>Nombre: Turomas</span>
         </h2>
-        <div className='flex flex-row gap-4 items-center  '>
-        <button 
-          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/propuestas/cliente')}
-        >
-          <p>Propuestas</p>
-        </button>
-        <button 
-          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/Clientes/ficha/editar')}
-        >
-          <p>Editar</p>
-        </button>   
+        <div className='flex flex-row gap-4 items-center'>
+          <button
+            className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
+            onClick={() => router.push('/dashboard/propuestas/cliente')}
+          >
+            <p>Propuestas</p>
+          </button>
+          <button
+            className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
+            onClick={() => router.push('/dashboard/Clientes/ficha/editar')}
+          >
+            <p>Editar</p>
+          </button>
         </div>
       </div>
 
-      {/* Pestañas superpuestas */}
-      <div className="flex flex-row mt-3 relative">
-        <div
-          className={`p-3 rounded-tr-lg  cursor-pointer w-60 text-center transition-all duration-300
-            ${pestana === 'general' ? 'bg-white z-30 rounded-tl-lg' : 'bg-gray-200/70 z-10  hover:bg-gray-200'}`}
-          style={{
-            position: 'relative',
-            marginLeft: '0px',
-          }}
-          onClick={() => setPestana('general')}
-        >
-          Datos Generales
-        </div>
-        <div
-          className={`p-3 rounded-tr-lg  cursor-pointer w-60 text-center transition-all duration-300
-            ${pestana === 'comentarios' ? 'bg-white z-30 rounded-tl-lg' : 'bg-gray-200/70 z-20  hover:bg-gray-200'}`}
-          style={{
-            position: 'relative',
-            marginLeft: '-5px',
-          }}
-          onClick={() => setPestana('comentarios')}
-        >
-          Comentarios
-        </div>
-                <div
-          className={`p-3 rounded-tr-lg  cursor-pointer w-60 text-center transition-all duration-300
-            ${pestana === 'administrativo' ? 'bg-white z-30 rounded-tl-lg' : 'bg-gray-200/70 z-20  hover:bg-gray-200'}`}
-          style={{
-            position: 'relative',
-            marginLeft: '-5px',
-          }}
-          onClick={() => setPestana('administrativo')}
-        >
-          Contenido Administrativo
-        </div>
-        <div
-          className={`p-3 rounded-tr-lg  cursor-pointer w-60 text-center transition-all duration-300
-            ${pestana === 'registro' ? 'bg-white z-30 rounded-tl-lg' : 'bg-gray-200/70 z-10  hover:bg-gray-200'}`}
-          style={{
-            position: 'relative',
-            marginLeft: '-5px',
-          }}
-          onClick={() => setPestana('registro')}
-        >
-          Registro
-        </div>
+      {/* Pestañas estilo Campañas */}
+      <div className="flex flex-row mt-6 relative mb-4">
+        {[
+          { key: 'general', label: 'Datos Generales' },
+          { key: 'comentarios', label: 'Comentarios' },
+          { key: 'administrativo', label: 'Contenido Administrativo' },
+          { key: 'registro', label: 'Registro' }
+        ].map(({ key, label }, index) => (
+          <div
+            key={key}
+            className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
+              ${pestana === key ? 'bg-gray-100 z-30 rounded-tl-lg' : 'bg-blue-950 text-white z-10 hover:bg-blue-950/80  '}`}
+            style={{ marginLeft: index === 0 ? '0px' : '-5px' }}
+            onClick={() => setPestana(key as typeof pestana)}
+          >
+            {label}
+          </div>
+        ))}
       </div>
 
       {/* Contenido según pestaña */}
