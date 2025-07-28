@@ -1,7 +1,7 @@
 'use client';
 import React, { FC, useState } from 'react';
-import ContenidoPorCliente from './campanascomponents/porcliente/ContenidoPorCliente';
-import ContenidoPorPublicacion from './campanascomponents/porpublicacion/ContenidoPorPublicacion';
+import ContenidoPorCliente from './campanascomponents/ContenidoPorCliente';
+import ContenidoPorPublicacion from './campanascomponents/ContenidoPorPublicacion';
 
 interface CampañasProps {}
 
