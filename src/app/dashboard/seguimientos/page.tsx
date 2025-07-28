@@ -57,7 +57,7 @@ const Seguimientos: FC<SeguimientosProps> = () => {
         >
           <p>Ver mis campañas en curso</p>
         </button>
-      </div>
+      </div> 
 
       <table className="min-w-full border border-gray-300">
         <thead className="bg-gray-100">
