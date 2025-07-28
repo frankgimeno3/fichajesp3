@@ -40,12 +40,12 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
 
       <div className='mt-2'>
         <h2 className='text-lg font-semibold mb-4'>Tabla de Notificaciones</h2>
-        <table className='min-w-full border border-gray-300'>
-          <thead className='bg-gray-100'>
+        <table className='min-w-full '>
+          <thead className='bg-blue-950 text-white '>
             <tr>
-              <th className='text-left p-2 border-b'>Título</th>
-              <th className='text-left p-2 border-b'>Fecha y Hora</th>
-              <th className='text-left p-2 border-b'>Estado</th>
+              <th className='text-left p-2 font-light'>Título</th>
+              <th className='text-left p-2 font-light'>Fecha y Hora</th>
+              <th className='text-left p-2 font-light'>Estado</th>
             </tr>
           </thead>
           <tbody>
@@ -55,9 +55,9 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
                 className={`hover:bg-gray-50 cursor-pointer ${notif.estado !== "Visualizado" ? "bg-white" : "bg-gray-200/60"
                   }`} onClick={() => { router.push('/dashboard/notificaciones/notificacion') }}
               >
-                <td className='p-2 border-b'>{notif.titulo}</td>
-                <td className='p-2 border-b'>{notif.fechaHora}</td>
-                <td className='p-2 border-b'>{notif.estado}</td>
+                <td className='p-2 border-b border-gray-200'>{notif.titulo}</td>
+                <td className='p-2 border-b border-gray-200'>{notif.fechaHora}</td>
+                <td className='p-2 border-b border-gray-200'>{notif.estado}</td>
               </tr>
             ))}
           </tbody>

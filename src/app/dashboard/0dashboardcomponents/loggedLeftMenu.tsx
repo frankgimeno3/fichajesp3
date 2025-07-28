@@ -26,7 +26,7 @@ const LoggedLeftMenu: FC = () => {
   
 
   return (
-    <div className="flex flex-col min-h-screen w-64 bg-white border-r border-gray-200 p-4 
+    <div className="flex flex-col min-h-screen w-80 bg-white border-r border-gray-200 p-4 
     pl-6 shadow-sm text-gray-800">
 
       {/* FICHAJES */}
@@ -42,14 +42,14 @@ const LoggedLeftMenu: FC = () => {
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/registro')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Fichar eventos
             </button>
             <button
               onClick={() => router.push('/dashboard/registro/historial')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Historial
@@ -71,14 +71,14 @@ const LoggedLeftMenu: FC = () => {
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/seguimientos')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Seguimiento de gestiones
             </button>
             <button
               onClick={() => router.push('/dashboard/seguimientos/campanas')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Campañas en curso
@@ -100,14 +100,14 @@ const LoggedLeftMenu: FC = () => {
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/propuestas')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Ver propuestas
             </button>
             <button
               onClick={() => router.push('/dashboard/propuestas/crear')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Crear propuestas
@@ -129,21 +129,21 @@ const LoggedLeftMenu: FC = () => {
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/produccion/materiales')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Seguimiento de materiales
             </button>
             <button
               onClick={() => router.push('/dashboard/produccion/preferentes')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Páginas preferentes
             </button>
             <button
               onClick={() => router.push('/dashboard/produccion/planillos')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Planillos de revista
@@ -165,28 +165,28 @@ const LoggedLeftMenu: FC = () => {
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/clientes')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Fichas de clientes
             </button>
             <button
               onClick={() => router.push('/dashboard/clientes/crear')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Crear cliente
             </button>
              <button
               onClick={() => router.push('/dashboard/clientes/contactos')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Contactos
             </button>
              <button
               onClick={() => router.push('/dashboard/clientes/contactos/crear')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Crear contacto
@@ -208,14 +208,14 @@ const LoggedLeftMenu: FC = () => {
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/servicios')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Servicios
             </button>
             <button
               onClick={() => router.push('/dashboard/servicios/crear')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Crear Servicio
@@ -236,21 +236,21 @@ const LoggedLeftMenu: FC = () => {
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/administracion/campanas')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Campañas
             </button>
             <button
               onClick={() => router.push('/dashboard/administracion/controladministrativo')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Control administrativo
             </button>
              <button
               onClick={() => router.push('/dashboard/administracion/informescomerciales')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-500 
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Informes comerciales
