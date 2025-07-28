@@ -22,11 +22,8 @@ const ContenidoPorPublicacion: FC<ContenidoPorPublicacionProps> = ({ }) => {
       <div className='flex flex-col gap-3'>
         <PublicacionCard />
         <PublicacionCard />
-
         <PublicacionCard />
-
         <PublicacionCard />
-
       </div>
     </div>);
 };
