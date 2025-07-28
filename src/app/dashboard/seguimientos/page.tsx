@@ -1,3 +1,5 @@
+"use client"
+import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
 
 interface Seguimiento {
@@ -6,9 +8,10 @@ interface Seguimiento {
   link: string;
 }
 
-interface SeguimientosProps {}
+interface SeguimientosProps { }
 
 const Seguimientos: FC<SeguimientosProps> = () => {
+  const router = useRouter()
   const seguimientoData: Seguimiento[] = [
     {
       tema: 'Gestiones de renovación de campañas',
@@ -44,9 +47,17 @@ const Seguimientos: FC<SeguimientosProps> = () => {
 
   return (
     <div className="bg-white h-full min-h-screen p-12 text-gray-600">
-      <h2 className="text-lg font-semibold mb-4">
-        Seguimientos para el agente Pep
-      </h2>
+      <div className='flex flex-row items-center justify-between pb-6'>
+        <h2 className="text-lg font-semibold mb-4">
+          Seguimientos para el agente Pep
+        </h2>
+        <button
+          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
+          onClick={() => router.push('/dashboard/seguimientos/campanas')}
+        >
+          <p>Ver mis campañas en curso</p>
+        </button>
+      </div>
 
       <table className="min-w-full border border-gray-300">
         <thead className="bg-gray-100">
@@ -71,7 +82,7 @@ const Seguimientos: FC<SeguimientosProps> = () => {
         </tbody>
       </table>
 
-      
+
     </div>
   );
 };
