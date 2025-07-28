@@ -1,5 +1,4 @@
 "use client"
-import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
 import ContenidoGeneralContacto from './ContenidoGeneralContacto';
 import ContenidoComentariosContacto from './ContenidoComentariosContacto';
@@ -9,7 +8,6 @@ interface FichaContactoProps {
 }
 
 const FichaContacto: FC<FichaContactoProps> = ({ }) => {
-    const router = useRouter();
     const [pestana, setPestana] = useState<'general' | 'comentarios' |'administrativo' | 'registro'>('general');
   
   return (
