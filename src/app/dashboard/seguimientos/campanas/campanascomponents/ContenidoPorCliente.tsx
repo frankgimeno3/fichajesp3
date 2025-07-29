@@ -60,8 +60,7 @@ const ContenidoPorCliente: FC<ContenidoPorClienteProps> = ({ }) => {
             </thead>
             <tbody>
               {mockClientes.map((cliente, index) => (
-                <tr key={index} className='hover:bg-gray-50 cursor-pointer'
-                onClick={() => router.push('/dashboard/seguimientos/campanas/resumen')}>
+                <tr key={index} className='hover:bg-gray-50 cursor-pointer' onClick={() => router.push('/dashboard/seguimientos/campanas/resumen')}>
                   <td className='p-2 border-b border-gray-200'>{cliente.empresa}</td>
                   <td className='p-2 border-b border-gray-200'>{cliente.fechaFirma}</td>
                   <td className='p-2 border-b border-gray-200'>{cliente.fechaRenovacion}</td>
