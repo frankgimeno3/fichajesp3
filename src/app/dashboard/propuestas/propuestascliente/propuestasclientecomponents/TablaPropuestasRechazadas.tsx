@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import PropSvg from '../componentesPropuestas/PropSvg';
+import PropSvg from '../../componentesPropuestas/PropSvg';
 import { useRouter } from 'next/navigation';
 
 interface Resultado {
@@ -8,7 +8,6 @@ interface Resultado {
   creadaPor: string;
   fechaCreacion: string;
   valorTotal: number;
-  estado: string;
 }
 
 interface TablaPropuestasProps {
@@ -25,7 +24,6 @@ const mockResultados: Resultado[] = [
     creadaPor: 'Juan Pérez',
     fechaCreacion: '2025-07-20',
     valorTotal: 15000,
-    estado: 'Pendiente',
   },
   {
     id: 2,
@@ -33,7 +31,6 @@ const mockResultados: Resultado[] = [
     creadaPor: 'María Gómez',
     fechaCreacion: '2025-07-10',
     valorTotal: 32000,
-    estado: 'Aprobada',
   },
   {
     id: 3,
@@ -41,11 +38,10 @@ const mockResultados: Resultado[] = [
     creadaPor: 'Carlos Ruiz',
     fechaCreacion: '2025-06-30',
     valorTotal: 7800,
-    estado: 'Rechazada',
   },
 ];
 
-const TablaPropuestasCliente: FC<TablaPropuestasProps> = ({
+const TablaPropuestasRechazadas: FC<TablaPropuestasProps> = ({
   clienteFiltro,
   agenteFiltro,
   fechaInicio,
@@ -72,15 +68,14 @@ const TablaPropuestasCliente: FC<TablaPropuestasProps> = ({
 
   return (
     <div className='overflow-x-auto'>
-      <table className='min-w-full border border-gray-300 rounded'>
-        <thead className='bg-gray-100'>
+    <table className='min-w-full '>
+          <thead className='bg-blue-950 text-white '>
           <tr>
-            <th className='text-left px-4 py-2'></th>
-            <th className='text-left px-4 py-2'>Nombre Propuesta</th>
-            <th className='text-left px-4 py-2'>Creada por</th>
-            <th className='text-left px-4 py-2'>Fecha de creación</th>
-            <th className='text-left px-4 py-2'>Valor total</th>
-            <th className='text-left px-4 py-2'>Estado</th>
+            <th className='text-left p-2 font-light'></th>
+            <th className='text-left p-2 font-light'>Nombre Propuesta</th>
+            <th className='text-left p-2 font-light'>Creada por</th>
+            <th className='text-left p-2 font-light'>Fecha de creación</th>
+            <th className='text-left p-2 font-light'>Valor total</th>
           </tr>
         </thead>
         <tbody>
@@ -92,12 +87,11 @@ const TablaPropuestasCliente: FC<TablaPropuestasProps> = ({
                 router.push('/dashboard/propuestas/propuesta');
               }}
             >
-              <td className='px-4 py-2'><PropSvg /></td>
-              <td className='px-4 py-2'>{res.nombrePropuesta}</td>
-              <td className='px-4 py-2'>{res.creadaPor}</td>
-              <td className='px-4 py-2'>{res.fechaCreacion}</td>
-              <td className='px-4 py-2'>${res.valorTotal.toLocaleString()}</td>
-              <td className='px-4 py-2'>{res.estado}</td>
+              <td className='p-2 border-b border-gray-200'><PropSvg /></td>
+              <td className='p-2 border-b border-gray-200'>{res.nombrePropuesta}</td>
+              <td className='p-2 border-b border-gray-200'>{res.creadaPor}</td>
+              <td className='p-2 border-b border-gray-200'>{res.fechaCreacion}</td>
+              <td className='p-2 border-b border-gray-200'>${res.valorTotal.toLocaleString()}</td>
             </tr>
           ))}
         </tbody>
@@ -109,4 +103,4 @@ const TablaPropuestasCliente: FC<TablaPropuestasProps> = ({
   );
 };
 
-export default TablaPropuestasCliente;
+export default TablaPropuestasRechazadas;
