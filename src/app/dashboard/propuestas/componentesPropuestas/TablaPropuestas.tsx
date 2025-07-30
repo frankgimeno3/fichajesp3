@@ -21,27 +21,27 @@ interface TablaPropuestasProps {
 const mockResultados: Resultado[] = [
   {
     id: 1,
-    nombreEmpresa: 'Empresa A',
-    codigoCRM: 'CRM001',
+    nombreEmpresa: 'TVITEC',
+    codigoCRM: '56123',
     numeroPropuestas: 3,
     agenteAsignado: "1-Gimeno",
-    fechaUltimaPropuesta: '2025-07-20',
+    fechaUltimaPropuesta: '12-01-2025',
   },
   {
     id: 2,
-    nombreEmpresa: 'Empresa B',
-    codigoCRM: 'CRM002',
+    nombreEmpresa: 'Shencheng',
+    codigoCRM: '31451',
     numeroPropuestas: 5,
     agenteAsignado: "123-Pep",
-    fechaUltimaPropuesta: '2025-07-10',
+    fechaUltimaPropuesta: '02-03-2025',
   },
   {
     id: 3,
-    nombreEmpresa: 'Cliente X',
-    codigoCRM: 'CRM999',
+    nombreEmpresa: 'Opera',
+    codigoCRM: '563423',
     numeroPropuestas: 2,
     agenteAsignado: "123-Pep",
-    fechaUltimaPropuesta: '2025-06-30',
+    fechaUltimaPropuesta: '12-12-2025',
   },
 ];
 
@@ -73,27 +73,27 @@ const TablaPropuestas: FC<TablaPropuestasProps> = ({
   }
   return (
     <div className="h-full">
-      <table className=' min-w-full border border-gray-300 rounded'>
-        <thead className='bg-gray-100'>
+        <table className='min-w-full '>
+          <thead className='bg-blue-950 text-white '>
           <tr>
-            <th className='text-left px-4 py-2'></th>
-            <th className='text-left px-4 py-2'>Nombre Empresa</th>
-            <th className='text-left px-4 py-2'>Código CRM</th>
-            <th className='text-left px-4 py-2'>Propuestas creadas</th>
-            <th className='text-left px-4 py-2'>Agente Asignado</th>
-            <th className='text-left px-4 py-2'>Fecha Última Propuesta</th>
+             <th className='text-left p-2 font-light'></th>
+             <th className='text-left p-2 font-light'>Nombre Empresa</th>
+             <th className='text-left p-2 font-light'>Código CRM</th>
+             <th className='text-left p-2 font-light'>Propuestas creadas</th>
+             <th className='text-left p-2 font-light'>Agente Asignado</th>
+             <th className='text-left p-2 font-light'>Fecha Última Propuesta</th>
           </tr>
         </thead>
         <tbody className=''>
           {resultadosFiltrados.map((res) => (
-            <tr key={res.id} className='border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer'
+            <tr key={res.id}className='hover:bg-gray-50 cursor-pointer'
             onClick={()=>{handleRedirection('/dashboard/propuestas/cliente')}}>
-              <td className='px-4 py-2'><FolderSvg /></td>
-              <td className='px-4 py-2'>{res.nombreEmpresa}</td>
-              <td className='px-4 py-2'>{res.codigoCRM}</td>
-              <td className='px-4 py-2'>{res.numeroPropuestas}</td>
-              <td className='px-4 py-2'>{res.agenteAsignado}</td>
-              <td className='px-4 py-2'>{res.fechaUltimaPropuesta}</td>
+               <td className='p-2 border-b border-gray-200'><FolderSvg /></td>
+               <td className='p-2 border-b border-gray-200'>{res.nombreEmpresa}</td>
+               <td className='p-2 border-b border-gray-200'>{res.codigoCRM}</td>
+               <td className='p-2 border-b border-gray-200'>{res.numeroPropuestas}</td>
+               <td className='p-2 border-b border-gray-200'>{res.agenteAsignado}</td>
+               <td className='p-2 border-b border-gray-200'>{res.fechaUltimaPropuesta}</td>
             </tr>
           ))}
         </tbody>
