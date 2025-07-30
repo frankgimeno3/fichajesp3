@@ -14,17 +14,9 @@ const Propuestas: FC = () => {
 
   return (
     <div className="bg-gray-100 h-full min-h-screen p-12 text-gray-600">
-      <div className='flex flex-row justify-between w-full items-center'>
-        <h2 className="text-lg font-semibold mb-4">Propuestas</h2>
-        <button
-          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/propuestas/crear')}
-        >
-          <p>Crear</p>
-        </button>
-      </div>
+       <h2 className="text-xl font-semibold mb-4">Clientes con propuestas creadas</h2>
 
-      <div className='mt-12 p-3 rounded-lg shadow-xl bg-white'>
+      <div className='flex flex-row justify-between w-full items-center bg-white rounded p-5'>
         <FiltrosPropuestas
           clienteFiltro={clienteFiltro}
           setClienteFiltro={setClienteFiltro}
@@ -35,7 +27,13 @@ const Propuestas: FC = () => {
           fechaFin={fechaFin}
           setFechaFin={setFechaFin}
         />
+       
+       
+      </div>
 
+      <div className='mt-5 p-12 rounded-lg shadow-xl bg-white'>
+        
+ <h2 className="text-lg font-semibold mb-4">Propuestas creadas</h2>
         <TablaPropuestas
           clienteFiltro={clienteFiltro}
           agenteFiltro={agenteFiltro}

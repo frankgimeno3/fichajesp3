@@ -7,7 +7,7 @@ interface Resultado {
   nombreEmpresa: string;
   codigoCRM: string;
   numeroPropuestas: number;
-  agenteAsignado: number;
+  agenteAsignado: string;
   fechaUltimaPropuesta: string;
 }
 
@@ -24,7 +24,7 @@ const mockResultados: Resultado[] = [
     nombreEmpresa: 'Empresa A',
     codigoCRM: 'CRM001',
     numeroPropuestas: 3,
-    agenteAsignado: 123,
+    agenteAsignado: "1-Gimeno",
     fechaUltimaPropuesta: '2025-07-20',
   },
   {
@@ -32,7 +32,7 @@ const mockResultados: Resultado[] = [
     nombreEmpresa: 'Empresa B',
     codigoCRM: 'CRM002',
     numeroPropuestas: 5,
-    agenteAsignado: 456,
+    agenteAsignado: "123-Pep",
     fechaUltimaPropuesta: '2025-07-10',
   },
   {
@@ -40,7 +40,7 @@ const mockResultados: Resultado[] = [
     nombreEmpresa: 'Cliente X',
     codigoCRM: 'CRM999',
     numeroPropuestas: 2,
-    agenteAsignado: 123,
+    agenteAsignado: "123-Pep",
     fechaUltimaPropuesta: '2025-06-30',
   },
 ];
@@ -72,8 +72,8 @@ const TablaPropuestas: FC<TablaPropuestasProps> = ({
     router.push(params)
   }
   return (
-    <div className='overflow-x-auto'>
-      <table className='min-w-full border border-gray-300 rounded'>
+    <div className="h-full">
+      <table className=' min-w-full border border-gray-300 rounded'>
         <thead className='bg-gray-100'>
           <tr>
             <th className='text-left px-4 py-2'></th>
@@ -84,7 +84,7 @@ const TablaPropuestas: FC<TablaPropuestasProps> = ({
             <th className='text-left px-4 py-2'>Fecha Última Propuesta</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className=''>
           {resultadosFiltrados.map((res) => (
             <tr key={res.id} className='border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer'
             onClick={()=>{handleRedirection('/dashboard/propuestas/cliente')}}>

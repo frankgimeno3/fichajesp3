@@ -26,7 +26,7 @@ const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
       const router = useRouter();
     
   return (
-    <div className='flex flex-col justify-between mb-6 '>
+    <div className='flex flex-col justify-between '>
       <p className="text-lg font-semibold">Buscador de propuestas</p>
 
       <div className='flex flex-wrap gap-4 items-end p-5'>
@@ -87,6 +87,12 @@ const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
           onClick={() => router.push('/dashboard/propuestas/crear')}
         >
           <p>Buscar</p>
+        </button>
+         <button
+          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 ml-36'
+          onClick={() => router.push('/dashboard/propuestas/crear')}
+        >
+          <p>Crear propuesta</p>
         </button>
       </div>
     </div>
