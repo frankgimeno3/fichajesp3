@@ -13,6 +13,7 @@ const ContenidoTranscobradas: FC<ContenidoTranscobradasProps> = () => {
     'BANCO',
     'FECHA FRA.',
     'IMPORTE',
+    'FECHA COBRO',
   ];
 
   return (
@@ -30,7 +31,6 @@ const ContenidoTranscobradas: FC<ContenidoTranscobradasProps> = () => {
             </tr>
           </thead>
           <tbody>
-            {/* Datos de ejemplo, reemplaza con contenido real si lo deseas */}
             <tr>
               {columnas.map((_, idx) => (
                 <td key={idx} className="border px-4 py-2 text-sm text-gray-700">
