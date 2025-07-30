@@ -1,11 +1,9 @@
 'use client'
 import TablaPropuestas from './componentesPropuestas/TablaPropuestas';
-import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
 import FiltrosPropuestas from './componentesPropuestas/FiltrosPropuestas';
 
 const Propuestas: FC = () => {
-  const router = useRouter();
 
   const [clienteFiltro, setClienteFiltro] = useState('');
   const [agenteFiltro, setAgenteFiltro] = useState('');
