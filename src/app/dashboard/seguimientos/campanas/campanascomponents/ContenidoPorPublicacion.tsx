@@ -9,50 +9,50 @@ const ContenidoPorPublicacion: FC<ContenidoPorPublicacionProps> = ({ }) => {
   const mockData = [
     {
       deadline: '2025-08-05',
-      nombre: 'Campaña Verano',
-      fechaPublicacion: '2025-08-01',
-      empresa: 'Coca-Cola',
-      estadoMateriales: 'Enviado',
+      nombre: '212 Vidrio España',
+      fechaPublicacion: '2025-09-01',
+      empresa: 'Shencheng',
+      estadoMateriales: 'Ok producción',
       enlace: 'https://ejemplo.com/campana/verano'
     },
     {
-      deadline: '2025-08-10',
-      nombre: 'Back to School',
-      fechaPublicacion: '2025-08-07',
-      empresa: 'Nike',
-      estadoMateriales: 'Pendiente',
+      deadline: '2025-08-05',
+      nombre: '212 Vidrio España',
+      fechaPublicacion: '2025-09-01',
+      empresa: 'Fratelli Pezza',
+      estadoMateriales: 'Enviado a producción',
       enlace: 'https://ejemplo.com/campana/bts'
     },
     {
-      deadline: '2025-08-15',
-      nombre: 'Rebajas Agosto',
-      fechaPublicacion: '2025-08-12',
-      empresa: 'Zara',
-      estadoMateriales: 'Revisado',
+      deadline: '2025-08-05',
+      nombre: '212 Ventanas España',
+      fechaPublicacion: '2025-09-01',
+      empresa: 'Opera',
+      estadoMateriales: 'Material incorrecto',
       enlace: 'https://ejemplo.com/campana/rebajas'
     },
     {
       deadline: '2025-08-20',
-      nombre: 'Lanzamiento Producto X',
-      fechaPublicacion: '2025-08-18',
-      empresa: 'Apple',
-      estadoMateriales: 'En producción',
+      nombre: '87 Ventanas Latam',
+      fechaPublicacion: '2025-12-22',
+      empresa: 'Master Italy',
+      estadoMateriales: 'Pedido al cliente',
       enlace: 'https://ejemplo.com/campana/producto-x'
     },
     {
       deadline: '2025-08-25',
-      nombre: 'Promo Final Verano',
-      fechaPublicacion: '2025-08-22',
-      empresa: 'Adidas',
-      estadoMateriales: 'Aprobado',
+      nombre: '87 Vidrio Latam',
+      fechaPublicacion: '2025-12-22',
+      empresa: 'Best Makina',
+      estadoMateriales: 'Pendiente de solicitar',
       enlace: 'https://ejemplo.com/campana/promo-verano'
     },
     {
       deadline: '2025-08-30',
-      nombre: 'Campaña Vuelta al Trabajo',
-      fechaPublicacion: '2025-08-27',
-      empresa: 'Microsoft',
-      estadoMateriales: 'Pendiente',
+      nombre: 'QQ 2026',
+      fechaPublicacion: '2026-02-28',
+      empresa: 'Best Makina',
+      estadoMateriales: 'Pendiente de solicitar',
       enlace: 'https://ejemplo.com/campana/vuelta-trabajo'
     }
   ];

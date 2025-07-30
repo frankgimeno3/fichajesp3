@@ -16,31 +16,25 @@ const Seguimientos: FC<SeguimientosProps> = () => {
     {
       tema: 'Gestiones de renovación de campañas',
       descripcion:
-        'Se aprobó la modificación solicitada en el sistema interno para la entrada de datos del cliente X.',
+        'Campañas terminadas en proceso de renovación. Excel con cliente, estado, última gestión y próxima programada',
       link: 'https://www.google.es',
     },
     {
       tema: 'Leads abc',
       descripcion:
-        'Contrato del proveedor Y en revisión legal. Se espera resolución para el viernes.',
+        'Excel de trabajo por pestañas, filtrando por importancia los clientes, para seguimiento del comercial y revisión de estados.',
       link: 'https://www.example.com/contrato',
     },
     {
       tema: 'Seguimiento anunciantes competidores',
       descripcion:
-        'El proveedor Z confirmó la entrega para el 15 de agosto. Se recomienda confirmar recepción.',
+        'Listado de anunciantes de la competencia, para ofrecer renovaciones, priorizar, o detectar si no tienen seguimiento, o no suficiente.',
       link: 'https://www.example.com/entrega',
-    },
-    {
-      tema: 'Seguimiento campañas en curso',
-      descripcion:
-        'Nuevas políticas de seguridad fueron compartidas. Se requiere confirmación de lectura.',
-      link: 'https://www.example.com/politicas',
     },
     {
       tema: 'Seguimiento específico ferias',
       descripcion:
-        'El equipo completó la capacitación de atención al cliente. Resultados disponibles.',
+        'Listado de expositores de ferias futuras, para su preparación, gestión durante la feria, y gestión post.',
       link: 'https://www.example.com/capacitacion',
     },
   ];
