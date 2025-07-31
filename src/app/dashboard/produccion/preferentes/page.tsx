@@ -1,5 +1,10 @@
 "use client"
 import React, { FC, useState } from 'react';
+import ContenidoVidrioEsp from './contenidopreferentes/contenidoVidrioEsp';
+import ContenidoVidrioAl from './contenidopreferentes/contenidoVidrioAl';
+import ContenidoVentanasEsp from './contenidopreferentes/contenidoVentanasEsp';
+import ContenidoVentanasAl from './contenidopreferentes/contenidoVentanasAl';
+import ContenidoHistorico from './contenidopreferentes/contenidoHistorico';
 
 interface PreferentesProps {
 
@@ -56,7 +61,11 @@ const Preferentes: FC<PreferentesProps> = ({ }) => {
         </div>
       </div>
       <div className='bg-gray-100'>
-
+            {pestana == "vidrioesp" && <ContenidoVidrioEsp/>}
+            {pestana == "vidrioal" && <ContenidoVidrioAl/>}
+            {pestana == "ventanasesp" && <ContenidoVentanasEsp/>}
+            {pestana == "ventanasal" && <ContenidoVentanasAl/>}
+            {pestana == "historico" && <ContenidoHistorico/>}
       </div>
     </div>
   );
