@@ -1,15 +1,17 @@
 import React, { FC } from 'react';
 
 interface Pago {
+  codigoOrden:string;
+  facturaAsociada:string;
   fecha: string;
   importe: string;
   estado: string;
 }
 
 const datosPagos: Pago[] = [
-  { fecha: '01/08/2025', importe: '500€', estado: 'Pagado' },
-  { fecha: '01/09/2025', importe: '500€', estado: 'Pendiente' },
-  { fecha: '01/10/2025', importe: '500€', estado: 'Pendiente' },
+  { codigoOrden:'C25.000.284-1/1', facturaAsociada:'525019', fecha: '01/08/2025', importe: '500€', estado: 'Pagado' },
+  { codigoOrden:'C25.000.284-1/1', facturaAsociada:'525019', fecha: '01/09/2025', importe: '500€', estado: 'Pendiente' },
+  { codigoOrden:'C25.000.284-1/1', facturaAsociada:'525019', fecha: '01/10/2025', importe: '500€', estado: 'Pendiente' },
 ];
 
 const TablaDatosPago: FC = () => {
@@ -57,8 +59,9 @@ const TablaDatosPago: FC = () => {
           <tbody>
             {datosPagos.map((pago, index) => (
           <tr key={index} className="bg-white text-gray-700">
-                <th className="px-4 py-2">Código de orden</th>
+                <th className="px-4 py-2">{pago.codigoOrden}</th>
                 <td className="px-4 py-2">{pago.fecha}</td>
+                <td className="px-4 py-2">{pago.facturaAsociada}</td>
                 <td className="px-4 py-2">{pago.importe}</td>
                 <td className="px-4 py-2">{pago.estado}</td>
               </tr>

@@ -7,6 +7,7 @@ import TablaDatosGenerales from './resumencomponents/TablaDatosGenerales';
 import TablaDatosFirmante from './resumencomponents/TablaDatosFirmante';
 import TablaDatosAnunciante from './resumencomponents/TablaDatosAnunciante';
 import TablaDatosGestion from './resumencomponents/TablaDatosGestion';
+import OtrosDatosEnFacturaProps from './resumencomponents/OtrosDatosEnFactura';
 
 const ResumenCampana: FC = () => {
     const [isDatosContactoShown, setIsDatosContactoShown] = useState(false)
@@ -74,10 +75,11 @@ const ResumenCampana: FC = () => {
                 <p className="font-bold text-gray-500 mt-6">Contenido en campaña:</p>
                     <TablaContenidoCampaña />
 
-                    <div className="flex flex-col text-sm border border-gray-100 mt-6">
-                        <p className="font-bold text-gray-500">Datos de pago:</p>
+                        <p className="font-bold text-gray-500 mt-6">Datos de pago:</p>
                         <TablaDatosPago />
-                    </div>
+                                                <p className="font-bold text-gray-500 mt-6">Otros datos en factura:</p>
+                                                <OtrosDatosEnFacturaProps/>
+
         </div>
     );
 };
