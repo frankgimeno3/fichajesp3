@@ -93,10 +93,12 @@ const TablaContenidoCampaña: FC = () => {
             <td className="px-4 py-2">{fila.deadline}</td>
             <td className="px-4 py-2">{fila.fechaPublicacion}</td>
             <td className="px-4 py-2">{fila.estadoMaterial}</td>
-            <td className="px-4 py-2">           <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+            <td className="px-4 py-2">           
+              <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
                 onClick={() => router.push(`${fila.urlcontenido}`)} >
                 Ficha del contenido
-              </button></td>
+              </button>
+              </td>
           </tr>
         ))}
       </tbody>

@@ -6,6 +6,7 @@ import PopUpHistorial from './PopUpHistorial';
 import FiltroTemporal from './FiltroTemporal';
 import {TimeLogService} from "@/app/service/TimeLogService";
 import {ModificationService} from "@/app/service/ModificationService";
+import MiddleNav from '../../0dashboardcomponents/MiddleNav';
 
 const Historial: FC = () => {
     const [showPopup, setShowPopup] = useState(false);
@@ -67,9 +68,9 @@ const Historial: FC = () => {
     }
 
     return (
-    <div className="flex flex-col bg-white h-full min-h-screen p-12 text-gray-600">
-                        <p className='font-bold text-3xl py-6  '>Eventos de registro del usuario x</p>
-           
+    <div className="flex flex-col bg-gray-200 h-full min-h-screen p-12 text-gray-600">
+
+    <MiddleNav tituloprincipal={'Eventos de registro del usuario x'} />           
         <div className='p-5 text-gray-700 bg-gray-100 justify-left '>
 
                 <div className='px-12'>

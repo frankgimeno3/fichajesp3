@@ -24,7 +24,12 @@ const Notificaciones: FC<NotificacionesProps> = ({ }) => {
   
   return (
     <div className='bg-white h-full min-h-screen p-12 text-gray-600'>
+      <div>
         <h2 className='text-lg font-semibold mb-4'>Tabla de Notificaciones <span className='font-light '>(último mes)</span></h2>
+              <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900">
+                 Marcar todas como leídas
+              </button>
+      </div>
         <table className='min-w-full'>
           <thead className='bg-blue-950 text-white '>
             <tr>
