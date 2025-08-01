@@ -41,18 +41,18 @@ const LoggedLeftMenu: FC = () => {
         {isFichajesOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
-              onClick={() => router.push('/dashboard/registro')}
+              onClick={() => router.push('/dashboard/fichajes')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Fichar eventos
             </button>
             <button
-              onClick={() => router.push('/dashboard/registro/historial')}
+              onClick={() => router.push('/dashboard/fichajes/historial')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
-              Historial
+              Historial de fichajes
             </button>
           </div>
         )}
