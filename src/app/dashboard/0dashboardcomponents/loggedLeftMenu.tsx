@@ -17,9 +17,8 @@ const LoggedLeftMenu: FC = () => {
   const router = useRouter();
 
   const [isFichajesOpen, setIsFichajesOpen] = useState(false);
-  const [isSeguimientosOpen, setIsSeguimientosOpen] = useState(false);
-  const [isPropuestasOpen, setIsPropuestasOpen] = useState(false);
-  const [isClientesOpen, setIsClientesOpen] = useState(false);
+  const [isComercialOpen, setIsComercialOpen] = useState(false);
+   const [isClientesOpen, setIsClientesOpen] = useState(false);
   const [isServiciosOpen, setIsServiciosOpen] = useState(false);
   const [isProduccionOpen, setIsProduccionOpen] = useState(false);
   const [isAdministracionOpen, setIsAdministracionOpen] = useState(false);
@@ -58,63 +57,36 @@ const LoggedLeftMenu: FC = () => {
         )}
       </div>
 
-      {/* SEGUIMIENTOS */}
+      {/* COMERCIAL */}
       <div className="mb-4">
         <div
-          onClick={() => setIsSeguimientosOpen(!isSeguimientosOpen)}
+          onClick={() => setIsComercialOpen(!isComercialOpen)}
           className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
         >
-          <span className="font-medium">Seguimientos</span>
-          <ArrowIcon isOpen={isSeguimientosOpen} />
+          <span className="font-medium">Comercial</span>
+          <ArrowIcon isOpen={isComercialOpen} />
         </div>
-        {isSeguimientosOpen && (
+        {isComercialOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
-              onClick={() => router.push('/dashboard/seguimientos')}
+              onClick={() => router.push('/dashboard/comercial')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
-              Seguimiento de gestiones
+              Seguimientos
             </button>
-            <button
-              onClick={() => router.push('/dashboard/seguimientos/contratos')}
+           <button
+              onClick={() => router.push('/dashboard/comercial/propuestas')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
-              Contratos en curso
+              Propuestas
             </button>
           </div>
         )}
       </div>
 
-      {/* PROPUESTAS */}
-      <div className="mb-4">
-        <div
-          onClick={() => setIsPropuestasOpen(!isPropuestasOpen)}
-          className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
-        >
-          <span className="font-medium">Propuestas</span>
-          <ArrowIcon isOpen={isPropuestasOpen} />
-        </div>
-        {isPropuestasOpen && (
-          <div className="ml-4 mt-2 space-y-2">
-            <button
-              onClick={() => router.push('/dashboard/propuestas')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Ver propuestas
-            </button>
-            <button
-              onClick={() => router.push('/dashboard/propuestas/crear')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Crear propuestas
-            </button>
-          </div>
-        )}
-      </div>
+       
       
       {/* PRODUCCION */}
       <div className="mb-4">

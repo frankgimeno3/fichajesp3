@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
-import FolderSvg from '../../propuestas/componentesPropuestas/FolderSvg';
+import FolderSvg from '../../comercial/propuestas/componentesPropuestas/FolderSvg';
 
 interface Servicio {
   id: number;

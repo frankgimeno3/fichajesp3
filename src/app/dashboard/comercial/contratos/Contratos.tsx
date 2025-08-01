@@ -3,14 +3,14 @@ import React, { FC, useState } from 'react';
 import ContenidoPorCliente from './contratoscomponents/ContenidoPorCliente';
 import ContenidoPorPublicacion from './contratoscomponents/ContenidoPorPublicacion';
 
-interface CampañasProps {}
+interface ContratosProps {}
 
-const Campañas: FC<CampañasProps> = ({ }) => {
+const Contratos: FC<ContratosProps> = ({ }) => {
   const [pestana, setPestana] = useState<'cliente' | 'publicacion'>('cliente');
   const [agenteActual] = useState("usuario")
   return (
-    <div className="bg-white min-h-screen p-12 text-gray-600">
-      <h2 className="text-lg font-semibold mb-4">Campañas en curso para el agente {agenteActual}</h2>
+    <div className="  pt-24  ">
+      <h2 className="text-lg font-semibold mb-4">Contratos en curso para el agente {agenteActual}</h2>
       <div className="flex flex-row relative mb-4">
         <div
           className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
@@ -46,4 +46,4 @@ const Campañas: FC<CampañasProps> = ({ }) => {
   );
 };
 
-export default Campañas;
+export default Contratos;
