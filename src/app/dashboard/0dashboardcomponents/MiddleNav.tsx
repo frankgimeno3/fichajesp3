@@ -1,7 +1,7 @@
 'use client';
 
 import React, { FC } from 'react';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface MiddleNavProps {
   tituloprincipal: string;
@@ -9,11 +9,36 @@ interface MiddleNavProps {
 
 const MiddleNav: FC<MiddleNavProps> = ({ tituloprincipal }) => {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const pathSegments = pathname.split('/').filter(Boolean); // elimina los vacíos
+  const buildPath = (index: number) => '/' + pathSegments.slice(0, index + 1).join('/');
 
   return (
-    <div className='flex flex-col bg-gray-100 p-12 '>
-        <p>{pathname}</p>
-        <h2 className="text-2xl font-bold">{tituloprincipal}</h2>
+    <div className='flex flex-row text-white items-center justify-between bg-blue-950/70 px-8 py-1'>
+      <h2 className="text-xl font-black">{tituloprincipal}</h2>
+      <div className='flex flex-row flex-wrap items-center gap-1 py-3 text-sm'>
+        {pathSegments.map((segment, index) => (
+          <div className="flex items-center" key={index}>
+            <p className="cursor-pointer text-white bg-blue-950/50 px-3 py-1 rounded hover:bg-blue-900" 
+              onClick={() => router.push(buildPath(index))} >
+              {segment.charAt(0).toUpperCase() + segment.slice(1)}
+            </p>
+            {index < pathSegments.length - 1 && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="mx-1 h-4 w-4 text-gray-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

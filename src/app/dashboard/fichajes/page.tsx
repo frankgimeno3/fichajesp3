@@ -3,6 +3,7 @@
 import React, { FC, useState } from "react";
 import PopUp from "./PopUp";
 import {TimeLogService} from "@/app/service/TimeLogService";
+import MiddleNav from "../0dashboardcomponents/MiddleNav";
 
 interface RegistroProps { }
 
@@ -29,24 +30,24 @@ const Registro: FC<RegistroProps> = () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-500 pt-12">
-      <div className="max-w-md mx-auto p-6 bg-white shadow-xl rounded-2xl space-y-6 text-gray-700">
-        <h2 className="text-2xl font-bold text-center">Registro de Evento de Fichaje</h2>
+    <div className="flex flex-col min-h-screen bg-gray-200">
+          <MiddleNav tituloprincipal={'Registro de Evento de Fichaje'} />           
+
+      <div className="flex flex-col w-3xl h-3xl mx-auto my-36 p-6 bg-white shadow-xl rounded-2xl space-y-12 text-gray-700">
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">Introduzca evento de fichaje</label>
-          <select
-            value={event}
-            onChange={(e) => setEvent(e.target.value)}
+          <label className="block font-bold text-2xl font-medium text-gray-700">Introduzca evento de fichaje</label>
+          <select 
+            value={event} onChange={(e) => setEvent(e.target.value)}
             className="w-full px-4 py-2 border rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            <option value="entrada">Fichar entrada</option>
-            <option value="descanso">Fichar pausa</option>
-            <option value="salida">Fichar salida</option>
+            <option className="bg-gray-100 cursor-pointer" value="entrada">Fichar entrada</option>
+            <option className="bg-gray-100 cursor-pointer" value="descanso">Fichar pausa</option>
+            <option className="bg-gray-100 cursor-pointer" value="salida">Fichar salida</option>
           </select>
         </div>
 
         <div className="space-y-2">
-          <label className="block text-sm font-medium text-gray-700">Comentarios</label>
+          <label className="block font-bold text-2xl font-medium text-gray-700">Comentarios</label>
           <textarea
             value={comments}
             onChange={(e) => setComments(e.target.value)}
@@ -55,16 +56,16 @@ const Registro: FC<RegistroProps> = () => {
           />
         </div>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 text-lg">
           <button
             onClick={handleReset}
-            className="w-full  text-gray-500 bg-gray-100  py-2 px-4 rounded-xl shadow hover:bg-gray-200 transition duration-200"
+            className="w-full bg-blue-950 text-white py-2 px-4 rounded-xl shadow hover:bg-blue-900 transition duration-200"
           >
             Cancelar y borrar
           </button>
           <button
             onClick={() => setShowPopup(true)}
-            className="w-full bg-gray-100 text-gray-500  py-2 px-4 rounded-xl shadow hover:bg-gray-200 transition duration-200"
+            className="w-full bg-blue-950 text-white  py-2 px-4 rounded-xl shadow hover:bg-blue-900 transition duration-200"
           >
             Registrar evento
           </button>

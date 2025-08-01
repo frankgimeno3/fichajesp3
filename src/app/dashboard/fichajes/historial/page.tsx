@@ -1,11 +1,11 @@
 "use client";
 
-import React, {FC, use, useEffect, useState} from 'react';
+import React, { FC, use, useEffect, useState } from 'react';
 import EventoHistorial from './EventoHistorial';
 import PopUpHistorial from './PopUpHistorial';
 import FiltroTemporal from './FiltroTemporal';
-import {TimeLogService} from "@/app/service/TimeLogService";
-import {ModificationService} from "@/app/service/ModificationService";
+import { TimeLogService } from "@/app/service/TimeLogService";
+import { ModificationService } from "@/app/service/ModificationService";
 import MiddleNav from '../../0dashboardcomponents/MiddleNav';
 
 const Historial: FC = () => {
@@ -53,6 +53,7 @@ const Historial: FC = () => {
         try {
             const timeLogs = await TimeLogService.getUserTimeLogs(afterTime, beforeTime);
             setTimeLogs(timeLogs);
+            console.log("timelogs", timeLogs)
         } catch (error) {
             alert(error)
         }
@@ -65,20 +66,28 @@ const Historial: FC = () => {
         const afterTime = new Date(year, month, 1, 0, 0, 0).toISOString();
         const beforeTime = new Date(year, month + 1, 0, 23, 59, 59).toISOString();
         getTimeLogs(afterTime, beforeTime);
+        console.log("timelogs", timeLogs)
     }
 
     return (
-    <div className="flex flex-col bg-gray-200 h-full min-h-screen p-12 text-gray-600">
+        <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
 
-    <MiddleNav tituloprincipal={'Eventos de registro del usuario x'} />           
-        <div className='p-5 text-gray-700 bg-gray-100 justify-left '>
+            <MiddleNav tituloprincipal={'Eventos de registro del usuario x'} />
 
-                <div className='px-12'>
-                    <FiltroTemporal onFiltrar={handleFilter}/>
+            <div className='p-7 text-gray-700 gap-12 '>
+                     
+                    <FiltroTemporal onFiltrar={handleFilter} />
+                {timeLogs.length != 0 ? 
+                <div className='bg-white p-12'>
                     {timeLogs.map((evento, index) => (
-                        <EventoHistorial key={index} data={evento} onEdit={handleEdit}/>
-                    ))}
-                </div>
+                        <EventoHistorial key={index} data={evento} onEdit={handleEdit} />
+                    ))}  
+                </div> :
+                    <div className='bg-white p-12 border-y border-gray-200 p-3 px-5  text-gray-600 shadow'>
+                             <p>No se han encontrado resultados de fichaje para el periodo seleccionado </p>
+                             <p>Puedes realizar nuevos eventos de fichaje, o usar el filtro para buscar en otro rango temporal</p>
+                     </div>
+                }
             </div>
 
             {showPopup && selectedEvent && (
