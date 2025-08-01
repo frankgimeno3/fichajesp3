@@ -80,7 +80,7 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
              <th className='text-left p-2 font-light'>Nombre Empresa</th>
              <th className='text-left p-2 font-light'>Código CRM</th>
              <th className='text-left p-2 font-light'>Propuestas creadas</th>
-             <th className='text-left p-2 font-light'>Agente Asignado</th>
+             <th className='text-left p-2 font-light'>Agente asignado actual</th>
              <th className='text-left p-2 font-light'>Fecha Última Propuesta</th>
           </tr>
         </thead>
