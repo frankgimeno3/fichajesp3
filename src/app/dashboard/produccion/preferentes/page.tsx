@@ -1,10 +1,10 @@
 "use client"
 import React, { FC, useState } from 'react';
-import ContenidoVidrioEsp from './contenidopreferentes/contenidoVidrioEsp';
-import ContenidoVidrioAl from './contenidopreferentes/contenidoVidrioAl';
-import ContenidoVentanasEsp from './contenidopreferentes/contenidoVentanasEsp';
-import ContenidoVentanasAl from './contenidopreferentes/contenidoVentanasAl';
-import ContenidoHistorico from './contenidopreferentes/contenidoHistorico';
+import ContenidoVidrioEsp from './contenidopreferentes/contenidopestanas/contenidoVidrioEsp';
+import ContenidoVidrioAl from './contenidopreferentes/contenidopestanas/contenidoVidrioAl';
+import ContenidoVentanasEsp from './contenidopreferentes/contenidopestanas/contenidoVentanasEsp';
+import ContenidoVentanasAl from './contenidopreferentes/contenidopestanas/contenidoVentanasAl';
+import ContenidoHistorico from './contenidopreferentes/contenidopestanas/contenidoHistorico';
 
 interface PreferentesProps {
 
@@ -17,7 +17,7 @@ const Preferentes: FC<PreferentesProps> = ({ }) => {
     <div className="bg-white h-full min-h-screen p-12 text-gray-600">
       <h2 className="text-xl font-semibold mb-4">Páginas preferentes</h2>
 
-      <div className="flex flex-row relative mb-4">
+      <div className="flex flex-row relative">
         <div
           className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
             ${pestana === 'vidrioesp' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-100 hover:bg-gray-200'}`}

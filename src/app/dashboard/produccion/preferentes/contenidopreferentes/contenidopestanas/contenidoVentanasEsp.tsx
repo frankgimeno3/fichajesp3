@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import PreferentesAnoContent from '../preferentesAnoContent';
 
 interface ContenidoVentanasEspProps {
   
@@ -6,7 +7,9 @@ interface ContenidoVentanasEspProps {
 
 const ContenidoVentanasEsp: FC<ContenidoVentanasEspProps> = ({ }) => {
   return (
-    <div>ContenidoVentanasEsp</div>
+    <div>
+      <PreferentesAnoContent/>
+    </div>
   );
 };
 
