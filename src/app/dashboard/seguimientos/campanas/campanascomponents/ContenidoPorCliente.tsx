@@ -9,35 +9,35 @@ const ContenidoPorCliente: FC<ContenidoPorClienteProps> = ({ }) => {
 
   const mockClientes = [
     {
-      empresa: 'Coca-Cola',
+      empresa: 'TVITEC',
       fechaFirma: '2024-03-15',
       fechaRenovacion: '2025-03-15',
       fechaMaterial: '2025-08-10',
       contacto: 'Laura Gómez',
     },
     {
-      empresa: 'Nike',
+      empresa: 'VITRUM',
       fechaFirma: '2023-11-20',
       fechaRenovacion: '2024-11-20',
       fechaMaterial: '2025-08-12',
       contacto: 'Carlos Méndez',
     },
     {
-      empresa: 'Apple',
+      empresa: 'SOLUTEC',
       fechaFirma: '2024-01-10',
       fechaRenovacion: '2025-01-10',
       fechaMaterial: '2025-08-15',
       contacto: 'Ana Torres',
     },
     {
-      empresa: 'Zara',
+      empresa: 'HANJIANG',
       fechaFirma: '2023-07-01',
       fechaRenovacion: '2024-07-01',
       fechaMaterial: '2025-08-17',
       contacto: 'Javier López',
     },
     {
-      empresa: 'Microsoft',
+      empresa: 'A&W',
       fechaFirma: '2024-05-05',
       fechaRenovacion: '2025-05-05',
       fechaMaterial: '2025-08-20',

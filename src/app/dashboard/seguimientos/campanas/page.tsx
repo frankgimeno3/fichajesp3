@@ -7,10 +7,10 @@ interface CampañasProps {}
 
 const Campañas: FC<CampañasProps> = ({ }) => {
   const [pestana, setPestana] = useState<'cliente' | 'publicacion'>('cliente');
-
+  const [agenteActual, setAgenteActual] = useState("usuario")
   return (
     <div className="bg-white min-h-screen p-12 text-gray-600">
-      <h2 className="text-lg font-semibold mb-4">Campañas en curso</h2>
+      <h2 className="text-lg font-semibold mb-4">Campañas en curso para el agente {agenteActual}</h2>
       <div className="flex flex-row relative mb-4">
         <div
           className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
@@ -18,7 +18,7 @@ const Campañas: FC<CampañasProps> = ({ }) => {
           style={{ marginLeft: '0px' }}
           onClick={() => setPestana('cliente')}
         >
-          Por cliente
+          Campañas por cliente
         </div>
         <div
           className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
@@ -26,7 +26,7 @@ const Campañas: FC<CampañasProps> = ({ }) => {
           style={{ marginLeft: '-5px' }}
           onClick={() => setPestana('publicacion')}
         >
-          Por publicación
+          Publicaciones por deadline
         </div>
       </div>
 

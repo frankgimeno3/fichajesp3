@@ -1,6 +1,6 @@
 "use client"
 import { useRouter } from 'next/navigation';
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 
 interface Seguimiento {
   tema: string;
@@ -11,6 +11,8 @@ interface Seguimiento {
 interface SeguimientosProps { }
 
 const Seguimientos: FC<SeguimientosProps> = () => {
+    const [agenteActual, setAgenteActual] = useState("usuario")
+  
   const router = useRouter()
   const seguimientoData: Seguimiento[] = [
     {
@@ -43,7 +45,7 @@ const Seguimientos: FC<SeguimientosProps> = () => {
     <div className="bg-white h-full min-h-screen p-12 text-gray-600">
       <div className='flex flex-row items-center justify-between pb-6'>
         <h2 className="text-lg font-semibold mb-4">
-          Seguimientos para el agente Pep
+          Seguimientos para el agente {agenteActual}
         </h2>
         <button
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
