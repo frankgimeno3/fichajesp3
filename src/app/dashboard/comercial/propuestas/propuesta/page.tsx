@@ -57,23 +57,23 @@ const ResumenPropuesta: FC = () => {
   
         <div className='flex flex-row gap-5'>
              <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push('/dashboard/propuestas/propuesta/editar')} >
+              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
               Actualizar
             </button>
                <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push('/dashboard/propuestas/propuesta/editar')} >
+              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
               Eliminar
             </button>
                            <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push('/dashboard/propuestas/propuesta/editar')} >
+              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
               Marcar como aceptada
             </button>
                            <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push('/dashboard/propuestas/propuesta/editar')} >
+              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
               Marcar como rechazada
             </button>
                <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push('/dashboard/propuestas/propuesta/editar')} >
+              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
               Usar como plantilla
             </button>
          </div>
