@@ -1,6 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
+import MiddleNav from '../0dashboardcomponents/MiddleNav';
 
 interface Seguimiento {
   tema: string;
@@ -42,8 +43,12 @@ const Seguimientos: FC<SeguimientosProps> = () => {
   ];
 
   return (
-    <div className="bg-white h-full min-h-screen p-12 text-gray-600">
-      <div className='flex flex-row items-center justify-between pb-6'>
+        <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
+
+            <MiddleNav tituloprincipal={` Seguimientos  `} />
+
+            <div className='m-7 bg-gray-100 p-12 rounded '>
+        <div className='flex flex-row items-center justify-between pb-6'>
         <h2 className="text-lg font-semibold mb-4">
           Seguimientos para el agente {agenteActual}
         </h2>
@@ -65,7 +70,7 @@ const Seguimientos: FC<SeguimientosProps> = () => {
         </thead>
         <tbody>
           {seguimientoData.map((item, index) => (
-            <tr key={index} className="hover:bg-gray-50">
+            <tr key={index} className="bg-white hover:bg-white/50">
               <td className="p-2 border-b border-gray-200">{item.tema}</td>
               <td className="p-2 border-b border-gray-200">{item.descripcion}</td>
               <td className="p-2 border-b border-gray-200">
@@ -79,6 +84,7 @@ const Seguimientos: FC<SeguimientosProps> = () => {
       </table>
 
 
+    </div>
     </div>
   );
 };
