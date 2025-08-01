@@ -88,12 +88,7 @@ const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
         >
           <p>Buscar</p>
         </button>
-         <button
-          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 ml-36'
-          onClick={() => router.push('/dashboard/propuestas/crear')}
-        >
-          <p>Crear propuesta</p>
-        </button>
+        
       </div>
     </div>
   );
