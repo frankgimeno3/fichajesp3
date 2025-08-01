@@ -87,7 +87,7 @@ const TablaPropuestas: FC<TablaPropuestasProps> = ({
         <tbody className=''>
           {resultadosFiltrados.map((res) => (
             <tr key={res.id}className='hover:bg-gray-50 cursor-pointer'
-            onClick={()=>{handleRedirection('/dashboard/propuestas/propuestascliente')}}>
+            onClick={()=>{handleRedirection('/dashboard/comercial/propuestas/propuestascliente')}}>
                <td className='p-2 border-b border-gray-200'><FolderSvg /></td>
                <td className='p-2 border-b border-gray-200'>{res.nombreEmpresa}</td>
                <td className='p-2 border-b border-gray-200'>{res.codigoCRM}</td>

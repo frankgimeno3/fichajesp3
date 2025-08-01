@@ -81,7 +81,7 @@ const TablaPropuestasAprobadas: FC<TablaPropuestasProps> = ({
               key={res.id}
               className='border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer'
               onClick={() => {
-                router.push('/dashboard/propuestas/propuesta');
+                router.push('/dashboard/comercial/propuestas/propuesta');
               }}
             >
               <td className='p-2 border-b border-gray-200'><PropSvg /></td>
