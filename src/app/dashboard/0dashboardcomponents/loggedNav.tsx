@@ -8,6 +8,8 @@ const LoggedNav: FC<LoggedNavProps> = () => {
   const router = useRouter();
   const pathname = usePathname();
 
+  const unreadNotifications = ['1', '2', '3']; // Aquí simulas notificaciones no leídas
+
   const handleLogout = async () => {
     await AuthenticationService.logout();
     router.replace('/');
@@ -44,7 +46,7 @@ const LoggedNav: FC<LoggedNavProps> = () => {
   const description = getDescription(pathname, routeDescriptions);
 
   return (
-    <nav className="flex flex-row justify-between p-5 px-8 items-center bg-blue-950 text-gray-100">
+    <nav className="flex flex-row justify-between p-5 px-8 items-center bg-blue-950 text-gray-100 relative">
       <div className="flex flex-col text-left">
         <p
           className="text-2xl font-bold cursor-pointer"
@@ -54,13 +56,20 @@ const LoggedNav: FC<LoggedNavProps> = () => {
         </p>
         <p>{description}</p>
       </div>
-      <div className="flex flex-row gap-12 text-lg">
-        <button
-          className="text-gray-300 hover:text-white transition-colors duration-[2000ms] cursor-pointer"
-          onClick={() => handleRedirection('/dashboard/notificaciones')}
-        >
-          Notificaciones
-        </button>
+      <div className="flex flex-row gap-12 text-lg items-center">
+        <div className="relative">
+          <button
+            className="text-gray-300 hover:text-white transition-colors duration-[2000ms] cursor-pointer"
+            onClick={() => handleRedirection('/dashboard/notificaciones')}
+          >
+            Notificaciones
+          </button>
+          {unreadNotifications.length > 0 && (
+            <div className="absolute -bottom-3 -right-3 bg-red-600 text-white text-xs rounded-full px-2 py-0.5 shadow-lg">
+              {unreadNotifications.length}
+            </div>
+          )}
+        </div>
         <button
           className="text-gray-300 hover:text-white transition-colors duration-[2000ms] cursor-pointer"
           onClick={handleLogout}
