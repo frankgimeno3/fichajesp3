@@ -23,7 +23,7 @@ const TablaDatosPago: FC = () => {
             <th className="px-4 py-2">Base imponible</th>
             <th className="px-4 py-2">Impuesto</th>
             <th className="px-4 py-2">Precio total</th>
-            <th className="px-4 py-2">Forma de pago</th>
+            <th className="px-4 py-2">Forma de Cobro</th>
             <th className="px-4 py-2">Cuenta de pago</th>
             <th className="px-4 py-2">Número de pagos</th>
           </tr>
