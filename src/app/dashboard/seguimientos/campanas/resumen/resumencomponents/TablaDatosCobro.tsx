@@ -47,7 +47,9 @@ const TablaDatosPago: FC = () => {
       <table className="table-auto border-collapse w-full text-left">
           <thead>
           <tr className="bg-blue-950 text-white">
-              <th className="px-4 py-2">Fecha</th>
+              <th className="px-4 py-2">Código de orden</th>
+              <th className="px-4 py-2">Fecha cobro prevista</th>
+              <th className="px-4 py-2">Factura asociada</th>
               <th className="px-4 py-2">Importe</th>
               <th className="px-4 py-2">Estado</th>
             </tr>
@@ -55,6 +57,7 @@ const TablaDatosPago: FC = () => {
           <tbody>
             {datosPagos.map((pago, index) => (
           <tr key={index} className="bg-white text-gray-700">
+                <th className="px-4 py-2">Código de orden</th>
                 <td className="px-4 py-2">{pago.fecha}</td>
                 <td className="px-4 py-2">{pago.importe}</td>
                 <td className="px-4 py-2">{pago.estado}</td>

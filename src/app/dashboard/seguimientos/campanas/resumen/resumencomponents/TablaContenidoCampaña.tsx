@@ -1,4 +1,6 @@
 import React, { FC } from 'react';
+import { useRouter } from 'next/navigation';
+
 
 interface FilaContenido {
   medio: string;
@@ -8,7 +10,7 @@ interface FilaContenido {
   deadline: string;
   fechaPublicacion: string;
   estadoMaterial: string;
-  especificaciones: string;
+  urlcontenido: string;
 }
 
 const datosTabla: FilaContenido[] = [
@@ -20,7 +22,7 @@ const datosTabla: FilaContenido[] = [
     deadline: "11/10/2025",
     fechaPublicacion: "12/12/2025",
     estadoMaterial: "Publicado",
-    especificaciones: "Comentario 1",
+    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
   },
   {
     medio: "Revista del vidrio España",
@@ -30,7 +32,7 @@ const datosTabla: FilaContenido[] = [
     deadline: "15/10/2025",
     fechaPublicacion: "01/01/2026",
     estadoMaterial: "Pedido no recibido",
-    especificaciones: "Comentario 2",
+    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
   },
   {
     medio: "Revista del vidrio España",
@@ -40,7 +42,7 @@ const datosTabla: FilaContenido[] = [
     deadline: "20/10/2025",
     fechaPublicacion: "05/01/2026",
     estadoMaterial: "No pedido",
-    especificaciones: "Comentario 3",
+    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
   },
   {
     medio: "Revista del vidrio España",
@@ -50,7 +52,7 @@ const datosTabla: FilaContenido[] = [
     deadline: "25/10/2025",
     fechaPublicacion: "10/01/2026",
     estadoMaterial: "No pedido",
-    especificaciones: "Comentario 4",
+    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
   },
   {
     medio: "Revista del vidrio España",
@@ -60,11 +62,13 @@ const datosTabla: FilaContenido[] = [
     deadline: "30/10/2025",
     fechaPublicacion: "15/01/2026",
     estadoMaterial: "No pedido",
-    especificaciones: "Comentario 5",
+    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
   },
 ];
 
 const TablaContenidoCampaña: FC = () => {
+    const router = useRouter()
+
   return (
     <table className="table-auto border-collapse text-center">
       <thead>
@@ -76,7 +80,7 @@ const TablaContenidoCampaña: FC = () => {
           <th className="px-4 py-2">Deadline material</th>
           <th className="px-4 py-2">Fecha de publicación</th>
           <th className="px-4 py-2">Estado del material</th>
-          <th className="px-4 py-2">Especificaciones</th>
+          <th className="px-4 py-2">Código de contenido</th>
         </tr>
       </thead>
       <tbody>
@@ -89,7 +93,10 @@ const TablaContenidoCampaña: FC = () => {
             <td className="px-4 py-2">{fila.deadline}</td>
             <td className="px-4 py-2">{fila.fechaPublicacion}</td>
             <td className="px-4 py-2">{fila.estadoMaterial}</td>
-            <td className="px-4 py-2">{fila.especificaciones}</td>
+            <td className="px-4 py-2">           <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+                onClick={() => router.push(`${fila.urlcontenido}`)} >
+                Ficha del contenido
+              </button></td>
           </tr>
         ))}
       </tbody>
