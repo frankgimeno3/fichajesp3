@@ -77,11 +77,11 @@ const LoggedLeftMenu: FC = () => {
               Seguimiento de gestiones
             </button>
             <button
-              onClick={() => router.push('/dashboard/seguimientos/campanas')}
+              onClick={() => router.push('/dashboard/seguimientos/contratos')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
-              Campañas en curso
+              Contratos en curso
             </button>
           </div>
         )}

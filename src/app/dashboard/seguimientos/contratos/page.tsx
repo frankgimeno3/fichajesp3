@@ -1,13 +1,13 @@
 'use client';
 import React, { FC, useState } from 'react';
-import ContenidoPorCliente from './campanascomponents/ContenidoPorCliente';
-import ContenidoPorPublicacion from './campanascomponents/ContenidoPorPublicacion';
+import ContenidoPorCliente from './contratoscomponents/ContenidoPorCliente';
+import ContenidoPorPublicacion from './contratoscomponents/ContenidoPorPublicacion';
 
 interface CampañasProps {}
 
 const Campañas: FC<CampañasProps> = ({ }) => {
   const [pestana, setPestana] = useState<'cliente' | 'publicacion'>('cliente');
-  const [agenteActual, setAgenteActual] = useState("usuario")
+  const [agenteActual] = useState("usuario")
   return (
     <div className="bg-white min-h-screen p-12 text-gray-600">
       <h2 className="text-lg font-semibold mb-4">Campañas en curso para el agente {agenteActual}</h2>
@@ -18,7 +18,7 @@ const Campañas: FC<CampañasProps> = ({ }) => {
           style={{ marginLeft: '0px' }}
           onClick={() => setPestana('cliente')}
         >
-          Campañas por cliente
+          Contratos por cliente
         </div>
         <div
           className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
@@ -26,7 +26,7 @@ const Campañas: FC<CampañasProps> = ({ }) => {
           style={{ marginLeft: '-5px' }}
           onClick={() => setPestana('publicacion')}
         >
-          Publicaciones por deadline
+          Contenidos por deadline
         </div>
       </div>
 

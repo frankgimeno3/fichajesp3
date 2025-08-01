@@ -68,7 +68,7 @@ const ContenidoPorPublicacion: FC<ContenidoPorPublicacionProps> = ({ }) => {
               <th className='text-left p-2 font-light'>Fecha publicación</th>
               <th className='text-left p-2 font-light'>Empresa</th>
               <th className='text-left p-2 font-light'>Estado materiales</th>
-              <th className='text-left p-2 font-light'>Campaña completa</th>
+              <th className='text-left p-2 font-light'>Contrato completo</th>
             </tr>
           </thead>
           <tbody>
@@ -84,7 +84,7 @@ const ContenidoPorPublicacion: FC<ContenidoPorPublicacionProps> = ({ }) => {
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
           onClick={() => router.push('/dashboard/seguimientos/campanas/resumen')}
         >
-          <p>Ver campaña</p>
+          <p>Ver campaña publicitaria</p>
         </button>
                 </td>
               </tr>

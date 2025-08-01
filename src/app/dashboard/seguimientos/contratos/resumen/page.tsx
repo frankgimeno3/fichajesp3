@@ -9,8 +9,9 @@ import TablaDatosAnunciante from './resumencomponents/TablaDatosAnunciante';
 import TablaDatosGestion from './resumencomponents/TablaDatosGestion';
 import OtrosDatosEnFacturaProps from './resumencomponents/OtrosDatosEnFactura';
 
-const ResumenCampana: FC = () => {
+const ResumenContrato: FC = () => {
     const [isDatosContactoShown, setIsDatosContactoShown] = useState(false)
+    const [codigoContrato] = useState('C25.000.204')
     const handleTogleDatosContactoShown = () => {
         setIsDatosContactoShown(!isDatosContactoShown)
     }
@@ -48,10 +49,10 @@ const ResumenCampana: FC = () => {
 
     return (
         <div className="min-h-screen flex flex-col bg-gray-200 text-gray-600 p-12">
-            <h2 className="text-lg font-semibold mb-4">Resumen de la campaña</h2>
+            <h2 className="text-lg font-semibold mb-4">Resumen del contrato nº {codigoContrato}</h2>
 
             <p className="font-bold text-gray-500">Datos generales:</p>
-            <TablaDatosGenerales />
+            <TablaDatosGenerales codigoContrato={codigoContrato}/>
 
             <div className='flex flex-col bg-gray-100 rounded-lg shadow-xl mt-12 '>
                 <div className='flex flex-row items-center justify-between bg-blue-950 text-white p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
@@ -93,4 +94,4 @@ const ResumenCampana: FC = () => {
     );
 };
 
-export default ResumenCampana;
+export default ResumenContrato;

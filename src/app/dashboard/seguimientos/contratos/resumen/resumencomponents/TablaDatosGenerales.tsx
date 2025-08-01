@@ -2,9 +2,10 @@ import React, { FC } from 'react';
 
 
 interface TablaDatosGeneralesProps {
+    codigoContrato:string
 }
 
-const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ }) => {
+const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({codigoContrato}) => {
 
     return (
         <table className="table-auto border-collapse text-center"  >
@@ -24,7 +25,7 @@ const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ }) => {
                     <td className="px-4 py-2">12/12/2025</td>
                     <td className="px-4 py-2">Jose Luis Fernandez Llop</td>
                     <td className="px-4 py-2">Frank Gimeno</td>
-                    <td className="px-4 py-2">C25.000.204</td>
+                    <td className="px-4 py-2">{codigoContrato}</td>
                     <td className="px-4 py-2">K25.000.182</td>
 
                 </tr>
