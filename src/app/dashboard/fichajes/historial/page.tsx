@@ -67,9 +67,10 @@ const Historial: FC = () => {
     }
 
     return (
-        <div className='flex flex-col'>
-            <div className='p-5 text-gray-700 bg-gray-100 justify-left '>
-                <p className='font-bold text-3xl py-6 px-12'>Eventos de registro del usuario x</p>
+    <div className="flex flex-col bg-white h-full min-h-screen p-12 text-gray-600">
+                        <p className='font-bold text-3xl py-6  '>Eventos de registro del usuario x</p>
+           
+        <div className='p-5 text-gray-700 bg-gray-100 justify-left '>
 
                 <div className='px-12'>
                     <FiltroTemporal onFiltrar={handleFilter}/>
