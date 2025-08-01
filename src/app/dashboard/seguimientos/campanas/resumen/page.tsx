@@ -53,15 +53,24 @@ const ResumenCampana: FC = () => {
             <p className="font-bold text-gray-500">Datos generales:</p>
             <TablaDatosGenerales />
 
-            <div className='flex flex-col bg-gray-100 rounded-lg shadow-xl mt-12 p-12'>
-                <div className='flex flex-row'>
-                    <p className="font-bold text-gray-500">Datos de contacto</p>
-                    <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-                        onClick={() => handleTogleDatosContactoShown()} >
-                        Mostrar
-                    </button>
+            <div className='flex flex-col bg-gray-100 rounded-lg shadow-xl mt-12 '>
+                <div className='flex flex-row items-center justify-between bg-blue-950 text-white p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
+                    onClick={handleTogleDatosContactoShown}>
+                    <p className="font-bold">Datos de contacto</p>
+                    <div className="ml-2">
+                        {isDatosContactoShown ? (
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+                            </svg>
+                        ) : (
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            </svg>
+                        )}
+                    </div>
                 </div>
-                {isDatosContactoShown == true && <div className=''>
+
+                {isDatosContactoShown == true && <div className='px-12 bg-gray-100 pb-12'>
                     <p className="font-bold text-gray-500 mt-6">Datos de la empresa anunciante:</p>
                     <TablaDatosAnunciante empresaAnunciante={empresaAnunciante} />
 
@@ -72,13 +81,13 @@ const ResumenCampana: FC = () => {
                     <TablaDatosGestion empresaGestion={empresaGestion} />
                 </div>}
             </div>
-                <p className="font-bold text-gray-500 mt-6">Contenido en campaña:</p>
-                    <TablaContenidoCampaña />
+            <p className="font-bold text-gray-500 mt-6">Contenido en campaña:</p>
+            <TablaContenidoCampaña />
 
-                        <p className="font-bold text-gray-500 mt-6">Datos de pago:</p>
-                        <TablaDatosPago />
-                                                <p className="font-bold text-gray-500 mt-6">Otros datos en factura:</p>
-                                                <OtrosDatosEnFacturaProps/>
+            <p className="font-bold text-gray-500 mt-6">Datos de pago:</p>
+            <TablaDatosPago />
+            <p className="font-bold text-gray-500 mt-6">Otros datos en factura:</p>
+            <OtrosDatosEnFacturaProps />
 
         </div>
     );
