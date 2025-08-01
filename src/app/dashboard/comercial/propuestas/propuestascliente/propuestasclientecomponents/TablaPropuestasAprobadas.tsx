@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import PropSvg from '../../componentesPropuestas/PropSvg';
+import PropSvg from '../../componentesPropuestas/svg/PropSvg';
 import { useRouter } from 'next/navigation';
 
 interface Resultado {

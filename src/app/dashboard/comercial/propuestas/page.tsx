@@ -1,12 +1,14 @@
 'use client'
-import TablaPropuestas from './componentesPropuestas/TablaPropuestas';
 import React, { FC, useState } from 'react';
 import FiltrosPropuestas from './componentesPropuestas/FiltrosPropuestas';
 import MiddleNav from '../../0dashboardcomponents/MiddleNav';
 import { useRouter } from 'next/navigation';
+import TodasPropuestas from './componentesPropuestas/tablaspropuestas/TodasPropuestas';
+import MisPendientes from './componentesPropuestas/tablaspropuestas/MisPendientes';
+import MisPropuestas from './componentesPropuestas/tablaspropuestas/MisPropuestas';
 
 const Propuestas: FC = () => {
-
+  const [pestana, setPestana] = useState("miasenproceso")
   const [clienteFiltro, setClienteFiltro] = useState('');
   const [agenteFiltro, setAgenteFiltro] = useState('');
   const [fechaInicio, setFechaInicio] = useState('');
@@ -44,18 +46,55 @@ const Propuestas: FC = () => {
         </div>
 
         <div className='mt-5 p-12 rounded-lg shadow-xl bg-white'>
-
-          <h2 className="text-lg font-semibold mb-4">Propuestas creadas</h2>
-          <TablaPropuestas
+<div className="flex flex-row relative mb-4">
+        <div
+          className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
+            ${pestana === 'miasenproceso' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-100 hover:bg-gray-200'}`}
+          style={{ marginLeft: '0px' }}
+          onClick={() => setPestana('miasenproceso')}
+        >
+          Mis propuestas pendientes
+        </div>
+        <div
+          className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
+            ${pestana === 'miasporcliente' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-100 hover:bg-gray-200'}`}
+          style={{ marginLeft: '-5px' }}
+          onClick={() => setPestana('miasporcliente')}
+        >
+          Propuestas creadas por mi
+        </div>
+                <div
+          className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
+            ${pestana === 'todasporcliente' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-100 hover:bg-gray-200'}`}
+          style={{ marginLeft: '0px' }}
+          onClick={() => setPestana('todasporcliente')}
+        >
+          Todas las propuestas
+        </div>
+      </div>
+          {pestana == "todasporcliente" && <TodasPropuestas
             clienteFiltro={clienteFiltro}
             agenteFiltro={agenteFiltro}
             fechaInicio={fechaInicio}
             fechaFin={fechaFin}
-          />
+          />}
+                    {pestana == "miasenproceso" && <MisPendientes
+            clienteFiltro={clienteFiltro}
+            agenteFiltro={agenteFiltro}
+            fechaInicio={fechaInicio}
+            fechaFin={fechaFin}
+          />}
+                    {pestana == "miasporcliente" && <MisPropuestas
+            clienteFiltro={clienteFiltro}
+            agenteFiltro={agenteFiltro}
+            fechaInicio={fechaInicio}
+            fechaFin={fechaFin}
+          />}
+        </div>
+         
         </div>
       </div>
-    </div>
-  );
+   );
 };
 
 export default Propuestas;

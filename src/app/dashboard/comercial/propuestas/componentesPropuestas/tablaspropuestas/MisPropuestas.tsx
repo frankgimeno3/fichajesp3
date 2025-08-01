@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import FolderSvg from './FolderSvg';
-import { useRouter } from 'next/navigation';
+ import { useRouter } from 'next/navigation';
+import FolderSvg from '../svg/FolderSvg';
 
 interface Resultado {
   id: number;
@@ -11,7 +11,7 @@ interface Resultado {
   fechaUltimaPropuesta: string;
 }
 
-interface TablaPropuestasProps {
+interface MisPropuestasProps {
   clienteFiltro: string;
   agenteFiltro: string;
   fechaInicio: string;
@@ -45,7 +45,7 @@ const mockResultados: Resultado[] = [
   },
 ];
 
-const TablaPropuestas: FC<TablaPropuestasProps> = ({
+const MisPropuestas: FC<MisPropuestasProps> = ({
   clienteFiltro,
   agenteFiltro,
   fechaInicio,
@@ -105,4 +105,4 @@ const TablaPropuestas: FC<TablaPropuestasProps> = ({
   );
 };
 
-export default TablaPropuestas;
+export default MisPropuestas;
