@@ -7,8 +7,8 @@ interface ContenidoVidrioEspProps {
 
 const ContenidoVidrioEsp: FC<ContenidoVidrioEspProps> = ({ }) => {
   return (
-    <div>
-            <PreferentesAnoContent/>
+   <div>
+      <PreferentesAnoContent/>
     </div>
   );
 };

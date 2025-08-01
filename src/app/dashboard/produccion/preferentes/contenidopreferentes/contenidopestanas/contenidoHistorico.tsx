@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import PreferentesAnoContent from '../preferentesAnoContent';
 
 interface ContenidoHistoricoProps {
   
@@ -6,8 +7,9 @@ interface ContenidoHistoricoProps {
 
 const ContenidoHistorico: FC<ContenidoHistoricoProps> = ({ }) => {
   return (
-    <div>ContenidoHistorico</div>
-  );
+   <div>
+      <PreferentesAnoContent/>
+    </div>  );
 };
 
 export default ContenidoHistorico;
