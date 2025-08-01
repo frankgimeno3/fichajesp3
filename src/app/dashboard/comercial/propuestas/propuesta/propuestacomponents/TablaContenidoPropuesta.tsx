@@ -66,7 +66,7 @@ const datosTabla: FilaContenido[] = [
   },
 ];
 
-const TablaContenidoCampaña: FC = () => {
+const TablaContenidoPropuesta: FC = () => {
     const router = useRouter()
 
   return (
@@ -76,11 +76,9 @@ const TablaContenidoCampaña: FC = () => {
           <th className="px-4 py-2">Medio</th>
           <th className="px-4 py-2">Publicación</th>
           <th className="px-4 py-2">Producto</th>
-          <th className="px-4 py-2">Precio pagado</th>
+          <th className="px-4 py-2">Precio tarifa</th>
           <th className="px-4 py-2">Deadline material</th>
           <th className="px-4 py-2">Fecha de publicación</th>
-          <th className="px-4 py-2">Estado del material</th>
-          <th className="px-4 py-2">Código de contenido</th>
         </tr>
       </thead>
       <tbody>
@@ -92,13 +90,7 @@ const TablaContenidoCampaña: FC = () => {
             <td className="px-4 py-2">{fila.precio}</td>
             <td className="px-4 py-2">{fila.deadline}</td>
             <td className="px-4 py-2">{fila.fechaPublicacion}</td>
-            <td className="px-4 py-2">{fila.estadoMaterial}</td>
-            <td className="px-4 py-2">           
-              <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-                onClick={() => router.push(`${fila.urlcontenido}`)} >
-                Ficha del contenido
-              </button>
-              </td>
+         
           </tr>
         ))}
       </tbody>
@@ -106,4 +98,4 @@ const TablaContenidoCampaña: FC = () => {
   );
 };
 
-export default TablaContenidoCampaña;
+export default TablaContenidoPropuesta;

@@ -1,7 +1,7 @@
 "use client";
 import React, { FC, useState } from 'react';
 
-import TablaContenidoCampaña from './propuestacomponents/TablaContenidoCampaña';
+import TablaContenidoCampaña from './propuestacomponents/TablaContenidoPropuesta';
 import TablaDatosGenerales from './propuestacomponents/TablaDatosGenerales';
 import TablaDatosFirmante from './propuestacomponents/TablaDatosFirmante';
 import TablaDatosAnunciante from './propuestacomponents/TablaDatosAnunciante';
@@ -9,6 +9,7 @@ import TablaDatosGestion from './propuestacomponents/TablaDatosGestion';
 import OtrosDatosEnFacturaProps from './propuestacomponents/OtrosDatosEnFactura';
 import DatosCobroPropuesta from './propuestacomponents/DatosCobroPropuesta';
 import { useRouter } from 'next/navigation';
+import TablaContenidoPropuesta from './propuestacomponents/TablaContenidoPropuesta';
 
 const ResumenPropuesta: FC = () => {
   const router = useRouter()
@@ -110,7 +111,7 @@ const ResumenPropuesta: FC = () => {
         </div>}
       </div>
       <p className="font-bold text-gray-500 mt-6">Contenido en campaña:</p>
-      <TablaContenidoCampaña />
+      <TablaContenidoPropuesta />
 
       <p className="font-bold text-gray-500 mt-6">Datos para facturación:</p>
       <OtrosDatosEnFacturaProps />
