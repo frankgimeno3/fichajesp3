@@ -2,18 +2,19 @@ import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
 
 
-interface EmpresaAnunciante {
-    nombreContacto: String;
-    cargoContacto: string;
-
+interface EmpresaGestion {
     nombreEmpresa: string;
     codigoCrm: string;
     codigoEdisoft: string;
     pais: string;
+    nombreContacto: string;
+    //   codigoContacto:'1234',
+    cargoContacto: string;
+
 }
 
 interface TablaDatosGestionProps {
-    empresaGestion: EmpresaAnunciante;
+    empresaGestion: EmpresaGestion;
 }
 
 const TablaDatosGestion: FC<TablaDatosGestionProps> = ({ empresaGestion }) => {
@@ -24,25 +25,32 @@ const TablaDatosGestion: FC<TablaDatosGestionProps> = ({ empresaGestion }) => {
             <table className="table-auto border-collapse w-full text-center">
                 <thead>
                     <tr className="bg-blue-950 text-white">
-                        <th className="px-4 py-2">Contacto de gestión</th>
-                        <th className="px-4 py-2">Cargo del contacto</th>
-                        <th className="px-4 py-2">Nombre empresa</th>
-                        <th className="px-4 py-2">Código CRM</th>
-                        <th className="px-4 py-2">Código Edisoft</th>
-                        <th className="px-4 py-2">País</th>
+                        <th className="px-4 py-2 flex-1/6">Gestora de la campaña</th>
+                        <th className="px-4 py-2 flex-1/6">Código CRM</th>
+                        <th className="px-4 py-2 flex-1/6">Código Edisoft</th>
+                        <th className="px-4 py-2 flex-1/6">País</th>
+                        <th className="px-4 py-2 flex-1/6">Contacto de gestión</th>
+                        <th className="px-4 py-2 flex-1/6">Cargo del contacto</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr className="bg-white text-gray-700">
-                        <td className="px-4 py-2">
-                            <button className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-                                onClick={() => router.push('/dashboard/seguimientos/campanas/resumen')}>{empresaGestion.nombreContacto}</button>
+                        <td className="px-4 py-2 flex-1/6">
+                            <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+                                onClick={() => router.push('/dashboard/clientes/ficha')} >
+                                {empresaGestion.nombreEmpresa}
+                            </button>
                         </td>
-                        <td className="px-4 py-2">{empresaGestion.cargoContacto}</td>
-                        <td className="px-4 py-2">{empresaGestion.nombreEmpresa}</td>
-                        <td className="px-4 py-2">{empresaGestion.codigoCrm}</td>
-                        <td className="px-4 py-2">{empresaGestion.codigoEdisoft}</td>
-                        <td className="px-4 py-2">{empresaGestion.pais}</td>
+                        <td className="px-4 py-2 flex-1/6">{empresaGestion.codigoCrm}</td>
+                        <td className="px-4 py-2 flex-1/6">{empresaGestion.codigoEdisoft}</td>
+                        <td className="px-4 py-2 flex-1/6">{empresaGestion.pais}</td>
+                        <td className="px-4 py-2 flex-1/6">
+                            <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+                                onClick={() => router.push('/dashboard/clientes/contactos/contacto')} >
+                                {empresaGestion.nombreContacto}
+                            </button>
+                        </td>
+                        <td className="px-4 py-2 flex-1/6">{empresaGestion.cargoContacto}</td>
                     </tr>
                 </tbody>
             </table>

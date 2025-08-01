@@ -9,20 +9,28 @@ import TablaDatosAnunciante from './resumencomponents/TablaDatosAnunciante';
 import TablaDatosGestion from './resumencomponents/TablaDatosGestion';
 
 const ResumenCampana: FC = () => {
+
+
+    
   // Datos simulados (puedes pasar esto como props si lo deseas)
   const empresaAnunciante = {
-    nombreEmpresa: 'Acme Corp',
-    codigoCrm: 'ACM-123',
-    codigoEdisoft: 'VTG-456',
-    pais: 'España',
+      nombreEmpresa: 'Tvitec',
+      codigoCrm: '1234',
+      codigoEdisoft: '1234TIGER',
+      pais: 'ESTONIA',
+      nombreContacto:'Frank Gimeno',
+    //   codigoContacto:'1234',
+      cargoContacto:'Comercial',
   };
 
   const empresaFirmante = {
-    nombreFirmante: 'Juan Pérez',
-    cargoFirmante: 'Director Comercial',
-    nombreEmpresaFirmante:'TVITEC',
-    emailFirmante: 'juan.perez@acme.com',
-    pais: 'España',
+       nombreEmpresa: 'Tvitec',
+      codigoCrm: '1234',
+      codigoEdisoft: '1234TIGER',
+      pais: 'ESTONIA',
+      nombreContacto:'Frank Gimeno',
+    //   codigoContacto:'1234',
+      cargoContacto:'Comercial',
   };
   
   const empresaGestion = {
@@ -30,8 +38,9 @@ const ResumenCampana: FC = () => {
       codigoCrm: '1234',
       codigoEdisoft: '1234TIGER',
       pais: 'ESTONIA',
-        nombreContacto:'Frank Gimeno',
-        cargoContacto:'Comercial',
+      nombreContacto:'Frank Gimeno',
+    //   codigoContacto:'1234',
+      cargoContacto:'Comercial',
   };
 
   return (
