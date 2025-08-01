@@ -1,163 +1,129 @@
-"use client"
+"use client";
 import React, { FC, useState } from 'react';
 
-interface DetallesPropuestaProps {}
+import TablaContenidoCampaña from './propuestacomponents/TablaContenidoCampaña';
+import TablaDatosGenerales from './propuestacomponents/TablaDatosGenerales';
+import TablaDatosFirmante from './propuestacomponents/TablaDatosFirmante';
+import TablaDatosAnunciante from './propuestacomponents/TablaDatosAnunciante';
+import TablaDatosGestion from './propuestacomponents/TablaDatosGestion';
+import OtrosDatosEnFacturaProps from './propuestacomponents/OtrosDatosEnFactura';
+import DatosCobroPropuesta from './propuestacomponents/DatosCobroPropuesta';
+import { useRouter } from 'next/navigation';
 
-const DetallesPropuesta: FC<DetallesPropuestaProps> = ({}) => {
-  const [nombrePropuesta, setNombrePropuesta] = useState("Campaña Verano 2025");
-  const [nombreCliente, setNombreCliente] = useState("Marketing Solutions S.A.");
+const ResumenPropuesta: FC = () => {
+  const router = useRouter()
+  const [isDatosContactoShown, setIsDatosContactoShown] = useState(false)
+  const [codigoPropuesta] = useState('C25.000.204')
+  const handleTogleDatosContactoShown = () => {
+    setIsDatosContactoShown(!isDatosContactoShown)
+  }
+
+  // Datos simulados (puedes pasar esto como props si lo deseas)
+  const empresaAnunciante = {
+    nombreEmpresa: 'Tvitec',
+    codigoCrm: '1234',
+    codigoEdisoft: '1234TIGER',
+    pais: 'ESTONIA',
+    nombreContacto: 'Frank Gimeno',
+    //   codigoContacto:'1234',
+    cargoContacto: 'Comercial',
+  };
+
+  const empresaFirmante = {
+    nombreEmpresa: 'Tvitec',
+    codigoCrm: '1234',
+    codigoEdisoft: '1234TIGER',
+    pais: 'ESTONIA',
+    nombreContacto: 'Frank Gimeno',
+    //   codigoContacto:'1234',
+    cargoContacto: 'Comercial',
+  };
+
+  const empresaGestion = {
+    nombreEmpresa: 'Tvitec',
+    codigoCrm: '1234',
+    codigoEdisoft: '1234TIGER',
+    pais: 'ESTONIA',
+    nombreContacto: 'Frank Gimeno',
+    //   codigoContacto:'1234',
+    cargoContacto: 'Comercial',
+  };
 
   return (
-    <div className="bg-gray-100 h-full min-h-screen p-12 text-gray-600 space-y-12">
-      <div className="flex flex-row justify-between">
-        <p className="text-xl font-semibold">Detalles de la propuesta</p>
-        <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900">
-          <p>Descargar en PDF</p>
-        </button>
+    <div className="min-h-screen flex flex-col bg-gray-200 text-gray-600 p-12">
+      <div className='flex flex-row justify-between'>
+        <h2 className="text-lg font-semibold mb-4">Propuesta con Código {codigoPropuesta}</h2>
+  
+        <div className='flex flex-row gap-5'>
+             <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              onClick={() => router.push('/dashboard/propuestas/propuesta/editar')} >
+              Actualizar
+            </button>
+               <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              onClick={() => router.push('/dashboard/propuestas/propuesta/editar')} >
+              Eliminar
+            </button>
+                           <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              onClick={() => router.push('/dashboard/propuestas/propuesta/editar')} >
+              Marcar como aceptada
+            </button>
+                           <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              onClick={() => router.push('/dashboard/propuestas/propuesta/editar')} >
+              Marcar como rechazada
+            </button>
+               <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              onClick={() => router.push('/dashboard/propuestas/propuesta/editar')} >
+              Usar como plantilla
+            </button>
+         </div>
       </div>
 
-      {/* Tabla de datos de la propuesta */}
-      <div className="p-6 rounded-lg shadow-xl bg-white">
-        <p className="text-lg font-semibold mb-4">Datos generales</p>
-        <table className="w-full text-sm border border-gray-200">
-          <tbody>
-            <tr className="border-b">
-              <td className="p-2 font-medium">Nombre de la propuesta</td>
-              <td className="p-2">{nombrePropuesta}</td>
-            </tr>
-            <tr className="border-b">
-              <td className="p-2 font-medium">Nombre del cliente</td>
-              <td className="p-2">{nombreCliente}</td>
-            </tr>
-            <tr className="border-b">
-              <td className="p-2 font-medium">Código de cliente</td>
-              <td className="p-2">CLT-3021</td>
-            </tr>
-            <tr className="border-b">
-              <td className="p-2 font-medium">Agente creador</td>
-              <td className="p-2">Laura Martínez</td>
-            </tr>
-            <tr className="border-b">
-              <td className="p-2 font-medium">Fecha de creación</td>
-              <td className="p-2">2025-07-15</td>
-            </tr>
-            <tr className="border-b">
-              <td className="p-2 font-medium">Estado</td>
-              <td className="p-2">Pendiente</td>
-            </tr>
-            <tr>
-              <td className="p-2 font-medium">Valor total</td>
-              <td className="p-2">€12.500</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+      <p className="font-bold text-gray-500">Datos generales:</p>
+      <TablaDatosGenerales codigoPropuesta={codigoPropuesta} />
 
-      {/* Tabla de contenido ofrecido */}
-      <div className="p-6 rounded-lg shadow-xl bg-white space-y-8">
-        <p className="text-lg font-semibold">Contenido ofrecido</p>
-
-        {/* Parte 1: Medio, publicación, producto, detalles, precio */}
-        <table className="w-full text-sm border border-gray-200">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="p-2 text-left">Medio</th>
-              <th className="p-2 text-left">Publicación</th>
-              <th className="p-2 text-left">Producto</th>
-              <th className="p-2 text-left">Detalles</th>
-              <th className="p-2 text-left">Precio</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="border-t">
-              <td className="p-2">Instagram</td>
-              <td className="p-2">Post patrocinado</td>
-              <td className="p-2">Campaña visual</td>
-              <td className="p-2">3 publicaciones en el feed</td>
-              <td className="p-2">€4.000</td>
-            </tr>
-            <tr className="border-t">
-              <td className="p-2">YouTube</td>
-              <td className="p-2">Video colaborativo</td>
-              <td className="p-2">Publicidad nativa</td>
-              <td className="p-2">1 video de 5 minutos</td>
-              <td className="p-2">€5.500</td>
-            </tr>
-            <tr className="border-t">
-              <td className="p-2">TikTok</td>
-              <td className="p-2">Short ad</td>
-              <td className="p-2">Influencer promotion</td>
-              <td className="p-2">2 videos + historia</td>
-              <td className="p-2">€3.000</td>
-            </tr>
-          </tbody>
-        </table>
-
-        {/* Parte 2: Totales y resumen */}
-        <div className="w-full max-w-md">
-          <table className="w-full text-sm border border-gray-200">
-            <tbody>
-              <tr className="border-b">
-                <td className="p-2 font-medium">Precio total antes de descuento</td>
-                <td className="p-2">€12.500</td>
-              </tr>
-              <tr className="border-b">
-                <td className="p-2 font-medium">Descuento</td>
-                <td className="p-2">€1.000</td>
-              </tr>
-              <tr className="border-b">
-                <td className="p-2 font-medium">Base imponible</td>
-                <td className="p-2">€11.500</td>
-              </tr>
-              <tr className="border-b">
-                <td className="p-2 font-medium">Impuestos (21%)</td>
-                <td className="p-2">€2.415</td>
-              </tr>
-              <tr>
-                <td className="p-2 font-medium">Valor después de impuestos</td>
-                <td className="p-2 font-semibold">€13.915</td>
-              </tr>
-            </tbody>
-          </table>
+      <div className='flex flex-col bg-gray-100 rounded-lg shadow-xl mt-12 '>
+        <div className='flex flex-row items-center justify-between bg-blue-950 text-white p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
+          onClick={handleTogleDatosContactoShown}>
+          <p className="font-bold">Datos de contacto</p>
+          <div className="ml-2">
+            {isDatosContactoShown ? (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            )}
+          </div>
         </div>
 
-        {/* Parte 3: Datos de pago */}
-        <div>
-          <p className="text-md font-semibold mb-2">Datos de pago</p>
-          <table className="w-full text-sm border border-gray-200">
-            <thead className="bg-gray-100">
-              <tr>
-                <th className="p-2 text-left">Pago</th>
-                <th className="p-2 text-left">Importe</th>
-                <th className="p-2 text-left">Fecha</th>
-                <th className="p-2 text-left">Forma de pago</th>
-                <th className="p-2 text-left">Pagador</th>
-                <th className="p-2 text-left">Detalles</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-t">
-                <td className="p-2">Pago inicial</td>
-                <td className="p-2">€6.000</td>
-                <td className="p-2">2025-07-20</td>
-                <td className="p-2">Transferencia</td>
-                <td className="p-2">M. Solutions S.A.</td>
-                <td className="p-2">Pago por reserva de campaña</td>
-              </tr>
-              <tr className="border-t">
-                <td className="p-2">Pago final</td>
-                <td className="p-2">€7.915</td>
-                <td className="p-2">2025-08-10</td>
-                <td className="p-2">Tarjeta</td>
-                <td className="p-2">M. Solutions S.A.</td>
-                <td className="p-2">Resto del importe</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        {isDatosContactoShown == true && <div className='px-12 bg-gray-100 pb-12'>
+          <p className="font-bold text-gray-500 mt-6">Datos de la empresa anunciante:</p>
+          <TablaDatosAnunciante empresaAnunciante={empresaAnunciante} />
+
+          <p className="font-bold text-gray-500 mt-6">Datos de la empresa firmante:</p>
+          <TablaDatosFirmante empresaFirmante={empresaFirmante} />
+
+          <p className="font-bold text-gray-500 mt-6">Datos de gestión publicitaria:</p>
+          <TablaDatosGestion empresaGestion={empresaGestion} />
+        </div>}
       </div>
+      <p className="font-bold text-gray-500 mt-6">Contenido en campaña:</p>
+      <TablaContenidoCampaña />
+
+      <p className="font-bold text-gray-500 mt-6">Datos para facturación:</p>
+      <OtrosDatosEnFacturaProps />
+      <p className="font-bold text-gray-500 mt-6">Forma de cobro</p>
+      <DatosCobroPropuesta />
+
+      <p className="font-bold text-gray-500 mt-6">Comentarios adicionales:</p>
+      <div className='bg-white rounded text-gray-500 p-5'>
+        Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum repellendus voluptate?
+      </div>
+
     </div>
   );
 };
 
-export default DetallesPropuesta;
+export default ResumenPropuesta;
