@@ -25,7 +25,7 @@ const Materiales: FC<MaterialesProps> = ({ }) => {
             style={{ marginLeft: '0px' }}
             onClick={() => setPestana('Contenidos')}
           >
-            Planificación materiales
+            Pendiente de publicar
           </div>
           <div
             className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300

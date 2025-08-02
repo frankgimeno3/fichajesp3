@@ -183,7 +183,7 @@ const LoggedLeftMenu: FC = () => {
               Control administrativo
             </button>
             <button
-              onClick={() => router.push('/dashboard/administracion/pendientecobro')}
+              onClick={() => router.push('/dashboard/administracion/pendiente')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >

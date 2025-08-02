@@ -1,18 +1,19 @@
+"use client"
 import React, { FC, useState } from 'react';
 import ContenidoRecibosPtes from './ptecomponents/Contenidorecibosptes';
 import ContenidoRemesasPasadas from './ptecomponents/ContenidoRemesasPasadas';
 import ContenidoTranscobradas from './ptecomponents/ContenidoTranscobradas';
 import ContenidoTranspendientes from './ptecomponents/ContenidoTranspendientes';
 
-interface PendienteCobroProps {
-
+interface PendienteProps {
+  
 }
 
-const PendienteCobro: FC<PendienteCobroProps> = ({ }) => {
-    const [pestana, setPestana] = useState<'recibosptes' | 'rempasadas' | 'transpendientes' | 'transcobradas'>('recibosptes');
+const Pendiente: FC<PendienteProps> = ({ }) => {
+      const [pestana, setPestana] = useState<'recibosptes' | 'rempasadas' | 'transpendientes' | 'transcobradas'>('recibosptes');
 
-    return (
-        <div>
+  return (
+  <div>
             <h2 className="text-lg font-semibold mb-4">Pendiente de cobro</h2>
             <div className="flex flex-row relative mb-4">
                 <div
@@ -70,8 +71,7 @@ const PendienteCobro: FC<PendienteCobroProps> = ({ }) => {
           </div>
         )}
       </div>
-        </div>
-    );
+        </div>  );
 };
 
-export default PendienteCobro;
+export default Pendiente;
