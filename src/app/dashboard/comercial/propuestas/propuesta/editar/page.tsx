@@ -105,16 +105,16 @@ const EditarPropuesta: FC = () => {
       </div>
       <p className="font-bold text-gray-500 mt-6">Contenido en campaña:</p>
       <EditarContenidoPropuesta />
-A
+
       <p className="font-bold text-gray-500 mt-6">Datos para facturación:</p>
       <EditarOtrosDatosEnFactura />
       <p className="font-bold text-gray-500 mt-6">Forma de cobro</p>
       <EditarDatosCobro />
 
       <p className="font-bold text-gray-500 mt-6">Comentarios adicionales:</p>
-      <div className='bg-white rounded text-gray-500 p-5'>
+      <textarea className='bg-white rounded text-gray-500 p-5'>
         Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum repellendus voluptate?
-      </div>
+      </textarea>
 
     </div>
   );
