@@ -1,7 +1,7 @@
 "use client";
 import React, { FC, useState } from 'react';
 
-  
+
 import { useRouter } from 'next/navigation';
 import EditarDatosGenerales from './editarProp/editarDatosGenerales';
 import EditarDatosAnunciante from './editarProp/editarDatosAnunciante';
@@ -10,7 +10,7 @@ import EditarDatosGestion from './editarProp/editarDatosGestion';
 import EditarContenidoPropuesta from './editarProp/editarContenidoPropuesta';
 import EditarOtrosDatosEnFactura from './editarProp/editarOtrosDatosEnFactura';
 import EditarDatosCobro from './editarProp/editarDatosCobro';
- 
+
 const EditarPropuesta: FC = () => {
   const router = useRouter()
   const [isDatosContactoShown, setIsDatosContactoShown] = useState(false)
@@ -54,21 +54,21 @@ const EditarPropuesta: FC = () => {
     <div className="min-h-screen flex flex-col bg-gray-200 text-gray-600 p-12">
       <div className='flex flex-row justify-between'>
         <h2 className="text-lg font-semibold mb-4"><span className='pr-3 font-black text-blue-950'>Editando</span>propuesta con Código {codigoPropuesta}</h2>
-  
-                <div className='flex flex-row gap-5'>
-             <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
-              Guardar cambios
-            </button>
-               <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
-              Cancelar
-            </button>
-                           <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
-              Guardar como nueva
-            </button>
-         </div>
+
+        <div className='flex flex-row gap-5'>
+          <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+            onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
+            Guardar cambios
+          </button>
+          <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+            onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
+            Cancelar
+          </button>
+          <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+            onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
+            Guardar como nueva
+          </button>
+        </div>
       </div>
 
       <p className="font-bold text-gray-500">Datos generales:</p>
@@ -91,24 +91,25 @@ const EditarPropuesta: FC = () => {
           </div>
         </div>
 
-        {isDatosContactoShown == true && <div className='px-12 bg-gray-100 pb-12'>
-          <p className="font-bold text-gray-500 mt-6">Datos de la empresa anunciante:</p>
-          <EditarDatosAnunciante empresaAnunciante={empresaAnunciante} />
-
-          <p className="font-bold text-gray-500 mt-6">Datos de la empresa firmante:</p>
-          <EditarDatosFirmante empresaFirmante={empresaFirmante} />
-
-          <p className="font-bold text-gray-500 mt-6">Datos de gestión publicitaria:</p>
-          <EditarDatosGestion empresaGestion={empresaGestion} />
+        {isDatosContactoShown == true && <div className='flex flex-row px-12 bg-gray-100 py-5 gap-2 '>
+          <div className='flex flex-col w-full'>
+            <EditarDatosAnunciante empresaAnunciante={empresaAnunciante} />
+          </div>
+          <div className='flex flex-col w-full'>
+            <EditarDatosFirmante empresaFirmante={empresaFirmante} />
+          </div>
+          <div className='flex flex-col w-full'>
+            <EditarDatosGestion empresaGestion={empresaGestion} />
+          </div>
         </div>}
       </div>
       <p className="font-bold text-gray-500 mt-6">Contenido en campaña:</p>
       <EditarContenidoPropuesta />
-
+A
       <p className="font-bold text-gray-500 mt-6">Datos para facturación:</p>
-      <EditarOtrosDatosEnFactura  />
+      <EditarOtrosDatosEnFactura />
       <p className="font-bold text-gray-500 mt-6">Forma de cobro</p>
-      <EditarDatosCobro  />
+      <EditarDatosCobro />
 
       <p className="font-bold text-gray-500 mt-6">Comentarios adicionales:</p>
       <div className='bg-white rounded text-gray-500 p-5'>
