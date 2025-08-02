@@ -100,11 +100,11 @@ const LoggedLeftMenu: FC = () => {
         {isProduccionOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
-              onClick={() => router.push('/dashboard/produccion/contenidos')}
+              onClick={() => router.push('/dashboard/produccion/materiales')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
-              Contenidos
+              Materiales
             </button>
             <button
               onClick={() => router.push('/dashboard/produccion/preferentes')}
@@ -112,13 +112,6 @@ const LoggedLeftMenu: FC = () => {
               hover:text-white transition cursor-pointer"
             >
               Páginas preferentes
-            </button>
-            <button
-              onClick={() => router.push('/dashboard/produccion/planillos')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Planillos de revista
             </button>
           </div>
         )}

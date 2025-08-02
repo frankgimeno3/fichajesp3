@@ -35,11 +35,8 @@ const Planillos: FC<PlanillosProps> = ({ }) => {
   ];
 
   return (
-    <div className="bg-gray-100 h-full min-h-screen p-12 text-gray-600">
-      <h2 className="text-xl font-semibold mb-4">Planillos próximas ediciones</h2>
-
-      <div className='flex flex-row justify-between w-full items-center bg-white rounded p-5'>
-        <table className='min-w-full'>
+      <div className='flex flex-row justify-between w-full items-center bg-white rounded  '>     
+        <table className='min-w-full '>
           <thead className='bg-blue-950 text-white'>
             <tr>
               <th className='text-left p-2 font-light'>Edición</th>
@@ -64,8 +61,7 @@ const Planillos: FC<PlanillosProps> = ({ }) => {
           </tbody>
         </table>
       </div>
-    </div>
-  );
+   );
 };
 
 export default Planillos;

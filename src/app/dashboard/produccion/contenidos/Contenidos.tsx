@@ -2,9 +2,9 @@
 import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
 
-interface MaterialesProps {}
+interface ContenidosProps {}
 
-const Materiales: FC<MaterialesProps> = ({ }) => {
+const Contenidos: FC<ContenidosProps> = ({ }) => {
 
   const router = useRouter()
   const data = [
@@ -35,11 +35,8 @@ const Materiales: FC<MaterialesProps> = ({ }) => {
   ];
 
   return (
-    <div className="bg-gray-100 h-full min-h-screen p-12 text-gray-600">
-       <h2 className="text-xl font-semibold mb-4">Materiales próximas ediciones</h2>
-
-      <div className='flex flex-row justify-between w-full items-center bg-white rounded p-5'>     
-
+   
+      <div className='flex flex-row justify-between w-full items-center bg-white rounded  '>     
         <table className='min-w-full '>
           <thead className='bg-blue-950 text-white '>
               <tr>
@@ -65,8 +62,7 @@ const Materiales: FC<MaterialesProps> = ({ }) => {
         </tbody>
       </table>
     </div>
-    </div>
-  );
+   );
 };
 
-export default Materiales;
+export default Contenidos;
