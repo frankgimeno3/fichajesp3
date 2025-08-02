@@ -1,13 +1,13 @@
 import React, { FC } from 'react';
 
-interface InformeVProps {
+interface informeventasProps {
   
 }
 
-const InformeV: FC<InformeVProps> = ({ }) => {
+const informeventas: FC<informeventasProps> = ({ }) => {
   return (
-    <div>InformeV</div>
+    <div>informeventas</div>
   );
 };
 
-export default InformeV;
+export default informeventas;

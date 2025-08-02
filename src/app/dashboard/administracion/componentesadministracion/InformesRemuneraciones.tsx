@@ -1,3 +1,4 @@
+import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
 
 interface Informe {
@@ -22,6 +23,8 @@ const mockData: Informe[] = [
 ];
 
 const InformesRemuneraciones: FC = () => {
+    const router = useRouter()
+  
   return (
     <div className="p-4">
       <h2 className="text-xl font-semibold mb-4">Informes de Remuneraciones</h2>
@@ -35,7 +38,8 @@ const InformesRemuneraciones: FC = () => {
         </thead>
         <tbody>
           {mockData.map((informe, index) => (
-            <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
+            <tr key={index} className={index % 2 === 0 ? 'bg-gray-50 cursor-pointer' : 'bg-white cursor-pointer'} 
+            onClick={()=>{router.push('/dashboard/administracion/informes/comercial/informeremuneraciones')}}>
               <td className="px-4 py-2">{informe.mes}</td>
               <td className="px-4 py-2">{informe.tipo}</td>
               <td className="px-4 py-2">{informe.comisiones}</td>
