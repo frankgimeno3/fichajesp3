@@ -1,4 +1,5 @@
 "use client"
+import MiddleNav from '@/app/dashboard/0dashboardcomponents/MiddleNav';
 import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
 
@@ -8,22 +9,16 @@ const Detalle: FC<DetalleProps> = ({ }) => {
     const router = useRouter();
 
     return (
-        <div className="bg-gray-100 h-full min-h-screen p-12 text-gray-600">
-            <div className='flex flex-row justify-between w-full items-center'>
-                <h2 className="text-lg font-semibold mb-4">Tarifas</h2>
-                <button
-                    className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-                    onClick={() => router.push('/dashboard/comercial/tarifas/crear')}
-                >
-                    <p>Crear</p>
-                </button>
-            </div>
+    <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
 
+      <MiddleNav tituloprincipal={` Resumen del servicio  `} />
+
+    <div className="bg-white min-h-screen p-12 text-gray-600">                  
+ 
             {/* Tabla de tarifas */}
-            <div className='mt-12 p-3 rounded-lg shadow-xl bg-white'>
-                <h3 className="text-md font-semibold mb-4">Lista de tarifas</h3>
-                <table className="w-full text-left border border-gray-300 rounded-lg overflow-hidden">
-                    <thead className="bg-gray-200 text-gray-700">
+            <div className= '  rounded-lg shadow-xl bg-white'>
+                 <table className="w-full text-left  rounded-lg overflow-hidden">
+                    <thead className="bg-blue-950 text-white">
                         <tr>
                             <th className="p-3">Nombre del servicio</th>
                             <th className="p-3">Código</th>
@@ -46,15 +41,16 @@ const Detalle: FC<DetalleProps> = ({ }) => {
             </div>
 
             {/* Apartado de detalles */}
-            <div className='mt-8 p-6 rounded-lg shadow-xl bg-white'>
-                <h3 className="text-md font-semibold mb-4">Detalle del servicio</h3>
-                <div className="space-y-3 text-sm">
-                    <p><strong>Características:</strong> Publicación a página completa, formato digital e impreso.</p>
-                    <p><strong>Público objetivo:</strong> Profesionales del sector agroindustrial.</p>
-                    <p><strong>Asociación a ferias:</strong> ExpoAgro 2025.</p>
-                    <p><strong>Deadline materiales:</strong> 15 de julio de 2025.</p>
-                    <p><strong>Fecha de publicación:</strong> 1 de agosto de 2025.</p>
+            <div className='mt-8  rounded-lg shadow-xl bg-white'>
+                <h3 className="p-3 text-md font-semibold   bg-blue-950 w-full text-white rounded-t-lg ">Detalle del servicio</h3>
+                <div className="p-3 text-sm ">
+                    <p className='p-1'><strong>Características:</strong> Publicación a página completa, formato digital e impreso.</p>
+                    <p className='p-1'><strong>Público objetivo:</strong> Profesionales del sector agroindustrial.</p>
+                    <p className='p-1'><strong>Asociación a ferias:</strong> ExpoAgro 2025.</p>
+                    <p className='p-1'><strong>Deadline materiales:</strong> 15 de julio de 2025.</p>
+                    <p className='p-1'><strong>Fecha de publicación:</strong> 1 de agosto de 2025.</p>
                 </div>
+            </div>
             </div>
         </div>
     );
