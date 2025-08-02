@@ -23,7 +23,6 @@ const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ codigoPropuesta }) 
         <tr className="bg-blue-950 text-white">
           <th className="px-4 py-2">Fecha de envío al cliente</th>
           <th className="px-4 py-2">Fecha máxima de validez</th>
-          <th className="px-4 py-2">Agente ofertante</th>
           <th className="px-4 py-2">Código de propuesta</th>
         </tr>
       </thead>
@@ -47,15 +46,7 @@ const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ codigoPropuesta }) 
               className="border border-gray-300 rounded px-2 py-1 w-full"
             />
           </td>
-          <td className="px-4 py-2">
-            <input
-              type="text"
-              name="agente"
-              value={formData.agente}
-              onChange={handleChange}
-              className="border border-gray-300 rounded px-2 py-1 w-full"
-            />
-          </td>
+          
           <td className="px-4 py-2">
             <input
               type="text"
