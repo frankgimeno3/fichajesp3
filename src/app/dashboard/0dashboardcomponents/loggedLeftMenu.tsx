@@ -25,8 +25,7 @@ const LoggedLeftMenu: FC = () => {
   
 
   return (
-    <div className="flex flex-col min-h-screen w-80 bg-white border-r border-gray-200 p-4 
-    pl-6 shadow-sm text-gray-800">
+    <div className="flex flex-col min-h-screen w-80 bg-white border-r border-gray-200 p-4 pl-6 shadow-sm text-gray-800  " style={{"width":"170px", "fontSize": '10px'}}  >
 
       {/* FICHAJES */}
       <div className="mb-4">
@@ -34,21 +33,21 @@ const LoggedLeftMenu: FC = () => {
           onClick={() => setIsFichajesOpen(!isFichajesOpen)}
           className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
         >
-          <span className="font-medium">Fichajes</span>
+          <span className="">Fichajes</span>
           <ArrowIcon isOpen={isFichajesOpen} />
         </div>
         {isFichajesOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/fichajes')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Fichar eventos
             </button>
             <button
               onClick={() => router.push('/dashboard/fichajes/historial')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Historial de fichajes
@@ -63,28 +62,28 @@ const LoggedLeftMenu: FC = () => {
           onClick={() => setIsComercialOpen(!isComercialOpen)}
           className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
         >
-          <span className="font-medium">Comercial</span>
+          <span className="">Comercial</span>
           <ArrowIcon isOpen={isComercialOpen} />
         </div>
         {isComercialOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/comercial')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Seguimientos
             </button>
            <button
               onClick={() => router.push('/dashboard/comercial/propuestas')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Propuestas
             </button>
              <button
               onClick={() => router.push('/dashboard/comercial/tarifas')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Tarifas
@@ -99,21 +98,21 @@ const LoggedLeftMenu: FC = () => {
           onClick={() => setIsProduccionOpen(!isProduccionOpen)}
           className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
         >
-          <span className="font-medium">Producción</span>
+          <span className="">Producción</span>
           <ArrowIcon isOpen={isProduccionOpen} />
         </div>
         {isProduccionOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/produccion/materiales')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Materiales
             </button>
             <button
               onClick={() => router.push('/dashboard/produccion/preferentes')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Páginas preferentes
@@ -129,14 +128,14 @@ const LoggedLeftMenu: FC = () => {
           onClick={() => setIsClientesOpen(!isClientesOpen)}
           className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
         >
-          <span className="font-medium">Clientes</span>
+          <span className="">Clientes</span>
           <ArrowIcon isOpen={isClientesOpen} />
         </div>
         {isClientesOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/cuentas')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Cuentas
@@ -144,7 +143,7 @@ const LoggedLeftMenu: FC = () => {
             
              <button
               onClick={() => router.push('/dashboard/cuentas/contactos')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Contactos
@@ -161,28 +160,28 @@ const LoggedLeftMenu: FC = () => {
           onClick={() => setIsAdministracionOpen(!isAdministracionOpen)}
           className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
         >
-          <span className="font-medium">Administración</span>
+          <span className="">Administración</span>
           <ArrowIcon isOpen={isAdministracionOpen} />
         </div>
         {isAdministracionOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/administracion/controladministrativo')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Control administrativo
             </button>
             <button
               onClick={() => router.push('/dashboard/administracion/pendiente')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Pendiente Cobro
             </button>
              <button
               onClick={() => router.push('/dashboard/administracion/informescomerciales')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Informes comerciales
