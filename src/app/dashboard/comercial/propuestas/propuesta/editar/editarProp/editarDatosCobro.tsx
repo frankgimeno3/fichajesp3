@@ -1,17 +1,24 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 
 const DatosCobroPropuesta: FC = () => {
   const [formData, setFormData] = useState({
-    terminosCobro: '3 cobros',
-    baseImponible: '1500€',
-    impuesto: '21%',
-    precioTotal: '1815€',
+    numeroCobros: '3',
+    baseImponible: '1500', // solo número como string
+    impuesto: '21', // porcentaje sin %
+    precioTotal: '0', // se calcula automáticamente
     formaCobro: 'Transferencia',
     cuentaCobro: 'ES76 1234 5678 9012 3456 7890',
-    numeroCobros: '3',
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  useEffect(() => {
+    const base = parseFloat(formData.baseImponible) || 0;
+    const impuestoNum = parseInt(formData.impuesto) || 0;
+    const factor = impuestoNum === 21 ? 1.21 : 1;
+    const total = base * factor;
+    setFormData((prev) => ({ ...prev, precioTotal: total.toFixed(2) }));
+  }, [formData.baseImponible, formData.impuesto]);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
@@ -21,76 +28,73 @@ const DatosCobroPropuesta: FC = () => {
       <table className="table-auto border-collapse w-full text-left">
         <thead>
           <tr className="bg-blue-950 text-white">
-            <th className="px-4 py-2">Términos de Cobro</th>
+            <th className="px-4 py-2">Número de cobros</th>
             <th className="px-4 py-2">Base imponible</th>
             <th className="px-4 py-2">Impuesto</th>
             <th className="px-4 py-2">Precio total</th>
-            <th className="px-4 py-2">Forma de Cobro</th>
+            <th className="px-4 py-2">Forma de pago</th>
             <th className="px-4 py-2">Cuenta de Cobro</th>
-            <th className="px-4 py-2">Número de Cobros</th>
           </tr>
         </thead>
         <tbody>
           <tr className="bg-white text-gray-700">
             <td className="px-4 py-2">
               <input
-                type="text"
-                name="terminosCobro"
-                value={formData.terminosCobro}
+                type="number"
+                name="numeroCobros"
+                value={formData.numeroCobros}
                 onChange={handleChange}
+                min={1}
                 className="border border-gray-300 rounded px-2 py-1 w-full"
               />
             </td>
             <td className="px-4 py-2">
               <input
-                type="text"
+                type="number"
                 name="baseImponible"
                 value={formData.baseImponible}
                 onChange={handleChange}
+                min={0}
+                step="0.01"
                 className="border border-gray-300 rounded px-2 py-1 w-full"
               />
             </td>
             <td className="px-4 py-2">
-              <input
-                type="text"
+              <select
                 name="impuesto"
                 value={formData.impuesto}
                 onChange={handleChange}
                 className="border border-gray-300 rounded px-2 py-1 w-full"
-              />
+              >
+                <option value="21">21%</option>
+                <option value="0">0%</option>
+              </select>
             </td>
             <td className="px-4 py-2">
               <input
-                type="text"
+                type="number"
                 name="precioTotal"
                 value={formData.precioTotal}
-                onChange={handleChange}
-                className="border border-gray-300 rounded px-2 py-1 w-full"
+                readOnly
+                className="border border-gray-300 rounded px-2 py-1 w-full bg-gray-100"
               />
             </td>
             <td className="px-4 py-2">
-              <input
-                type="text"
+              <select
                 name="formaCobro"
                 value={formData.formaCobro}
                 onChange={handleChange}
                 className="border border-gray-300 rounded px-2 py-1 w-full"
-              />
+              >
+                <option value="Transferencia">Transferencia</option>
+                <option value="Recibo domiciliado">Recibo domiciliado</option>
+              </select>
             </td>
             <td className="px-4 py-2">
               <input
                 type="text"
                 name="cuentaCobro"
                 value={formData.cuentaCobro}
-                onChange={handleChange}
-                className="border border-gray-300 rounded px-2 py-1 w-full"
-              />
-            </td>
-            <td className="px-4 py-2">
-              <input
-                type="text"
-                name="numeroCobros"
-                value={formData.numeroCobros}
                 onChange={handleChange}
                 className="border border-gray-300 rounded px-2 py-1 w-full"
               />
