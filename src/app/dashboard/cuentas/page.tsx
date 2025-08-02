@@ -3,6 +3,7 @@ import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react'; 
 import Filtroscuentas from './componentesClientes/FiltrosClientes';
 import Tablacuentas from './componentesClientes/TablaClientes';
+import MiddleNav from '../0dashboardcomponents/MiddleNav';
 
 const cuentas: FC = () => {
   const router = useRouter();
@@ -13,14 +14,14 @@ const cuentas: FC = () => {
   const [dominioFiltro, setDominioFiltro] = useState('');
 
   return (
-    <div className="bg-gray-100 h-full min-h-screen p-12 text-gray-600">
-      <div className='flex flex-row justify-between w-full items-center'>
-        <h2 className="text-lg font-semibold mb-4">cuentas</h2>
+    <div className="flex flex-col  h-full min-h-screen text-gray-600">
+
+      <MiddleNav tituloprincipal={` Cuentas  `} />
+      <div className="bg-gray-200 min-h-screen p-12 text-gray-600">
         <button className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
           onClick={() => router.push('/dashboard/cuentas/crear')} >
           <p>Crear</p>
         </button>
-      </div>
 
       <div className='mt-12 p-3 rounded-lg shadow-xl bg-white'>
         <Filtroscuentas
@@ -42,6 +43,8 @@ const cuentas: FC = () => {
         />
       </div>
     </div>
+          </div>
+
   );
 };
 
