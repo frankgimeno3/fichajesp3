@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
 
-interface FiltrosClientesProps {
+interface FiltroscuentasProps {
   clienteFiltro: string;
   setClienteFiltro: (value: string) => void;
   agenteFiltro: string;
@@ -13,7 +13,7 @@ interface FiltrosClientesProps {
   setDominioFiltro: (value: string) => void;
 }
 
-const FiltrosClientes: FC<FiltrosClientesProps> = ({
+const Filtroscuentas: FC<FiltroscuentasProps> = ({
   clienteFiltro,
   setClienteFiltro,
   agenteFiltro,
@@ -27,7 +27,7 @@ const FiltrosClientes: FC<FiltrosClientesProps> = ({
     
   return (
     <div className='flex flex-col justify-between mb-6 '>
-      <p className="text-lg font-semibold">Buscador de Clientes</p>
+      <p className="text-lg font-semibold">Buscador de cuentas</p>
 
       <div className='flex flex-wrap gap-4 items-end p-5'>
         <div className='flex flex-col'>
@@ -86,7 +86,7 @@ const FiltrosClientes: FC<FiltrosClientesProps> = ({
         
         <button
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/Clientes/crear')}
+          onClick={() => router.push('/dashboard/cuentas/crear')}
         >
           <p>Buscar</p>
         </button>
@@ -95,4 +95,4 @@ const FiltrosClientes: FC<FiltrosClientesProps> = ({
   );
 };
 
-export default FiltrosClientes;
+export default Filtroscuentas;

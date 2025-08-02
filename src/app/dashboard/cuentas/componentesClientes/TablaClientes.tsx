@@ -5,14 +5,14 @@ interface Resultado {
   id: number;
   nombreEmpresa: string;
   codigoCRM: string;
-  numeroClientes: number;
+  numerocuentas: number;
   agenteAsignado: number;
   fechaUltimaPropuesta: string;
   telefono: string;
   dominio: string;
 }
 
-interface TablaClientesProps {
+interface TablacuentasProps {
   clienteFiltro: string;
   agenteFiltro: string;
   telFiltro: string;
@@ -24,7 +24,7 @@ const mockResultados: Resultado[] = [
     id: 1,
     nombreEmpresa: 'Empresa A',
     codigoCRM: 'CRM001',
-    numeroClientes: 3,
+    numerocuentas: 3,
     agenteAsignado: 123,
     fechaUltimaPropuesta: '2025-07-20',
     telefono: '123456789',
@@ -34,7 +34,7 @@ const mockResultados: Resultado[] = [
     id: 2,
     nombreEmpresa: 'Empresa B',
     codigoCRM: 'CRM002',
-    numeroClientes: 5,
+    numerocuentas: 5,
     agenteAsignado: 456,
     fechaUltimaPropuesta: '2025-07-10',
     telefono: '987654321',
@@ -44,7 +44,7 @@ const mockResultados: Resultado[] = [
     id: 3,
     nombreEmpresa: 'Cliente X',
     codigoCRM: 'CRM999',
-    numeroClientes: 2,
+    numerocuentas: 2,
     agenteAsignado: 123,
     fechaUltimaPropuesta: '2025-06-30',
     telefono: '123123123',
@@ -52,7 +52,7 @@ const mockResultados: Resultado[] = [
   },
 ];
 
-const TablaClientes: FC<TablaClientesProps> = ({
+const Tablacuentas: FC<TablacuentasProps> = ({
   clienteFiltro,
   agenteFiltro,
   telFiltro,
@@ -100,11 +100,11 @@ const TablaClientes: FC<TablaClientesProps> = ({
             <tr
               key={res.id}
               className='border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer'
-              onClick={() => handleRedirection('/dashboard/clientes/ficha')}
+              onClick={() => handleRedirection('/dashboard/cuentas/ficha')}
             >
               <td className='px-4 py-2'>{res.nombreEmpresa}</td>
               <td className='px-4 py-2'>{res.codigoCRM}</td>
-              <td className='px-4 py-2'>{res.numeroClientes}</td>
+              <td className='px-4 py-2'>{res.numerocuentas}</td>
               <td className='px-4 py-2'>{res.agenteAsignado}</td>
               <td className='px-4 py-2'>{res.fechaUltimaPropuesta}</td>
             </tr>
@@ -118,4 +118,4 @@ const TablaClientes: FC<TablaClientesProps> = ({
   );
 };
 
-export default TablaClientes;
+export default Tablacuentas;

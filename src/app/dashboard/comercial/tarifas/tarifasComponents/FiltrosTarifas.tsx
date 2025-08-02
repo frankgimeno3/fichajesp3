@@ -2,7 +2,7 @@
 import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
 
-interface FiltrosServiciosProps {
+interface FiltrosTarifasProps {
   medioFiltro: string;
   setMedioFiltro: (value: string) => void;
   publicacionFiltro: string;
@@ -11,7 +11,7 @@ interface FiltrosServiciosProps {
   setServicioFiltro: (value: string) => void;
 }
 
-const FiltrosServicios: FC<FiltrosServiciosProps> = ({
+const FiltrosTarifas: FC<FiltrosTarifasProps> = ({
   medioFiltro,
   setMedioFiltro,
   publicacionFiltro,
@@ -23,7 +23,7 @@ const FiltrosServicios: FC<FiltrosServiciosProps> = ({
 
   return (
     <div className='flex flex-col justify-between mb-6'>
-      <p className='text-lg font-semibold'>Buscador de servicios</p>
+      <p className='text-lg font-semibold'>Buscador de Tarifas</p>
 
       <div className='flex flex-wrap gap-4 items-end p-5'>
         <div className='flex flex-col'>
@@ -71,7 +71,7 @@ const FiltrosServicios: FC<FiltrosServiciosProps> = ({
 
         <button
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/servicios/crear')}
+          onClick={() => router.push('/dashboard/produccion/tarifas/crear')}
         >
           <p>Buscar</p>
         </button>
@@ -80,4 +80,4 @@ const FiltrosServicios: FC<FiltrosServiciosProps> = ({
   );
 };
 
-export default FiltrosServicios;
+export default FiltrosTarifas;

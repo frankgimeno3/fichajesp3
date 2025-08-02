@@ -82,6 +82,13 @@ const LoggedLeftMenu: FC = () => {
             >
               Propuestas
             </button>
+             <button
+              onClick={() => router.push('/dashboard/produccion/tarifas')}
+              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              hover:text-white transition cursor-pointer"
+            >
+              Tarifas
+            </button>
           </div>
         )}
       </div>
@@ -113,11 +120,12 @@ const LoggedLeftMenu: FC = () => {
             >
               Páginas preferentes
             </button>
+           
           </div>
         )}
       </div>
 
-      {/* CLIENTES */}
+      {/* CUENTAS */}
       <div className="mb-4">
         <div
           onClick={() => setIsClientesOpen(!isClientesOpen)}
@@ -129,15 +137,15 @@ const LoggedLeftMenu: FC = () => {
         {isClientesOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
-              onClick={() => router.push('/dashboard/clientes')}
+              onClick={() => router.push('/dashboard/cuentas')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
-              Fichas de clientes
+              Cuentas
             </button>
             
              <button
-              onClick={() => router.push('/dashboard/clientes/contactos')}
+              onClick={() => router.push('/dashboard/cuentas/contactos')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
@@ -148,34 +156,7 @@ const LoggedLeftMenu: FC = () => {
         )}
       </div>
 
-      {/* SERVICIOS */}
-      <div className="mb-4">
-        <div
-          onClick={() => setIsServiciosOpen(!isServiciosOpen)}
-          className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
-        >
-          <span className="font-medium">Servicios</span>
-          <ArrowIcon isOpen={isServiciosOpen} />
-        </div>
-        {isServiciosOpen && (
-          <div className="ml-4 mt-2 space-y-2">
-            <button
-              onClick={() => router.push('/dashboard/servicios')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Servicios
-            </button>
-            <button
-              onClick={() => router.push('/dashboard/servicios/crear')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Crear Servicio
-            </button>
-          </div>
-        )}
-      </div>
+ 
       {/* ADMINISTRACION */}
       <div className="mb-4">
         <div

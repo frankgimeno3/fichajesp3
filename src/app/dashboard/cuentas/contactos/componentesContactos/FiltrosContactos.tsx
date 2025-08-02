@@ -107,7 +107,7 @@ const FiltrosContactos: FC<FiltrosContactosProps> = ({
 
         <button
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/clientes/contactos/crear')}
+          onClick={() => router.push('/dashboard/cuentas/contactos/crear')}
         >
           <p>Buscar</p>
         </button>

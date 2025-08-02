@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
-import FolderSvg from '../../comercial/propuestas/componentesPropuestas/svg/FolderSvg';
-
+ 
 interface Servicio {
   id: number;
   nombreServicio: string;
@@ -10,13 +9,13 @@ interface Servicio {
   publicacion: string;
 }
 
-interface TablaServiciosProps {
+interface TablaTarifasProps {
   medioFiltro: string;
   publicacionFiltro: string;
   servicioFiltro: string;
 }
 
-const mockServicios: Servicio[] = [
+const mockTarifas: Servicio[] = [
   {
     id: 1,
     nombreServicio: 'Servicio A',
@@ -40,14 +39,14 @@ const mockServicios: Servicio[] = [
   },
 ];
 
-const TablaServicios: FC<TablaServiciosProps> = ({
+const TablaTarifas: FC<TablaTarifasProps> = ({
   medioFiltro,
   publicacionFiltro,
   servicioFiltro,
 }) => {
   const router = useRouter();
 
-  const serviciosFiltrados = mockServicios.filter((s) => {
+  const TarifasFiltrados = mockTarifas.filter((s) => {
     const coincideServicio =
       servicioFiltro === '' ||
       s.nombreServicio.toLowerCase().includes(servicioFiltro.toLowerCase()) ||
@@ -62,10 +61,7 @@ const TablaServicios: FC<TablaServiciosProps> = ({
     return coincideServicio && coincideMedio && coincidePublicacion;
   });
 
-  const handleRedirection = () => {
-    router.push('/dashboard/servicios/detalle');
-  };
-
+ 
   return (
     <div className='overflow-x-auto'>
       <table className='min-w-full border border-gray-300 rounded'>
@@ -80,11 +76,11 @@ const TablaServicios: FC<TablaServiciosProps> = ({
           </tr>
         </thead>
         <tbody>
-          {serviciosFiltrados.map((servicio) => (
+          {TarifasFiltrados.map((servicio) => (
             <tr
               key={servicio.id}
               className='border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer'
-              onClick={handleRedirection}
+              onClick={()=>{ router.push('/dashboard/comercial/tarifas/detalle');}}
             >
               <td className='px-4 py-2'>{servicio.nombreServicio}</td>
               <td className='px-4 py-2'>{servicio.codigoServicio}</td>
@@ -94,11 +90,11 @@ const TablaServicios: FC<TablaServiciosProps> = ({
           ))}
         </tbody>
       </table>
-      {serviciosFiltrados.length === 0 && (
-        <p className='mt-4 text-center text-gray-500'>No se encontraron servicios.</p>
+      {TarifasFiltrados.length === 0 && (
+        <p className='mt-4 text-center text-gray-500'>No se encontraron Tarifas.</p>
       )}
     </div>
   );
 };
 
-export default TablaServicios;
+export default TablaTarifas;

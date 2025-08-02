@@ -1,14 +1,14 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
-import TablaServicios from './serviciosComponents/TablaServicios';
-import FiltrosServicios from './serviciosComponents/FiltrosServicios';
+import FiltrosTarifas from './tarifasComponents/FiltrosTarifas';
+import TablaTarifas from './tarifasComponents/TablaTarifas';
 
-interface ServiciosProps {
+interface TarifasProps {
   
 }
 
-const Servicios: FC<ServiciosProps> = ({ }) => {
+const Tarifas: FC<TarifasProps> = ({ }) => {
     const router = useRouter();
     const [medioFiltro, setMedioFiltro] = useState('')
     const [publicacionFiltro, setPublicacionFiltro] = useState('')
@@ -17,17 +17,17 @@ const Servicios: FC<ServiciosProps> = ({ }) => {
   return (
   <div className="bg-gray-100 h-full min-h-screen p-12 text-gray-600">
       <div className='flex flex-row justify-between w-full items-center'>
-        <h2 className="text-lg font-semibold mb-4">Servicios</h2>
+        <h2 className="text-lg font-semibold mb-4">Tarifas</h2>
         <button
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/servicios/crear')}
+          onClick={() => router.push('/dashboard/comercial/tarifas/crear')}
         >
           <p>Crear</p>
         </button>
       </div>
 
        <div className='mt-12 p-3 rounded-lg shadow-xl bg-white'>
-        <FiltrosServicios
+        <FiltrosTarifas
           medioFiltro={medioFiltro}
           setMedioFiltro={setMedioFiltro}
           publicacionFiltro={publicacionFiltro}
@@ -36,7 +36,7 @@ const Servicios: FC<ServiciosProps> = ({ }) => {
           setServicioFiltro={setServicioFiltro}
         />
 
-        <TablaServicios
+        <TablaTarifas
           medioFiltro={medioFiltro}
           publicacionFiltro={publicacionFiltro}
           servicioFiltro={servicioFiltro}
@@ -45,4 +45,4 @@ const Servicios: FC<ServiciosProps> = ({ }) => {
      </div>  );
 };
 
-export default Servicios;
+export default Tarifas;

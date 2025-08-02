@@ -21,7 +21,7 @@ const Contactos: FC = () => {
         <h2 className="text-lg font-semibold mb-4">Contactos</h2>
         <button
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/contactos/crear')}
+          onClick={() => router.push('/dashboard/cuentas/contactos/crear')}
         >
           <p>Crear</p>
         </button>

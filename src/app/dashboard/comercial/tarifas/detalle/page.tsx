@@ -10,18 +10,18 @@ const Detalle: FC<DetalleProps> = ({ }) => {
     return (
         <div className="bg-gray-100 h-full min-h-screen p-12 text-gray-600">
             <div className='flex flex-row justify-between w-full items-center'>
-                <h2 className="text-lg font-semibold mb-4">Servicios</h2>
+                <h2 className="text-lg font-semibold mb-4">Tarifas</h2>
                 <button
                     className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-                    onClick={() => router.push('/dashboard/servicios/crear')}
+                    onClick={() => router.push('/dashboard/comercial/tarifas/crear')}
                 >
                     <p>Crear</p>
                 </button>
             </div>
 
-            {/* Tabla de servicios */}
+            {/* Tabla de tarifas */}
             <div className='mt-12 p-3 rounded-lg shadow-xl bg-white'>
-                <h3 className="text-md font-semibold mb-4">Lista de servicios</h3>
+                <h3 className="text-md font-semibold mb-4">Lista de tarifas</h3>
                 <table className="w-full text-left border border-gray-300 rounded-lg overflow-hidden">
                     <thead className="bg-gray-200 text-gray-700">
                         <tr>

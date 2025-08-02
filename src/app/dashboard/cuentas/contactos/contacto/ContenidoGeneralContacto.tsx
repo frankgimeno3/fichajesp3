@@ -14,7 +14,7 @@ const ContenidoGeneralContacto: FC<ContenidoGeneralContactoProps> = ({ }) => {
         <p>Nombre del contacto</p>
         <p>Apellidos</p>
         <p>Empresa actual</p>
-        <button onClick={()=>{router.push('/dashboard/clientes/ficha')}}>Ir a la ficha de la empresa</button>
+        <button onClick={()=>{router.push('/dashboard/cuentas/ficha')}}>Ir a la ficha de la empresa</button>
         <p>Idioma</p>
         <p>Cargo actual</p>
         <p>Conocido en ...</p>
