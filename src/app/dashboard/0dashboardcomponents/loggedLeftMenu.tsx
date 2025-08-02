@@ -83,7 +83,7 @@ const LoggedLeftMenu: FC = () => {
               Propuestas
             </button>
              <button
-              onClick={() => router.push('/dashboard/produccion/tarifas')}
+              onClick={() => router.push('/dashboard/comercial/tarifas')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
