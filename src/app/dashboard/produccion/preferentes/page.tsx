@@ -15,7 +15,19 @@ const Preferentes: FC<PreferentesProps> = ({ }) => {
 
   return (
     <div className="bg-white h-full min-h-screen p-12 text-gray-600">
+      <div className='flex flex-row justify-between'>
       <h2 className="text-xl font-semibold mb-4">Páginas preferentes</h2>
+<button
+            className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900  text-xl'
+           >
+            <p>Añadir preferente ofertada</p>
+          </button>
+          <button
+            className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900  text-xl'
+           >
+            <p>Añadir preferente contratada</p>
+          </button>
+      </div>
 
       <div className="flex flex-row relative">
         <div
