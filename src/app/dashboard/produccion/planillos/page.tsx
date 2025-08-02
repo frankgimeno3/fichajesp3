@@ -6,7 +6,7 @@ interface PlanillosProps {}
 
 const Planillos: FC<PlanillosProps> = ({ }) => {
 
-  const router = useRouter()
+  const router = useRouter();
   const data = [
     {
       edicion: 'Vidrio ES 212',
@@ -36,35 +36,34 @@ const Planillos: FC<PlanillosProps> = ({ }) => {
 
   return (
     <div className="bg-gray-100 h-full min-h-screen p-12 text-gray-600">
-       <h2 className="text-xl font-semibold mb-4">Planillos próximas ediciones</h2>
+      <h2 className="text-xl font-semibold mb-4">Planillos próximas ediciones</h2>
 
-      <div className='flex flex-row justify-between w-full items-center bg-white rounded p-5'>     
-
-      <table className="w-full table-auto border-collapse border border-gray-300">
-        <thead>
-          <tr className="bg-gray-100">
-            <th className="border border-gray-300 px-4 py-2">Edición</th>
-            <th className="border border-gray-300 px-4 py-2">Deadline Material</th>
-            <th className="border border-gray-300 px-4 py-2">Fecha Publicación Esperada</th>
-            <th className="border border-gray-300 px-4 py-2">Temática Específica</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item, index) => (
-            <tr key={index} className="hover:bg-gray-50">
-              <td className="border border-gray-300 px-4 py-2"
-              onClick={()=>{router.push('/dashboard/produccion/planillos/revista')}}>{item.edicion}</td>
-              <td className="border border-gray-300 px-4 py-2"
-              onClick={()=>{router.push('/dashboard/produccion/planillos/revista')}}>{item.deadline}</td>
-              <td className="border border-gray-300 px-4 py-2"
-              onClick={()=>{router.push('/dashboard/produccion/planillos/revista')}}>{item.publicacion}</td>
-              <td className="border border-gray-300 px-4 py-2"
-              onClick={()=>{router.push('/dashboard/produccion/planillos/revista')}}>{item.tematica}</td>
+      <div className='flex flex-row justify-between w-full items-center bg-white rounded p-5'>
+        <table className='min-w-full'>
+          <thead className='bg-blue-950 text-white'>
+            <tr>
+              <th className='text-left p-2 font-light'>Edición</th>
+              <th className='text-left p-2 font-light'>Deadline Material</th>
+              <th className='text-left p-2 font-light'>Fecha Publicación Esperada</th>
+              <th className='text-left p-2 font-light'>Temática Específica</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {data.map((item, index) => (
+              <tr key={index} className='hover:bg-gray-50 cursor-pointer'>
+                <td className='p-2 border-b border-gray-200'
+                  onClick={() => { router.push('/dashboard/produccion/planillos/revista') }}>{item.edicion}</td>
+                <td className='p-2 border-b border-gray-200'
+                  onClick={() => { router.push('/dashboard/produccion/planillos/revista') }}>{item.deadline}</td>
+                <td className='p-2 border-b border-gray-200'
+                  onClick={() => { router.push('/dashboard/produccion/planillos/revista') }}>{item.publicacion}</td>
+                <td className='p-2 border-b border-gray-200'
+                  onClick={() => { router.push('/dashboard/produccion/planillos/revista') }}>{item.tematica}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
