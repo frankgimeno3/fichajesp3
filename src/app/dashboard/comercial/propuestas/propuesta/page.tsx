@@ -54,34 +54,35 @@ const ResumenPropuesta: FC = () => {
   return (
     <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
 
-      <MiddleNav tituloprincipal={` Creador de propuestas `} />
+      <MiddleNav tituloprincipal={` Propuesta completa `} />
 
-      <div className="bg-gray-100 min-h-screen px-12 text-gray-600">      <div className='flex flex-row justify-between'>
-        <h2 className="text-lg font-semibold mb-4">Propuesta con Código {codigoPropuesta}</h2>
+      <div className="bg-gray-100 min-h-screen px-12 text-gray-600">
+        <div className='flex flex-row justify-between py-12'>
+          <h2 className="text-lg font-semibold mb-4">Propuesta con Código {codigoPropuesta}</h2>
 
-        <div className='flex flex-row gap-5'>
-          <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-            onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
-            Actualizar
-          </button>
-          <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-            onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
-            Eliminar
-          </button>
-          <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-            onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
-            Marcar como aceptada
-          </button>
-          <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-            onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
-            Marcar como rechazada
-          </button>
-          <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-            onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
-            Usar como plantilla
-          </button>
+          <div className='flex flex-row gap-5'>
+            <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
+              Actualizar
+            </button>
+            <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
+              Eliminar
+            </button>
+            <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
+              Marcar como aceptada
+            </button>
+            <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
+              Marcar como rechazada
+            </button>
+            <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')} >
+              Usar como plantilla
+            </button>
+          </div>
         </div>
-      </div>
 
         <p className="font-bold text-gray-500">Datos generales:</p>
         <TablaDatosGenerales codigoPropuesta={codigoPropuesta} />
@@ -123,7 +124,7 @@ const ResumenPropuesta: FC = () => {
         <DatosCobroPropuesta />
 
         <p className="font-bold text-gray-500 mt-6">Comentarios adicionales:</p>
-        <div className='bg-white rounded text-gray-500 p-5'>
+        <div className='bg-white rounded text-gray-500 p-5 mb-24'>
           Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum repellendus voluptate?
         </div>
 

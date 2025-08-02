@@ -64,28 +64,28 @@ const TablaTarifas: FC<TablaTarifasProps> = ({
  
   return (
     <div className='overflow-x-auto'>
-      <table className='min-w-full border border-gray-300 rounded'>
-        <thead className='bg-gray-100'>
+   <table className='min-w-full '>
+          <thead className='bg-blue-950 text-white '>
           <tr>
-            <th className='px-4 py-2 text-left'>Nombre Servicio</th>
-            <th className='px-4 py-2 text-left'>Código</th>
-            <th className='px-4 py-2 text-left'>Medio</th>
-            <th className='px-4 py-2 text-left'>Publicación</th>
-            <th className='px-4 py-2 text-left'>Precio tarifa</th>
-            <th className='px-4 py-2 text-left'>Detalles</th>
+             <th className='text-left p-2 font-light'>Nombre Servicio</th>
+             <th className='text-left p-2 font-light'>Código</th>
+             <th className='text-left p-2 font-light'>Medio</th>
+             <th className='text-left p-2 font-light'>Publicación</th>
+             <th className='text-left p-2 font-light'>Precio tarifa</th>
+             <th className='text-left p-2 font-light'>Detalles</th>
           </tr>
         </thead>
         <tbody>
           {TarifasFiltrados.map((servicio) => (
             <tr
               key={servicio.id}
-              className='border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer'
+             className='hover:bg-gray-50 cursor-pointer'
               onClick={()=>{ router.push('/dashboard/comercial/tarifas/detalle');}}
             >
-              <td className='px-4 py-2'>{servicio.nombreServicio}</td>
-              <td className='px-4 py-2'>{servicio.codigoServicio}</td>
-              <td className='px-4 py-2'>{servicio.medio}</td>
-              <td className='px-4 py-2'>{servicio.publicacion}</td>
+              <td className='p-2 border-b border-gray-200'>{servicio.nombreServicio}</td>
+              <td className='p-2 border-b border-gray-200'>{servicio.codigoServicio}</td>
+              <td className='p-2 border-b border-gray-200'>{servicio.medio}</td>
+              <td className='p-2 border-b border-gray-200'>{servicio.publicacion}</td>
             </tr>
           ))}
         </tbody>
