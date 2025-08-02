@@ -82,7 +82,7 @@ const ContenidoPorPublicacion: FC<ContenidoPorPublicacionProps> = ({ }) => {
                 <td className='p-2 border-b border-gray-200'>
                    <button
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/seguimientos/campanas/resumen')}
+          onClick={() => router.push('/dashboard/comercial/contratos/resumen')}
         >
           <p>Ver campaña publicitaria</p>
         </button>
