@@ -135,13 +135,7 @@ const LoggedLeftMenu: FC = () => {
             >
               Fichas de clientes
             </button>
-            <button
-              onClick={() => router.push('/dashboard/clientes/crear')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Crear cliente
-            </button>
+            
              <button
               onClick={() => router.push('/dashboard/clientes/contactos')}
               className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
@@ -149,13 +143,7 @@ const LoggedLeftMenu: FC = () => {
             >
               Contactos
             </button>
-             <button
-              onClick={() => router.push('/dashboard/clientes/contactos/crear')}
-              className="block text-sm px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Crear contacto
-            </button>
+            
           </div>
         )}
       </div>
