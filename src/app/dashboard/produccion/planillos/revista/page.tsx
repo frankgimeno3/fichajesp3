@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import MiddleNav from '@/app/dashboard/0dashboardcomponents/MiddleNav';
 import React, { FC, JSX, useState } from 'react';
 
@@ -17,10 +17,10 @@ const mockData: CeldaData[] = [
     { posición: 'Página 1', empresa: 'Empresa A', tipoContenido: 'artículo', estado: 'producido', agente: "Pep" },
     { posición: 'Página 2', empresa: 'Empresa B', tipoContenido: 'anuncio', estado: 'revisado', agente: "Pep" },
     { posición: 'Página 3', empresa: 'Empresa C', tipoContenido: 'artículo', estado: 'no pedido', agente: "Pep" },
-    // Agrega más si quieres
+    // Puedes agregar más aquí si quieres que más celdas tengan datos reales
 ];
 
-const totalCeldas = 60;
+const totalCeldas = 88;
 
 const PlanilloRevista: FC<PlanilloRevistaProps> = () => {
     const [edicionActual] = useState("Revista del vidrio españa 242");
@@ -62,20 +62,27 @@ const PlanilloRevista: FC<PlanilloRevistaProps> = () => {
     });
 
     const filas: JSX.Element[] = [];
+
     for (let i = 1; i < totalCeldas; i += 2) {
         const left = celdas[i];
-        const right = celdas[i + 1] || (
-            <div key={i + 1} className="w-1/2 border border-gray-700 p-2 h-20 relative text-xs">
-                <div className="absolute top-1 right-2 text-gray-600">#{i + 1}</div>
-            </div>
-        );
 
-        filas.push(
-            <div key={`fila-${i}`} className="flex">
-                {left}
-                {right}
-            </div>
-        );
+        if (i + 1 < totalCeldas) {
+            const right = celdas[i + 1];
+            filas.push(
+                <div key={`fila-${i}`} className="flex">
+                    {left}
+                    {right}
+                </div>
+            );
+        } else {
+            filas.push(
+                <div key={`fila-${i}`} className="flex">
+                    <div className="w-full">
+                        {left}
+                    </div>
+                </div>
+            );
+        }
     }
 
     return (
@@ -83,27 +90,41 @@ const PlanilloRevista: FC<PlanilloRevistaProps> = () => {
             <MiddleNav tituloprincipal={` Planillo de revista ${edicionActual}`} />
 
             <div className="bg-white min-h-screen p-12 text-gray-600">
-                <h2 className="text-xl font-semibold mb-6">Planillos {edicionActual}</h2>
+                <div className='flex flex-row justify-between flex-1'>
+                    <div className='flex flex-col'>
+                        <h2 className="text-xl font-semibold mb-6">Planillos {edicionActual}</h2>
 
-                <div className='flex flex-row justify-start gap-5 mb-12'>
-                    <button className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 '>
-                        Descargar como PDF
-                    </button>
-                    <button className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 '>
-                        Añadir manualmente
-                    </button>
-                    <button className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 '>
-                        Intercambiar páginas
-                    </button>
+                        <div className='flex flex-row justify-start gap-5 mb-12'>
+                            <button className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 '>
+                                Descargar como PDF
+                            </button>
+                            <button className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 '>
+                                Añadir manualmente
+                            </button>
+                            <button className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 '>
+                                Intercambiar páginas
+                            </button>
+                        </div>
+                    </div>
+                    <div className='flex flex-col bg-white rounded-xl shadow p-5 text-sm border border-gray-100  mb-12'>
+                        <p className='font-bold'>Sobre este planillo</p>
+                        <div className='flex flex-col'>
+                            <p>Fecha de publicación de la revista: 12/03/2026</p>
+                            <p>Fecha de deadline general materiales: 12/03/2026</p>
+                            <p>Fecha prevista de envío a imprenta: 12/03/2026</p>
+                            <p>Temática: Especial vitrum 2025</p>
+                            <p>Estado actual del plaillo: Planillo previo</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="flex flex-row     ">
-                    <div className="flex flex-col gap-1 mx-24 border border-gray-700" style={{ width: "500px" }}>
+                <div className="flex flex-row justify-between ">
+                    <div className="flex flex-col gap-1 border border-gray-700" style={{ width: "500px" }}>
                         {celdas[0]}
-                        {filas.slice(0, 15)}
+                        {filas.slice(0, 22)} {/* 44 celdas = 22 filas */}
                     </div>
                     <div className="flex flex-col gap-1 border border-gray-700" style={{ width: "500px" }}>
-                        {filas.slice(15)}
+                        {filas.slice(22)} {/* las otras 22 filas */}
                     </div>
                 </div>
             </div>
