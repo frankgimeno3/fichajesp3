@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import MiddleNav from '../../0dashboardcomponents/MiddleNav';
 
-interface ControladministrativoProps {}
+interface OrdenesCobroProps {}
 
-const Controladministrativo: FC<ControladministrativoProps> = () => {
+const OrdenesCobro: FC<OrdenesCobroProps> = () => {
   const columnas = [
     'ORDEN',
     'CODIGO CRM',
@@ -59,4 +59,4 @@ const Controladministrativo: FC<ControladministrativoProps> = () => {
   );
 };
 
-export default Controladministrativo;
+export default OrdenesCobro;
