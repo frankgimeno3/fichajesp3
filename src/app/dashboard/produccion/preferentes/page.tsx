@@ -5,6 +5,7 @@ import ContenidoVidrioAl from './contenidopreferentes/contenidopestanas/contenid
 import ContenidoVentanasEsp from './contenidopreferentes/contenidopestanas/contenidoVentanasEsp';
 import ContenidoVentanasAl from './contenidopreferentes/contenidopestanas/contenidoVentanasAl';
 import ContenidoHistorico from './contenidopreferentes/contenidopestanas/contenidoHistorico';
+import MiddleNav from '../../0dashboardcomponents/MiddleNav';
 
 interface PreferentesProps {
 
@@ -14,9 +15,12 @@ const Preferentes: FC<PreferentesProps> = ({ }) => {
   const [pestana, setPestana] = useState<'vidrioesp' | 'vidrioal' | 'ventanasesp' | 'ventanasal' | 'historico'>('vidrioesp');
 
   return (
-    <div className="bg-white h-full min-h-screen p-12 text-gray-600">
-      <div className='flex flex-row justify-between'>
-        <h2 className="text-xl font-semibold mb-4">Páginas preferentes</h2>
+    <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
+
+      <MiddleNav tituloprincipal={` Páginas preferentes  `} />
+
+    <div className="bg-white min-h-screen p-12 text-gray-600">    
+            <div className='flex flex-row justify-end'>
         <div className='flex flex-row gap-3 items-center pb-5'>
           <button
             className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
@@ -34,7 +38,7 @@ const Preferentes: FC<PreferentesProps> = ({ }) => {
       <div className="flex flex-row relative">
         <div
           className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
-            ${pestana === 'vidrioesp' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-100 hover:bg-gray-200'}`}
+            ${pestana === 'vidrioesp' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-200 hover:bg-gray-300'}`}
           style={{ marginLeft: '0px' }}
           onClick={() => setPestana('vidrioesp')}
         >
@@ -42,7 +46,7 @@ const Preferentes: FC<PreferentesProps> = ({ }) => {
         </div>
         <div
           className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
-            ${pestana === 'ventanasesp' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-100 hover:bg-gray-200'}`}
+            ${pestana === 'ventanasesp' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-200 hover:bg-gray-300'}`}
           style={{ marginLeft: '-5px' }}
           onClick={() => setPestana('ventanasesp')}
         >
@@ -50,7 +54,7 @@ const Preferentes: FC<PreferentesProps> = ({ }) => {
         </div>
         <div
           className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
-            ${pestana === 'vidrioal' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-100 hover:bg-gray-200'}`}
+            ${pestana === 'vidrioal' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-200 hover:bg-gray-300'}`}
           style={{ marginLeft: '-5px' }}
           onClick={() => setPestana('vidrioal')}
         >
@@ -58,7 +62,7 @@ const Preferentes: FC<PreferentesProps> = ({ }) => {
         </div>
         <div
           className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
-            ${pestana === 'ventanasal' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-100 hover:bg-gray-200'}`}
+            ${pestana === 'ventanasal' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-200 hover:bg-gray-300'}`}
           style={{ marginLeft: '-5px' }}
           onClick={() => setPestana('ventanasal')}
         >
@@ -67,7 +71,7 @@ const Preferentes: FC<PreferentesProps> = ({ }) => {
 
         <div
           className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
-            ${pestana === 'historico' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-100 hover:bg-gray-200'}`}
+            ${pestana === 'historico' ? 'bg-blue-950 text-white z-30 rounded-tl-lg' : 'z-10 bg-gray-200 hover:bg-gray-300'}`}
           style={{ marginLeft: '-5px' }}
           onClick={() => setPestana('historico')}
         >
@@ -80,6 +84,7 @@ const Preferentes: FC<PreferentesProps> = ({ }) => {
         {pestana == "ventanasesp" && <ContenidoVentanasEsp />}
         {pestana == "ventanasal" && <ContenidoVentanasAl />}
         {pestana == "historico" && <ContenidoHistorico />}
+      </div>
       </div>
     </div>
   );

@@ -1,0 +1,198 @@
+[
+  {
+    "edicion": "212",
+    "preferentes": [
+      {
+        "pagina": "PORTADA",
+        "estado": {
+          "contratada": {
+            "contratada_por": "Agente A",
+            "vendida_a": "Empresa Alpha"
+          },
+          "ofrecida_a": [
+            { "ofrecida_por": "Agente B", "ofrecida_a": "Empresa Beta" }
+          ]
+        }
+      },
+      {
+        "pagina": "P1",
+        "estado": {
+          "contratada": "no",
+          "ofrecida_a": [
+            { "ofrecida_por": "Agente C", "ofrecida_a": "Empresa Delta" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "edicion": "213",
+    "preferentes": [
+      {
+        "pagina": "P2",
+        "estado": {
+          "contratada": {
+            "contratada_por": "Agente D",
+            "vendida_a": "Empresa Zeta"
+          },
+          "ofrecida_a": []
+        }
+      },
+      {
+        "pagina": "P5",
+        "estado": {
+          "contratada": "no",
+          "ofrecida_a": [
+            { "ofrecida_por": "Agente E", "ofrecida_a": "Empresa Gamma" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "edicion": "214",
+    "preferentes": [
+      {
+        "pagina": "P6+7",
+        "estado": {
+          "contratada": {
+            "contratada_por": "Agente F",
+            "vendida_a": "Empresa Sigma"
+          },
+          "ofrecida_a": [
+            { "ofrecida_por": "Agente G", "ofrecida_a": "Empresa Omega" }
+          ]
+        }
+      },
+      {
+        "pagina": "INT. PORTADA",
+        "estado": {
+          "contratada": "no",
+          "ofrecida_a": [
+            { "ofrecida_por": "Agente H", "ofrecida_a": "Empresa Epsilon" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "edicion": "215",
+    "preferentes": [
+      {
+        "pagina": "P3",
+        "estado": {
+          "contratada": {
+            "contratada_por": "Agente I",
+            "vendida_a": "Empresa Kronos"
+          },
+          "ofrecida_a": []
+        }
+      },
+      {
+        "pagina": "P7+8",
+        "estado": {
+          "contratada": "no",
+          "ofrecida_a": [
+            { "ofrecida_por": "Agente J", "ofrecida_a": "Empresa Lambda" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "edicion": "216",
+    "preferentes": [
+      {
+        "pagina": "INT. PORTADA",
+        "estado": {
+          "contratada": {
+            "contratada_por": "Agente K",
+            "vendida_a": "Empresa Nova"
+          },
+          "ofrecida_a": [
+            { "ofrecida_por": "Agente L", "ofrecida_a": "Empresa Orion" }
+          ]
+        }
+      },
+      {
+        "pagina": "P1",
+        "estado": {
+          "contratada": "no",
+          "ofrecida_a": []
+        }
+      }
+    ]
+  },
+  {
+    "edicion": "217",
+    "preferentes": [
+      {
+        "pagina": "PORTADA",
+        "estado": {
+          "contratada": {
+            "contratada_por": "Agente M",
+            "vendida_a": "Empresa Quark"
+          },
+          "ofrecida_a": []
+        }
+      },
+      {
+        "pagina": "P5",
+        "estado": {
+          "contratada": "no",
+          "ofrecida_a": [
+            { "ofrecida_por": "Agente N", "ofrecida_a": "Empresa Reactor" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "edicion": "218",
+    "preferentes": [
+      {
+        "pagina": "P2",
+        "estado": {
+          "contratada": {
+            "contratada_por": "Agente O",
+            "vendida_a": "Empresa Sombra"
+          },
+          "ofrecida_a": []
+        }
+      },
+      {
+        "pagina": "P6+7",
+        "estado": {
+          "contratada": "no",
+          "ofrecida_a": [
+            { "ofrecida_por": "Agente P", "ofrecida_a": "Empresa Titan" }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "edicion": "219",
+    "preferentes": [
+      {
+        "pagina": "P3",
+        "estado": {
+          "contratada": {
+            "contratada_por": "Agente Q",
+            "vendida_a": "Empresa Umbra"
+          },
+          "ofrecida_a": [
+            { "ofrecida_por": "Agente R", "ofrecida_a": "Empresa Vector" }
+          ]
+        }
+      },
+      {
+        "pagina": "P1",
+        "estado": {
+          "contratada": "no",
+          "ofrecida_a": []
+        }
+      }
+    ]
+  }
+]

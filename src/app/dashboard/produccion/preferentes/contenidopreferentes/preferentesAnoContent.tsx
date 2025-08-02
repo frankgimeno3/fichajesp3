@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import data from './contenidopestanas/preferentesdata.json';
 
 interface Oferta {
   ofrecida_por: string;
@@ -27,219 +28,21 @@ interface Edicion {
   preferentes: Preferente[];
 }
 
-const mockData: Edicion[] = [
-  {
-    "edicion": "212",
-    "preferentes": [
-      {
-        "pagina": "PORTADA",
-        "estado": {
-          "contratada": {
-            "contratada_por": "Agente A",
-            "vendida_a": "Empresa Alpha"
-          },
-          "ofrecida_a": [
-            { "ofrecida_por": "Agente B", "ofrecida_a": "Empresa Beta" }
-          ]
-        }
-      },
-      {
-        "pagina": "P1",
-        "estado": {
-          "contratada": "no",
-          "ofrecida_a": [
-            { "ofrecida_por": "Agente C", "ofrecida_a": "Empresa Delta" }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "edicion": "213",
-    "preferentes": [
-      {
-        "pagina": "P2",
-        "estado": {
-          "contratada": {
-            "contratada_por": "Agente D",
-            "vendida_a": "Empresa Zeta"
-          },
-          "ofrecida_a": []
-        }
-      },
-      {
-        "pagina": "P5",
-        "estado": {
-          "contratada": "no",
-          "ofrecida_a": [
-            { "ofrecida_por": "Agente E", "ofrecida_a": "Empresa Gamma" }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "edicion": "214",
-    "preferentes": [
-      {
-        "pagina": "P6+7",
-        "estado": {
-          "contratada": {
-            "contratada_por": "Agente F",
-            "vendida_a": "Empresa Sigma"
-          },
-          "ofrecida_a": [
-            { "ofrecida_por": "Agente G", "ofrecida_a": "Empresa Omega" }
-          ]
-        }
-      },
-      {
-        "pagina": "INT. PORTADA",
-        "estado": {
-          "contratada": "no",
-          "ofrecida_a": [
-            { "ofrecida_por": "Agente H", "ofrecida_a": "Empresa Epsilon" }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "edicion": "215",
-    "preferentes": [
-      {
-        "pagina": "P3",
-        "estado": {
-          "contratada": {
-            "contratada_por": "Agente I",
-            "vendida_a": "Empresa Kronos"
-          },
-          "ofrecida_a": []
-        }
-      },
-      {
-        "pagina": "P7+8",
-        "estado": {
-          "contratada": "no",
-          "ofrecida_a": [
-            { "ofrecida_por": "Agente J", "ofrecida_a": "Empresa Lambda" }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "edicion": "216",
-    "preferentes": [
-      {
-        "pagina": "INT. PORTADA",
-        "estado": {
-          "contratada": {
-            "contratada_por": "Agente K",
-            "vendida_a": "Empresa Nova"
-          },
-          "ofrecida_a": [
-            { "ofrecida_por": "Agente L", "ofrecida_a": "Empresa Orion" }
-          ]
-        }
-      },
-      {
-        "pagina": "P1",
-        "estado": {
-          "contratada": "no",
-          "ofrecida_a": []
-        }
-      }
-    ]
-  },
-  {
-    "edicion": "217",
-    "preferentes": [
-      {
-        "pagina": "PORTADA",
-        "estado": {
-          "contratada": {
-            "contratada_por": "Agente M",
-            "vendida_a": "Empresa Quark"
-          },
-          "ofrecida_a": []
-        }
-      },
-      {
-        "pagina": "P5",
-        "estado": {
-          "contratada": "no",
-          "ofrecida_a": [
-            { "ofrecida_por": "Agente N", "ofrecida_a": "Empresa Reactor" }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "edicion": "218",
-    "preferentes": [
-      {
-        "pagina": "P2",
-        "estado": {
-          "contratada": {
-            "contratada_por": "Agente O",
-            "vendida_a": "Empresa Sombra"
-          },
-          "ofrecida_a": []
-        }
-      },
-      {
-        "pagina": "P6+7",
-        "estado": {
-          "contratada": "no",
-          "ofrecida_a": [
-            { "ofrecida_por": "Agente P", "ofrecida_a": "Empresa Titan" }
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "edicion": "219",
-    "preferentes": [
-      {
-        "pagina": "P3",
-        "estado": {
-          "contratada": {
-            "contratada_por": "Agente Q",
-            "vendida_a": "Empresa Umbra"
-          },
-          "ofrecida_a": [
-            { "ofrecida_por": "Agente R", "ofrecida_a": "Empresa Vector" }
-          ]
-        }
-      },
-      {
-        "pagina": "P1",
-        "estado": {
-          "contratada": "no",
-          "ofrecida_a": []
-        }
-      }
-    ]
-  }
-]
-
-
 const preferentesDisponibles = [
   "PORTADA", "INT. PORTADA", "P1", "P2", "P3", "P5", "P6+7", "P7+8"
 ];
 
 const PreferentesAnoContent: FC = () => {
+  const mockData = data as Edicion[];
+
   return (
     <div className="overflow-x-auto p-4">
       <table className="min-w-full table-auto border-collapse border border-gray-300">
         <thead>
           <tr>
-            <th className="border border-gray-300 px-2 py-1 text-left">Edición</th>
+            <th className="border border-gray-300 px-2 py-1 text-left bg-blue-900/50 text-white text-center">Edición</th>
             {preferentesDisponibles.map((pref) => (
-              <th key={pref} className="border border-gray-300 px-2 py-1 text-center">
+              <th key={pref} className="border border-gray-300 px-2 py-1 text-center bg-blue-950 text-white">
                 {pref}
               </th>
             ))}
@@ -248,7 +51,7 @@ const PreferentesAnoContent: FC = () => {
         <tbody>
           {mockData.map((ed) => (
             <tr key={ed.edicion}>
-              <td className="border border-gray-300 px-2 py-1 font-medium">{ed.edicion}</td>
+              <td className="border border-gray-300 px-2 py-1 font-medium bg-blue-900/50 text-white text-center">{ed.edicion}</td>
               {preferentesDisponibles.map((pref) => {
                 const encontrado = ed.preferentes.find(p => p.pagina === pref);
 
@@ -262,16 +65,20 @@ const PreferentesAnoContent: FC = () => {
                   <td key={pref} className="border border-gray-300 px-2 py-1 text-sm align-top">
                     {contratada !== 'no' ? (
                       <div>
-                        <div className="font-semibold text-green-700">Contratada</div>
-                        <div className="text-xs text-gray-600">
-                          por {contratada.contratada_por}<br />
-                          a {contratada.vendida_a}
+                        <div className="p-2 px-3 text-white bg-green-700 rounded-xl shadow-lg">
+                          <p className='font-semibold'>Contratada</p>
+                          <div className="text-xs">
+                            Por agente: {contratada.contratada_por}<br />
+                            A empresa: {contratada.vendida_a}
+                          </div>
                         </div>
+                        <p className='font-bold p-3'>Ya no disponible para:</p>
                         {ofrecida_a.length > 0 && (
-                          <div className="mt-1 text-red-500 line-through text-xs">
+                          <div className="mx-3 text-red-500 text-xs bg-gray-200 p-2 px-3 rounded-xl shadow">
                             {ofrecida_a.map((o, i) => (
                               <div key={i}>
-                                Ofrecida por {o.ofrecida_por} a {o.ofrecida_a}
+                                <p>{o.ofrecida_a}</p>
+                                <p>Ofrecida por: {o.ofrecida_por}</p>
                               </div>
                             ))}
                           </div>
@@ -280,7 +87,7 @@ const PreferentesAnoContent: FC = () => {
                     ) : (
                       <div>
                         {ofrecida_a.length > 0 ? (
-                          <div className="text-blue-700 text-xs">
+                          <div className="text-white text-xs bg-blue-400 rounded shadow px-3 py-2">
                             {ofrecida_a.map((o, i) => (
                               <div key={i}>
                                 Ofrecida por {o.ofrecida_por} a {o.ofrecida_a}

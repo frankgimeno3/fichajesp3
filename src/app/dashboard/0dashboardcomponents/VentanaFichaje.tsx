@@ -23,7 +23,7 @@ const VentanaFichaje: FC<VentanaFichajeProps> = ({ }) => {
                     <p className='py-4'>Todavía no has fichado</p>
                     <button
                         className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-                        onClick={()=>{router.push('/dashboard/registro')}}
+                        onClick={()=>{router.push('/dashboard/fichajes')}}
                     >Ficha aquí tu entrada</button>
                 </div>}
         </div>

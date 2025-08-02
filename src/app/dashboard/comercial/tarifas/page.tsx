@@ -20,7 +20,8 @@ const Tarifas: FC<TarifasProps> = ({ }) => {
 
       <MiddleNav tituloprincipal={` Tarifas  `} />
 
-    <div className="bg-white min-h-screen p-12 text-gray-600">      <div className='flex flex-row justify-between w-full items-center'>
+    <div className="bg-white min-h-screen p-12 text-gray-600">      
+      <div className='flex flex-row justify-between w-full items-center'>
         <h2 className="text-lg font-semibold mb-4">Tarifas</h2>
         <button
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
