@@ -16,17 +16,19 @@ const Preferentes: FC<PreferentesProps> = ({ }) => {
   return (
     <div className="bg-white h-full min-h-screen p-12 text-gray-600">
       <div className='flex flex-row justify-between'>
-      <h2 className="text-xl font-semibold mb-4">Páginas preferentes</h2>
-<button
-            className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900  text-xl'
-           >
+        <h2 className="text-xl font-semibold mb-4">Páginas preferentes</h2>
+        <div className='flex flex-row gap-3 items-center pb-5'>
+          <button
+            className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
+          >
             <p>Añadir preferente ofertada</p>
           </button>
           <button
-            className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900  text-xl'
-           >
+            className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
+          >
             <p>Añadir preferente contratada</p>
           </button>
+        </div>
       </div>
 
       <div className="flex flex-row relative">
@@ -73,11 +75,11 @@ const Preferentes: FC<PreferentesProps> = ({ }) => {
         </div>
       </div>
       <div className='bg-gray-100'>
-            {pestana == "vidrioesp" && <ContenidoVidrioEsp/>}
-            {pestana == "vidrioal" && <ContenidoVidrioAl/>}
-            {pestana == "ventanasesp" && <ContenidoVentanasEsp/>}
-            {pestana == "ventanasal" && <ContenidoVentanasAl/>}
-            {pestana == "historico" && <ContenidoHistorico/>}
+        {pestana == "vidrioesp" && <ContenidoVidrioEsp />}
+        {pestana == "vidrioal" && <ContenidoVidrioAl />}
+        {pestana == "ventanasesp" && <ContenidoVentanasEsp />}
+        {pestana == "ventanasal" && <ContenidoVentanasAl />}
+        {pestana == "historico" && <ContenidoHistorico />}
       </div>
     </div>
   );
