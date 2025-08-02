@@ -180,7 +180,7 @@ const LoggedLeftMenu: FC = () => {
               Pendiente Cobro
             </button>
              <button
-              onClick={() => router.push('/dashboard/administracion/informescomerciales')}
+              onClick={() => router.push('/dashboard/administracion/informes')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >

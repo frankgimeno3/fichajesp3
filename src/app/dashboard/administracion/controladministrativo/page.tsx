@@ -11,11 +11,8 @@ interface ControlAdministrativoProps {
 const ControlAdministrativo: FC<ControlAdministrativoProps> = ({ }) => {
   const [pestana, setPestana] = useState("campanasadministrativas")
   return (
-
     <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600 overflow-x-scrollw-full">
-
       <MiddleNav tituloprincipal={` Control administrativo  `} />
-
       <div className="bg-white min-h-screen p-2 text-gray-600 w-full">
         <div className="flex flex-row relative  w-full">
           <div
