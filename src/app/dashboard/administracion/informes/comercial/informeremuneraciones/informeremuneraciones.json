@@ -1,0 +1,49 @@
+{
+  "agente": "Jose Luis Fernandez Llop",
+  "mes": "Junio",
+  "fechaCorte": "25 de Junio de 2025",
+  "comisionesTotales": 277.10,
+  "detalleComisiones": [
+    {
+      "cliente": "REICH UND PARTNER (RATH)",
+      "mesGeneracion": "Enero",
+      "cobradoJunio": 621.60,
+      "comisionableNeto": 555.08,
+      "comision": {
+        "valor": 32.36,
+        "porcentaje": 5.83
+      }
+    },
+    {
+      "cliente": "REICH UND PARTNER (RATH)",
+      "mesGeneracion": "Enero",
+      "cobradoJunio": 350.40,
+      "comisionableNeto": 312.90,
+      "comision": {
+        "valor": 18.24,
+        "porcentaje": 5.83
+      }
+    },
+    {
+      "cliente": "METRA (GRUPPO WISE)",
+      "mesGeneracion": "Mayo",
+      "cobradoJunio": 4515.00,
+      "comisionableNeto": 2265.00,
+      "comision": {
+        "valor": 226.50,
+        "porcentaje": 10.00
+      }
+    },
+    {
+      "cliente": "i3D",
+      "mesGeneracion": "Junio",
+      "cobradoJunio": 1760.00,
+      "comisionableNeto": 0.00,
+      "comision": {
+        "valor": 0.00,
+        "porcentaje": 0.00,
+        "nota": "No superación IMM"
+      }
+    }
+  ]
+}
