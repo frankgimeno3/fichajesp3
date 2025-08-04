@@ -1,8 +1,7 @@
 "use client"
 import React, { FC, useState } from 'react';
 import FiltrosPropuestas from '../componentesPropuestas/FiltrosPropuestas';
-import TablaPropuestas from '../componentesPropuestas/TablaPropuestas';
-
+ 
 interface BuscarPropuestasProps {
   
 }
@@ -35,12 +34,7 @@ const BuscarPropuestas: FC<BuscarPropuestasProps> = ({ }) => {
       <div className='mt-5 p-12 rounded-lg shadow-xl bg-white'>
         
  <h2 className="text-lg font-semibold mb-4">Propuestas creadas</h2>
-        <TablaPropuestas
-          clienteFiltro={clienteFiltro}
-          agenteFiltro={agenteFiltro}
-          fechaInicio={fechaInicio}
-          fechaFin={fechaFin}
-        />
+      {/* CREAR AQUÍ UNA TABLA DE RESULTADOS FILTRADA */}
       </div>
     </div>  );
 };
