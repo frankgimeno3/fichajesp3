@@ -4,7 +4,7 @@ import Filtroscuentas from './componentesClientes/FiltrosClientes';
 import Tablacuentas from './componentesClientes/TablaCuentas';
 import MiddleNav from '../0dashboardcomponents/MiddleNav';
 
-const cuentas: FC = () => {
+const Cuentas: FC = () => {
 
   const [clienteFiltro, setClienteFiltro] = useState('');
   const [agenteFiltro, setAgenteFiltro] = useState('');
@@ -42,4 +42,4 @@ const cuentas: FC = () => {
   );
 };
 
-export default cuentas;
+export default Cuentas;
