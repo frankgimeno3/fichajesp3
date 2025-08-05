@@ -103,7 +103,7 @@ const DatosComerciales = () => {
         </tbody>
       </table>
 
-      <h3 className="text-sm font-semibold">Historial comercial</h3>
+      <h3 className="text-sm font-semibold">Historial publicitario</h3>
       <table className="w-full  ">
         <thead className="bg-blue-950/80 text-white">
           <tr>
