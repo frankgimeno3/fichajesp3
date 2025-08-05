@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import ContactoCard from './cards/ContactoCard';
-
+import ContenidoContactosEmpresa from './cards/ContenidoContactosEmpresa';
+ 
 interface ContenidoGeneralProps {
   
 }
@@ -30,11 +30,7 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ }) => {
 
         <div className='flex flex-col py-12 gap-5'>
         <p>Contactos de la empresa</p> 
-        <ContactoCard/>
-        <ContactoCard/>
-        <ContactoCard/>
-        <ContactoCard/>
-        <ContactoCard/>
+        <ContenidoContactosEmpresa/>
       </div>
 
     </div>
