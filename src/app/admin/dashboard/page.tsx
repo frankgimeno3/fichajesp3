@@ -39,8 +39,7 @@ const Dashboard: FC = () => {
     }, [])
 
     return (
-        <>
-            <AdminNav/>
+        
             <div className="bg-gray-100 min-h-screen flex flex-col">
                 <div className="p-6 px-12">
                     <Solicitudes solicitudes={modifications} setModifications={setModifications}/>
@@ -49,8 +48,7 @@ const Dashboard: FC = () => {
                     <EventosHoy eventos={timeLogs}/>
                 </div>
             </div>
-        </>
-    );
+     );
 };
 
 export default Dashboard;
