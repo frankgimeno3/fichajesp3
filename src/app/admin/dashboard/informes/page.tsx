@@ -1,6 +1,5 @@
 'use client'
 import React, {FC, use, useState} from 'react';
-import AdminNav from '../admincomponents/AdminNav';
 import {TimeLogService} from "@/app/service/TimeLogService";
 
 interface InformesProps {}
@@ -85,8 +84,7 @@ const Informes: FC<InformesProps> = ({}) => {
     };
 
     return (
-        <div className='text-gray-600'>
-            <AdminNav/>
+ 
             <div className="p-6 px-12 bg-gray-100 min-h-screen">
                 <div className="flex flex-col space-y-4 mb-6">
                     <div className="flex flex-col space-y-4 bg-white shadow p-4  rounded">
@@ -189,7 +187,6 @@ const Informes: FC<InformesProps> = ({}) => {
                     </div>
                 </div>
             </div>
-        </div>
     );
 };
 

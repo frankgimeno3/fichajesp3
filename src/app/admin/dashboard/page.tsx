@@ -2,7 +2,6 @@
 import React, {FC, useEffect, useState} from 'react';
 import EventosHoy from './admincomponents/EventosHoy';
 import Solicitudes from './admincomponents/Solicitudes';
-import AdminNav from './admincomponents/AdminNav';
 import {TimeLogService} from "@/app/service/TimeLogService";
 import {ModificationService} from "@/app/service/ModificationService";
 
