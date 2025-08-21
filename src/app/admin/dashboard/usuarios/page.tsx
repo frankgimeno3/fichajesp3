@@ -2,7 +2,6 @@
 import React, {FC, use, useEffect, useState} from 'react';
 import PopUpCrear from './PopUpCrear';
 import PopUpEditar from './PopUpEditar';
-import AdminNav from '../admincomponents/AdminNav';
 import UserSerivce from "@/app/service/UserSerivce";
 import {UserType} from "@/app/admin/dashboard/usuarios/UserType";
 
@@ -67,8 +66,7 @@ const Usuarios: FC = () => {
 
 
     return (
-        <div>
-            <AdminNav/>
+        <>
             <div className="p-6 px-12 bg-gray-100 min-h-screen ">
                 <div className="flex justify-between items-center mb-4">
                     <p className="text-xl text-gray-600">Usuarios</p>
@@ -121,7 +119,7 @@ const Usuarios: FC = () => {
                     onEdit={handleEditUser}
                 />
             )}
-        </div>
+        </>
     );
 };
 
