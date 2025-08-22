@@ -84,7 +84,7 @@ const ContenidoPorPublicacion: FC<ContenidoPorPublicacionProps> = ({ }) => {
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
           onClick={() => router.push('/dashboard/comercial/contratos/resumen')}
         >
-          <p>Ver campaña publicitaria</p>
+          <p>Ver contrato completo</p>
         </button>
                 </td>
               </tr>
