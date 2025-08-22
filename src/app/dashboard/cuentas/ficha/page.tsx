@@ -24,7 +24,7 @@ const FichaCliente: FC<FichaClienteProps> = ({ }) => {
         <div className='flex flex-row gap-4 items-center'>
           <button
             className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-            onClick={() => router.push('/dashboard/propuestas/cliente')}
+            onClick={() => router.push('/dashboard/comercial/propuestas/propuestascliente')}
           >
             <p>Propuestas</p>
           </button>
