@@ -11,7 +11,9 @@
     "edicion_en": "Latin America",
     "publicacion_en": "Sent on x",
     "producto_en": "Customized Newsletter",
-    "price": "850€"
+    "price": "850€",
+    "date_deadline": "12/9/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-em-al-02",
@@ -25,7 +27,9 @@
     "edicion_en": "Latin America",
     "publicacion_en": "Sent on x",
     "producto_en": "4 Column Banner",
-    "price": "300"
+    "price": "300",
+    "date_deadline": "12/9/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-em-al-03",
@@ -39,7 +43,9 @@
     "edicion_en": "Latin America",
     "publicacion_en": "Sent on x",
     "producto_en": "2 Columns Banner",
-    "price": "180"
+    "price": "180",
+    "date_deadline": "12/9/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-em-ib-01",
@@ -53,7 +59,9 @@
     "edicion_en": "Spain, Portugal, Andorra",
     "publicacion_en": "Sent on x",
     "producto_en": "Customized Newsletter",
-    "price": "850€"
+    "price": "850€",
+    "date_deadline": "12/9/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-em-ib-02",
@@ -67,7 +75,9 @@
     "edicion_en": "Spain, Portugal, Andorra",
     "publicacion_en": "Sent on x",
     "producto_en": "4 Column Banner",
-    "price": "300"
+    "price": "300",
+    "date_deadline": "12/9/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-em-ib-03",
@@ -81,7 +91,9 @@
     "edicion_en": "Spain, Portugal, Andorra",
     "publicacion_en": "Sent on x",
     "producto_en": "2 Columns Banner",
-    "price": "180"
+    "price": "180",
+    "date_deadline": "12/9/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-al-89-001",
@@ -95,7 +107,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "1 advertising page",
-    "price": "1,020€"
+    "price": "1,020€",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-al-89-002",
@@ -109,7 +123,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Half Page",
-    "price": "805"
+    "price": "805",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-al-89-003",
@@ -123,7 +139,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Cover Page",
-    "price": "2,070"
+    "price": "2,070",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-al-89-004",
@@ -137,7 +155,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Inside frontpage",
-    "price": "1,430"
+    "price": "1,430",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-al-89-005",
@@ -151,7 +171,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Page N1",
-    "price": "1,350"
+    "price": "1,350",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-al-89-006",
@@ -165,7 +187,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Preferential",
-    "price": "1240"
+    "price": "1240",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-al-89-007",
@@ -179,7 +203,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Double Page",
-    "price": "2,170"
+    "price": "2,170",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-al-89-008",
@@ -193,7 +219,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "VideoProduct",
-    "price": "500"
+    "price": "500",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-al-89-009",
@@ -207,7 +235,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Catalog",
-    "price": "620"
+    "price": "620",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-al-89-010",
@@ -221,7 +251,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Advertorial",
-    "price": "1190"
+    "price": "1190",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-al-90-001",
@@ -235,7 +267,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "1 advertising page",
-    "price": "1,020€"
+    "price": "1,020€",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-al-90-002",
@@ -249,7 +283,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "Half Page",
-    "price": "805"
+    "price": "805",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-al-90-003",
@@ -263,7 +299,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90\n",
     "producto_en": "Cover Page",
-    "price": "2,070"
+    "price": "2,070",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-al-90-004",
@@ -277,7 +315,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90\n",
     "producto_en": "Inside frontpage",
-    "price": "1,430"
+    "price": "1,430",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-al-90-005",
@@ -291,7 +331,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "Page N1",
-    "price": "1,350"
+    "price": "1,350",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-al-90-006",
@@ -305,7 +347,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "Preferential",
-    "price": "1240"
+    "price": "1240",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-al-90-007",
@@ -319,7 +363,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "Double Page",
-    "price": "2,170"
+    "price": "2,170",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-al-90-008",
@@ -333,7 +379,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "VideoProduct",
-    "price": "500"
+    "price": "500",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-al-90-009",
@@ -347,7 +395,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "Catalog",
-    "price": "620"
+    "price": "620",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-al-90-010",
@@ -361,7 +411,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "Advertorial",
-    "price": "1190"
+    "price": "1190",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-es-213-001",
@@ -375,7 +427,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "1 advertising page",
-    "price": "1,760€"
+    "price": "1,760€",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-es-213-002",
@@ -389,7 +443,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Half Page",
-    "price": "1470"
+    "price": "1470",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-es-213-003",
@@ -403,7 +459,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Cover Page",
-    "price": "3,830"
+    "price": "3,830",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-es-213-004",
@@ -417,7 +475,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Inside frontpage",
-    "price": "2,380"
+    "price": "2,380",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-es-213-005",
@@ -431,7 +491,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Page N1",
-    "price": "2,180"
+    "price": "2,180",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-es-213-006",
@@ -445,7 +507,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Preferential",
-    "price": "2050"
+    "price": "2050",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-es-213-007",
@@ -459,7 +523,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Double Page",
-    "price": "3,590"
+    "price": "3,590",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-es-213-008",
@@ -473,7 +539,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "VideoProduct",
-    "price": "500"
+    "price": "500",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-es-213-009",
@@ -487,7 +555,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Catalog",
-    "price": "620"
+    "price": "620",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-es-213-010",
@@ -501,7 +571,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Advertorial",
-    "price": "1630"
+    "price": "1630",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-f-es-214-001",
@@ -515,7 +587,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "1 advertising page",
-    "price": "1,760€"
+    "price": "1,760€",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-es-214-002",
@@ -529,7 +603,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Half Page",
-    "price": "1470"
+    "price": "1470",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-es-214-003",
@@ -543,7 +619,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Cover Page",
-    "price": "3,830"
+    "price": "3,830",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-es-214-004",
@@ -557,7 +635,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Inside frontpage",
-    "price": "2,380"
+    "price": "2,380",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-es-214-005",
@@ -571,7 +651,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Page N1",
-    "price": "2,180"
+    "price": "2,180",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-es-214-006",
@@ -585,7 +667,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Preferential",
-    "price": "2050"
+    "price": "2050",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-es-214-007",
@@ -599,7 +683,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Double Page",
-    "price": "3,590"
+    "price": "3,590",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-es-214-008",
@@ -613,7 +699,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "VideoProduct",
-    "price": "500"
+    "price": "500",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-es-214-009",
@@ -627,7 +715,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Catalog",
-    "price": "620"
+    "price": "620",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-f-es-214-010",
@@ -641,7 +731,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Advertorial",
-    "price": "1630"
+    "price": "1630",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-al-89-001",
@@ -655,7 +747,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "1 advertising page",
-    "price": "1,020€"
+    "price": "1,020€",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-al-89-002",
@@ -669,7 +763,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Half Page",
-    "price": "805"
+    "price": "805",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-al-89-003",
@@ -683,7 +779,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Cover Page",
-    "price": "2,070"
+    "price": "2,070",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-al-89-004",
@@ -697,7 +795,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Inside frontpage",
-    "price": "1,430"
+    "price": "1,430",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-al-89-005",
@@ -711,7 +811,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Page N1",
-    "price": "1,350"
+    "price": "1,350",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-al-89-006",
@@ -725,7 +827,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Preferential",
-    "price": "1240"
+    "price": "1240",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-al-89-007",
@@ -739,7 +843,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Double Page",
-    "price": "2,170"
+    "price": "2,170",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-al-89-008",
@@ -753,7 +859,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "VideoProduct",
-    "price": "500"
+    "price": "500",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-al-89-009",
@@ -767,7 +875,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Catalog",
-    "price": "620"
+    "price": "620",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-al-89-010",
@@ -781,7 +891,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 89",
     "producto_en": "Advertorial",
-    "price": "1190"
+    "price": "1190",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-al-90-001",
@@ -795,7 +907,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90\n",
     "producto_en": "1 advertising page",
-    "price": "1,020€"
+    "price": "1,020€",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-al-90-002",
@@ -809,7 +923,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "Half Page",
-    "price": "805"
+    "price": "805",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-al-90-003",
@@ -823,7 +939,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "Cover Page",
-    "price": "2,070"
+    "price": "2,070",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-al-90-004",
@@ -837,7 +955,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "Inside frontpage",
-    "price": "1,430"
+    "price": "1,430",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-al-90-005",
@@ -851,7 +971,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "Page N1",
-    "price": "1,350"
+    "price": "1,350",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-al-90-006",
@@ -865,7 +987,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90\n",
     "producto_en": "Preferential",
-    "price": "1240"
+    "price": "1240",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-al-90-007",
@@ -879,7 +1003,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90\n",
     "producto_en": "Double Page",
-    "price": "2,170"
+    "price": "2,170",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-al-90-008",
@@ -893,7 +1019,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "VideoProduct",
-    "price": "500"
+    "price": "500",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-al-90-009",
@@ -907,7 +1035,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "Catalog",
-    "price": "620"
+    "price": "620",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-al-90-010",
@@ -921,7 +1051,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "Issue 90",
     "producto_en": "Advertorial",
-    "price": "1190"
+    "price": "1190",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-es-213-001",
@@ -935,7 +1067,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "1 advertising page",
-    "price": "1,760€"
+    "price": "1,760€",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-es-213-002",
@@ -949,7 +1083,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Half Page",
-    "price": "1470"
+    "price": "1470",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-es-213-003",
@@ -963,7 +1099,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Cover Page",
-    "price": "3,830"
+    "price": "3,830",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-es-213-004",
@@ -977,7 +1115,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Inside frontpage",
-    "price": "2,380"
+    "price": "2,380",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-es-213-005",
@@ -991,7 +1131,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Page N1",
-    "price": "2,180"
+    "price": "2,180",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-es-213-006",
@@ -1005,7 +1147,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Preferential",
-    "price": "2050"
+    "price": "2050",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-es-213-007",
@@ -1019,7 +1163,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Double Page",
-    "price": "3,590"
+    "price": "3,590",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-es-213-008",
@@ -1033,7 +1179,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "VideoProduct",
-    "price": "500"
+    "price": "500",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-es-213-009",
@@ -1047,7 +1195,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Catalog",
-    "price": "620"
+    "price": "620",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-es-213-010",
@@ -1061,7 +1211,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 213",
     "producto_en": "Advertorial",
-    "price": "1630"
+    "price": "1630",
+    "date_deadline": "1/9/25",
+    "date_publication": "20/9/25"
   },
   {
     "product_id": "25-rev-bi-v-es-214-001",
@@ -1075,7 +1227,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "1 advertising page",
-    "price": "1,760€"
+    "price": "1,760€",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-es-214-002",
@@ -1089,7 +1243,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Half Page",
-    "price": "1470"
+    "price": "1470",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-es-214-003",
@@ -1103,7 +1259,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Cover Page",
-    "price": "3,830"
+    "price": "3,830",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-es-214-004",
@@ -1117,7 +1275,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Inside frontpage",
-    "price": "2,380"
+    "price": "2,380",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-es-214-005",
@@ -1131,7 +1291,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Page N1",
-    "price": "2,180"
+    "price": "2,180",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-es-214-006",
@@ -1145,7 +1307,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Preferential",
-    "price": "2050"
+    "price": "2050",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-es-214-007",
@@ -1159,7 +1323,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Double Page",
-    "price": "3,590"
+    "price": "3,590",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-es-214-008",
@@ -1173,7 +1339,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "VideoProduct",
-    "price": "500"
+    "price": "500",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-es-214-009",
@@ -1187,7 +1355,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Catalog",
-    "price": "620"
+    "price": "620",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-bi-v-es-214-010",
@@ -1201,7 +1371,9 @@
     "edicion_en": "Iberia Edition",
     "publicacion_en": "Issue 214",
     "producto_en": "Advertorial",
-    "price": "1630"
+    "price": "1630",
+    "date_deadline": "1/10/25",
+    "date_publication": "20/10/25"
   },
   {
     "product_id": "25-rev-h-p1-001",
@@ -1215,7 +1387,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "1/2 publication",
     "producto_en": "1 advertising page",
-    "price": "1,020€"
+    "price": "1,020€",
+    "date_deadline": "6/10/25",
+    "date_publication": "27/10/25"
   },
   {
     "product_id": "25-rev-h-p1-002",
@@ -1229,7 +1403,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "1/2 publication",
     "producto_en": "Half Page",
-    "price": "805"
+    "price": "805",
+    "date_deadline": "6/10/25",
+    "date_publication": "27/10/25"
   },
   {
     "product_id": "25-rev-h-p1-003",
@@ -1243,7 +1419,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "1/2 publication",
     "producto_en": "Cover Page",
-    "price": "2,070"
+    "price": "2,070",
+    "date_deadline": "6/10/25",
+    "date_publication": "27/10/25"
   },
   {
     "product_id": "25-rev-h-p1-004",
@@ -1257,7 +1435,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "1/2 publication",
     "producto_en": "Inside frontpage",
-    "price": "1,430"
+    "price": "1,430",
+    "date_deadline": "6/10/25",
+    "date_publication": "27/10/25"
   },
   {
     "product_id": "25-rev-h-p1-005",
@@ -1271,7 +1451,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "1/2 publication",
     "producto_en": "Page N1",
-    "price": "1,350"
+    "price": "1,350",
+    "date_deadline": "6/10/25",
+    "date_publication": "27/10/25"
   },
   {
     "product_id": "25-rev-h-p1-006",
@@ -1285,7 +1467,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "1/2 publication",
     "producto_en": "Preferential",
-    "price": "1240"
+    "price": "1240",
+    "date_deadline": "6/10/25",
+    "date_publication": "27/10/25"
   },
   {
     "product_id": "25-rev-h-p1-007",
@@ -1299,7 +1483,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "1/2 publication",
     "producto_en": "Double Page",
-    "price": "2,170"
+    "price": "2,170",
+    "date_deadline": "6/10/25",
+    "date_publication": "27/10/25"
   },
   {
     "product_id": "25-rev-h-p1-008",
@@ -1313,7 +1499,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "1/2 publication",
     "producto_en": "VideoProduct",
-    "price": "500"
+    "price": "500",
+    "date_deadline": "6/10/25",
+    "date_publication": "27/10/25"
   },
   {
     "product_id": "25-rev-h-p1-009",
@@ -1327,7 +1515,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "1/2 publication",
     "producto_en": "Catalog",
-    "price": "620"
+    "price": "620",
+    "date_deadline": "6/10/25",
+    "date_publication": "27/10/25"
   },
   {
     "product_id": "25-rev-h-p2-001",
@@ -1341,7 +1531,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "2/2 publication",
     "producto_en": "1 advertising page",
-    "price": "1,020€"
+    "price": "1,020€",
+    "date_deadline": "6/11/25",
+    "date_publication": "30/11/25"
   },
   {
     "product_id": "25-rev-h-p2-002",
@@ -1355,7 +1547,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "2/2 publication",
     "producto_en": "Half Page",
-    "price": "805"
+    "price": "805",
+    "date_deadline": "6/11/25",
+    "date_publication": "30/11/25"
   },
   {
     "product_id": "25-rev-h-p2-003",
@@ -1369,7 +1563,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "2/2 publication",
     "producto_en": "Cover Page",
-    "price": "2,070"
+    "price": "2,070",
+    "date_deadline": "6/11/25",
+    "date_publication": "30/11/25"
   },
   {
     "product_id": "25-rev-h-p2-004",
@@ -1383,7 +1579,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "2/2 publication",
     "producto_en": "Inside frontpage",
-    "price": "1,430"
+    "price": "1,430",
+    "date_deadline": "6/11/25",
+    "date_publication": "30/11/25"
   },
   {
     "product_id": "25-rev-h-p2-005",
@@ -1397,7 +1595,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "2/2 publication",
     "producto_en": "Page N1",
-    "price": "1,350"
+    "price": "1,350",
+    "date_deadline": "6/11/25",
+    "date_publication": "30/11/25"
   },
   {
     "product_id": "25-rev-h-p2-006",
@@ -1411,7 +1611,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "2/2 publication",
     "producto_en": "Preferential",
-    "price": "1240"
+    "price": "1240",
+    "date_deadline": "6/11/25",
+    "date_publication": "30/11/25"
   },
   {
     "product_id": "25-rev-h-p2-007",
@@ -1425,7 +1627,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "2/2 publication",
     "producto_en": "Double Page",
-    "price": "2,170"
+    "price": "2,170",
+    "date_deadline": "6/11/25",
+    "date_publication": "30/11/25"
   },
   {
     "product_id": "25-rev-h-p2-008",
@@ -1439,7 +1643,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "2/2 publication",
     "producto_en": "VideoProduct",
-    "price": "500"
+    "price": "500",
+    "date_deadline": "6/11/25",
+    "date_publication": "30/11/25"
   },
   {
     "product_id": "25-rev-h-p2-009",
@@ -1453,7 +1659,9 @@
     "edicion_en": "2025 Edition ",
     "publicacion_en": "2/2 publication",
     "producto_en": "Catalog",
-    "price": "620"
+    "price": "620",
+    "date_deadline": "6/11/25",
+    "date_publication": "30/11/25"
   },
   {
     "product_id": "25-rev-qq-f-001",
@@ -1467,7 +1675,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "1 advertising page",
-    "price": "1,020€"
+    "price": "1,020€",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-002",
@@ -1481,7 +1691,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "Half Page",
-    "price": "805"
+    "price": "805",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-003",
@@ -1495,7 +1707,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "Cover Page",
-    "price": "2,070"
+    "price": "2,070",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-004",
@@ -1509,7 +1723,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "Inside frontpage",
-    "price": "1,430"
+    "price": "1,430",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-005",
@@ -1523,7 +1739,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "Page N1",
-    "price": "1,350"
+    "price": "1,350",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-006",
@@ -1537,7 +1755,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "Preferential",
-    "price": "1240"
+    "price": "1240",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-007",
@@ -1551,7 +1771,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "Double Page",
-    "price": "2,170"
+    "price": "2,170",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-008",
@@ -1565,7 +1787,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "VideoProduct",
-    "price": "500"
+    "price": "500",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-009",
@@ -1579,7 +1803,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "Catalog",
-    "price": "620"
+    "price": "620",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-010",
@@ -1593,7 +1819,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "Advertorial",
-    "price": "1190"
+    "price": "1190",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-011",
@@ -1607,7 +1835,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "2 Column Company Profile",
-    "price": "650"
+    "price": "650",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-012",
@@ -1621,7 +1851,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "3 Column Company Profile",
-    "price": "800"
+    "price": "800",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-013",
@@ -1635,7 +1867,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "4 Column Company Profile",
-    "price": "950"
+    "price": "950",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-014",
@@ -1649,7 +1883,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "Review with logo",
-    "price": "410"
+    "price": "410",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-f-015",
@@ -1663,7 +1899,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Fenestration and Sun shading Edition",
     "producto_en": "Highlighted Address",
-    "price": "250"
+    "price": "250",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-001",
@@ -1677,7 +1915,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "1 advertising page",
-    "price": "1,020€"
+    "price": "1,020€",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-002",
@@ -1691,7 +1931,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "Half Page",
-    "price": "805"
+    "price": "805",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-003",
@@ -1705,7 +1947,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "Cover Page",
-    "price": "2,070"
+    "price": "2,070",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-004",
@@ -1719,7 +1963,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "Inside frontpage",
-    "price": "1,430"
+    "price": "1,430",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-005",
@@ -1733,7 +1979,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "Page N1",
-    "price": "1,350"
+    "price": "1,350",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-006",
@@ -1747,7 +1995,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "Preferential",
-    "price": "1240"
+    "price": "1240",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-007",
@@ -1761,7 +2011,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "Double Page",
-    "price": "2,170"
+    "price": "2,170",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-008",
@@ -1775,7 +2027,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "VideoProduct",
-    "price": "500"
+    "price": "500",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-009",
@@ -1789,7 +2043,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "Catalog",
-    "price": "620"
+    "price": "620",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-010",
@@ -1803,7 +2059,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "Advertorial",
-    "price": "1190"
+    "price": "1190",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-011",
@@ -1817,7 +2075,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "2 Column Company Profile",
-    "price": "650"
+    "price": "650",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-012",
@@ -1831,7 +2091,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "3 Column Company Profile",
-    "price": "800"
+    "price": "800",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-013",
@@ -1845,7 +2107,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "4 Column Company Profile",
-    "price": "950"
+    "price": "950",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-014",
@@ -1859,7 +2123,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "Review with logo",
-    "price": "410"
+    "price": "410",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-rev-qq-v-015",
@@ -1873,7 +2139,9 @@
     "edicion_en": "Annuary 2025",
     "publicacion_en": "Flat Glass Edition",
     "producto_en": "Highlighted Address",
-    "price": "250"
+    "price": "250",
+    "date_deadline": "31/12/25",
+    "date_publication": "12/12/25"
   },
   {
     "product_id": "25-web-al-01",
@@ -1887,7 +2155,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "-",
     "producto_en": "Premium Banner",
-    "price": "300"
+    "price": "300",
+    "date_deadline": "30/8/12",
+    "date_publication": "2/9/25"
   },
   {
     "product_id": "25-web-al-02",
@@ -1901,7 +2171,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "-",
     "producto_en": "Basic Banner",
-    "price": "200"
+    "price": "200",
+    "date_deadline": "30/8/12",
+    "date_publication": "2/9/25"
   },
   {
     "product_id": "25-web-al-03",
@@ -1915,7 +2187,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "-",
     "producto_en": "Basic Company Profile",
-    "price": "1,800€"
+    "price": "1,800€",
+    "date_deadline": "30/8/12",
+    "date_publication": "2/9/25"
   },
   {
     "product_id": "25-web-al-04",
@@ -1929,7 +2203,9 @@
     "edicion_en": "Latin America Edition",
     "publicacion_en": "-",
     "producto_en": "Premium Company Profile",
-    "price": "1,200€"
+    "price": "1,200€",
+    "date_deadline": "30/8/12",
+    "date_publication": "2/9/25"
   },
   {
     "product_id": "25-web-es-01",
@@ -1943,7 +2219,9 @@
     "edicion_en": "Spain Edition ",
     "publicacion_en": "-",
     "producto_en": "Premium Banner",
-    "price": "300"
+    "price": "300",
+    "date_deadline": "30/8/12",
+    "date_publication": "2/9/25"
   },
   {
     "product_id": "25-web-es-02",
@@ -1957,7 +2235,9 @@
     "edicion_en": "Spain Edition ",
     "publicacion_en": "-",
     "producto_en": "Basic Banner",
-    "price": "200"
+    "price": "200",
+    "date_deadline": "30/8/12",
+    "date_publication": "2/9/25"
   },
   {
     "product_id": "25-web-es-03",
@@ -1971,7 +2251,9 @@
     "edicion_en": "Spain Edition ",
     "publicacion_en": "-",
     "producto_en": "Basic Company Profile",
-    "price": "1,800€"
+    "price": "1,800€",
+    "date_deadline": "30/8/12",
+    "date_publication": "2/9/25"
   },
   {
     "product_id": "25-web-es-04",
@@ -1985,7 +2267,9 @@
     "edicion_en": "Spain Edition ",
     "publicacion_en": "-",
     "producto_en": "Premium Company Profile",
-    "price": "1,200€"
+    "price": "1,200€",
+    "date_deadline": "30/8/12",
+    "date_publication": "2/9/25"
   },
   {
     "product_id": "25-web-pt-01",
@@ -1999,7 +2283,9 @@
     "edicion_en": "Portugal Edition",
     "publicacion_en": "-",
     "producto_en": "Premium Banner",
-    "price": "200"
+    "price": "200",
+    "date_deadline": "30/8/12",
+    "date_publication": "2/9/25"
   },
   {
     "product_id": "25-web-pt-02",
@@ -2013,7 +2299,9 @@
     "edicion_en": "Portugal Edition",
     "publicacion_en": "-",
     "producto_en": "Basic Banner",
-    "price": "150"
+    "price": "150",
+    "date_deadline": "30/8/12",
+    "date_publication": "2/9/25"
   },
   {
     "product_id": "25-web-pt-03",
@@ -2027,7 +2315,9 @@
     "edicion_en": "Portugal Edition",
     "publicacion_en": "-",
     "producto_en": "Basic Company Profile",
-    "price": "1,000€"
+    "price": "1,000€",
+    "date_deadline": "30/8/12",
+    "date_publication": "2/9/25"
   },
   {
     "product_id": "25-web-pt-04",
@@ -2041,7 +2331,9 @@
     "edicion_en": "Portugal Edition",
     "publicacion_en": "-",
     "producto_en": "Premium Company Profile",
-    "price": "700€"
+    "price": "700€",
+    "date_deadline": "30/8/12",
+    "date_publication": "2/9/25"
   },
   {
     "product_id": "26-cal-01",
@@ -2055,6 +2347,8 @@
     "edicion_en": "-",
     "publicacion_en": "2026 Edition",
     "producto_en": "Banner inside the calendar",
-    "price": "865"
+    "price": "865",
+    "date_deadline": "30/12/25",
+    "date_publication": "12/01/2026"
   }
 ]
