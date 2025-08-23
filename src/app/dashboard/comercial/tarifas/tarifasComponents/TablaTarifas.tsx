@@ -1,3 +1,5 @@
+'use client'
+
 import React, { FC, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import tarifasContents from '../../../../contents/tarifasContents.json';
@@ -54,10 +56,12 @@ const TablaTarifas: FC<TablaTarifasProps> = ({
       s.codigoServicio.toLowerCase().includes(servicioFiltro.toLowerCase());
 
     const coincideMedio =
-      medioFiltro === '' || s.medio.toLowerCase().includes(medioFiltro.toLowerCase());
+      medioFiltro === '' ||
+      s.medio.toLowerCase().includes(medioFiltro.toLowerCase());
 
     const coincidePublicacion =
-      publicacionFiltro === '' || s.publicacion.toLowerCase().includes(publicacionFiltro.toLowerCase());
+      publicacionFiltro === '' ||
+      s.publicacion.toLowerCase().includes(publicacionFiltro.toLowerCase());
 
     return coincideServicio && coincideMedio && coincidePublicacion;
   });
@@ -81,7 +85,9 @@ const TablaTarifas: FC<TablaTarifasProps> = ({
             <tr
               key={servicio.id}
               className='hover:bg-gray-50 cursor-pointer'
-              onClick={() => router.push('/dashboard/comercial/tarifas/detalle')}
+              onClick={() =>
+                router.push(`/dashboard/comercial/tarifas/${servicio.codigoServicio}`)
+              }
             >
               <td className='p-2 border-b border-gray-200 w-24'>{servicio.codigoServicio}</td>
               <td className='p-2 border-b border-gray-200 w-36'>{servicio.medio}</td>
@@ -95,7 +101,9 @@ const TablaTarifas: FC<TablaTarifasProps> = ({
         </tbody>
       </table>
       {TarifasFiltrados.length === 0 && (
-        <p className='mt-4 text-center text-gray-500'>No se encontraron Tarifas.</p>
+        <p className='mt-4 text-center text-gray-500'>
+          No se encontraron Tarifas.
+        </p>
       )}
     </div>
   );
