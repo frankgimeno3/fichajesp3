@@ -10,6 +10,8 @@ interface Servicio {
   publicacion: string;
   precio: string;
   producto: string;
+  fechaDeadline: string;
+  fechaPublicacion: string;
 }
 
 interface TablaTarifasProps {
@@ -38,6 +40,8 @@ const TablaTarifas: FC<TablaTarifasProps> = ({
       publicacion: t.publicacion_es,
       precio: t.price,
       producto: t.producto_es,
+      fechaDeadline: t.date_deadline,
+      fechaPublicacion: t.date_publication,
     }));
 
     setTarifas(tarifasMapeadas);
@@ -59,16 +63,17 @@ const TablaTarifas: FC<TablaTarifasProps> = ({
   });
 
   return (
-    <div className='overflow-x-auto'>
-      <table className='min-w-full'>
+    <div className='overflow-x-auto text-xs px-5'>
+      <table className='min-w-full '>
         <thead className='bg-blue-950 text-white'>
           <tr>
-            <th className='text-left p-2 font-light flex-1'>Código</th>
-            <th className='text-left p-2 font-light flex-1'>Medio</th>
-            <th className='text-left p-2 font-light flex-1'>Publicación</th>
-            <th className='text-left p-2 font-light flex-1'>Producto</th>
-            <th className='text-left p-2 font-light flex-1'>Precio tarifa</th>
-            <th className='text-left p-2 font-light flex-1'>Detalles</th>
+            <th className='text-left p-2 font-light w-24'>Código</th>
+            <th className='text-left p-2 font-light w-36'>Medio</th>
+            <th className='text-left p-2 font-light w-12'>Publicación</th>
+            <th className='text-left p-2 font-light w-24'>Producto</th>
+            <th className='text-left p-2 font-light w-24'>Precio tarifa</th>
+            <th className='text-left p-2 font-light w-24'>Deadline Materiales</th>
+            <th className='text-left p-2 font-light w-24'>Fecha Publicación</th>
           </tr>
         </thead>
         <tbody>
@@ -78,11 +83,13 @@ const TablaTarifas: FC<TablaTarifasProps> = ({
               className='hover:bg-gray-50 cursor-pointer'
               onClick={() => router.push('/dashboard/comercial/tarifas/detalle')}
             >
-              <td className='p-2 border-b border-gray-200 flex-1'>{servicio.codigoServicio}</td>
-              <td className='p-2 border-b border-gray-200 flex-1'>{servicio.medio}</td>
-              <td className='p-2 border-b border-gray-200 flex-1'>{servicio.publicacion}</td>
-              <td className='p-2 border-b border-gray-200 flex-1'>{servicio.producto}</td>
-              <td className='p-2 border-b border-gray-200 flex-1'>{servicio.precio}</td>
+              <td className='p-2 border-b border-gray-200 w-24'>{servicio.codigoServicio}</td>
+              <td className='p-2 border-b border-gray-200 w-36'>{servicio.medio}</td>
+              <td className='p-2 border-b border-gray-200 w-12'>{servicio.publicacion}</td>
+              <td className='p-2 border-b border-gray-200 w-24'>{servicio.producto}</td>
+              <td className='p-2 border-b border-gray-200 w-24'>{servicio.precio}</td>
+              <td className='p-2 border-b border-gray-200 w-24'>{servicio.fechaDeadline}</td>
+              <td className='p-2 border-b border-gray-200 w-24'>{servicio.fechaPublicacion}</td>
             </tr>
           ))}
         </tbody>

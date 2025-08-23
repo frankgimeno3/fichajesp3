@@ -23,7 +23,15 @@ const FiltrosTarifas: FC<FiltrosTarifasProps> = ({
 
   return (
     <div className='flex flex-col justify-between mb-6'>
-      <p className='text-lg font-semibold'>Buscador de Tarifas</p>
+      <div className='flex flex-row justify-between px-4'>
+        <h2 className="text-lg font-semibold mb-4">Buscador de tarifas</h2>
+        <button
+          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
+          onClick={() => router.push('/dashboard/comercial/tarifas/crear')}
+        >
+          <p>Crear</p>
+        </button>
+      </div>
 
       <div className='flex flex-wrap gap-4 items-end p-5'>
         <div className='flex flex-col'>
@@ -36,7 +44,7 @@ const FiltrosTarifas: FC<FiltrosTarifasProps> = ({
             className='border px-2 py-1 rounded'
           />
         </div>
-         <div className='flex flex-col'>
+        <div className='flex flex-col'>
           <label className='text-sm font-medium'>Código del servicio</label>
           <input
             type='text'
