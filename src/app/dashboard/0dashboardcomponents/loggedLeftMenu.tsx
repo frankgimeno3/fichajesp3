@@ -197,10 +197,10 @@ const LoggedLeftMenu: FC = () => {
           onClick={() => setIsModeracionOpen(!isModeracionOpen)}
           className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
         >
-          <span className="">Administración</span>
+          <span className="">Moderación</span>
           <ArrowIcon isOpen={isModeracionOpen} />
         </div>
-        {isAdministracionOpen && (
+        {isModeracionOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
               onClick={() => router.push('/dashboard/administracion/controladministrativo')}
