@@ -1,5 +1,8 @@
 import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
+import DatosEmpresaContacto from './componentesFichaContacto/DatosEmpresaContacto';
+import DatosGralesContacto from './componentesFichaContacto/DatosGralesContacto';
+import OtrosDatosContacto from './componentesFichaContacto/OtrosDatosContacto';
 
 interface ContenidoGeneralContactoProps {
   
@@ -10,20 +13,9 @@ const ContenidoGeneralContacto: FC<ContenidoGeneralContactoProps> = ({ }) => {
     
   return (
     <div>
-        <p>Nombre del contacto</p>
-        <p>Nombre del contacto</p>
-        <p>Apellidos</p>
-        <p>Empresa actual</p>
-        <button onClick={()=>{router.push('/dashboard/cuentas/ficha')}}>Ir a la ficha de la empresa</button>
-        <p>Idioma</p>
-        <p>Cargo actual</p>
-        <p>Conocido en ...</p>
-        <p>Contactado en feria...</p>
-                <p>Emails de contacto</p>
-        <p>Teléfonos de contacto</p>
-        <p>Suscripciones con vidrioperfil</p>
-        <p>Otros datos de interés</p>
-
+      <DatosGralesContacto/>
+       <DatosEmpresaContacto/>
+       <OtrosDatosContacto/>
     </div>
   );
 };
