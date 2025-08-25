@@ -13,7 +13,7 @@ interface CrearContactoProps {
 const CrearContacto: FC<CrearContactoProps> = ({ }) => {
   const [faseCrearContacto, setFaseCrearContacto] = useState(0)
   return (
-    <div>
+    <div className='bg-white h-full min-h-screen p-12 text-gray-600'>
       {faseCrearContacto == 0 && <Fase0 setFaseCrearContacto={setFaseCrearContacto}/>}
       {faseCrearContacto == 1 && <Fase1 setFaseCrearContacto={setFaseCrearContacto}/>}
       {faseCrearContacto == 2 && <Fase2 setFaseCrearContacto={setFaseCrearContacto}/>}

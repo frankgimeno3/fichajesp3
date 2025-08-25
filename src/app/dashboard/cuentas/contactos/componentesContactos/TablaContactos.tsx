@@ -1,3 +1,5 @@
+'use client';
+
 import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -9,7 +11,6 @@ interface Resultado {
   empresaAsociada: string;
   telefono: string;
   email: string;
-  // Si tienes más campos puedes agregarlos aquí
 }
 
 interface TablaContactosProps {
@@ -101,16 +102,16 @@ const TablaContactos: FC<TablaContactosProps> = ({
   };
 
   return (
-    <div className='overflow-x-auto'>
-      <table className='min-w-full border border-gray-300 rounded'>
-        <thead className='bg-gray-100'>
+    <div className=" p-3 overflow-x-auto">
+      <table className="min-w-full">
+        <thead className="bg-blue-950/80 text-white">
           <tr>
-            <th className='text-left px-4 py-2'>Nombre</th>
-            <th className='text-left px-4 py-2'>Apellidos</th>
-            <th className='text-left px-4 py-2'>Código Contacto</th>
-            <th className='text-left px-4 py-2'>Empresa Asociada</th>
-            <th className='text-left px-4 py-2'>Teléfono</th>
-            <th className='text-left px-4 py-2'>Email</th>
+            <th className="text-left p-2 font-light">Nombre</th>
+            <th className="text-left p-2 font-light">Apellidos</th>
+            <th className="text-left p-2 font-light">Código Contacto</th>
+            <th className="text-left p-2 font-light">Empresa Asociada</th>
+            <th className="text-left p-2 font-light">Teléfono</th>
+            <th className="text-left p-2 font-light">Email</th>
           </tr>
         </thead>
         <tbody>
@@ -118,20 +119,23 @@ const TablaContactos: FC<TablaContactosProps> = ({
             resultadosFiltrados.map((res) => (
               <tr
                 key={res.id}
-                className='border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer'
+                className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
                 onClick={() => handleRedirection(res.id)}
               >
-                <td className='px-4 py-2'>{res.nombreContacto}</td>
-                <td className='px-4 py-2'>{res.apellidosContacto}</td>
-                <td className='px-4 py-2'>{res.codigoContacto}</td>
-                <td className='px-4 py-2'>{res.empresaAsociada}</td>
-                <td className='px-4 py-2'>{res.telefono}</td>
-                <td className='px-4 py-2'>{res.email}</td>
+                <td className="p-2 border-b border-gray-200">{res.nombreContacto}</td>
+                <td className="p-2 border-b border-gray-200">{res.apellidosContacto}</td>
+                <td className="p-2 border-b border-gray-200">{res.codigoContacto}</td>
+                <td className="p-2 border-b border-gray-200">{res.empresaAsociada}</td>
+                <td className="p-2 border-b border-gray-200">{res.telefono}</td>
+                <td className="p-2 border-b border-gray-200">{res.email}</td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan={6} className='text-center py-4 text-gray-500'>
+              <td
+                colSpan={6}
+                className="text-center py-4 text-gray-500"
+              >
                 No se encontraron resultados.
               </td>
             </tr>
