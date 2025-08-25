@@ -36,7 +36,15 @@ const FiltrosContactos: FC<FiltrosContactosProps> = ({
 
   return (
     <div className='flex flex-col justify-between mb-6'>
-      <p className="text-lg font-semibold">Buscador de Contactos</p>
+      <div className='flex flex-row justify-between'>
+        <p className="text-lg font-semibold">Buscador de Contactos</p>
+        <button
+          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
+          onClick={() => router.push('/dashboard/cuentas/contactos/crear')}
+        >
+          <p>Crear</p>
+        </button>
+      </div>
 
       <div className='flex flex-wrap gap-4 items-end p-5'>
         <div className='flex flex-col'>

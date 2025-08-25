@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
 import FiltrosContactos from './componentesContactos/FiltrosContactos';
 import TablaContactos from './componentesContactos/TablaContactos';
+import MiddleNav from '../../0dashboardcomponents/MiddleNav';
 
 const Contactos: FC = () => {
   const router = useRouter();
@@ -16,16 +17,11 @@ const Contactos: FC = () => {
   const [emailFiltro, setEmailFiltro] = useState('');
 
   return (
-    <div className="bg-gray-100 h-full min-h-screen p-12 text-gray-600">
-      <div className='flex flex-row justify-between w-full items-center'>
-        <h2 className="text-lg font-semibold mb-4">Contactos</h2>
-        <button
-          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/cuentas/contactos/crear')}
-        >
-          <p>Crear</p>
-        </button>
-      </div>
+        <div className="flex flex-col  h-full min-h-screen text-gray-600">
+
+      <MiddleNav tituloprincipal={` Contactos  `} />
+    <div className="bg-gray-100 h-full min-h-screen px-12 text-gray-600">
+   
 
       <div className='mt-12 p-3 rounded-lg shadow-xl bg-white'>
         <FiltrosContactos
@@ -52,6 +48,7 @@ const Contactos: FC = () => {
           emailFiltro={emailFiltro}
         />
       </div>
+    </div>
     </div>
   );
 };
