@@ -6,7 +6,11 @@ interface Fase3Props {
 
 const Fase3: FC<Fase3Props> = ({ }) => {
   return (
-    <div>Fase3</div>
+    <div>
+                                    <p>Fase3</p>
+                  <p>Vista para asociar el contacto a cuenta</p>
+
+    </div>
   );
 };
 
