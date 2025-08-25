@@ -19,7 +19,7 @@ const LoggedLeftMenu: FC = () => {
   const [isFichajesOpen, setIsFichajesOpen] = useState(false);
   const [isComercialOpen, setIsComercialOpen] = useState(false);
    const [isClientesOpen, setIsClientesOpen] = useState(false);
-  const [isServiciosOpen, setIsServiciosOpen] = useState(false);
+  const [isModeracionOpen, setIsModeracionOpen] = useState(false);
   const [isProduccionOpen, setIsProduccionOpen] = useState(false);
   const [isAdministracionOpen, setIsAdministracionOpen] = useState(false);
   
@@ -187,6 +187,44 @@ const LoggedLeftMenu: FC = () => {
               Informes comerciales
             </button>
           </div>
+          
+        )}
+      </div>
+
+            {/* MODERACION */}
+      <div className="mb-4">
+        <div
+          onClick={() => setIsModeracionOpen(!isModeracionOpen)}
+          className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
+        >
+          <span className="">Administración</span>
+          <ArrowIcon isOpen={isModeracionOpen} />
+        </div>
+        {isAdministracionOpen && (
+          <div className="ml-4 mt-2 space-y-2">
+            <button
+              onClick={() => router.push('/dashboard/administracion/controladministrativo')}
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              hover:text-white transition cursor-pointer"
+            >
+             Gestión de usuarios y roles
+            </button>
+            <button
+              onClick={() => router.push('/dashboard/administracion/pendiente')}
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              hover:text-white transition cursor-pointer"
+            >
+              Registro global de eventos
+            </button>
+             <button
+              onClick={() => router.push('/dashboard/administracion/informes')}
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              hover:text-white transition cursor-pointer"
+            >
+              Importaciones y exportaciones
+            </button>
+          </div>
+          
         )}
       </div>
     </div>
