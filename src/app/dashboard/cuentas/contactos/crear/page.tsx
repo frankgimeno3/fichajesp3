@@ -4,20 +4,28 @@ import Fase0 from './fases/fase0';
 import Fase1 from './fases/fase1';
 import Fase2 from './fases/fase2';
 import Fase3 from './fases/fase3';
+import MiddleNav from '@/app/dashboard/0dashboardcomponents/MiddleNav';
 
 interface CrearContactoProps {
-      setFaseCrearContacto: React.Dispatch<React.SetStateAction<number>>;
-
+  setFaseCrearContacto: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const CrearContacto: FC<CrearContactoProps> = ({ }) => {
   const [faseCrearContacto, setFaseCrearContacto] = useState(0)
+  const [nombre, setNombre] = useState("")
+  const [apellidos, setApellidos] = useState("")  
+  const [telefono, setTelefono] = useState("")
+  const [mail, setMail] = useState("")
+  const [cargo, setCargo] = useState("")
   return (
-    <div className='bg-white h-full min-h-screen p-12 text-gray-600'>
-      {faseCrearContacto == 0 && <Fase0 setFaseCrearContacto={setFaseCrearContacto}/>}
-      {faseCrearContacto == 1 && <Fase1 setFaseCrearContacto={setFaseCrearContacto}/>}
-      {faseCrearContacto == 2 && <Fase2 setFaseCrearContacto={setFaseCrearContacto}/>}
-      {faseCrearContacto == 3 && <Fase3 />}
+    <div className="flex flex-col  h-full min-h-screen text-gray-600">
+      <MiddleNav tituloprincipal={` Crear contacto  `} />
+      <div className="bg-gray-100 h-full min-h-screen p-12 text-gray-600">      
+        {faseCrearContacto == 0 && <Fase0 setFaseCrearContacto={setFaseCrearContacto} />}
+        {faseCrearContacto == 1 && <Fase1 setFaseCrearContacto={setFaseCrearContacto} />}
+        {faseCrearContacto == 2 && <Fase2 setFaseCrearContacto={setFaseCrearContacto} />}
+        {faseCrearContacto == 3 && <Fase3 />}
+      </div>
     </div>
   );
 };
