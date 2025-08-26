@@ -43,10 +43,7 @@ const CrearCuenta: FC = () => {
         {faseCrearCuenta === 0 && (
           <Fase0
             setFaseCrearCuenta={setFaseCrearCuenta}
-            setNombre={setNombre}
-            setApellidos={setApellidos}
-            setTelefono={setTelefono}
-            setMail={setMail}
+           
           />
         )}
         {faseCrearCuenta === 1 && (
