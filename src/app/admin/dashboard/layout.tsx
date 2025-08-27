@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react"; 
-import AdminLeftNav from "./admincomponents/AdminLeftNav";
 import AdminNav from "./admincomponents/AdminNav";
+import LoggedLeftMenu from "@/app/general_components/loggedLeftMenu";
 
 export default function RegistroLayout({
   children,
@@ -13,7 +13,7 @@ export default function RegistroLayout({
     <>
       <AdminNav />
       <div className="flex flex-row w-full ">
-      <AdminLeftNav/>
+      <LoggedLeftMenu/>
       <div className="flex flex-col w-full">
       {children}
       </div>
