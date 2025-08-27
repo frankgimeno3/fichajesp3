@@ -86,7 +86,7 @@ const TablaServicios: FC<TablaServiciosProps> = ({
               key={servicio.id}
               className='hover:bg-gray-50 cursor-pointer'
               onClick={() =>
-                router.push(`/dashboard/comercial/Servicios/${servicio.codigoServicio}`)
+                router.push(`/dashboard/produccion/servicios/${servicio.codigoServicio}`)
               }
             >
               <td className='p-2 border-b border-gray-200 w-24'>{servicio.codigoServicio}</td>

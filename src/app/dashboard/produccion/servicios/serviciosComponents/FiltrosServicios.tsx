@@ -28,7 +28,7 @@ const FiltrosServicios: FC<FiltrosServiciosProps> = ({
         <div className='my-auto'>
         <button
           className='bg-blue-950 text-xs text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/comercial/Servicios/crear')}
+          onClick={() => router.push('/dashboard/produccion/servicios/crear')}
         >
           <p>Crear</p>
         </button>
@@ -81,7 +81,7 @@ const FiltrosServicios: FC<FiltrosServiciosProps> = ({
 
         <button
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/produccion/Servicios/crear')}
+          onClick={() => router.push('/dashboard/produccion/servicios/crear')}
         >
           <p>Buscar</p>
         </button>
