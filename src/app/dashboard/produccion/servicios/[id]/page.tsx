@@ -4,16 +4,14 @@ import MiddleNav from '@/app/general_components/MiddleNav';
 import { useParams } from 'next/navigation';
 import React, { FC } from 'react';
 
-// Importa tu JSON con los datos de Servicios
 import data from '../../../../contents/ServiciosContents.json';
 
 interface DetalleProps {}
 
 const Detalle: FC<DetalleProps> = () => {
   const params = useParams();
-  const productId = params?.id as string; // el [id] debe coincidir con el nombre de la carpeta en tu ruta dinámica
+  const productId = params?.id as string;  
 
-  // Buscar el elemento en el JSON que coincida con el product_id
   const servicio = data.find((item) => item.product_id === productId);
 
   if (!servicio) {

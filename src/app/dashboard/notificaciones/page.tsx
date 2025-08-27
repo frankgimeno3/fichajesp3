@@ -1,58 +1,86 @@
 "use client"
 import { useRouter } from 'next/navigation';
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState } from 'react';
+import notifsContents from '../../contents/notifsContents.json';  
 
-interface NotificacionesProps {
-  
+interface Notificacion {
+  id_notif: string;
+  id_usuario: string;
+  estado_notif: string;
+  fecha_notif: string;
+  hora_notif: string;
+  tipo_notif: string;
+  titulo_notif: string;
+  contenido_notif: string;
+  redireccion_notif: string;
 }
 
-const Notificaciones: FC<NotificacionesProps> = ({ }) => {
-      const notificaciones = [
-    { titulo: "Modificación de entrada aprobada", fechaHora: "2025-07-19 14:35", estado: "Pendiente" },
-    { titulo: "Modificación de salida rechazada aprobada", fechaHora: "2025-07-18 10:20", estado: "Pendiente" },
-    { titulo: "Nuevo seguimiento añadido por Frank", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
-    { titulo: "Alerta generada por seguimiento", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
-    { titulo: "Nuevo comentario de Frank en seguimientos", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
-    { titulo: "Alerta de seguimiento de materiales", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
-    { titulo: "Una página preferente ofrecida ya no está disponible", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
-    { titulo: "Una página preferente ofrecida tiene una nueva oferta competidora", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
-    { titulo: "Nuevo planillo de revista disponible", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
-    { titulo: "Tu cliente X ha recibido una modificación", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
-    { titulo: "Uno de tus informes está listo", fechaHora: "2025-07-17 08:00", estado: "Visualizado" },
-  ];
-    const router = useRouter()
-  
+const Notificaciones: FC = () => {
+  const [notificaciones, setNotificaciones] = useState<Notificacion[]>([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    setNotificaciones(notifsContents as Notificacion[]);
+  }, []);
+
+  const marcarTodasComoLeidas = () => {
+    setNotificaciones((prev) =>
+      prev.map((notif) => ({ ...notif, estado_notif: "leida" }))
+    );
+  };
+
+  const formatearFecha = (fechaExcel: string, hora: string) => {
+    // Excel date serial -> convertir a fecha real
+    const baseDate = new Date(1899, 11, 30); 
+    const fecha = new Date(baseDate.getTime() + Number(fechaExcel) * 86400000);
+    return `${fecha.toLocaleDateString()} ${hora}`;
+  };
+
   return (
     <div className='bg-white h-full min-h-screen p-12 text-gray-600'>
-      <div>
-        <h2 className='text-lg font-semibold mb-4'>Tabla de Notificaciones <span className='font-light '>(último mes)</span></h2>
-              <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900">
-                 Marcar todas como leídas
-              </button>
+      <div className='flex items-center justify-between mb-4'>
+        <h2 className='text-lg font-semibold'>
+          Tabla de Notificaciones{" "}
+          <span className='font-light'>(último mes)</span>
+        </h2>
+        <button
+          onClick={marcarTodasComoLeidas}
+          className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+        >
+          Marcar todas como leídas
+        </button>
       </div>
-        <table className='min-w-full'>
-          <thead className='bg-blue-950 text-white '>
-            <tr>
-              <th className='text-left p-2 font-light'>Título</th>
-              <th className='text-left p-2 font-light'>Fecha y Hora</th>
-              <th className='text-left p-2 font-light'>Estado</th>
+
+      <table className='min-w-full border'>
+        <thead className='bg-blue-950 text-white'>
+          <tr>
+            <th className='text-left p-2 font-light'>Título</th>
+            <th className='text-left p-2 font-light'>Fecha y Hora</th>
+            <th className='text-left p-2 font-light'>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          {notificaciones.map((notif) => (
+            <tr
+              key={notif.id_notif}
+              className={`hover:bg-gray-50 cursor-pointer ${
+                notif.estado_notif === "pendiente" ? "bg-white" : "bg-gray-200/60"
+              }`}
+              onClick={() => {
+                router.push(`/dashboard/notificaciones/${notif.id_notif}`);
+              }}
+            >
+              <td className='p-2 border-b border-gray-200'>{notif.titulo_notif}</td>
+              <td className='p-2 border-b border-gray-200'>
+                {formatearFecha(notif.fecha_notif, notif.hora_notif)}
+              </td>
+              <td className='p-2 border-b border-gray-200 capitalize'>{notif.estado_notif}</td>
             </tr>
-          </thead>
-          <tbody>
-            {notificaciones.map((notif, index) => (
-              <tr
-                key={index}
-                className={`hover:bg-gray-50 cursor-pointer ${notif.estado !== "Visualizado" ? "bg-white" : "bg-gray-200/60"
-                  }`} onClick={()=>{router.push('/dashboard/notificaciones/notificacion')}}
-              >
-                <td className='p-2 border-b border-gray-200'>{notif.titulo}</td>
-                <td className='p-2 border-b border-gray-200'>{notif.fechaHora}</td>
-                <td className='p-2 border-b border-gray-200'>{notif.estado}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>  );
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
 };
 
 export default Notificaciones;
