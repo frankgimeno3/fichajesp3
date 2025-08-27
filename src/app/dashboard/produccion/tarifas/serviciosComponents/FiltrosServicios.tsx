@@ -2,7 +2,7 @@
 import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
 
-interface FiltrosTarifasProps {
+interface FiltrosServiciosProps {
   medioFiltro: string;
   setMedioFiltro: (value: string) => void;
   publicacionFiltro: string;
@@ -11,7 +11,7 @@ interface FiltrosTarifasProps {
   setServicioFiltro: (value: string) => void;
 }
 
-const FiltrosTarifas: FC<FiltrosTarifasProps> = ({
+const FiltrosServicios: FC<FiltrosServiciosProps> = ({
   medioFiltro,
   setMedioFiltro,
   publicacionFiltro,
@@ -24,11 +24,11 @@ const FiltrosTarifas: FC<FiltrosTarifasProps> = ({
   return (
     <div className='flex flex-col justify-between mb-3'>
       <div className='flex flex-row justify-between px-4'>
-        <h2 className="text-lg font-semibold mb-4">Buscador de tarifas</h2>
+        <h2 className="text-lg font-semibold mb-4">Buscador de Servicios</h2>
         <div className='my-auto'>
         <button
           className='bg-blue-950 text-xs text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/comercial/tarifas/crear')}
+          onClick={() => router.push('/dashboard/comercial/Servicios/crear')}
         >
           <p>Crear</p>
         </button>
@@ -81,7 +81,7 @@ const FiltrosTarifas: FC<FiltrosTarifasProps> = ({
 
         <button
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/produccion/tarifas/crear')}
+          onClick={() => router.push('/dashboard/produccion/Servicios/crear')}
         >
           <p>Buscar</p>
         </button>
@@ -90,4 +90,4 @@ const FiltrosTarifas: FC<FiltrosTarifasProps> = ({
   );
 };
 
-export default FiltrosTarifas;
+export default FiltrosServicios;

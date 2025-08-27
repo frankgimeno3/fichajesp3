@@ -2,7 +2,7 @@
 
 import React, { FC, useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import tarifasContents from '../../../../contents/tarifasContents.json';
+import ServiciosContents from '../../../../contents/ServiciosContents.json';
 
 interface Servicio {
   id: number;
@@ -16,22 +16,22 @@ interface Servicio {
   fechaPublicacion: string;
 }
 
-interface TablaTarifasProps {
+interface TablaServiciosProps {
   medioFiltro: string;
   publicacionFiltro: string;
   servicioFiltro: string;
 }
 
-const TablaTarifas: FC<TablaTarifasProps> = ({
+const TablaServicios: FC<TablaServiciosProps> = ({
   medioFiltro,
   publicacionFiltro,
   servicioFiltro,
 }) => {
   const router = useRouter();
-  const [tarifas, setTarifas] = useState<Servicio[]>([]);
+  const [Servicios, setServicios] = useState<Servicio[]>([]);
 
   useEffect(() => {
-    const tarifasMapeadas: Servicio[] = tarifasContents.map((t, index) => ({
+    const ServiciosMapeadas: Servicio[] = ServiciosContents.map((t, index) => ({
       id: index + 1,
       nombreServicio:
         t.soporte === 'Revista'
@@ -46,10 +46,10 @@ const TablaTarifas: FC<TablaTarifasProps> = ({
       fechaPublicacion: t.date_publication,
     }));
 
-    setTarifas(tarifasMapeadas);
+    setServicios(ServiciosMapeadas);
   }, []);
 
-  const TarifasFiltrados = tarifas.filter((s) => {
+  const ServiciosFiltrados = Servicios.filter((s) => {
     const coincideServicio =
       servicioFiltro === '' ||
       s.nombreServicio.toLowerCase().includes(servicioFiltro.toLowerCase()) ||
@@ -81,12 +81,12 @@ const TablaTarifas: FC<TablaTarifasProps> = ({
           </tr>
         </thead>
         <tbody>
-          {TarifasFiltrados.map((servicio) => (
+          {ServiciosFiltrados.map((servicio) => (
             <tr
               key={servicio.id}
               className='hover:bg-gray-50 cursor-pointer'
               onClick={() =>
-                router.push(`/dashboard/comercial/tarifas/${servicio.codigoServicio}`)
+                router.push(`/dashboard/comercial/Servicios/${servicio.codigoServicio}`)
               }
             >
               <td className='p-2 border-b border-gray-200 w-24'>{servicio.codigoServicio}</td>
@@ -100,13 +100,13 @@ const TablaTarifas: FC<TablaTarifasProps> = ({
           ))}
         </tbody>
       </table>
-      {TarifasFiltrados.length === 0 && (
+      {ServiciosFiltrados.length === 0 && (
         <p className='mt-4 text-center text-gray-500'>
-          No se encontraron Tarifas.
+          No se encontraron Servicios.
         </p>
       )}
     </div>
   );
 };
 
-export default TablaTarifas;
+export default TablaServicios;

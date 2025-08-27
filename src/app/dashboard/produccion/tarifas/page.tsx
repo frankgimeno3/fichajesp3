@@ -1,15 +1,15 @@
 "use client"
 import { useRouter } from 'next/navigation';
-import React, { FC, useState } from 'react';
-import FiltrosTarifas from './tarifasComponents/FiltrosTarifas';
-import TablaTarifas from './tarifasComponents/TablaTarifas';
+import React, { FC, useState } from 'react'; 
 import MiddleNav from '../../0dashboardcomponents/MiddleNav';
+import FiltrosServicios from './serviciosComponents/FiltrosServicios';
+import TablaServicios from './serviciosComponents/TablaServicios';
 
-interface TarifasProps {
+interface ServiciosProps {
   
 }
 
-const Tarifas: FC<TarifasProps> = ({ }) => {
+const Servicios: FC<ServiciosProps> = ({ }) => {
     const router = useRouter();
     const [medioFiltro, setMedioFiltro] = useState('')
     const [publicacionFiltro, setPublicacionFiltro] = useState('')
@@ -18,11 +18,11 @@ const Tarifas: FC<TarifasProps> = ({ }) => {
   return (
     <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
 
-      <MiddleNav tituloprincipal={` Tarifas  `} />
+      <MiddleNav tituloprincipal={` Servicios  `} />
 
     <div className="bg-white min-h-screen  text-gray-600">      
       <div className='mt-8 p-3 rounded-lg shadow-xl bg-white'>
-        <FiltrosTarifas
+        <FiltrosServicios
           medioFiltro={medioFiltro}
           setMedioFiltro={setMedioFiltro}
           publicacionFiltro={publicacionFiltro}
@@ -31,7 +31,7 @@ const Tarifas: FC<TarifasProps> = ({ }) => {
           setServicioFiltro={setServicioFiltro}
         />
 
-        <TablaTarifas
+        <TablaServicios
           medioFiltro={medioFiltro}
           publicacionFiltro={publicacionFiltro}
           servicioFiltro={servicioFiltro}
@@ -41,4 +41,4 @@ const Tarifas: FC<TarifasProps> = ({ }) => {
      </div>  );
 };
 
-export default Tarifas;
+export default Servicios;

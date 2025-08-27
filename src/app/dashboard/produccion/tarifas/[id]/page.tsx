@@ -4,8 +4,8 @@ import MiddleNav from '@/app/dashboard/0dashboardcomponents/MiddleNav';
 import { useParams } from 'next/navigation';
 import React, { FC } from 'react';
 
-// Importa tu JSON con los datos de tarifas
-import data from '../../../../contents/tarifasContents.json';
+// Importa tu JSON con los datos de Servicios
+import data from '../../../../contents/ServiciosContents.json';
 
 interface DetalleProps {}
 
@@ -32,7 +32,7 @@ const Detalle: FC<DetalleProps> = () => {
       <MiddleNav tituloprincipal={` Resumen del servicio `} />
 
       <div className="bg-white min-h-screen p-12 text-gray-600">                  
-        {/* Tabla de tarifas */}
+        {/* Tabla de Servicios */}
         <div className="rounded-lg shadow-xl bg-white">
           <table className="w-full text-left rounded-lg overflow-hidden">
             <thead className="bg-blue-950 text-white">
