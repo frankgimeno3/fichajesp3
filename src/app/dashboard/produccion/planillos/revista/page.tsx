@@ -1,5 +1,5 @@
 "use client";
-import MiddleNav from '@/app/dashboard/0dashboardcomponents/MiddleNav';
+import MiddleNav from '@/app/general_components/MiddleNav';
 import React, { FC, JSX, useState } from 'react';
 
 interface CeldaData {

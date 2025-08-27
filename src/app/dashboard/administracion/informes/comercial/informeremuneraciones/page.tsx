@@ -1,4 +1,4 @@
-import MiddleNav from '@/app/dashboard/0dashboardcomponents/MiddleNav';
+import MiddleNav from '@/app/general_components/MiddleNav';
 import React, { FC } from 'react';
 import data from './informeremuneraciones.json';
 

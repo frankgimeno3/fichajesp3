@@ -1,6 +1,6 @@
 "use client"
 import React, { FC, useState } from 'react';
-import MiddleNav from '../../0dashboardcomponents/MiddleNav';
+import MiddleNav from '../../../general_components/MiddleNav';
 import CampanasAdministrativas from '../componentesadministracion/CampanasAdministrativas';
 import OrdenesCobro from '../componentesadministracion/OrdenesCobro';
 

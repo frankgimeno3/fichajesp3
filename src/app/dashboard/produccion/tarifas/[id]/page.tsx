@@ -1,6 +1,6 @@
 'use client'
 
-import MiddleNav from '@/app/dashboard/0dashboardcomponents/MiddleNav';
+import MiddleNav from '@/app/general_components/MiddleNav';
 import { useParams } from 'next/navigation';
 import React, { FC } from 'react';
 

@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import LoggedNav from "./0dashboardcomponents/loggedNav";
-import LoggedLeftMenu from "./0dashboardcomponents/loggedLeftMenu";
+import LoggedNav from "../general_components/loggedNav";
+import LoggedLeftMenu from "../general_components/loggedLeftMenu";
 
 export default function RegistroLayout({
   children,

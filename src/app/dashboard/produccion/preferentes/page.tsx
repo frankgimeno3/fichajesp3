@@ -5,7 +5,7 @@ import ContenidoVidrioAl from './contenidopreferentes/contenidopestanas/contenid
 import ContenidoVentanasEsp from './contenidopreferentes/contenidopestanas/contenidoVentanasEsp';
 import ContenidoVentanasAl from './contenidopreferentes/contenidopestanas/contenidoVentanasAl';
 import ContenidoHistorico from './contenidopreferentes/contenidopestanas/contenidoHistorico';
-import MiddleNav from '../../0dashboardcomponents/MiddleNav';
+import MiddleNav from '../../../general_components/MiddleNav';
 
 interface PreferentesProps {
 

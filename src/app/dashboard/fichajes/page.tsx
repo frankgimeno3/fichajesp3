@@ -3,7 +3,7 @@
 import React, { FC, useState } from "react";
 import PopUp from "./PopUp";
 import {TimeLogService} from "@/app/service/TimeLogService";
-import MiddleNav from "../0dashboardcomponents/MiddleNav";
+import MiddleNav from "../../general_components/MiddleNav";
 
 interface RegistroProps { }
 

@@ -5,7 +5,7 @@ import Fase0 from './fasesc/fase0';
 import Fase1 from './fasesc/fase1';
 import Fase2 from './fasesc/fase2';
 import Fase3 from './fasesc/fase3';
-import MiddleNav from '@/app/dashboard/0dashboardcomponents/MiddleNav';
+import MiddleNav from '@/app/general_components/MiddleNav';
 
 const CrearCuenta: FC = () => {
   const [faseCrearCuenta, setFaseCrearCuenta] = useState(0);

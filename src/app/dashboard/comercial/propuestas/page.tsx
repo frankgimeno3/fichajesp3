@@ -1,7 +1,7 @@
 'use client'
 import React, { FC, useState } from 'react';
 import FiltrosPropuestas from './componentesPropuestas/FiltrosPropuestas';
-import MiddleNav from '../../0dashboardcomponents/MiddleNav';
+import MiddleNav from '../../../general_components/MiddleNav';
 import { useRouter } from 'next/navigation';
 import TodasPropuestas from './componentesPropuestas/tablaspropuestas/TodasPropuestas';
 import MisPendientes from './componentesPropuestas/tablaspropuestas/MisPendientes';

@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
-import MiddleNav from '../0dashboardcomponents/MiddleNav';
+import MiddleNav from '../../general_components/MiddleNav';
 import Contratos from './contratos/Contratos';
 
 interface Seguimiento {

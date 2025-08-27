@@ -10,7 +10,7 @@ import OtrosDatosEnFacturaProps from './propuestacomponents/OtrosDatosEnFactura'
 import DatosCobroPropuesta from './propuestacomponents/DatosCobroPropuesta';
 import { useRouter } from 'next/navigation';
 import TablaContenidoPropuesta from './propuestacomponents/TablaContenidoPropuesta';
-import MiddleNav from '@/app/dashboard/0dashboardcomponents/MiddleNav';
+import MiddleNav from '@/app/general_components/MiddleNav';
 
 const ResumenPropuesta: FC = () => {
   const router = useRouter()

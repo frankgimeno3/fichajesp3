@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
-import VentanaFichaje from './0dashboardcomponents/VentanaFichaje';
+import VentanaFichaje from '../general_components/VentanaFichaje';
 
 interface DashboardProps { }
 

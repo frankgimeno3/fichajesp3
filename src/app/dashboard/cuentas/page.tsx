@@ -2,7 +2,7 @@
 import React, { FC, useState } from 'react'; 
 import Filtroscuentas from './componentesClientes/FiltrosClientes';
 import Tablacuentas from './componentesClientes/TablaCuentas';
-import MiddleNav from '../0dashboardcomponents/MiddleNav';
+import MiddleNav from '../../general_components/MiddleNav';
 
 const Cuentas: FC = () => {
 

@@ -2,7 +2,7 @@
 import React, { FC, useState } from 'react';
 import InformesRemuneraciones from '../../componentesadministracion/InformesRemuneraciones';
 import InformesVentas from '../../componentesadministracion/InformesVentas';
-import MiddleNav from '@/app/dashboard/0dashboardcomponents/MiddleNav';
+import MiddleNav from '@/app/general_components/MiddleNav';
 
 interface InformesDelComercialProps {
   
