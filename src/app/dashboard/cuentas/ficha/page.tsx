@@ -14,7 +14,6 @@ const FichaCliente: FC<FichaClienteProps> = ({ }) => {
 
   return (
     <div className="bg-white min-h-screen p-12 text-gray-600">
-      {/* Encabezado */}
       <div className='flex flex-row justify-between w-full items-center'>
         <h2 className="text-lg font-semibold">
           Ficha de cliente
