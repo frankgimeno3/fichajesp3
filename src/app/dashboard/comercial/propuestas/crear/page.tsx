@@ -17,7 +17,7 @@ const CrearPropuestas: FC<CrearPropuestasProps> = ({ }) => {
   const [faseCreacionPropuesta, setFaseCreacionPropuesta] = useState(1)
   return (
     <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
-      <MiddleNav tituloprincipal={` Crear propuesta  `} />
+      <MiddleNav tituloprincipal={` Crear propuesta `} />
 
         <div className="bg-white min-h-screen p-12 text-gray-600">
           {faseCreacionPropuesta == 1 && <Fase1Crear />}
