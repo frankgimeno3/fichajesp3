@@ -22,7 +22,7 @@ const Propuestas: FC = () => {
       <div className="bg-gray-100 min-h-screen px-12 text-gray-600">
         <div className='flex flex-row justify-end py-5'>
           <button
-            className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900  text-xl'
+            className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900  text-md'
             onClick={() => router.push('/dashboard/comercial/propuestas/crear')}
           >
             <p>Crear propuesta</p>

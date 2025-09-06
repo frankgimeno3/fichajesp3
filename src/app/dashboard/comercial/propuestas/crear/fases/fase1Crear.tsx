@@ -53,7 +53,7 @@ const Fase1Crear: FC<Fase1CrearProps> = ({
         <input
           type="text"
           placeholder="Código de cliente aquí"
-          className="flex-1 p-2 border rounded-xl text-gray-200"
+          className="flex-1 p-2 border rounded-xl text-gray-400"
           value={codigoInput}
           onChange={(e) => setCodigoInput(e.target.value)}
         />
