@@ -38,7 +38,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
       </div>
 
 
-      <div className='mt-2'>
+      {/* <div className='mt-2'>
         <h2 className='text-lg font-semibold mb-4'>Tabla de Notificaciones</h2>
         <table className='min-w-full '>
           <thead className='bg-blue-950 text-white '>
@@ -65,7 +65,7 @@ const Dashboard: FC<DashboardProps> = ({ }) => {
       </div>
       <button className='mt-12  bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
         onClick={() => { router.push('/dashboard/notificaciones') }}>
-        Ver todas las notificaciones</button>
+        Ver todas las notificaciones</button> */}
     </div>
   );
 };
