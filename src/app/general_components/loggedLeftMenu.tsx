@@ -55,6 +55,36 @@ const LoggedLeftMenu: FC = () => {
           </div>
         )}
       </div>
+{/* CLIENTES */}
+      <div className="mb-4">
+        <div
+          onClick={() => setIsClientesOpen(!isClientesOpen)}
+          className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
+        >
+          <span className="">Clientes</span>
+          <ArrowIcon isOpen={isClientesOpen} />
+        </div>
+        {isClientesOpen && (
+          <div className="ml-4 mt-2 space-y-2">
+            <button
+              onClick={() => router.push('/dashboard/cuentas')}
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              hover:text-white transition cursor-pointer"
+            >
+              Cuentas
+            </button>
+
+            <button
+              onClick={() => router.push('/dashboard/cuentas/contactos')}
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              hover:text-white transition cursor-pointer"
+            >
+              Contactos
+            </button>
+
+          </div>
+        )}
+      </div>
 
       {/* COMERCIAL */}
       <div className="mb-4">
@@ -68,18 +98,18 @@ const LoggedLeftMenu: FC = () => {
         {isComercialOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
-              onClick={() => router.push('/dashboard/comercial')}
-              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Seguimientos
-            </button>
-            <button
               onClick={() => router.push('/dashboard/comercial/propuestas')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Propuestas
+            </button>
+            <button
+              onClick={() => router.push('/dashboard/comercial')}
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              hover:text-white transition cursor-pointer"
+            >
+              Seguimientos
             </button>
           </div>
         )}
@@ -122,37 +152,7 @@ const LoggedLeftMenu: FC = () => {
         )}
       </div>
 
-      {/* CLIENTES */}
-      <div className="mb-4">
-        <div
-          onClick={() => setIsClientesOpen(!isClientesOpen)}
-          className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
-        >
-          <span className="">Clientes</span>
-          <ArrowIcon isOpen={isClientesOpen} />
-        </div>
-        {isClientesOpen && (
-          <div className="ml-4 mt-2 space-y-2">
-            <button
-              onClick={() => router.push('/dashboard/cuentas')}
-              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Cuentas
-            </button>
-
-            <button
-              onClick={() => router.push('/dashboard/cuentas/contactos')}
-              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Contactos
-            </button>
-
-          </div>
-        )}
-      </div>
-
+      
 
       {/* ADMINISTRACION */}
       <div className="mb-4">
@@ -172,21 +172,8 @@ const LoggedLeftMenu: FC = () => {
             >
               Control administrativo
             </button>
-            <button
-              onClick={() => router.push('/dashboard/administracion/pendiente')}
-              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Pendiente Cobro
-            </button>
-            <button
-              onClick={() => router.push('/dashboard/administracion/informes')}
-              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Informes comerciales
-            </button>
-          </div>
+ 
+           </div>
 
         )}
       </div>

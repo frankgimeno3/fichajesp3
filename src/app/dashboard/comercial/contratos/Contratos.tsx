@@ -9,7 +9,7 @@ const Contratos: FC<ContratosProps> = ({ }) => {
   const [pestana, setPestana] = useState<'cliente' | 'publicacion'>('cliente');
   const [agenteActual] = useState("usuario")
   return (
-    <div className="  pt-24  ">
+    <div className="   ">
       <h2 className="text-lg font-semibold mb-4">Contratos en curso para el agente {agenteActual}</h2>
       <div className="flex flex-row relative mb-4">
         <div

@@ -16,7 +16,7 @@ const Comercial: FC<ComercialProps> = () => {
       <MiddleNav tituloprincipal={` Seguimientos `} />
 
       <div className="bg-white min-h-screen p-12 text-gray-600">
-        <div className="flex flex-row items-center justify-between pb-6">
+        {/* <div className="flex flex-row items-center justify-between pb-6">
           <button
             className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
             onClick={() => router.push("/dashboard/comercial/propuestas")}
@@ -25,7 +25,7 @@ const Comercial: FC<ComercialProps> = () => {
           </button>
         </div>
 
-        <Seguimientos agenteActual={agenteActual} />
+        <Seguimientos agenteActual={agenteActual} /> */}
 
         <Contratos />
       </div>
