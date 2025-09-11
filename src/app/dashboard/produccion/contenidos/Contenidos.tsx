@@ -50,13 +50,13 @@ const Contenidos: FC<ContenidosProps> = ({ }) => {
           {data.map((item, index) => (
             <tr key={index} className='hover:bg-gray-50 cursor-pointer'>
               <td className='p-2 border-b border-gray-200'
-              onClick={()=>{router.push('/dashboard/produccion/contenidos/revista')}}>{item.edicion}</td>
+              onClick={()=>{router.push('/dashboard/produccion/contenidos/publicacion')}}>{item.edicion}</td>
               <td className='p-2 border-b border-gray-200'
-              onClick={()=>{router.push('/dashboard/produccion/contenidos/revista')}}>{item.deadline}</td>
+              onClick={()=>{router.push('/dashboard/produccion/contenidos/publicacion')}}>{item.deadline}</td>
               <td className='p-2 border-b border-gray-200'
-              onClick={()=>{router.push('/dashboard/produccion/contenidos/revista')}}>{item.publicacion}</td>
+              onClick={()=>{router.push('/dashboard/produccion/contenidos/publicacion')}}>{item.publicacion}</td>
               <td className='p-2 border-b border-gray-200'
-              onClick={()=>{router.push('/dashboard/produccion/contenidos/revista')}}>{item.tematica}</td>
+              onClick={()=>{router.push('/dashboard/produccion/contenidos/publicacion')}}>{item.tematica}</td>
             </tr>
           ))}
         </tbody>
