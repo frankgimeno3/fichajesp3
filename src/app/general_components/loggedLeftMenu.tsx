@@ -105,11 +105,11 @@ const LoggedLeftMenu: FC = () => {
               Propuestas
             </button>
             <button
-              onClick={() => router.push('/dashboard/comercial')}
+              onClick={() => router.push('/dashboard/comercial/contratos')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
-              Seguimientos
+              Mis contratos
             </button>
           </div>
         )}
@@ -140,13 +140,7 @@ const LoggedLeftMenu: FC = () => {
             >
               Materiales
             </button>
-            <button
-              onClick={() => router.push('/dashboard/produccion/preferentes')}
-              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Páginas preferentes
-            </button>
+         
 
           </div>
         )}
