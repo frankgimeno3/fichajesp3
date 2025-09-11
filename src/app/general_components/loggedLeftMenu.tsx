@@ -160,11 +160,19 @@ const LoggedLeftMenu: FC = () => {
         {isAdministracionOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
-              onClick={() => router.push('/dashboard/administracion/controladministrativo')}
+              onClick={() => router.push('/dashboard/administracion/ordenes')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
-              Control administrativo
+              Ordenes
+            </button>
+
+             <button
+              onClick={() => router.push('/dashboard/administracion/contratos')}
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              hover:text-white transition cursor-pointer"
+            >
+              Contratos
             </button>
  
            </div>
@@ -184,25 +192,39 @@ const LoggedLeftMenu: FC = () => {
         {isModeracionOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
-              onClick={() => router.push('/dashboard/administracion/controladministrativo')}
+              onClick={() => router.push('/dashboard/moderacion/usuariosyroles')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Gestión de usuarios y roles
             </button>
             <button
-              onClick={() => router.push('/dashboard/administracion/pendiente')}
+              onClick={() => router.push('/dashboard/moderacion/eventos')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Registro global de eventos
             </button>
             <button
-              onClick={() => router.push('/dashboard/administracion/informes')}
+              onClick={() => router.push('/dashboard/moderacion/importexport')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Importaciones y exportaciones
+            </button>
+            <button
+              onClick={() => router.push('/dashboard/moderacion/fichajes')}
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              hover:text-white transition cursor-pointer"
+            >
+              Fichajes agregados
+            </button>
+            <button
+              onClick={() => router.push('/dashboard/moderacion/propuestas')}
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              hover:text-white transition cursor-pointer"
+            >
+              Propuestas agregadas
             </button>
           </div>
 
