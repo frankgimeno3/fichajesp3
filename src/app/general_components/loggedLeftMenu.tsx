@@ -217,14 +217,14 @@ const LoggedLeftMenu: FC = () => {
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
-              Fichajes agregados
+              Gestión de fichajes
             </button>
             <button
               onClick={() => router.push('/dashboard/moderacion/propuestas')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
-              Propuestas agregadas
+              Gestión de propuestas
             </button>
           </div>
 

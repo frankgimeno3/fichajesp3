@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
- import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import FolderSvg from '../svg/FolderSvg';
 
 interface Resultado {
@@ -68,32 +68,30 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
   });
 
   const router = useRouter()
-  const handleRedirection = (params:string)=>{
-    router.push(params)
-  }
+
   return (
     <div className="h-full">
-        <table className='min-w-full '>
-          <thead className='bg-blue-950 text-white '>
+      <table className='min-w-full '>
+        <thead className='bg-blue-950 text-white '>
           <tr>
-             <th className='text-left p-2 font-light'></th>
-             <th className='text-left p-2 font-light'>Nombre Empresa</th>
-             <th className='text-left p-2 font-light'>Código CRM</th>
-             <th className='text-left p-2 font-light'>Propuestas creadas</th>
-             <th className='text-left p-2 font-light'>Agente asignado actual</th>
-             <th className='text-left p-2 font-light'>Fecha Última Propuesta</th>
+            <th className='text-left p-2 font-light'></th>
+            <th className='text-left p-2 font-light'>Nombre Empresa</th>
+            <th className='text-left p-2 font-light'>Código CRM</th>
+            <th className='text-left p-2 font-light'>Propuestas creadas</th>
+            <th className='text-left p-2 font-light'>Agente asignado actual</th>
+            <th className='text-left p-2 font-light'>Fecha Última Propuesta</th>
           </tr>
         </thead>
         <tbody className=''>
           {resultadosFiltrados.map((res) => (
-            <tr key={res.id}className='hover:bg-gray-50 cursor-pointer'
-            onClick={()=>{handleRedirection('/dashboard/comercial/propuestas/propuestascliente')}}>
-               <td className='p-2 border-b border-gray-200'><FolderSvg /></td>
-               <td className='p-2 border-b border-gray-200'>{res.nombreEmpresa}</td>
-               <td className='p-2 border-b border-gray-200'>{res.codigoCRM}</td>
-               <td className='p-2 border-b border-gray-200'>{res.numeroPropuestas}</td>
-               <td className='p-2 border-b border-gray-200'>{res.agenteAsignado}</td>
-               <td className='p-2 border-b border-gray-200'>{res.fechaUltimaPropuesta}</td>
+            <tr key={res.id} className='hover:bg-gray-50 cursor-pointer'
+              onClick={() => { router.push('/dashboard/comercial/propuestas/propuestascliente') }}>
+              <td className='p-2 border-b border-gray-200'><FolderSvg /></td>
+              <td className='p-2 border-b border-gray-200'>{res.nombreEmpresa}</td>
+              <td className='p-2 border-b border-gray-200'>{res.codigoCRM}</td>
+              <td className='p-2 border-b border-gray-200'>{res.numeroPropuestas}</td>
+              <td className='p-2 border-b border-gray-200'>{res.agenteAsignado}</td>
+              <td className='p-2 border-b border-gray-200'>{res.fechaUltimaPropuesta}</td>
             </tr>
           ))}
         </tbody>
