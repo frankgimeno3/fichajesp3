@@ -1,8 +1,12 @@
 import React, { FC, useState } from "react";
+import { Contacto } from "../ContenidoGeneralContacto";
 
-interface OtrosDatosContactoProps {}
+interface OtrosDatosContactoProps {
+  contacto: Contacto;
+  onChange: () => void;
+}
 
-const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ }) => {
+const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ contacto, onChange }) => {
   const mockData = {
     idiomas: ["Español", "Inglés", "Francés"],
     conocidoEn: "Glasstec 2022",
@@ -39,9 +43,10 @@ const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ }) => {
   const toggleSuscripcion = (opcion: string) => {
     setSuscripciones((prev) =>
       prev.includes(opcion)
-        ? prev.filter((s) => s !== opcion) // desmarcar
-        : [...prev, opcion] // marcar
+        ? prev.filter((s) => s !== opcion)
+        : [...prev, opcion]
     );
+    onChange(); // Notificar al padre
   };
 
   return (
@@ -49,9 +54,9 @@ const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ }) => {
       <h2 className="text-xl font-bold mb-4">Otros datos del contacto</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Columna izquierda */}
+
         <div className="flex flex-col gap-4">
-          {/* Idiomas */}
+
           <div className="flex items-center gap-4">
             <label className="w-1/3 text-gray-700">Idiomas</label>
             <input
@@ -62,7 +67,7 @@ const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ }) => {
             />
           </div>
 
-          {/* Conocido en */}
+
           <div className="flex items-center gap-4">
             <label className="w-1/3 text-gray-700">Conocido en</label>
             <input
@@ -73,7 +78,7 @@ const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ }) => {
             />
           </div>
 
-          {/* Contactado en feria */}
+
           <div className="flex items-center gap-4">
             <label className="w-1/3 text-gray-700">Contactado en feria</label>
             <input
@@ -110,6 +115,7 @@ const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ }) => {
       <textarea
         className="border border-gray-100 rounded-lg w-full p-2 bg-transparent text-gray-600"
         placeholder="Introduzca aquí otros datos de interés"
+        onChange={onChange}
       />
     </div>
   );

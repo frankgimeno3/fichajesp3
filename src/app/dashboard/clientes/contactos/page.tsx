@@ -5,7 +5,7 @@ import React, { FC, useState, useEffect } from 'react';
 import FiltrosContactos from './componentesContactos/FiltrosContactos';
 import TablaContactos, { Resultado } from './componentesContactos/TablaContactos';
 import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
-import ButtonsRow from '@/app/general_components/otros_componentes/ButtonsRow';
+import ButtonsRow from '@/app/general_components/componentes_recurrentes/ButtonsRow';
 
 interface Contacto {
   id: number;

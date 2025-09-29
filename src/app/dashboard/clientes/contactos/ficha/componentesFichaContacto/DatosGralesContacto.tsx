@@ -1,18 +1,12 @@
-import React, { FC } from 'react';
+import React, { FC, ChangeEvent } from 'react';
+import { Contacto } from '../ContenidoGeneralContacto';
 
-interface DatosGralesContactoProps {}
+interface DatosGralesContactoProps {
+  contacto: Contacto;
+  onChange: () => void;
+}
 
-const DatosGralesContacto: FC<DatosGralesContactoProps> = ({ }) => {
-  const mockData = [
-    {
-      nombre: "Juan",
-      apellidos: "Pérez López",
-      idContacto: "C001",
-      telefono: "+34 600 123 456",
-      email: "juan.perez@example.com"
-    }     
-  ];
-
+const DatosGralesContacto: FC<DatosGralesContactoProps> = ({ contacto, onChange }) => {
   return (
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4">Datos generales del contacto</h2>
@@ -27,15 +21,41 @@ const DatosGralesContacto: FC<DatosGralesContactoProps> = ({ }) => {
           </tr>
         </thead>
         <tbody>
-          {mockData.map((item, idx) => (
-            <tr key={idx} className="border-t border-gray-200 hover:bg-gray-100/30">
-              <td className="p-2 border-b border-gray-200">{item.nombre}</td>
-              <td className="p-2 border-b border-gray-200">{item.apellidos}</td>
-              <td className="p-2 border-b border-gray-200">{item.idContacto}</td>
-              <td className="p-2 border-b border-gray-200">{item.telefono}</td>
-              <td className="p-2 border-b border-gray-200">{item.email}</td>
-            </tr>
-          ))}
+          <tr className="border-t border-gray-200 hover:bg-gray-100/30">
+            <td className="p-2 border-b border-gray-200">
+              <input
+                type="text"
+                defaultValue={contacto.nombreContacto}
+                onChange={onChange}
+                className="w-full border border-gray-200 rounded p-1"
+              />
+            </td>
+            <td className="p-2 border-b border-gray-200">
+              <input
+                type="text"
+                defaultValue={contacto.apellidosContacto}
+                onChange={onChange}
+                className="w-full border border-gray-200 rounded p-1"
+              />
+            </td>
+            <td className="p-2 border-b border-gray-200">{contacto.codigoContacto}</td>
+            <td className="p-2 border-b border-gray-200">
+              <input
+                type="text"
+                defaultValue={contacto.telefono}
+                onChange={onChange}
+                className="w-full border border-gray-200 rounded p-1"
+              />
+            </td>
+            <td className="p-2 border-b border-gray-200">
+              <input
+                type="email"
+                defaultValue={contacto.email}
+                onChange={onChange}
+                className="w-full border border-gray-200 rounded p-1"
+              />
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>

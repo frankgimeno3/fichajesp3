@@ -1,14 +1,19 @@
 import React, { FC } from 'react';
+import { Contacto } from '../ContenidoGeneralContacto';
 
-interface DatosEmpresaContactoProps {}
+interface DatosEmpresaContactoProps {
+  contacto: Contacto;
+  onChange: () => void;
+}
 
-const DatosEmpresaContacto: FC<DatosEmpresaContactoProps> = ({ }) => {
+const DatosEmpresaContacto: FC<DatosEmpresaContactoProps> = ({ contacto, onChange }) => {
+
   const mockData = [
     {
-      empresa: "Vidrios S.A.",
+      empresa: contacto.empresaAsociada || "Vidrios S.A.",
       codigoEmpresa: "E123",
-      cargo: "Director Comercial"
-    }    
+      cargo: "Director Comercial",
+    },
   ];
 
   return (
@@ -24,10 +29,29 @@ const DatosEmpresaContacto: FC<DatosEmpresaContactoProps> = ({ }) => {
         </thead>
         <tbody>
           {mockData.map((item, idx) => (
-            <tr key={idx} className="border-t border-gray-200 hover:bg-gray-100/30">
+            <tr
+              key={idx}
+              className="border-t border-gray-200 hover:bg-gray-100/30"
+            >
               <td className="p-2 border-b border-gray-200">{item.empresa}</td>
-              <td className="p-2 border-b border-gray-200">{item.codigoEmpresa}</td>
-              <td className="p-2 border-b border-gray-200">{item.cargo}</td>
+
+               <td className="p-2 border-b border-gray-200">
+                <input
+                  type="text"
+                  defaultValue={item.codigoEmpresa}
+                  onChange={onChange}
+                  className="w-full border border-gray-200 rounded p-1"
+                />
+              </td>
+
+               <td className="p-2 border-b border-gray-200">
+                <input
+                  type="text"
+                  defaultValue={item.cargo}
+                  onChange={onChange}
+                  className="w-full border border-gray-200 rounded p-1"
+                />
+              </td>
             </tr>
           ))}
         </tbody>

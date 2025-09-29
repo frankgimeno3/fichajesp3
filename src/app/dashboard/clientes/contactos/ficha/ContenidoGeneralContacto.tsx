@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import { useRouter } from "next/navigation";
-import DatosEmpresaContacto from "./componentesFichaContacto/DatosEmpresaContacto";
-import DatosGralesContacto from "./componentesFichaContacto/DatosGralesContacto";
-import OtrosDatosContacto from "./componentesFichaContacto/OtrosDatosContacto";
+import React, { FC, ChangeEvent } from 'react';
+import { useRouter } from 'next/navigation';
+import DatosEmpresaContacto from './componentesFichaContacto/DatosEmpresaContacto';
+import DatosGralesContacto from './componentesFichaContacto/DatosGralesContacto';
+import OtrosDatosContacto from './componentesFichaContacto/OtrosDatosContacto';
 
 export interface Contacto {
   id: number;
@@ -17,32 +17,24 @@ export interface Contacto {
 
 interface ContenidoGeneralContactoProps {
   contacto: Contacto;
+  setIsContenidoEdited: (val: boolean) => void;
 }
 
 const ContenidoGeneralContacto: FC<ContenidoGeneralContactoProps> = ({
   contacto,
+  setIsContenidoEdited,
 }) => {
   const router = useRouter();
 
+   const handleAnyChange = () => {
+    setIsContenidoEdited(true);
+  };
+
   return (
     <div>
-      <h3 className="text-lg font-semibold mb-4">Datos generales</h3>
-      <p className="mb-2">
-        <strong>Nombre completo:</strong> {contacto.nombreCompleto}
-      </p>
-      <p className="mb-2">
-        <strong>Empresa asociada:</strong> {contacto.empresaAsociada}
-      </p>
-      <p className="mb-2">
-        <strong>Teléfono:</strong> {contacto.telefono}
-      </p>
-      <p className="mb-2">
-        <strong>Email:</strong> {contacto.email}
-      </p>
-
-       <DatosGralesContacto />
-      <DatosEmpresaContacto />
-      <OtrosDatosContacto />
+      <DatosGralesContacto contacto={contacto} onChange={handleAnyChange} />
+      <DatosEmpresaContacto contacto={contacto} onChange={handleAnyChange} />
+      <OtrosDatosContacto contacto={contacto} onChange={handleAnyChange} />
     </div>
   );
 };
