@@ -1,7 +1,10 @@
-import React, { FC, useState } from 'react';
-import CardComentarioContacto from './CardComentarioContacto';
+import React, { FC, useState } from "react";
+import CardComentarioContacto from "./CardComentarioContacto";
+import { Contacto } from "./ContenidoGeneralContacto";
 
-interface ContenidoComentariosContactoProps {}
+interface ContenidoComentariosContactoProps {
+  contacto: Contacto;
+}
 
 interface Comentario {
   autor: string;
@@ -9,13 +12,15 @@ interface Comentario {
   contenido: string;
 }
 
-const ContenidoComentariosContacto: FC<ContenidoComentariosContactoProps> = ({ }) => {
+const ContenidoComentariosContacto: FC<ContenidoComentariosContactoProps> = ({
+  contacto,
+}) => {
   const [comentarios, setComentarios] = useState<Comentario[]>([
     {
       autor: "Frank Gimeno",
       fecha: "24 Febrero 2025",
-      contenido: "Este es un comentario inicial de ejemplo."
-    }
+      contenido: "Este es un comentario inicial de ejemplo.",
+    },
   ]);
 
   const [nuevoComentario, setNuevoComentario] = useState("");
@@ -43,11 +48,15 @@ const ContenidoComentariosContacto: FC<ContenidoComentariosContactoProps> = ({ }
 
   return (
     <div>
+      <h3 className="text-lg font-semibold mb-4">
+        Comentarios sobre {contacto.nombreCompleto}
+      </h3>
       <p className="mb-4 text-gray-600">
-        Aviso: Los comentarios agregados aquí se agregarán automáticamente también en la ficha de la empresa
+        Aviso: Los comentarios agregados aquí se agregarán automáticamente
+        también en la ficha de la empresa
       </p>
 
-       <div className="text-right w-full mb-4">
+      <div className="text-right w-full mb-4">
         <button
           className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-950/90"
           onClick={() => setMostrarInput(!mostrarInput)}
@@ -56,7 +65,7 @@ const ContenidoComentariosContacto: FC<ContenidoComentariosContactoProps> = ({ }
         </button>
       </div>
 
-       {mostrarInput && (
+      {mostrarInput && (
         <div className="flex flex-col gap-2 mb-6">
           <textarea
             value={nuevoComentario}
@@ -73,7 +82,7 @@ const ContenidoComentariosContacto: FC<ContenidoComentariosContactoProps> = ({ }
         </div>
       )}
 
-       {comentarios.map((comentario, idx) => (
+      {comentarios.map((comentario, idx) => (
         <CardComentarioContacto
           key={idx}
           autor={comentario.autor}

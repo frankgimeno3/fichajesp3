@@ -21,7 +21,7 @@ const TablaContactos: FC<TablaContactosProps> = ({ resultados }) => {
   const router = useRouter();
 
   const handleRedirection = (id: number) => {
-    router.push(`/dashboard/cuentas/contactos/ficha/${id}`);
+    router.push(`/dashboard/clientes/contactos/ficha/${id}`);
   };
 
   return (

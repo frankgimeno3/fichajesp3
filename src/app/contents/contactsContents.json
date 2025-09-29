@@ -1,0 +1,172 @@
+[
+  {
+    "id": 1,
+    "codigoContacto": "00001",
+    "nombreContacto": "Juan Antonio",
+    "apellidosContacto": "Gimeno Ramirez",
+    "nombreCompleto": "Juan Antonio Gimeno Ramirez",
+    "empresaAsociada": "Empresa Alfa S.A.",
+    "telefono": "600123456",
+    "email": "juan.antonio.gimeno@empresa-alfa.com"
+  },
+  {
+    "id": 2,
+    "codigoContacto": "00002",
+    "nombreContacto": "María Isabel",
+    "apellidosContacto": "Fernandez López",
+    "nombreCompleto": "María Isabel Fernandez López",
+    "empresaAsociada": "Empresa Beta S.L.",
+    "telefono": "600223456",
+    "email": "maria.isabel.fernandez@empresa-beta.com"
+  },
+  {
+    "id": 3,
+    "codigoContacto": "00003",
+    "nombreContacto": "Carlos Eduardo",
+    "apellidosContacto": "Martínez Torres",
+    "nombreCompleto": "Carlos Eduardo Martínez Torres",
+    "empresaAsociada": "Consultora Gamma",
+    "telefono": "600323456",
+    "email": "carlos.eduardo.martinez@consultora-gamma.com"
+  },
+  {
+    "id": 4,
+    "codigoContacto": "00004",
+    "nombreContacto": "Laura Beatriz",
+    "apellidosContacto": "Sánchez Morales",
+    "nombreCompleto": "Laura Beatriz Sánchez Morales",
+    "empresaAsociada": "Servicios Delta",
+    "telefono": "600423456",
+    "email": "laura.beatriz.sanchez@servicios-delta.com"
+  },
+  {
+    "id": 5,
+    "codigoContacto": "00005",
+    "nombreContacto": "Francisco Javier",
+    "apellidosContacto": "Ruiz Herrera",
+    "nombreCompleto": "Francisco Javier Ruiz Herrera",
+    "empresaAsociada": "Empresa Épsilon",
+    "telefono": "600523456",
+    "email": "francisco.javier.ruiz@empresa-epsilon.com"
+  },
+  {
+    "id": 6,
+    "codigoContacto": "00006",
+    "nombreContacto": "Ana Teresa",
+    "apellidosContacto": "Ramírez Delgado",
+    "nombreCompleto": "Ana Teresa Ramírez Delgado",
+    "empresaAsociada": "Inversiones Zeta",
+    "telefono": "600623456",
+    "email": "ana.teresa.ramirez@inversiones-zeta.com"
+  },
+  {
+    "id": 7,
+    "codigoContacto": "00007",
+    "nombreContacto": "Miguel Ángel",
+    "apellidosContacto": "Cruz Navarro",
+    "nombreCompleto": "Miguel Ángel Cruz Navarro",
+    "empresaAsociada": "Tecnologías Lambda",
+    "telefono": "600723456",
+    "email": "miguel.angel.cruz@tecnologias-lambda.com"
+  },
+  {
+    "id": 8,
+    "codigoContacto": "00008",
+    "nombreContacto": "Patricia Elena",
+    "apellidosContacto": "Vargas Paredes",
+    "nombreCompleto": "Patricia Elena Vargas Paredes",
+    "empresaAsociada": "Empresa Sigma",
+    "telefono": "600823456",
+    "email": "patricia.elena.vargas@empresa-sigma.com"
+  },
+  {
+    "id": 9,
+    "codigoContacto": "00009",
+    "nombreContacto": "José Manuel",
+    "apellidosContacto": "Domínguez Cano",
+    "nombreCompleto": "José Manuel Domínguez Cano",
+    "empresaAsociada": "Transportes Omicron",
+    "telefono": "600923456",
+    "email": "jose.manuel.dominguez@transportes-omicron.com"
+  },
+  {
+    "id": 10,
+    "codigoContacto": "00010",
+    "nombreContacto": "Sofía Catalina",
+    "apellidosContacto": "Ortega Jiménez",
+    "nombreCompleto": "Sofía Catalina Ortega Jiménez",
+    "empresaAsociada": "Marketing Pi",
+    "telefono": "601023456",
+    "email": "sofia.catalina.ortega@marketing-pi.com"
+  },
+  {
+    "id": 11,
+    "codigoContacto": "00011",
+    "nombreContacto": "David Alberto",
+    "apellidosContacto": "Molina Castro",
+    "nombreCompleto": "David Alberto Molina Castro",
+    "empresaAsociada": "Construcciones Rho",
+    "telefono": "601123456",
+    "email": "david.alberto.molina@construcciones-rho.com"
+  },
+  {
+    "id": 12,
+    "codigoContacto": "00012",
+    "nombreContacto": "Cristina Belén",
+    "apellidosContacto": "López Serrano",
+    "nombreCompleto": "Cristina Belén López Serrano",
+    "empresaAsociada": "Agencia Kappa",
+    "telefono": "601223456",
+    "email": "cristina.belen.lopez@agencia-kappa.com"
+  },
+  {
+    "id": 13,
+    "codigoContacto": "00013",
+    "nombreContacto": "Pedro Luis",
+    "apellidosContacto": "Torres Navarro",
+    "nombreCompleto": "Pedro Luis Torres Navarro",
+    "empresaAsociada": "Desarrollos Theta",
+    "telefono": "601323456",
+    "email": "pedro.luis.torres@desarrollos-theta.com"
+  },
+  {
+    "id": 14,
+    "codigoContacto": "00014",
+    "nombreContacto": "Isabel María",
+    "apellidosContacto": "Gil Romero",
+    "nombreCompleto": "Isabel María Gil Romero",
+    "empresaAsociada": "Finanzas Iota",
+    "telefono": "601423456",
+    "email": "isabel.maria.gil@finanzas-iota.com"
+  },
+  {
+    "id": 15,
+    "codigoContacto": "00015",
+    "nombreContacto": "Antonio José",
+    "apellidosContacto": "Moreno Ruiz",
+    "nombreCompleto": "Antonio José Moreno Ruiz",
+    "empresaAsociada": "Salud Omega",
+    "telefono": "601523456",
+    "email": "antonio.jose.moreno@salud-omega.com"
+  },
+  {
+    "id": 16,
+    "codigoContacto": "00016",
+    "nombreContacto": "Lucía Andrea",
+    "apellidosContacto": "Campos Vega",
+    "nombreCompleto": "Lucía Andrea Campos Vega",
+    "empresaAsociada": "Educación Upsilon",
+    "telefono": "601623456",
+    "email": "lucia.andrea.campos@educacion-upsilon.com"
+  },
+  {
+    "id": 17,
+    "codigoContacto": "00017",
+    "nombreContacto": "Roberto Carlos",
+    "apellidosContacto": "Navarro León",
+    "nombreCompleto": "Roberto Carlos Navarro León",
+    "empresaAsociada": "Turismo Tau",
+    "telefono": "601723456",
+    "email": "roberto.carlos.navarro@turismo-tau.com"
+  }
+]
