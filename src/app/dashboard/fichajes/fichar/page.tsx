@@ -1,9 +1,9 @@
 "use client";
 
 import React, { FC, useState } from "react";
-import PopUp from "./PopUp";
+import PopUp from "../PopUp";
 import {TimeLogService} from "@/app/service/TimeLogService";
-import MiddleNav from "../../general_components/MiddleNav";
+import MiddleNav from "../../../general_components/MiddleNav";
 
 interface RegistroProps { }
 

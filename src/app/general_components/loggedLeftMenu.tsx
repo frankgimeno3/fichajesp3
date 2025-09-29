@@ -39,7 +39,7 @@ const LoggedLeftMenu: FC = () => {
         {isFichajesOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
-              onClick={() => router.push('/dashboard/fichajes')}
+              onClick={() => router.push('/dashboard/fichajes/fichar')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
