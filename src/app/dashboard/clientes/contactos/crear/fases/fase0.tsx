@@ -21,9 +21,8 @@ const Fase0: FC<Fase0Props> = ({
     const [prefijoLocal, setPrefijoLocal] = useState('');
     const [telefonoLocal, setTelefonoLocal] = useState('');
     const [emailLocal, setEmailLocal] = useState('');
-
     const [showSelect, setShowSelect] = useState(false);
-
+    const [errorMessage, setErrorMessage] = useState(''); // mensaje de error
 
     const handleChange = (
         e: ChangeEvent<HTMLInputElement>,
@@ -42,6 +41,16 @@ const Fase0: FC<Fase0Props> = ({
         emailLocal.trim() !== '' &&
         isEmailValid(emailLocal);
 
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (isFormValid) {
+            setFaseCrearContacto(1);
+            setErrorMessage('');
+        } else {
+            setErrorMessage('Rellena los datos requeridos para continuar');
+        }
+    };
+
     return (
         <div className="p-10 px-8 md:px-56 bg-white rounded-2xl shadow-md max-w-5xl mx-auto text-center">
             <h2 className="text-xl font-semibold mb-4 pt-10">
@@ -53,7 +62,10 @@ const Fase0: FC<Fase0Props> = ({
             <p className="text-gray-400 text-justify italic mb-4">
                 Más adelante, podrá ir a la ficha y añadir datos adicionales.
             </p>
-            <form className="flex flex-col gap-3 pt-4 pb-12">
+            <form
+                className="flex flex-col gap-3 pt-4 pb-12"
+                onSubmit={handleSubmit} // manejamos submit con Enter
+            >
                 <input
                     type="text"
                     placeholder="Nombre de la persona"
@@ -108,22 +120,24 @@ const Fase0: FC<Fase0Props> = ({
                     }}
                 />
                 {emailLocal && !isEmailValid(emailLocal) && (
-                    <p className="text-gray-300 text-sm  ">
+                    <p className="text-gray-300 text-sm">
                         Se requiere un email con este formato xxxxx@aaa.zz
                     </p>
                 )}
 
                 <button
-                    type="button"
-                    disabled={!isFormValid}
-                    onClick={() => setFaseCrearContacto(1)}
+                    type="submit" // cambiamos a submit para usar Enter
                     className={`rounded-lg px-4 py-2 mt-5 transition ${isFormValid
-                            ? 'bg-blue-900 text-white cursor-pointer hover:bg-blue-600'
-                            : 'bg-blue-900/50 text-white cursor-not-allowed'
+                        ? 'bg-blue-900 text-white cursor-pointer hover:bg-blue-600'
+                        : 'bg-blue-900/50 text-white cursor-not-allowed'
                         }`}
                 >
                     Ir a fase siguiente
                 </button>
+
+                {errorMessage && (
+                    <p className="text-red-300 mt-2">{errorMessage}</p>
+                )}
             </form>
         </div>
     );
