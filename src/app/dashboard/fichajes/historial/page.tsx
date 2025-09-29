@@ -6,7 +6,7 @@ import PopUpHistorial from './PopUpHistorial';
 import FiltroTemporal from './FiltroTemporal';
 import { TimeLogService } from "@/app/service/TimeLogService";
 import { ModificationService } from "@/app/service/ModificationService";
-import MiddleNav from '../../../general_components/MiddleNav';
+import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
 
 const Historial: FC = () => {
     const [showPopup, setShowPopup] = useState(false);

@@ -1,5 +1,5 @@
 "use client"
-import VentanaFichaje from '@/app/general_components/VentanaFichaje';
+import VentanaFichaje from '@/app/general_components/otros_componentes/VentanaFichaje';
 import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
  

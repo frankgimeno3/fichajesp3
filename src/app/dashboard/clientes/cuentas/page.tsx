@@ -1,8 +1,8 @@
 'use client'
 import React, { FC, useState } from 'react'; 
-import Filtroscuentas from './componentesClientes/FiltrosClientes';
-import Tablacuentas from './componentesClientes/TablaCuentas';
-import MiddleNav from '../../general_components/MiddleNav';
+import Filtroscuentas from '../componentesClientes/FiltrosClientes';
+import Tablacuentas from '../componentesClientes/TablaCuentas';
+import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
 
 const Cuentas: FC = () => {
 

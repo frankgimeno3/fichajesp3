@@ -1,4 +1,4 @@
-import MiddleNav from '@/app/general_components/MiddleNav';
+import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
 import React, { FC } from 'react';
 
 interface OrdenProps { }

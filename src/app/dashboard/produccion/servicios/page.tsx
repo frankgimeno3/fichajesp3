@@ -1,7 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react'; 
-import MiddleNav from '../../../general_components/MiddleNav';
+import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
 import FiltrosServicios from './serviciosComponents/FiltrosServicios';
 import TablaServicios from './serviciosComponents/TablaServicios';
 

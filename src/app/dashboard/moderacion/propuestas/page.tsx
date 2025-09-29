@@ -1,6 +1,6 @@
 'use client'
 import React, { FC, useState } from 'react';
-import MiddleNav from '../../../general_components/MiddleNav';
+import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
 import { useRouter } from 'next/navigation'; 
 import FolderSvg from './componentespropuestas/svg/FolderSvg';
 import FiltrosPropuestas from './componentespropuestas/FiltrosPropuestas';

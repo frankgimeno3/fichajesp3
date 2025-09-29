@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import AdminDashboard from "../general_components/landings/admin/AdminDashboard";
-import MainDashboard from "../general_components/landings/main/MainDashboard";
+import AdminDashboard from "../general_components/otros_componentes/landings/admin/AdminDashboard";
+import MainDashboard from "../general_components/otros_componentes/landings/main/MainDashboard";
 
 const DashboardRedirector = () => {
   const [loading, setLoading] = useState(true);

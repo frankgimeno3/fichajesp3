@@ -1,7 +1,7 @@
 "use client"
 import React, { FC, useState } from 'react';
 import Contenidos from '../contenidos/Contenidos';
-import MiddleNav from '../../../general_components/MiddleNav';
+import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
 
 interface MaterialesProps {
 

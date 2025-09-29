@@ -1,6 +1,6 @@
 'use client'
 import React, { FC, useState } from 'react';
- import MiddleNav from '../../../general_components/MiddleNav';
+ import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
 import Importar from './importexportcomponents/Importar';
 import Exportar from './importexportcomponents/Exportar';
   

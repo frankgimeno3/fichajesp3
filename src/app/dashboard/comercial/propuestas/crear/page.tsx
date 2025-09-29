@@ -1,6 +1,6 @@
 "use client"
 
-import MiddleNav from '@/app/general_components/MiddleNav';
+import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
 import React, { FC, useState } from 'react';
 import Fase1Crear from './fases/fase1Crear';
 import Fase2Crear from './fases/fase2Crear';

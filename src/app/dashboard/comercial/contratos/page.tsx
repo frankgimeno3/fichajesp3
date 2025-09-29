@@ -1,7 +1,7 @@
 'use client';
 import React, { FC, useState } from 'react';
 import ContenidoPorCliente from './contratoscomponents/ContenidoPorCliente';
- import MiddleNav from '@/app/general_components/MiddleNav';
+ import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
 
 interface ContratosProps {}
 

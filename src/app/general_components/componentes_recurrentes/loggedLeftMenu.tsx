@@ -67,7 +67,7 @@ const LoggedLeftMenu: FC = () => {
         {isClientesOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
-              onClick={() => router.push('/dashboard/cuentas')}
+              onClick={() => router.push('/dashboard/clientes/cuentas')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
@@ -75,7 +75,7 @@ const LoggedLeftMenu: FC = () => {
             </button>
 
             <button
-              onClick={() => router.push('/dashboard/cuentas/contactos')}
+              onClick={() => router.push('/dashboard/clientes/contactos')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >

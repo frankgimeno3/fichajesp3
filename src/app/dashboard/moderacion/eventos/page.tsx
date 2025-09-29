@@ -1,5 +1,5 @@
 "use client"
-import MiddleNav from '@/app/general_components/MiddleNav';
+import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
 import React, { FC, useEffect, useState } from 'react';
 import { ModificationService } from '@/app/service/ModificationService';
 import { TimeLogService } from '@/app/service/TimeLogService';

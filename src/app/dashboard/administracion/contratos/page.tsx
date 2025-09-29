@@ -1,7 +1,7 @@
 "use client";
 import React, { FC, useState } from "react";
 import { useRouter } from "next/navigation";
-import MiddleNav from "../../../general_components/MiddleNav";
+import MiddleNav from "../../../general_components/componentes_recurrentes/MiddleNav";
 import TablaContratos from "../componentesadministracion/TablaContratos";
 
 interface ContratosProps {}

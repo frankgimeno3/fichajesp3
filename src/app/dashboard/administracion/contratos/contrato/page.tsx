@@ -1,6 +1,6 @@
 "use client";
 import React, { FC, useState } from 'react';
-import MiddleNav from '@/app/general_components/MiddleNav';
+import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
 
 import TablaContenidoCampaña from './contratoComponents/TablaContenidoCampana';
 

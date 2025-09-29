@@ -3,7 +3,7 @@ import React, { FC, useState } from 'react';
 import Fase0 from './fases/fase0';
 import Fase1 from './fases/fase1';
 import Fase2 from './fases/fase2';
- import MiddleNav from '@/app/general_components/MiddleNav';
+ import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
 
 interface CrearContactoProps {
   setFaseCrearContacto: React.Dispatch<React.SetStateAction<number>>;
