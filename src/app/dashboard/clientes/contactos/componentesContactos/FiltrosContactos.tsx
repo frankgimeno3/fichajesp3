@@ -40,7 +40,7 @@ const FiltrosContactos: FC<FiltrosContactosProps> = ({
         <p className="text-lg font-semibold">Buscador de Contactos</p>
         <button
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/cuentas/contactos/crear')}
+          onClick={() => router.push('/dashboard/clientes/contactos/crear')}
         >
           <p>Crear</p>
         </button>

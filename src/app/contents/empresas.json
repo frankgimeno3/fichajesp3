@@ -1,0 +1,30 @@
+[
+  {
+    "codigoEmpresa": "E123",
+    "nombreEmpresa": "Vidrios S.A.",
+    "paisEmpresa": "España",
+    "nombreAgenteAsignado": "Carlos Gómez",
+    "codigoAgenteAsignado": "A001"
+  },
+  {
+    "codigoEmpresa": "E456",
+    "nombreEmpresa": "Metales Unidos",
+    "paisEmpresa": "México",
+    "nombreAgenteAsignado": "María López",
+    "codigoAgenteAsignado": "A002"
+  },
+  {
+    "codigoEmpresa": "E789",
+    "nombreEmpresa": "Plásticos del Sur",
+    "paisEmpresa": "Argentina",
+    "nombreAgenteAsignado": "José Martínez",
+    "codigoAgenteAsignado": "A003"
+  },
+  {
+    "codigoEmpresa": "E999",
+    "nombreEmpresa": "Químicos Globales",
+    "paisEmpresa": "Chile",
+    "nombreAgenteAsignado": "Lucía Fernández",
+    "codigoAgenteAsignado": "A004"
+  }
+]
