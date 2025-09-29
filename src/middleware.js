@@ -16,7 +16,7 @@ export async function middleware(request) {
     }
 
     const goToAdminPanel = () => {
-        return NextResponse.redirect(new URL('/admin/dashboard', request.url));
+        return NextResponse.redirect(new URL('/dashboard', request.url));
     }
 
     const username = request.cookies.get(`CognitoIdentityServiceProvider.${COGNITO.CLIENT_ID}.LastAuthUser`)?.value;

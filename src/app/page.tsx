@@ -1,19 +1,23 @@
 'use client';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AuthenticationService from "@/app/service/AuthenticationService";
 
 export default function Home() {
     const router = useRouter();
 
-    const handleRedirectToAdmin = () => {
-        router.push('/admin');
-    };
-
     const [employeeNumber, setEmployeeNumber] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState<string | null>(null);
     const [showPassword, setShowPassword] = useState(false);
+
+    // 🔹 Si ya está loggeado (payload en localStorage), redirigir a /dashboard
+    useEffect(() => {
+        const storedPayload = localStorage.getItem("userPayload");
+        if (storedPayload) {
+            router.replace('/dashboard');
+        }
+    }, [router]);
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -21,31 +25,22 @@ export default function Home() {
 
         try {
             const payload: any = await AuthenticationService.login(employeeNumber, password);
-            const roles: any = payload['cognito:groups'] || [];
-            const isAdmin = roles.includes('admin');
 
-            if (isAdmin) return router.replace('/admin/dashboard');
-            return router.replace('/dashboard');
+            // 🔹 Guardar payload en localStorage
+            localStorage.setItem("userPayload", JSON.stringify(payload));
+
+            // 🔹 Redirigir siempre a /dashboard
+            router.replace('/dashboard');
         } catch (e: any) {
             console.error(e);
             setError(e?.message || 'Error al iniciar sesión. Verifica tus credenciales.');
         }
-
-        console.log('Employee Number:', employeeNumber, 'Password:', password);
     };
 
     return (
         <div className="flex flex-col min-h-screen bg-white text-gray-600 p-8 gap-8">
-            <div className="flex flex-row justify-between items-center">
+            <div className="flex flex-row justify-left items-center">
                 <p className="text-xl font-bold">Sistema de fichaje PROPORCIÓN 3, S.A.</p>
-                <div>
-                    <button
-                        onClick={handleRedirectToAdmin}
-                        className="bg-white text-black px-4 py-2 rounded hover:bg-gray-300 transition cursor-pointer"
-                    >
-                        Ir a Admin
-                    </button>
-                </div>
             </div>
 
             <div className="flex flex-col items-center justify-center flex-grow">
@@ -53,7 +48,9 @@ export default function Home() {
                     onSubmit={handleLogin}
                     className="flex flex-col gap-4 bg-gray-900 p-8 rounded shadow-md w-full max-w-md"
                 >
-                    <h2 className="text-2xl text-white font-semibold mb-4 text-center">Ingrese email y contraseña</h2>
+                    <h2 className="text-2xl text-white font-semibold mb-4 text-center">
+                        Ingrese email y contraseña
+                    </h2>
 
                     <input
                         type="text"
@@ -108,10 +105,11 @@ export default function Home() {
                         Identificarse
                     </button>
 
-                    <p className='text-xs text-white'>Si no puede identificarse, por favor envíe email a frank@vidrioperfil.com con el evento que deseaba fichar.</p>
+                    <p className='text-xs text-white'>
+                        Si no puede identificarse, por favor envíe email a frank@vidrioperfil.com con el evento que deseaba fichar.
+                    </p>
                 </form>
             </div>
         </div>
     );
 }
-    

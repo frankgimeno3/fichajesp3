@@ -1,11 +1,10 @@
 'use client';
-import React, {FC, useEffect, useState} from 'react';
-import EventosHoy from './admincomponents/EventosHoy';
-import Solicitudes from './admincomponents/Solicitudes';
-import {TimeLogService} from "@/app/service/TimeLogService";
-import {ModificationService} from "@/app/service/ModificationService";
-
-const Dashboard: FC = () => {
+import React, { FC, useEffect, useState } from 'react';
+import EventosHoy from './EventosHoy';
+import Solicitudes from './Solicitudes';
+import { TimeLogService } from "@/app/service/TimeLogService";
+import { ModificationService } from "@/app/service/ModificationService";
+const AdminDashboard: FC = () => {
 
     const [timeLogs, setTimeLogs] = useState([]);
 
@@ -15,7 +14,7 @@ const Dashboard: FC = () => {
         try {
             const response = await ModificationService.getUsersModifications('pending');
             setModifications(response);
-        } catch (error: any){
+        } catch (error: any) {
             alert(error.message)
         }
     }
@@ -27,7 +26,7 @@ const Dashboard: FC = () => {
         try {
             const data = await TimeLogService.getUsersTimeLogs(startOfDay.toISOString(), now.toISOString());
             setTimeLogs(data);
-        } catch (error: any){
+        } catch (error: any) {
             alert(error.message)
         }
     }
@@ -38,16 +37,18 @@ const Dashboard: FC = () => {
     }, [])
 
     return (
-        
+        <div className="flex flex-col w-full">
             <div className="bg-gray-100 min-h-screen flex flex-col">
                 <div className="p-6 px-12">
-                    <Solicitudes solicitudes={modifications} setModifications={setModifications}/>
+                    <Solicitudes solicitudes={modifications} setModifications={setModifications} />
                 </div>
                 <div className="p-6 px-12">
-                    <EventosHoy eventos={timeLogs}/>
+                    <EventosHoy eventos={timeLogs} />
                 </div>
             </div>
-     );
+        </div>
+
+    );
 };
 
-export default Dashboard;
+export default AdminDashboard;
