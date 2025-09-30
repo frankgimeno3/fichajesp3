@@ -73,7 +73,7 @@ const Tablacuentas: FC<TablacuentasProps> = ({
             <tr
               key={res.id}
               className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
-              onClick={() => handleRedirection('/dashboard/cuentas/ficha')}
+              onClick={() => handleRedirection('/dashboard/clientes/cuentas/ficha')}
             >
                <td className='p-2 border-b border-gray-200'>{res.nombreEmpresa}</td>
                <td className='p-2 border-b border-gray-200'>{res.codigoCRM}</td>
