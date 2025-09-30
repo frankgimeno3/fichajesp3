@@ -19,7 +19,7 @@ const LoggedLeftMenu: FC = () => {
   const [isFichajesOpen, setIsFichajesOpen] = useState(false);
   const [isComercialOpen, setIsComercialOpen] = useState(false);
   const [isClientesOpen, setIsClientesOpen] = useState(false);
-  const [isModeracionOpen, setIsModeracionOpen] = useState(false);
+  const [isOperacionesOpen, setIsOperacionesOpen] = useState(false);
   const [isProduccionOpen, setIsProduccionOpen] = useState(false);
   const [isAdministracionOpen, setIsAdministracionOpen] = useState(false);
 
@@ -174,47 +174,47 @@ const LoggedLeftMenu: FC = () => {
         )}
       </div>
 
-      {/* MODERACION */}
+      {/* OPERACIONES */}
       <div className="mb-4">
         <div
-          onClick={() => setIsModeracionOpen(!isModeracionOpen)}
+          onClick={() => setIsOperacionesOpen(!isOperacionesOpen)}
           className="flex justify-between items-center px-3 py-2 rounded-md cursor-pointer hover:bg-gray-100 transition"
         >
-          <span className="">Moderación</span>
-          <ArrowIcon isOpen={isModeracionOpen} />
+          <span className="">Operaciones</span>
+          <ArrowIcon isOpen={isOperacionesOpen} />
         </div>
-        {isModeracionOpen && (
+        {isOperacionesOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
-              onClick={() => router.push('/dashboard/moderacion/usuariosyroles')}
+              onClick={() => router.push('/dashboard/operaciones/usuariosyroles')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Gestión de usuarios y roles
             </button>
             <button
-              onClick={() => router.push('/dashboard/moderacion/eventos')}
+              onClick={() => router.push('/dashboard/operaciones/eventos')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Registro global de eventos
             </button>
             <button
-              onClick={() => router.push('/dashboard/moderacion/importexport')}
+              onClick={() => router.push('/dashboard/operaciones/importexport')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Importaciones y exportaciones
             </button>
             <button
-              onClick={() => router.push('/dashboard/moderacion/fichajes')}
+              onClick={() => router.push('/dashboard/operaciones/fichajes')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Gestión de fichajes
             </button>
             <button
-              onClick={() => router.push('/dashboard/moderacion/propuestas')}
+              onClick={() => router.push('/dashboard/operaciones/propuestas')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
