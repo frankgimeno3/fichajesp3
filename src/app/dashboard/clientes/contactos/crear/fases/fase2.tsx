@@ -2,6 +2,7 @@
 
 import React, { FC, useState } from "react";
 import { useRouter } from "next/navigation";
+import ModalFase2 from "./fasescomponents/ModalFase2";
 
 interface Cuenta {
   codigo: string;
@@ -11,7 +12,7 @@ interface Cuenta {
 
 interface Fase2Props {
   setId_Cuenta: React.Dispatch<React.SetStateAction<string>>;
-  setCargo: React.Dispatch<React.SetStateAction<string>>; // nuevo setter
+  setCargo: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Fase2: FC<Fase2Props> = ({ setId_Cuenta, setCargo }) => {
@@ -22,6 +23,7 @@ const Fase2: FC<Fase2Props> = ({ setId_Cuenta, setCargo }) => {
   const [loading, setLoading] = useState(false);
   const [resultados, setResultados] = useState<Cuenta[] | null>(null);
   const [seleccionado, setSeleccionado] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const router = useRouter();
 
@@ -31,7 +33,17 @@ const Fase2: FC<Fase2Props> = ({ setId_Cuenta, setCargo }) => {
     { codigo: "789", nombre: "Empresa C", pais: "Argentina" },
   ];
 
-  const handleBuscar = () => {
+  const isFormValid = codigo.trim() !== "" || nombre.trim() !== "";
+
+  const handleBuscar = (e?: React.FormEvent) => {
+    e?.preventDefault();
+
+    if (!isFormValid) {
+      setErrorMessage("Rellena al menos un campo para continuar");
+      return;
+    }
+
+    setErrorMessage("");
     setModalOpen(true);
     setLoading(true);
     setResultados(null);
@@ -48,138 +60,102 @@ const Fase2: FC<Fase2Props> = ({ setId_Cuenta, setCargo }) => {
   };
 
   const handleSeleccionar = (cuenta: Cuenta) => {
-    setId_Cuenta(cuenta.codigo); // guardamos en el setter
-    setCodigo(cuenta.codigo); // rellenamos input de código
-    setNombre(cuenta.nombre); // rellenamos input de nombre
-    setSeleccionado(true); // ya tenemos una cuenta seleccionada
-    setModalOpen(false); // cerramos modal
+    setId_Cuenta(cuenta.codigo);
+    setCodigo(cuenta.codigo);
+    setNombre(cuenta.nombre);
+    setSeleccionado(true);
+    setModalOpen(false);
   };
 
   const handleCargoChange = (valor: string) => {
     setCargoLocal(valor);
-    setCargo(valor); // sincronizamos con el setter recibido por props
+    setCargo(valor);
   };
 
   return (
-    <div className="p-4 bg-gray-100 rounded-2xl shadow-md max-w-md mx-auto">
-      <h2 className="text-xl font-semibold mb-4">Fase 2 - Seleccionar Cuenta</h2>
+    <div className="p-10 px-8 px-56 mb-24 bg-white rounded-2xl shadow-md max-w-5xl mx-auto text-left">
+      <h2 className="text-xl font-semibold mb-4 pt-10">
+        Selección de cuenta de empresa
+      </h2>
+      <p className="text-gray-400 text-justify italic pb-5 text-sm">
+        A continuación, introduzca nombre o código la empresa a asociar y haga click en "Buscar". Si se encuentran coincidencias, podrá seleccionar la opción elegida.
+      </p> 
 
-      <div className="flex flex-col gap-3">
+      <form className="flex flex-col gap-3" onSubmit={handleBuscar}>
         <label className="flex flex-col">
-          <span className="text-sm mb-1">Código de la cuenta</span>
+          <p className="text-sm mb-1 flex flex-row">Código de la cuenta {seleccionado?<p className="pl-1">seleccionada</p>:<></>}</p>
           <input
             type="text"
             value={codigo}
             onChange={(e) => setCodigo(e.target.value)}
-            className="border p-2 rounded-lg"
+            className="border border-gray-200 p-2 rounded-lg pl-4"
             disabled={seleccionado}
           />
         </label>
 
         <label className="flex flex-col">
-          <span className="text-sm mb-1">Nombre de la cuenta</span>
+          <p className="text-sm mb-1 flex flex-row">Nombre de la cuenta {seleccionado?<p className="pl-1">seleccionada</p>:<></>}</p>
           <input
             type="text"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-            className="border p-2 rounded-lg"
+            className="border border-gray-200 p-2 rounded-lg pl-4"
             disabled={seleccionado}
           />
         </label>
 
+        {errorMessage && (
+          <p className="text-red-300 text-sm">{errorMessage}</p>
+        )}
+
         {!seleccionado ? (
           <button
-            onClick={handleBuscar}
-            className="bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600 transition"
-          >
+            type="submit"
+            className={`rounded-lg px-4 py-2 mt-5 transition ${isFormValid
+              ? 'bg-blue-900 text-white cursor-pointer hover:bg-blue-600'
+              : 'bg-blue-900/50 text-white cursor-not-allowed'
+              }`}          >
             Buscar
           </button>
         ) : (
           <>
-            {/* Input para el cargo */}
             <label className="flex flex-col">
-              <span className="text-sm mb-1">
-                Introduzca el cargo del contacto en la empresa
-              </span>
+              <p className="text-sm">
+                Introduzca el cargo del contacto en la empresa</p>
+                <p className="text-xs mb-3 italic text-gray-400">
+                pe: Director de márketing
+              </p>
               <input
                 type="text"
                 value={cargo}
                 onChange={(e) => handleCargoChange(e.target.value)}
-                className="border p-2 rounded-lg"
+                className="border border-gray-200  p-2 rounded-lg"
               />
             </label>
 
             <button
-              onClick={() =>
-                router.push("/dashboard/cuentas/contactos/ficha")
-              }
-              className={`rounded-lg px-4 py-2 transition ${
-                cargo.trim()
-                  ? "bg-green-500 text-white hover:bg-green-600"
+              onClick={() => router.push("/dashboard/clientes/contactos/ficha/1")}
+              className={`rounded-lg px-4 py-2 transition mb-16 ${cargo.trim()
+                  ? "bg-green-500 text-white hover:bg-green-600 cursor-pointer"
                   : "bg-green-500 text-white opacity-50 cursor-not-allowed"
-              }`}
+                }`}
               disabled={!cargo.trim()}
             >
               Ir a la ficha del contacto
             </button>
           </>
         )}
-      </div>
+      </form>
 
-      {/* Modal */}
-      {modalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-2xl shadow-lg p-6 relative w-[90%] max-w-lg">
-            {/* Botón cerrar */}
-            <button
-              onClick={() => setModalOpen(false)}
-              className="absolute top-3 right-3 text-gray-500 hover:text-black"
-            >
-              ✕
-            </button>
-
-            {loading ? (
-              <p className="text-center">Cargando...</p>
-            ) : resultados && resultados.length > 0 ? (
-              <div>
-                <h3 className="text-lg font-semibold mb-3">Resultados</h3>
-                <table className="w-full border-collapse border">
-                  <thead>
-                    <tr className="bg-gray-200">
-                      <th className="border px-3 py-2">Código Cuenta</th>
-                      <th className="border px-3 py-2">Nombre Cuenta</th>
-                      <th className="border px-3 py-2">País</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {resultados.map((c, i) => (
-                      <tr
-                        key={i}
-                        className="text-center cursor-pointer hover:bg-blue-100"
-                        onClick={() => handleSeleccionar(c)}
-                      >
-                        <td className="border px-3 py-2">{c.codigo}</td>
-                        <td className="border px-3 py-2">{c.nombre}</td>
-                        <td className="border px-3 py-2">{c.pais}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            ) : (
-              <div className="text-center">
-                <p className="mb-4">No se encontraron cuentas con estos datos.</p>
-                <button
-                  onClick={() => setModalOpen(false)}
-                  className="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"
-                >
-                  Cancelar
-                </button>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+      <ModalFase2
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        loading={loading}
+        resultados={resultados}
+        handleSeleccionar={handleSeleccionar}
+        codigoInput={codigo}
+        nombreInput={nombre}
+      />
     </div>
   );
 };

@@ -19,7 +19,8 @@ const Fase1: FC<Fase1Props> = ({ setFaseCrearContacto }) => {
       <button onClick={() => { router.push('/dashboard/clientes/contactos/ficha/1') }} className='bg-gray-100 hover:bg-gray-100/50 text-sm border border-gray-100 shadow-lg cursor-pointer rounded-lg px-3 py-1'>
         Ahora mismo <span className='font-bold text-md'>no</span>, ir a la ficha completa del contacto
       </button>
-        <button onClick={() => { setFaseCrearContacto(2) }} className='bg-gray-100 hover:bg-gray-100/50 text-sm border border-gray-100 shadow-lg cursor-pointer rounded-lg px-3 py-1'>
+        <button onClick={() => { setFaseCrearContacto(2) }} 
+        className='bg-gray-100 hover:bg-gray-100/50 text-sm border border-gray-100 shadow-lg cursor-pointer rounded-lg px-3 py-1'>
         <span className='font-bold text-md'>Sí</span>, asociar una cuenta de empresa al contacto
       </button>
     </div>
