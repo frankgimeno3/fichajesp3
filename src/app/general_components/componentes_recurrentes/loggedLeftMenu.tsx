@@ -213,13 +213,7 @@ const LoggedLeftMenu: FC = () => {
             >
               Gestión de fichajes
             </button>
-            <button
-              onClick={() => router.push('/dashboard/operaciones/propuestas')}
-              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Gestión de propuestas
-            </button>
+           
           </div>
 
         )}
