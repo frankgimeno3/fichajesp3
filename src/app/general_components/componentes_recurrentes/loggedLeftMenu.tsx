@@ -134,11 +134,11 @@ const LoggedLeftMenu: FC = () => {
               Servicios
             </button>
             <button
-              onClick={() => router.push('/dashboard/produccion/materiales')}
+              onClick={() => router.push('/dashboard/produccion/publicaciones')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
-              Materiales
+              Contenidos
             </button>
          
 
@@ -186,6 +186,20 @@ const LoggedLeftMenu: FC = () => {
         {isOperacionesOpen && (
           <div className="ml-4 mt-2 space-y-2">
             <button
+              onClick={() => router.push('/dashboard/operaciones/fichajes')}
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              hover:text-white transition cursor-pointer"
+            >
+              Gestión de fichajes
+            </button>
+            <button
+              onClick={() => router.push('/dashboard/operaciones/importexport')}
+              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
+              hover:text-white transition cursor-pointer"
+            >
+              Importaciones y exportaciones
+            </button>
+            <button
               onClick={() => router.push('/dashboard/operaciones/usuariosyroles')}
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
@@ -198,20 +212,6 @@ const LoggedLeftMenu: FC = () => {
               hover:text-white transition cursor-pointer"
             >
               Registro global de eventos
-            </button>
-            <button
-              onClick={() => router.push('/dashboard/operaciones/importexport')}
-              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Importaciones y exportaciones
-            </button>
-            <button
-              onClick={() => router.push('/dashboard/operaciones/fichajes')}
-              className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
-              hover:text-white transition cursor-pointer"
-            >
-              Gestión de fichajes
             </button>
            
           </div>

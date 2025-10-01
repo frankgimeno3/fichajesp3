@@ -1,0 +1,122 @@
+[
+  {
+    "idContenido": "cont-25-00001",
+    "idPublicacion": "publ-25-rev-bi-f-al-89",
+    "idEmpresa": "ASDF123",
+    "tipoContenido": "Anuncio 1 Página preferente",
+    "especificaciones": "228 x 297, + 4mm margen",
+    "idAgente": "Juan Pérez",
+    "estado": "Pendiente de solicitar",
+    "deadline": "01/11/25"
+  },
+  {
+    "idContenido": "cont-25-00002",
+    "idPublicacion": "publ-25-rev-bi-f-al-89",
+    "idEmpresa": "ASDF1232",
+    "tipoContenido": "Anuncio Doble Página preferente",
+    "especificaciones": "500 palabras, Word",
+    "idAgente": "Laura Gómez",
+    "estado": "Entregado",
+    "deadline": "05/11/25"
+  },
+  {
+    "idContenido": "cont-25-00003",
+    "idPublicacion": "publ-25-rev-bi-f-al-90",
+    "idEmpresa": "Empresa C",
+    "tipoContenido": "Anuncio 1 Página preferente",
+    "especificaciones": "Página 5, anuncio de 1 página interior derecha 228 x 297, + 4mm margen",
+    "idAgente": "Carlos Ruiz",
+    "estado": "En revisión",
+    "deadline": "07/11/25"
+  },
+  {
+    "idContenido": "cont-25-00004",
+    "idPublicacion": "publ-25-rev-bi-f-es-213",
+    "idEmpresa": "Empresa D",
+    "tipoContenido": "Anuncio 1 página",
+    "especificaciones": "Artículo de 1 página con novedades de producto",
+    "idAgente": "Ana Torres",
+    "estado": "Pendiente",
+    "deadline": "10/11/25"
+  },
+  {
+    "idContenido": "cont-25-00005",
+    "idPublicacion": "publ-25-rev-bi-f-es-214",
+    "idEmpresa": "Empresa E",
+    "tipoContenido": "Artículo 1 página",
+    "especificaciones": "Artículo de 1 página con novedades de producto",
+    "idAgente": "Luis Martínez",
+    "estado": "En redacción",
+    "deadline": "15/11/25"
+  },
+  {
+    "idContenido": "cont-25-00006",
+    "idPublicacion": "publ-25-rev-bi-v-al-89",
+    "idEmpresa": "Empresa F",
+    "tipoContenido": "Anuncio 1 página",
+    "especificaciones": "Anuncio de 1 página interior derecha 228 x 297, + 4mm margen",
+    "idAgente": "Sofía Ramírez",
+    "estado": "Ya en revista",
+    "deadline": "20/11/25"
+  },
+  {
+    "idContenido": "cont-25-00007",
+    "idPublicacion": "publ-25-rev-bi-v-es-213",
+    "idEmpresa": "Empresa G",
+    "tipoContenido": "Anuncio 1 página",
+    "especificaciones": "Anuncio de 1 página interior derecha 228 x 297, + 4mm margen",
+    "idAgente": "Pedro Sánchez",
+    "estado": "Ya en revista",
+    "deadline": "25/11/25"
+  },
+  {
+    "idContenido": "cont-25-00008",
+    "idPublicacion": "publ-25-rev-bi-v-es-214",
+    "idEmpresa": "Empresa H",
+    "tipoContenido": "Artículo 2 páginas",
+    "especificaciones": "Texto en Word y 4 imágenes alta resolución",
+    "idAgente": "María López",
+    "estado": "Pendiente",
+    "deadline": "27/11/25"
+  },
+  {
+    "idContenido": "cont-25-00009",
+    "idPublicacion": "publ-25-rev-h-p1",
+    "idEmpresa": "Empresa I",
+    "tipoContenido": "Anuncio Contraportada",
+    "especificaciones": "228 x 297, + 4mm margen",
+    "idAgente": "Héctor Díaz",
+    "estado": "En revisión",
+    "deadline": "29/11/25"
+  },
+  {
+    "idContenido": "cont-25-00010",
+    "idPublicacion": "publ-25-rev-h-p2",
+    "idEmpresa": "Empresa J",
+    "tipoContenido": "Artículo técnico",
+    "especificaciones": "2 páginas con gráficos en alta",
+    "idAgente": "Sandra Morales",
+    "estado": "Pendiente",
+    "deadline": "05/12/25"
+  },
+  {
+    "idContenido": "cont-25-00011",
+    "idPublicacion": "publ-25-rev-qq-f",
+    "idEmpresa": "Empresa K",
+    "tipoContenido": "Artículo institucional",
+    "especificaciones": "Texto en Word + fotos jpg",
+    "idAgente": "Roberto Silva",
+    "estado": "En redacción",
+    "deadline": "08/12/25"
+  },
+  {
+    "idContenido": "cont-25-00012",
+    "idPublicacion": "publ-25-rev-qq-v",
+    "idEmpresa": "Empresa L",
+    "tipoContenido": "Artículo Vidrio",
+    "especificaciones": "Texto + 3 fotos alta resolución",
+    "idAgente": "Patricia Reyes",
+    "estado": "Pendiente",
+    "deadline": "12/12/25"
+  }
+]
