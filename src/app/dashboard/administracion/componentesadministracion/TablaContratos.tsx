@@ -1,19 +1,10 @@
 "use client";
 import React, { FC } from "react";
 import { useRouter } from "next/navigation";
-
-interface Contrato {
-  codigo: string;
-  cliente: string;
-  agente: string;
-  estado: string;
-  fechaFirma: string;
-  importe: string;
-  campania: string;
-}
+import { ContratoResumen } from "../contratos/contratosTypes";
 
 interface TablaContratosProps {
-  contratos: Contrato[];
+  contratos: ContratoResumen[];
 }
 
 const TablaContratos: FC<TablaContratosProps> = ({ contratos }) => {
@@ -39,7 +30,7 @@ const TablaContratos: FC<TablaContratosProps> = ({ contratos }) => {
               key={contrato.codigo}
               className="hover:bg-gray-100 cursor-pointer transition-colors"
               onClick={() =>
-                router.push("/dashboard/administracion/contratos/contrato")
+                router.push(`/dashboard/administracion/contratos/${contrato.codigo}`)
               }
             >
               <td className="p-3 font-semibold">{contrato.codigo}</td>

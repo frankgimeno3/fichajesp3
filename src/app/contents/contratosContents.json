@@ -1,0 +1,212 @@
+ [
+  {
+    "idContacto": "CNT-001",
+    "detallesContrato": {
+      "Contrato": "ORD-2025-001",
+      "codigoCRM": "CRM-4589",
+      "cliente": "Empresa Ejemplo S.A.",
+      "agente": "Juan Pérez",
+      "fechaCobroPrevista": "15/09/2025",
+      "fechaCobroFactura": "18/09/2025",
+      "estado": "Pendiente",
+      "comisionesPagadas": "Sí",
+      "contratoAsociado": "CT-98765",
+      "factura": "FAC-2025-332",
+      "fechaFactura": "12/09/2025",
+      "importeConIVA": "12.500 €",
+      "formaDeCobro": "Transferencia Bancaria",
+      "numRecibo": "RCB-55874",
+      "numRemesa": "REM-2025-09",
+      "fechaFirmaContrato": "01/09/2025",
+      "importeTotalBI": "10.330 €",
+      "campaniaAsociada": "Campaña Otoño 2025"
+    },
+    "empresa": {
+      "nombreEmpresa": "Tvitec",
+      "codigoCrm": "1234",
+      "codigoEdisoft": "1234TIGER",
+      "pais": "ESTONIA",
+      "nombreContacto": "Frank Gimeno",
+      "cargoContacto": "Comercial"
+    },
+    "datosGenerales": {
+      "fechaFirma": "12/12/2025",
+      "fechaFinEstimada": "12/12/2026",
+      "agente": "Jose Luis Fernandez Llop",
+      "codigoContrato": "ORD-2025-001",
+      "codigoCampaniaAdministrativa": "K25.000.182"
+    },
+    "contenidoCampaña": [
+      {
+        "medio": "Revista del vidrio España",
+        "publicacion": "Edición 210",
+        "producto": "Anuncio de una página",
+        "precio": "1760€",
+        "deadline": "11/10/2025",
+        "fechaPublicacion": "12/12/2025",
+        "estadoMaterial": "Publicado",
+        "urlcontenido": "/dashboard/produccion/contenidos/revista/contenido"
+      },
+      {
+        "medio": "Revista del vidrio España",
+        "publicacion": "Edición 211",
+        "producto": "Media página",
+        "precio": "850€",
+        "deadline": "15/10/2025",
+        "fechaPublicacion": "01/01/2026",
+        "estadoMaterial": "Pedido no recibido",
+        "urlcontenido": "/dashboard/produccion/contenidos/revista/contenido"
+      }
+    ]
+  },
+  {
+    "idContacto": "CNT-002",
+    "detallesContrato": {
+      "Contrato": "ORD-2025-002",
+      "codigoCRM": "CRM-4590",
+      "cliente": "Global Solutions Ltd.",
+      "agente": "María Gómez",
+      "fechaCobroPrevista": "20/09/2025",
+      "fechaCobroFactura": "22/09/2025",
+      "estado": "Pagado",
+      "comisionesPagadas": "Sí",
+      "contratoAsociado": "CT-98766",
+      "factura": "FAC-2025-333",
+      "fechaFactura": "19/09/2025",
+      "importeConIVA": "8.750 €",
+      "formaDeCobro": "Domiciliación Bancaria",
+      "numRecibo": "RCB-55875",
+      "numRemesa": "REM-2025-10",
+      "fechaFirmaContrato": "05/09/2025",
+      "importeTotalBI": "7.230 €",
+      "campaniaAsociada": "Campaña Internacional"
+    },
+    "empresa": {
+      "nombreEmpresa": "Global Solutions Ltd.",
+      "codigoCrm": "2345",
+      "codigoEdisoft": "2345SUN",
+      "pais": "ESPAÑA",
+      "nombreContacto": "Laura Fernández",
+      "cargoContacto": "Directora Comercial"
+    },
+    "datosGenerales": {
+      "fechaFirma": "18/12/2025",
+      "fechaFinEstimada": "18/06/2026",
+      "agente": "María Gómez",
+      "codigoContrato": "ORD-2025-002",
+      "codigoCampaniaAdministrativa": "K25.000.200"
+    },
+    "contenidoCampaña": [
+      {
+        "medio": "Revista del vidrio España",
+        "publicacion": "Edición 212",
+        "producto": "Doble página",
+        "precio": "500€",
+        "deadline": "20/10/2025",
+        "fechaPublicacion": "05/01/2026",
+        "estadoMaterial": "No pedido",
+        "urlcontenido": "/dashboard/produccion/contenidos/revista/contenido"
+      }
+    ]
+  },
+  {
+    "idContacto": "CNT-003",
+    "detallesContrato": {
+      "Contrato": "ORD-2025-003",
+      "codigoCRM": "CRM-4591",
+      "cliente": "Servicios Digitales SRL",
+      "agente": "Carlos Ramírez",
+      "fechaCobroPrevista": "25/09/2025",
+      "fechaCobroFactura": "28/09/2025",
+      "estado": "Pendiente",
+      "comisionesPagadas": "No",
+      "contratoAsociado": "CT-98767",
+      "factura": "FAC-2025-334",
+      "fechaFactura": "22/09/2025",
+      "importeConIVA": "15.000 €",
+      "formaDeCobro": "PayPal",
+      "numRecibo": "RCB-55876",
+      "numRemesa": "REM-2025-11",
+      "fechaFirmaContrato": "10/09/2025",
+      "importeTotalBI": "12.400 €",
+      "campaniaAsociada": "Campaña Digital 2025"
+    },
+    "empresa": {
+      "nombreEmpresa": "Servicios Digitales SRL",
+      "codigoCrm": "3456",
+      "codigoEdisoft": "3456CLOUD",
+      "pais": "ARGENTINA",
+      "nombreContacto": "Marta Silva",
+      "cargoContacto": "CEO"
+    },
+    "datosGenerales": {
+      "fechaFirma": "22/12/2025",
+      "fechaFinEstimada": "22/08/2026",
+      "agente": "Carlos Ramírez",
+      "codigoContrato": "ORD-2025-003",
+      "codigoCampaniaAdministrativa": "K25.000.210"
+    },
+    "contenidoCampaña": [
+      {
+        "medio": "Revista del vidrio España",
+        "publicacion": "Edición 213",
+        "producto": "Publicidad en portada",
+        "precio": "2300€",
+        "deadline": "25/10/2025",
+        "fechaPublicacion": "10/01/2026",
+        "estadoMaterial": "No pedido",
+        "urlcontenido": "/dashboard/produccion/contenidos/revista/contenido"
+      }
+    ]
+  },
+  {
+    "idContacto": "CNT-004",
+    "detallesContrato": {
+      "Contrato": "ORD-2025-004",
+      "codigoCRM": "CRM-4592",
+      "cliente": "Constructora del Norte",
+      "agente": "Sofía Torres",
+      "fechaCobroPrevista": "30/09/2025",
+      "fechaCobroFactura": "01/10/2025",
+      "estado": "Pendiente",
+      "comisionesPagadas": "No",
+      "contratoAsociado": "CT-98768",
+      "factura": "FAC-2025-335",
+      "fechaFactura": "25/09/2025",
+      "importeConIVA": "20.300 €",
+      "formaDeCobro": "Cheque",
+      "numRecibo": "RCB-55877",
+      "numRemesa": "REM-2025-12",
+      "fechaFirmaContrato": "15/09/2025",
+      "importeTotalBI": "16.780 €",
+      "campaniaAsociada": "Campaña Construcción"
+    },
+    "empresa": {
+      "nombreEmpresa": "Constructora del Norte",
+      "codigoCrm": "4567",
+      "codigoEdisoft": "4567BUILD",
+      "pais": "MÉXICO",
+      "nombreContacto": "Pedro Sánchez",
+      "cargoContacto": "Gerente General"
+    },
+    "datosGenerales": {
+      "fechaFirma": "01/01/2026",
+      "fechaFinEstimada": "01/01/2027",
+      "agente": "Sofía Torres",
+      "codigoContrato": "ORD-2025-004",
+      "codigoCampaniaAdministrativa": "K25.000.220"
+    },
+    "contenidoCampaña": [
+      {
+        "medio": "Revista del vidrio España",
+        "publicacion": "Edición 214",
+        "producto": "Anuncio interior portada",
+        "precio": "1200€",
+        "deadline": "30/10/2025",
+        "fechaPublicacion": "15/01/2026",
+        "estadoMaterial": "No pedido",
+        "urlcontenido": "/dashboard/produccion/contenidos/revista/contenido"
+      }
+    ]
+  }
+ ]

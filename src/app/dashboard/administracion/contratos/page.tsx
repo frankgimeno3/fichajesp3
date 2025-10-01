@@ -1,44 +1,25 @@
 "use client";
 import React, { FC, useState } from "react";
-import { useRouter } from "next/navigation";
 import MiddleNav from "../../../general_components/componentes_recurrentes/MiddleNav";
 import TablaContratos from "../componentesadministracion/TablaContratos";
+import contratosContents from "@/app/contents/contratosContents.json";
+import { Contrato, ContratoResumen } from "./contratosTypes";
 
-interface ContratosProps {}
-
-const Contratos: FC<ContratosProps> = ({}) => {
+const Contratos: FC = () => {
   const [pestana, setPestana] = useState("campanasadministrativas");
 
-  // 🔹 Lista de contratos (mock / podrías cargarlos desde la API)
-  const contratos = [
-    {
-      codigo: "ORD-2025-001",
-      cliente: "Empresa Ejemplo S.A.",
-      agente: "Juan Pérez",
-      estado: "Pendiente",
-      fechaFirma: "01/09/2025",
-      importe: "12.500 €",
-      campania: "Campaña Otoño 2025",
-    },
-    {
-      codigo: "ORD-2025-002",
-      cliente: "Tech Solutions SL",
-      agente: "María López",
-      estado: "Pagado",
-      fechaFirma: "05/09/2025",
-      importe: "8.300 €",
-      campania: "Campaña Otoño 2025",
-    },
-    {
-      codigo: "ORD-2025-003",
-      cliente: "Constructora Global",
-      agente: "Carlos Ruiz",
-      estado: "En revisión",
-      fechaFirma: "10/09/2025",
-      importe: "15.000 €",
-      campania: "Campaña Invierno 2025",
-    },
-  ];
+  // Mapear JSON detallado a resumen
+  const contratos: ContratoResumen[] = (contratosContents as Contrato[]).map(
+    (c) => ({
+      codigo: c.detallesContrato.Contrato,
+      cliente: c.detallesContrato.cliente,
+      agente: c.detallesContrato.agente,
+      estado: c.detallesContrato.estado,
+      fechaFirma: c.detallesContrato.fechaFirmaContrato,
+      importe: c.detallesContrato.importeConIVA,
+      campania: c.detallesContrato.campaniaAsociada,
+    })
+  );
 
   return (
     <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600 w-full">
