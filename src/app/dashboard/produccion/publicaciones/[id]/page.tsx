@@ -15,34 +15,33 @@ const MaterialesRevista: FC = () => {
       <h2 className="text-xl font-semibold mb-4">
         Materiales de la publicación {idPublicacion}
       </h2>
-
-      <div className="overflow-x-auto bg-white rounded p-5 w-full">
-        <table className="min-w-full table-auto border-collapse">
-          <thead>
-            <tr className="bg-gray-200 text-gray-700">
-              <th className="px-4 py-2 text-left border">Empresa</th>
-              <th className="px-4 py-2 text-left border">Tipo de material</th>
-              <th className="px-4 py-2 text-left border">Especificaciones</th>
-              <th className="px-4 py-2 text-left border">Agente</th>
-              <th className="px-4 py-2 text-left border">Estado</th>
-              <th className="px-4 py-2 text-left border">Deadline material</th>
+    <div className='flex flex-row justify-between w-full items-center bg-white rounded'>
+      <table className='min-w-full'>
+        <thead className='bg-blue-950 text-white'>
+            <tr>
+              <th className='text-left p-2 font-light w-1/8'>Empresa</th>
+              <th className='text-left p-2 font-light w-2/8'>Tipo de material</th>
+              <th className='text-left p-2 font-light w-2/8'>Especificaciones</th>
+              <th className='text-left p-2 font-light w-1/8'>Agente</th>
+              <th className='text-left p-2 font-light w-1/8'>Estado</th>
+              <th className='text-left p-2 font-light w-1/8'>Deadline material</th>
             </tr>
           </thead>
           <tbody>
             {materiales.map((item, index) => (
               <tr
                 key={index}
-                className="hover:bg-gray-50 cursor-pointer"
+              className='hover:bg-gray-50 cursor-pointer'
                 onClick={() =>
                   router.push(`/dashboard/produccion/publicaciones/${idPublicacion}/${item.idContenido}`)
                 }
               >
-                <td className="px-4 py-2 border">{item.idEmpresa}</td>
-                <td className="px-4 py-2 border">{item.tipoContenido}</td>
-                <td className="px-4 py-2 border">{item.especificaciones}</td>
-                <td className="px-4 py-2 border">{item.idAgente}</td>
-                <td className="px-4 py-2 border">{item.estado}</td>
-                <td className="px-4 py-2 border">{item.deadline}</td>
+                <td className='p-2 border-b border-gray-200'>{item.idEmpresa}</td>
+                <td className='p-2 border-b border-gray-200'>{item.tipoContenido}</td>
+                <td className='p-2 border-b border-gray-200'>{item.especificaciones}</td>
+                <td className='p-2 border-b border-gray-200'>{item.idAgente}</td>
+                <td className='p-2 border-b border-gray-200'>{item.estado}</td>
+                <td className='p-2 border-b border-gray-200'>{item.deadline}</td>
               </tr>
             ))}
           </tbody>

@@ -13,12 +13,12 @@ const TablaPublicaciones: FC<TablaPublicacionesProps> = ({ }) => {
       <table className='min-w-full'>
         <thead className='bg-blue-950 text-white'>
           <tr>
-            <th className='text-left p-2 font-light'>Edición Publicación</th>
-            <th className='text-left p-2 font-light'>Medio de Publicación</th>
-            <th className='text-left p-2 font-light'>Detalle Publicación</th>
-            <th className='text-left p-2 font-light'>Deadline Material</th>
-            <th className='text-left p-2 font-light'>Fecha Publicación</th>
-            <th className='text-left p-2 font-light'>Estado</th>
+            <th className='text-left p-2 font-light w-2/8'>Publicación</th>
+            <th className='text-left p-2 font-light w-2/8'>Edición</th>
+            <th className='text-left p-2 font-light w-1/8'>Número</th>
+            <th className='text-left p-2 font-light w-1/8'>Deadline Material</th>
+            <th className='text-left p-2 font-light w-1/8'>Fecha Publicación</th>
+            <th className='text-left p-2 font-light w-1/8'>Estado</th>
           </tr>
         </thead>
         <tbody>
@@ -28,8 +28,8 @@ const TablaPublicaciones: FC<TablaPublicacionesProps> = ({ }) => {
               className='hover:bg-gray-50 cursor-pointer'
               onClick={() => router.push(`/dashboard/produccion/publicaciones/${item.id_publicacion}`)}
             >
-              <td className='p-2 border-b border-gray-200'>{item.edicion_publicacion}</td>
               <td className='p-2 border-b border-gray-200'>{item.medio_publicacion}</td>
+              <td className='p-2 border-b border-gray-200'>{item.edicion_publicacion}</td>
               <td className='p-2 border-b border-gray-200'>{item.detalle_publicacion}</td>
               <td className='p-2 border-b border-gray-200'>{item.deadline_material}</td>
               <td className='p-2 border-b border-gray-200'>{item.fecha_publicacion}</td>
