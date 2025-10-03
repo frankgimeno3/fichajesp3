@@ -3,14 +3,13 @@ import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
 import ContenidoGeneral from './componentesFicha/ContenidoGeneral';
 import ContenidoAdministrativo from './componentesFicha/ContenidoAdministrativo';
-import ContenidoRegistro from './componentesFicha/ContenidoRegistro';
-import ContenidoComentarios from './componentesFicha/ContenidoComentarios';
+ import ContenidoComentarios from './componentesFicha/ContenidoComentarios';
 
 interface FichaClienteProps {}
 
 const FichaCliente: FC<FichaClienteProps> = ({ }) => {
   const router = useRouter();
-  const [pestana, setPestana] = useState<'general' | 'comentarios' | 'administrativo' | 'registro'>('general');
+  const [pestana, setPestana] = useState<'general' | 'comentarios' | 'administrativo'>('general');
 
   return (
     <div className="bg-white min-h-screen p-12 text-gray-600">
@@ -61,8 +60,7 @@ const FichaCliente: FC<FichaClienteProps> = ({ }) => {
         {pestana === 'general' && <ContenidoGeneral />}
         {pestana === 'comentarios' && <ContenidoComentarios />}
         {pestana === 'administrativo' && <ContenidoAdministrativo />}
-        {pestana === 'registro' && <ContenidoRegistro />}
-      </div>
+       </div>
     </div>
   );
 };
