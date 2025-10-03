@@ -1,81 +1,44 @@
-"use client";
-import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
+"use client"
 import React, { FC, useState } from 'react';
-import Fase0Inicial from './fases/Fase0Inicial';
-import Fase1enMasa from './fases/Fase1enMasa';
-import Fase1Especifica from './fases/Fase1especifica';
-import Fase2crearPublicaciones from './fases/Fase2crearPublicaciones';
-import Fase3Confirmacion from './fases/Fase3Confirmacion';
+import Fase0 from './fases/fase0';
+import Fase1 from './fases/fase1';
+import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
 
-export interface Publicacion {
-  name: string;
-  deadline: string;
-  fechaPublicacion: string;
-  edicionEspecial?: string;
-  tematica?: string;
-  desdeNumero?: string;
-  hastaNumero?: string;
+interface CrearServicioProps {
+  setFaseCrearServicio: React.Dispatch<React.SetStateAction<number>>;
 }
 
-interface CrearServiciosProps {}
-
-const CrearServicios: FC<CrearServiciosProps> = () => {
-  const [fase, setFase] = useState("inicial");
-
-  // Estado compartido entre fases
-  const [selectedItems, setSelectedItems] = useState<string[]>([]);
-  const [publicaciones, setPublicaciones] = useState<Publicacion[]>([]);
+const CrearServicio: FC<CrearServicioProps> = ({ }) => {
+  const [faseCrearServicio, setFaseCrearServicio] = useState(0);
+  const [publicacionSeleccionada, setPublicacionSeleccionada] = useState('');
+  const [nombreContenido, setNombreContenido] = useState('');
+  const [tipoContenido, setTipoContenido] = useState('');   // 👈 inicializa vacío
+  const [especificaciones, setEspecificaciones] = useState(''); // 👈 inicializa vacío
 
   return (
-    <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
-      <MiddleNav tituloprincipal={`Crear Publicaciones`} />
-
-      <div className="bg-gray-200 min-h-screen text-gray-600">
-        <div className='m-8 rounded-lg shadow-xl bg-white min-h-screen p-12'>
-
-          {fase === "inicial" && (
-            <Fase0Inicial setFase={setFase} />
-          )}
-
-          {fase === "enMasa" && (
-            <Fase1enMasa
-              setFase={setFase}
-              selectedItems={selectedItems}
-              setSelectedItems={setSelectedItems} 
-            />
-          )}
-
-          {fase === "especifica" && (
-  <Fase1Especifica
-  selectedItems={selectedItems}       
-  setSelectedItems={setSelectedItems} 
-  setFase={setFase}
-  publicaciones={publicaciones}
-  setPublicaciones={setPublicaciones}
-/>
-          )}
-
-          {fase === "crearPublicaciones" && (
-            <Fase2crearPublicaciones
-              selectedItems={selectedItems}
-              publicaciones={publicaciones}
-              setPublicaciones={setPublicaciones}
-              setFase={setFase}
-            />
-          )}
-
-          {fase === "FaseConfirmacion" && (
-            <Fase3Confirmacion
-              selectedItems={selectedItems}
-              publicaciones={publicaciones}
-              setFase={setFase}
-            />
-          )}
-
-        </div>
+    <div className="flex flex-col h-full min-h-screen text-gray-600">
+      <MiddleNav tituloprincipal={` Crear servicio  `} />
+      <div className="bg-gray-100 h-full min-h-screen p-12 text-gray-600">      
+        {faseCrearServicio == 0 && (
+          <Fase0 
+            setFaseCrearServicio={setFaseCrearServicio} 
+            setPublicacionSeleccionada={setPublicacionSeleccionada} 
+          />
+        )}
+        {faseCrearServicio == 1 && (
+          <Fase1 
+            publicacionSeleccionada={publicacionSeleccionada} 
+            nombreContenido={nombreContenido} 
+            setNombreContenido={setNombreContenido}
+            tipoContenido={tipoContenido} 
+            setTipoContenido={setTipoContenido} 
+            especificaciones={especificaciones} 
+            setEspecificaciones={setEspecificaciones}
+          />
+        )}
       </div>
     </div>
   );
 };
 
-export default CrearServicios;
+export default CrearServicio;
