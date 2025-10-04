@@ -1,30 +1,30 @@
 [
   {
-    "codigoEmpresa": "E123",
-    "nombreEmpresa": "Vidrios S.A.",
-    "paisEmpresa": "España",
-    "nombreAgenteAsignado": "Carlos Gómez",
-    "codigoAgenteAsignado": "A001"
+    "id_cuenta": "E123",
+    "nombre_empresa": "Vidrios S.A.",
+    "pais_cuenta": "España",
+    "id_agente": "A001",
+    "nombre_completo_agente": "Carlos Gómez"
   },
   {
-    "codigoEmpresa": "E456",
-    "nombreEmpresa": "Metales Unidos",
-    "paisEmpresa": "México",
-    "nombreAgenteAsignado": "María López",
-    "codigoAgenteAsignado": "A002"
+    "id_cuenta": "E456",
+    "nombre_empresa": "Metales Unidos",
+    "pais_cuenta": "México",
+    "id_agente": "A002",
+    "nombre_completo_agente": "María López"
   },
   {
-    "codigoEmpresa": "E789",
-    "nombreEmpresa": "Plásticos del Sur",
-    "paisEmpresa": "Argentina",
-    "nombreAgenteAsignado": "José Martínez",
-    "codigoAgenteAsignado": "A003"
+    "id_cuenta": "E789",
+    "nombre_empresa": "Plásticos del Sur",
+    "pais_cuenta": "Argentina",
+    "id_agente": "A003",
+    "nombre_completo_agente": "José Martínez"
   },
   {
-    "codigoEmpresa": "E999",
-    "nombreEmpresa": "Químicos Globales",
-    "paisEmpresa": "Chile",
-    "nombreAgenteAsignado": "Lucía Fernández",
-    "codigoAgenteAsignado": "A004"
+    "id_cuenta": "E999",
+    "nombre_empresa": "Químicos Globales",
+    "pais_cuenta": "Chile",
+    "id_agente": "A004",
+    "nombre_completo_agente": "Lucía Fernández"
   }
 ]
