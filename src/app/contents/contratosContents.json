@@ -1,8 +1,8 @@
  [
   {
-    "idContacto": "CNT-001",
+    "idContacto": "contact_25_0000000017",
     "detallesContrato": {
-      "Contrato": "ORD-2025-001",
+      "Contrato": "contr_25_0000000001",
       "codigoCRM": "CRM-4589",
       "cliente": "Empresa Ejemplo S.A.",
       "agente": "Juan Pérez",
@@ -33,7 +33,7 @@
       "fechaFirma": "12/12/2025",
       "fechaFinEstimada": "12/12/2026",
       "agente": "Jose Luis Fernandez Llop",
-      "codigoContrato": "ORD-2025-001",
+      "codigoContrato": "contr_25_0000000001",
       "codigoCampaniaAdministrativa": "K25.000.182"
     },
     "contenidoCampaña": [
@@ -60,9 +60,9 @@
     ]
   },
   {
-    "idContacto": "CNT-002",
+    "idContacto": "contact_25_0000000017",
     "detallesContrato": {
-      "Contrato": "ORD-2025-002",
+      "Contrato": "contr_25_0000000002",
       "codigoCRM": "CRM-4590",
       "cliente": "Global Solutions Ltd.",
       "agente": "María Gómez",
@@ -93,7 +93,7 @@
       "fechaFirma": "18/12/2025",
       "fechaFinEstimada": "18/06/2026",
       "agente": "María Gómez",
-      "codigoContrato": "ORD-2025-002",
+      "codigoContrato": "contr_25_0000000002",
       "codigoCampaniaAdministrativa": "K25.000.200"
     },
     "contenidoCampaña": [
@@ -110,9 +110,9 @@
     ]
   },
   {
-    "idContacto": "CNT-003",
+    "idContacto": "contact_25_00000000003",
     "detallesContrato": {
-      "Contrato": "ORD-2025-003",
+      "Contrato": "contr_25_0000000003",
       "codigoCRM": "CRM-4591",
       "cliente": "Servicios Digitales SRL",
       "agente": "Carlos Ramírez",
@@ -143,7 +143,7 @@
       "fechaFirma": "22/12/2025",
       "fechaFinEstimada": "22/08/2026",
       "agente": "Carlos Ramírez",
-      "codigoContrato": "ORD-2025-003",
+      "codigoContrato": "contr_25_0000000003",
       "codigoCampaniaAdministrativa": "K25.000.210"
     },
     "contenidoCampaña": [
@@ -160,9 +160,9 @@
     ]
   },
   {
-    "idContacto": "CNT-004",
+    "idContacto": "contact_25_00000000004",
     "detallesContrato": {
-      "Contrato": "ORD-2025-004",
+      "Contrato": "contr_25_0000000004",
       "codigoCRM": "CRM-4592",
       "cliente": "Constructora del Norte",
       "agente": "Sofía Torres",
@@ -193,7 +193,7 @@
       "fechaFirma": "01/01/2026",
       "fechaFinEstimada": "01/01/2027",
       "agente": "Sofía Torres",
-      "codigoContrato": "ORD-2025-004",
+      "codigoContrato": "contr_25_0000000004",
       "codigoCampaniaAdministrativa": "K25.000.220"
     },
     "contenidoCampaña": [

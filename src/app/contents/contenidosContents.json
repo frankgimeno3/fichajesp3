@@ -1,7 +1,7 @@
 [
   {
-    "idContenido": "cont-25-00001",
-    "idPublicacion": "publ-25-rev-bi-f-al-89",
+    "idContenido": "content_25_00001",
+    "idPublicacion": "publ_25_rev_bi_f_al_89",
     "idEmpresa": "ASDF123",
     "tipoContenido": "Anuncio 1 Página preferente",
     "especificaciones": "228 x 297, + 4mm margen",
@@ -10,8 +10,8 @@
     "deadline": "01/11/25"
   },
   {
-    "idContenido": "cont-25-00002",
-    "idPublicacion": "publ-25-rev-bi-f-al-89",
+    "idContenido": "content_25_00002",
+    "idPublicacion": "publ_25_rev_bi_f_al_89",
     "idEmpresa": "ASDF1232",
     "tipoContenido": "Anuncio Doble Página preferente",
     "especificaciones": "500 palabras, Word",
@@ -20,8 +20,8 @@
     "deadline": "05/11/25"
   },
   {
-    "idContenido": "cont-25-00003",
-    "idPublicacion": "publ-25-rev-bi-f-al-90",
+    "idContenido": "content_25_00003",
+    "idPublicacion": "publ_25_rev_bi_f_al_90",
     "idEmpresa": "Empresa C",
     "tipoContenido": "Anuncio 1 Página preferente",
     "especificaciones": "Página 5, anuncio de 1 página interior derecha 228 x 297, + 4mm margen",
@@ -30,8 +30,8 @@
     "deadline": "07/11/25"
   },
   {
-    "idContenido": "cont-25-00004",
-    "idPublicacion": "publ-25-rev-bi-f-es-213",
+    "idContenido": "content_25_00004",
+    "idPublicacion": "publ_25_rev_bi_f_es_213",
     "idEmpresa": "Empresa D",
     "tipoContenido": "Anuncio 1 página",
     "especificaciones": "Artículo de 1 página con novedades de producto",
@@ -40,8 +40,8 @@
     "deadline": "10/11/25"
   },
   {
-    "idContenido": "cont-25-00005",
-    "idPublicacion": "publ-25-rev-bi-f-es-214",
+    "idContenido": "content_25_00005",
+    "idPublicacion": "publ_25_rev_bi_f_es_214",
     "idEmpresa": "Empresa E",
     "tipoContenido": "Artículo 1 página",
     "especificaciones": "Artículo de 1 página con novedades de producto",
@@ -50,8 +50,8 @@
     "deadline": "15/11/25"
   },
   {
-    "idContenido": "cont-25-00006",
-    "idPublicacion": "publ-25-rev-bi-v-al-89",
+    "idContenido": "content_25_00006",
+    "idPublicacion": "publ_25_rev_bi_v_al_89",
     "idEmpresa": "Empresa F",
     "tipoContenido": "Anuncio 1 página",
     "especificaciones": "Anuncio de 1 página interior derecha 228 x 297, + 4mm margen",
@@ -60,8 +60,8 @@
     "deadline": "20/11/25"
   },
   {
-    "idContenido": "cont-25-00007",
-    "idPublicacion": "publ-25-rev-bi-v-es-213",
+    "idContenido": "content_25_00007",
+    "idPublicacion": "publ_25_rev_bi_v_es_213",
     "idEmpresa": "Empresa G",
     "tipoContenido": "Anuncio 1 página",
     "especificaciones": "Anuncio de 1 página interior derecha 228 x 297, + 4mm margen",
@@ -70,8 +70,8 @@
     "deadline": "25/11/25"
   },
   {
-    "idContenido": "cont-25-00008",
-    "idPublicacion": "publ-25-rev-bi-v-es-214",
+    "idContenido": "content_25_00008",
+    "idPublicacion": "publ_25_rev_bi_v_es_214",
     "idEmpresa": "Empresa H",
     "tipoContenido": "Artículo 2 páginas",
     "especificaciones": "Texto en Word y 4 imágenes alta resolución",
@@ -80,8 +80,8 @@
     "deadline": "27/11/25"
   },
   {
-    "idContenido": "cont-25-00009",
-    "idPublicacion": "publ-25-rev-h-p1",
+    "idContenido": "content_25_00009",
+    "idPublicacion": "publ_25_rev_h_p1",
     "idEmpresa": "Empresa I",
     "tipoContenido": "Anuncio Contraportada",
     "especificaciones": "228 x 297, + 4mm margen",
@@ -90,8 +90,8 @@
     "deadline": "29/11/25"
   },
   {
-    "idContenido": "cont-25-00010",
-    "idPublicacion": "publ-25-rev-h-p2",
+    "idContenido": "content_25_00010",
+    "idPublicacion": "publ_25_rev_h_p2",
     "idEmpresa": "Empresa J",
     "tipoContenido": "Artículo técnico",
     "especificaciones": "2 páginas con gráficos en alta",
@@ -100,8 +100,8 @@
     "deadline": "05/12/25"
   },
   {
-    "idContenido": "cont-25-00011",
-    "idPublicacion": "publ-25-rev-qq-f",
+    "idContenido": "content_25_00011",
+    "idPublicacion": "publ_25_rev_qq_f",
     "idEmpresa": "Empresa K",
     "tipoContenido": "Artículo institucional",
     "especificaciones": "Texto en Word + fotos jpg",
@@ -110,8 +110,8 @@
     "deadline": "08/12/25"
   },
   {
-    "idContenido": "cont-25-00012",
-    "idPublicacion": "publ-25-rev-qq-v",
+    "idContenido": "content_25_00012",
+    "idPublicacion": "publ_25_rev_qq_v",
     "idEmpresa": "Empresa L",
     "tipoContenido": "Artículo Vidrio",
     "especificaciones": "Texto + 3 fotos alta resolución",

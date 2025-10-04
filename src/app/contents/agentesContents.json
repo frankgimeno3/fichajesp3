@@ -1,0 +1,11 @@
+[
+    {
+        "id_agente":"ag_25_0001",
+        "nombre_agente":"Frank",
+        "apellidos_agente":"Gimeno Ruiz",
+        "nombre_completo_agente":"Frank Gimeno Ruiz",
+        "DNI_agente": "14415638N",
+        "rol_agente":"operaciones",
+        "estado_agente":"activo"
+    }
+]

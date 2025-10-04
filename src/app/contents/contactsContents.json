@@ -1,6 +1,6 @@
 [
   {
-    "id_contacto": "cont_25_0000000001",
+    "id_contacto": "contact_25_0000000001",
     "nombreContacto": "Juan Antonio",
     "apellidosContacto": "Gimeno Ramirez",
     "nombreCompleto": "Juan Antonio Gimeno Ramirez",
@@ -10,7 +10,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000002",
+    "id_contacto":  "contact_25_0000000002",
     "nombreContacto": "María Isabel",
     "apellidosContacto": "Fernandez López",
     "nombreCompleto": "María Isabel Fernandez López",
@@ -20,7 +20,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000003",
+    "id_contacto":  "contact_25_0000000003",
     "nombreContacto": "Carlos Eduardo",
     "apellidosContacto": "Martínez Torres",
     "nombreCompleto": "Carlos Eduardo Martínez Torres",
@@ -30,7 +30,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000004",
+    "id_contacto":  "contact_25_0000000004",
     "nombreContacto": "Laura Beatriz",
     "apellidosContacto": "Sánchez Morales",
     "nombreCompleto": "Laura Beatriz Sánchez Morales",
@@ -40,7 +40,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000005",
+    "id_contacto":  "contact_25_0000000005",
     "nombreContacto": "Francisco Javier",
     "apellidosContacto": "Ruiz Herrera",
     "nombreCompleto": "Francisco Javier Ruiz Herrera",
@@ -50,7 +50,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto": "cont_25_0000000006",
+    "id_contacto": "contact_25_0000000006",
     "nombreContacto": "Ana Teresa",
     "apellidosContacto": "Ramírez Delgado",
     "nombreCompleto": "Ana Teresa Ramírez Delgado",
@@ -60,7 +60,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000007",
+    "id_contacto":  "contact_25_0000000007",
     "nombreContacto": "Miguel Ángel",
     "apellidosContacto": "Cruz Navarro",
     "nombreCompleto": "Miguel Ángel Cruz Navarro",
@@ -70,7 +70,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000008",
+    "id_contacto":  "contact_25_0000000008",
      "nombreContacto": "Patricia Elena",
     "apellidosContacto": "Vargas Paredes",
     "nombreCompleto": "Patricia Elena Vargas Paredes",
@@ -80,7 +80,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000009",
+    "id_contacto":  "contact_25_0000000009",
      "nombreContacto": "José Manuel",
     "apellidosContacto": "Domínguez Cano",
     "nombreCompleto": "José Manuel Domínguez Cano",
@@ -90,7 +90,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000010",
+    "id_contacto":  "contact_25_0000000010",
     "nombreContacto": "Sofía Catalina",
     "apellidosContacto": "Ortega Jiménez",
     "nombreCompleto": "Sofía Catalina Ortega Jiménez",
@@ -100,7 +100,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000011",
+    "id_contacto":  "contact_25_0000000011",
     "nombreContacto": "David Alberto",
     "apellidosContacto": "Molina Castro",
     "nombreCompleto": "David Alberto Molina Castro",
@@ -110,7 +110,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000012",
+    "id_contacto":  "contact_25_0000000012",
     "nombreContacto": "Cristina Belén",
     "apellidosContacto": "López Serrano",
     "nombreCompleto": "Cristina Belén López Serrano",
@@ -120,7 +120,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000013",
+    "id_contacto":  "contact_25_0000000013",
     "nombreContacto": "Pedro Luis",
     "apellidosContacto": "Torres Navarro",
     "nombreCompleto": "Pedro Luis Torres Navarro",
@@ -130,7 +130,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000014",
+    "id_contacto":  "contact_25_0000000014",
     "nombreContacto": "Isabel María",
     "apellidosContacto": "Gil Romero",
     "nombreCompleto": "Isabel María Gil Romero",
@@ -140,7 +140,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000015",
+    "id_contacto":  "contact_25_0000000015",
     "nombreContacto": "Antonio José",
     "apellidosContacto": "Moreno Ruiz",
     "nombreCompleto": "Antonio José Moreno Ruiz",
@@ -150,7 +150,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto":  "cont_25_0000000016",
+    "id_contacto":  "contact_25_0000000016",
     "nombreContacto": "Lucía Andrea",
     "apellidosContacto": "Campos Vega",
     "nombreCompleto": "Lucía Andrea Campos Vega",
@@ -160,7 +160,7 @@
     "cargo_contacto":"Responsable de compras"
   },
   {
-    "id_contacto": "cont_25_0000000017",
+    "id_contacto": "contact_25_0000000017",
     "nombreContacto": "Roberto Carlos",
     "apellidosContacto": "Navarro León",
     "nombreCompleto": "Roberto Carlos Navarro León",
