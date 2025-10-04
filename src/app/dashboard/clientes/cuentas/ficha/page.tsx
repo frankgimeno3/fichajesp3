@@ -2,7 +2,6 @@
 import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
 import ContenidoGeneral from './componentesFicha/ContenidoGeneral';
-import ContenidoAdministrativo from './componentesFicha/ContenidoAdministrativo';
  import ContenidoComentarios from './componentesFicha/ContenidoComentarios';
 
 interface FichaClienteProps {}
@@ -40,8 +39,6 @@ const FichaCliente: FC<FichaClienteProps> = ({ }) => {
         {[
           { key: 'general', label: 'Datos Generales' },
           { key: 'comentarios', label: 'Comentarios' },
-          { key: 'administrativo', label: 'Contenido Administrativo' },
-          { key: 'registro', label: 'Registro' }
         ].map(({ key, label }, index) => (
           <div
             key={key}
@@ -59,7 +56,6 @@ const FichaCliente: FC<FichaClienteProps> = ({ }) => {
       <div className='bg-white p-12 shadow-xl rounded-b-lg'>
         {pestana === 'general' && <ContenidoGeneral />}
         {pestana === 'comentarios' && <ContenidoComentarios />}
-        {pestana === 'administrativo' && <ContenidoAdministrativo />}
        </div>
     </div>
   );

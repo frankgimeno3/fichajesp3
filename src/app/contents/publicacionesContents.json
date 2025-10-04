@@ -5,7 +5,7 @@
     "tematica_edicion":"Introducir temática edición",
     "deadline_material": "1/12/25",
     "fecha_publicacion": "25/12/25",
-    "estado": "Pendiente de publicar",
+    "estado_publicacion": "Pendiente de publicar",
     "medio_publicacion": "Revista Ventanas, Puertas, Cerramientos y Protección Solar",
     "edicion_publicacion": "Edición América Latina",
     "detalle_publicacion": "Número 89"
@@ -16,7 +16,7 @@
     "tematica_edicion":"Introducir temática edición",
     "deadline_material": "11/12/25",
     "fecha_publicacion": "4/1/26",
-    "estado": "Pendiente de publicar",
+    "estado_publicacion": "Pendiente de publicar",
     "medio_publicacion": "Revista Ventanas, Puertas, Cerramientos y Protección Solar",
     "edicion_publicacion": "Edición América Latina",
     "detalle_publicacion": "Número 90"
@@ -27,7 +27,7 @@
     "tematica_edicion":"Introducir temática edición",
     "deadline_material": "11/12/25",
     "fecha_publicacion": "4/1/26",
-    "estado": "Pendiente de publicar",
+    "estado_publicacion": "Pendiente de publicar",
     "medio_publicacion": "Revista del Vidrio",
     "edicion_publicacion": "Edición América Latina",
     "detalle_publicacion": "Número 90"
@@ -38,7 +38,7 @@
     "tematica_edicion":"Introducir temática edición",
     "deadline_material": "21/12/25",
     "fecha_publicacion": "21/12/25",
-    "estado": "Pendiente de publicar",
+    "estado_publicacion": "Pendiente de publicar",
     "medio_publicacion": "Revista Ventanas, Puertas, Cerramientos y Protección Solar",
     "edicion_publicacion": "Edición Iberia",
     "detalle_publicacion": "Número 213"
@@ -49,7 +49,7 @@
     "tematica_edicion":"Introducir temática edición",
     "deadline_material": "31/12/25",
     "fecha_publicacion": "24/1/26",
-    "estado": "Pendiente de publicar",
+    "estado_publicacion": "Pendiente de publicar",
     "medio_publicacion": "Revista Ventanas, Puertas, Cerramientos y Protección Solar",
     "edicion_publicacion": "Edición Iberia",
     "detalle_publicacion": "Número 214"
@@ -60,7 +60,7 @@
     "tematica_edicion":"Introducir temática edición",
     "deadline_material": "10/1/26",
     "fecha_publicacion": "3/2/26",
-    "estado": "Pendiente de publicar",
+    "estado_publicacion": "Pendiente de publicar",
     "medio_publicacion": "Revista del Vidrio",
     "edicion_publicacion": "Edición América Latina",
     "detalle_publicacion": "Número 89"
@@ -71,7 +71,7 @@
     "tematica_edicion":"Introducir temática edición",
     "deadline_material": "30/1/26",
     "fecha_publicacion": "23/2/26",
-    "estado": "Pendiente de publicar",
+    "estado_publicacion": "Pendiente de publicar",
     "medio_publicacion": "Revista del Vidrio",
     "edicion_publicacion": "Edición Iberia",
     "detalle_publicacion": "Número 213"
@@ -82,7 +82,7 @@
     "tematica_edicion":"Introducir temática edición",
     "deadline_material": "9/2/26",
     "fecha_publicacion": "5/3/26",
-    "estado": "Pendiente de publicar",
+    "estado_publicacion": "Pendiente de publicar",
     "medio_publicacion": "Revista del Vidrio",
     "edicion_publicacion": "Edición Iberia",
     "detalle_publicacion": "Número 214"
@@ -93,7 +93,7 @@
     "tematica_edicion":"Introducir temática edición",
     "deadline_material": "19/2/26",
     "fecha_publicacion": "15/3/26",
-    "estado": "Pendiente de publicar",
+    "estado_publicacion": "Pendiente de publicar",
     "medio_publicacion": "Hueco arquitectura",
     "edicion_publicacion": "Edición 2025 ",
     "detalle_publicacion": "Publicación 1/2"
@@ -104,7 +104,7 @@
     "tematica_edicion":"Introducir temática edición",
     "deadline_material": "19/9/26",
     "fecha_publicacion": "15/10/26",
-    "estado": "Pendiente de publicar",
+    "estado_publicacion": "Pendiente de publicar",
     "medio_publicacion": "Hueco arquitectura",
     "edicion_publicacion": "Edición 2025 ",
     "detalle_publicacion": "Publicación 2/2"
@@ -115,7 +115,7 @@
     "tematica_edicion":"Introducir temática edición",
     "deadline_material": "24/3/26",
     "fecha_publicacion": "17/4/26",
-    "estado": "Pendiente de publicar",
+    "estado_publicacion": "Pendiente de publicar",
     "medio_publicacion": "Quién es Quién",
     "edicion_publicacion": "Anuario 2025",
     "detalle_publicacion": "Edición Ventanas, Puertas, Cerramientos y Protección Solar"
@@ -126,7 +126,7 @@
     "tematica_edicion":"Introducir temática edición",
     "deadline_material": "24/3/26",
     "fecha_publicacion": "17/4/26",
-    "estado": "Pendiente de publicar",
+    "estado_publicacion": "Pendiente de publicar",
     "medio_publicacion": "Quién es Quién",
     "edicion_publicacion": "Anuario 2025",
     "detalle_publicacion": "Edición Vidrio"
