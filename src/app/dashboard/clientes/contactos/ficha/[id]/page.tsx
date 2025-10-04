@@ -16,7 +16,7 @@ const FichaContacto: FC = () => {
 
   const [isContenidoEdited, setIsContenidoEdited] = useState(false);
 
-  const contacto = contactsContents.find((c) => c.id === contactoId);
+  const contacto = contactsContents.find((c) => c.id_contacto === contactoId);
 
   if (!contacto) {
     return (
@@ -31,7 +31,7 @@ const FichaContacto: FC = () => {
       <h2 className="text-lg font-semibold">
         Ficha de contacto
         <span className="px-6 font-light">
-          Código Contacto: {contacto.codigoContacto}
+          Código Contacto: {contacto.id_contacto}
         </span>
         <span className="px-6 font-light">Nombre: {contacto.nombreCompleto}</span>
       </h2>

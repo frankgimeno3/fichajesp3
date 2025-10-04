@@ -5,8 +5,7 @@ import DatosGralesContacto from './componentesFichaContacto/DatosGralesContacto'
 import OtrosDatosContacto from './componentesFichaContacto/OtrosDatosContacto';
 
 export interface Contacto {
-  id: number;
-  codigoContacto: string;
+  id_contacto: string;
   nombreContacto: string;
   apellidosContacto: string;
   nombreCompleto: string;

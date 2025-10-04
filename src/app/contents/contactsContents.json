@@ -1,172 +1,172 @@
 [
   {
-    "id": 1,
-    "codigoContacto": "00001",
+    "id_contacto": "cont_25_0000000001",
     "nombreContacto": "Juan Antonio",
     "apellidosContacto": "Gimeno Ramirez",
     "nombreCompleto": "Juan Antonio Gimeno Ramirez",
-    "empresaAsociada": "Empresa Alfa S.A.",
+    "id_cuenta": "Empresa Alfa S.A.",
     "telefono": "600123456",
-    "email": "juan.antonio.gimeno@empresa-alfa.com"
+    "email": "juan.antonio.gimeno@empresa-alfa.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 2,
-    "codigoContacto": "00002",
+    "id_contacto":  "cont_25_0000000002",
     "nombreContacto": "María Isabel",
     "apellidosContacto": "Fernandez López",
     "nombreCompleto": "María Isabel Fernandez López",
-    "empresaAsociada": "Empresa Beta S.L.",
+    "id_cuenta": "Empresa Beta S.L.",
     "telefono": "600223456",
-    "email": "maria.isabel.fernandez@empresa-beta.com"
+    "email": "maria.isabel.fernandez@empresa-beta.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 3,
-    "codigoContacto": "00003",
+    "id_contacto":  "cont_25_0000000003",
     "nombreContacto": "Carlos Eduardo",
     "apellidosContacto": "Martínez Torres",
     "nombreCompleto": "Carlos Eduardo Martínez Torres",
-    "empresaAsociada": "Consultora Gamma",
+    "id_cuenta": "Consultora Gamma",
     "telefono": "600323456",
-    "email": "carlos.eduardo.martinez@consultora-gamma.com"
+    "email": "carlos.eduardo.martinez@consultora-gamma.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 4,
-    "codigoContacto": "00004",
+    "id_contacto":  "cont_25_0000000004",
     "nombreContacto": "Laura Beatriz",
     "apellidosContacto": "Sánchez Morales",
     "nombreCompleto": "Laura Beatriz Sánchez Morales",
-    "empresaAsociada": "Servicios Delta",
+    "id_cuenta": "Servicios Delta",
     "telefono": "600423456",
-    "email": "laura.beatriz.sanchez@servicios-delta.com"
+    "email": "laura.beatriz.sanchez@servicios-delta.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 5,
-    "codigoContacto": "00005",
+    "id_contacto":  "cont_25_0000000005",
     "nombreContacto": "Francisco Javier",
     "apellidosContacto": "Ruiz Herrera",
     "nombreCompleto": "Francisco Javier Ruiz Herrera",
-    "empresaAsociada": "Empresa Épsilon",
+    "id_cuenta": "Empresa Épsilon",
     "telefono": "600523456",
-    "email": "francisco.javier.ruiz@empresa-epsilon.com"
+    "email": "francisco.javier.ruiz@empresa-epsilon.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 6,
-    "codigoContacto": "00006",
+    "id_contacto": "cont_25_0000000006",
     "nombreContacto": "Ana Teresa",
     "apellidosContacto": "Ramírez Delgado",
     "nombreCompleto": "Ana Teresa Ramírez Delgado",
-    "empresaAsociada": "Inversiones Zeta",
+    "id_cuenta": "Inversiones Zeta",
     "telefono": "600623456",
-    "email": "ana.teresa.ramirez@inversiones-zeta.com"
+    "email": "ana.teresa.ramirez@inversiones-zeta.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 7,
-    "codigoContacto": "00007",
+    "id_contacto":  "cont_25_0000000007",
     "nombreContacto": "Miguel Ángel",
     "apellidosContacto": "Cruz Navarro",
     "nombreCompleto": "Miguel Ángel Cruz Navarro",
-    "empresaAsociada": "Tecnologías Lambda",
+    "id_cuenta": "Tecnologías Lambda",
     "telefono": "600723456",
-    "email": "miguel.angel.cruz@tecnologias-lambda.com"
+    "email": "miguel.angel.cruz@tecnologias-lambda.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 8,
-    "codigoContacto": "00008",
-    "nombreContacto": "Patricia Elena",
+    "id_contacto":  "cont_25_0000000008",
+     "nombreContacto": "Patricia Elena",
     "apellidosContacto": "Vargas Paredes",
     "nombreCompleto": "Patricia Elena Vargas Paredes",
-    "empresaAsociada": "Empresa Sigma",
+    "id_cuenta": "Empresa Sigma",
     "telefono": "600823456",
-    "email": "patricia.elena.vargas@empresa-sigma.com"
+    "email": "patricia.elena.vargas@empresa-sigma.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 9,
-    "codigoContacto": "00009",
-    "nombreContacto": "José Manuel",
+    "id_contacto":  "cont_25_0000000009",
+     "nombreContacto": "José Manuel",
     "apellidosContacto": "Domínguez Cano",
     "nombreCompleto": "José Manuel Domínguez Cano",
-    "empresaAsociada": "Transportes Omicron",
+    "id_cuenta": "Transportes Omicron",
     "telefono": "600923456",
-    "email": "jose.manuel.dominguez@transportes-omicron.com"
+    "email": "jose.manuel.dominguez@transportes-omicron.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 10,
-    "codigoContacto": "00010",
+    "id_contacto":  "cont_25_0000000010",
     "nombreContacto": "Sofía Catalina",
     "apellidosContacto": "Ortega Jiménez",
     "nombreCompleto": "Sofía Catalina Ortega Jiménez",
-    "empresaAsociada": "Marketing Pi",
+    "id_cuenta": "Marketing Pi",
     "telefono": "601023456",
-    "email": "sofia.catalina.ortega@marketing-pi.com"
+    "email": "sofia.catalina.ortega@marketing-pi.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 11,
-    "codigoContacto": "00011",
+    "id_contacto":  "cont_25_0000000011",
     "nombreContacto": "David Alberto",
     "apellidosContacto": "Molina Castro",
     "nombreCompleto": "David Alberto Molina Castro",
-    "empresaAsociada": "Construcciones Rho",
+    "id_cuenta": "Construcciones Rho",
     "telefono": "601123456",
-    "email": "david.alberto.molina@construcciones-rho.com"
+    "email": "david.alberto.molina@construcciones-rho.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 12,
-    "codigoContacto": "00012",
+    "id_contacto":  "cont_25_0000000012",
     "nombreContacto": "Cristina Belén",
     "apellidosContacto": "López Serrano",
     "nombreCompleto": "Cristina Belén López Serrano",
-    "empresaAsociada": "Agencia Kappa",
+    "id_cuenta": "Agencia Kappa",
     "telefono": "601223456",
-    "email": "cristina.belen.lopez@agencia-kappa.com"
+    "email": "cristina.belen.lopez@agencia-kappa.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 13,
-    "codigoContacto": "00013",
+    "id_contacto":  "cont_25_0000000013",
     "nombreContacto": "Pedro Luis",
     "apellidosContacto": "Torres Navarro",
     "nombreCompleto": "Pedro Luis Torres Navarro",
-    "empresaAsociada": "Desarrollos Theta",
+    "id_cuenta": "Desarrollos Theta",
     "telefono": "601323456",
-    "email": "pedro.luis.torres@desarrollos-theta.com"
+    "email": "pedro.luis.torres@desarrollos-theta.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 14,
-    "codigoContacto": "00014",
+    "id_contacto":  "cont_25_0000000014",
     "nombreContacto": "Isabel María",
     "apellidosContacto": "Gil Romero",
     "nombreCompleto": "Isabel María Gil Romero",
-    "empresaAsociada": "Finanzas Iota",
+    "id_cuenta": "Finanzas Iota",
     "telefono": "601423456",
-    "email": "isabel.maria.gil@finanzas-iota.com"
+    "email": "isabel.maria.gil@finanzas-iota.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 15,
-    "codigoContacto": "00015",
+    "id_contacto":  "cont_25_0000000015",
     "nombreContacto": "Antonio José",
     "apellidosContacto": "Moreno Ruiz",
     "nombreCompleto": "Antonio José Moreno Ruiz",
-    "empresaAsociada": "Salud Omega",
+    "id_cuenta": "Salud Omega",
     "telefono": "601523456",
-    "email": "antonio.jose.moreno@salud-omega.com"
+    "email": "antonio.jose.moreno@salud-omega.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 16,
-    "codigoContacto": "00016",
+    "id_contacto":  "cont_25_0000000016",
     "nombreContacto": "Lucía Andrea",
     "apellidosContacto": "Campos Vega",
     "nombreCompleto": "Lucía Andrea Campos Vega",
-    "empresaAsociada": "Educación Upsilon",
+    "id_cuenta": "Educación Upsilon",
     "telefono": "601623456",
-    "email": "lucia.andrea.campos@educacion-upsilon.com"
+    "email": "lucia.andrea.campos@educacion-upsilon.com",
+    "cargo_contacto":"Responsable de compras"
   },
   {
-    "id": 17,
-    "codigoContacto": "00017",
+    "id_contacto": "cont_25_0000000017",
     "nombreContacto": "Roberto Carlos",
     "apellidosContacto": "Navarro León",
     "nombreCompleto": "Roberto Carlos Navarro León",
-    "empresaAsociada": "Turismo Tau",
+    "id_cuenta": "Turismo Tau",
     "telefono": "601723456",
-    "email": "roberto.carlos.navarro@turismo-tau.com"
+    "email": "roberto.carlos.navarro@turismo-tau.com",
+    "cargo_contacto":"Responsable de compras"
   }
 ]
