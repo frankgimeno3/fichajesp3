@@ -12,8 +12,8 @@ const CrearServicio: FC<CrearServicioProps> = ({ }) => {
   const [faseCrearServicio, setFaseCrearServicio] = useState(0);
   const [publicacionSeleccionada, setPublicacionSeleccionada] = useState('');
   const [nombreContenido, setNombreContenido] = useState('');
-  const [tipoContenido, setTipoContenido] = useState('');   // 👈 inicializa vacío
-  const [especificaciones, setEspecificaciones] = useState(''); // 👈 inicializa vacío
+  const [tipoContenido, setTipoContenido] = useState('');    
+  const [especificaciones, setEspecificaciones] = useState('');  
 
   return (
     <div className="flex flex-col h-full min-h-screen text-gray-600">
