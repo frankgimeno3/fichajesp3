@@ -3,234 +3,226 @@
     "id_contacto": "contact_25_0000000017",
     "detalles_contrato": {
       "id_contrato": "contr_25_0000000001",
-      "id_cuenta_contrato": "CRM-4589",
-      "nombre_cuenta_contrato": "Empresa Ejemplo S.A.",
-      "id_agente_contrato": "Juan Pérez",
+      "id_agente_contrato": "ag_25_0004",
       "fecha_cobro_prevista_contrato": "15/09/2025",
       "fecha_cobro_factura_contrato": "18/09/2025",
       "estado_contrato": "Pendiente",
       "comisiones_contrato_pagadas": "Sí",
       "array_facturas": [
         {
-          "id_factura": "FAC-2025-334"
+          "id_factura": "fac_cte_25_0000001"
         }
       ],
       "fecha_factura": "12/09/2025",
-      "importe_factura_con_iva": "12.500 €",
-      "forma_cobro_factura": "Transferencia Bancaria",
+      "forma_cobro_factura": "Domiciliación Bancaria",
       "array_recibos": [
         {
           "num_recibo": "recibop3_25_0000001",
-          "numRemesa": "REM-2025-11"
+          "numRemesa": "remesap3_25_00000001"
         }
       ],
       "fecha_firma_contrato": "01/09/2025",
-      "importe_total_BI_contrato": "10.330 €",
-      "id_campana_asociada": "Campaña Otoño 2025"
+      "id_campana_asociada": "K25_000_029"
     },
     "cuenta_contrato": {
-      "nombre_empresa": "Tvitec",
-      "id_cuenta_contrato": "1234",
-      "id_cuenta_contrato_edisoft": "1234TIGER",
-      "pais_cuenta_contrato": "ESTONIA",
-      "id_contacto": "Frank Gimeno",
+      "id_cuenta_contrato": "62500001",
+      "id_contacto": "contact_25_0000000002",
       "cargoContacto": "Comercial"
     },
     "datosGenerales": {
-      "fechaFirma": "12/12/2025",
-      "fechaFinEstimada": "12/12/2026",
-      "id_agente_contrato": "Jose Luis Fernandez Llop",
-      "codigoid_contrato": "contr_25_0000000001",
-      "codigoCampaniaAdministrativa": "K25.000.182"
+      "fecha_firma_contrato": "12/12/2025",
+      "fecha_fin_contrato": "12/12/2026",
+      "codigo_campana_administrativa": "K25.000.182"
     },
+    "array_contenidos": [
+      {"id_contenido": "content_25_00001"},
+      {"id_contenido": "content_25_00002"}
+    ],
     "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
         "publicacion": "Edición 210",
         "producto": "Anuncio de una página",
-        "precio_total_campana": "1760€",
-        "deadline": "11/10/2025",
-        "fechaPublicacion": "12/12/2025",
-        "estado_contratoMaterial": "Publicado",
-        "urlcontenido": "/dashboard/produccion/contenidos/revista/contenido"
+        "precio_producto": 1760,
+        "deadline_publicacion": "11/10/2025",
+        "fecha_publicacion_publicacion": "12/12/2025",
+        "estado_material_contrato": "Publicado",
+        "urlcontenido": "/dashboard/produccion/publicaciones/publ_25_rev_bi_f_al_89/content_25_00001"
       },
       {
         "medio": "Revista del vidrio España",
         "publicacion": "Edición 211",
         "producto": "Media página",
-        "precio_total_campana": "850€",
-        "deadline": "15/10/2025",
-        "fechaPublicacion": "01/01/2026",
-        "estado_contratoMaterial": "Pedido no recibido",
-        "urlcontenido": "/dashboard/produccion/contenidos/revista/contenido"
+        "precio_producto": 1760,
+        "deadline_publicacion": "15/10/2025",
+        "fecha_publicacion_publicacion": "01/01/2026",
+        "estado_material_contrato": "Pedido no recibido",
+        "urlcontenido": "/dashboard/produccion/publicaciones/publ_25_rev_bi_f_al_89/content_25_00002"
       }
-    ]
+    ],
+    "descuento_final_contrato": 500,
+    "importe_total_BI_contrato": 3020,
+    "iva_aplicable": true,
+    "importe_factura_con_iva": 3654.20
   },
   {
-    "id_contacto": "contact_25_0000000017",
+    "id_contacto": "contact_25_0000000018",
     "detalles_contrato": {
       "id_contrato": "contr_25_0000000002",
-      "id_cuenta_contrato": "CRM-4590",
-      "nombre_cuenta_contrato": "Global Solutions Ltd.",
-      "id_agente_contrato": "María Gómez",
+      "id_agente_contrato": "ag_25_0004",
       "fecha_cobro_prevista_contrato": "20/09/2025",
       "fecha_cobro_factura_contrato": "22/09/2025",
       "estado_contrato": "Pagado",
       "comisiones_contrato_pagadas": "Sí",
       "array_facturas": [
         {
-          "id_factura": "FAC-2025-334"
+          "id_factura": "fac_cte_25_0000002"
         }
       ],
       "fecha_factura": "19/09/2025",
-      "importe_factura_con_iva": "8.750 €",
       "forma_cobro_factura": "Domiciliación Bancaria",
       "array_recibos": [
         {
-          "num_recibo": "recibop3_25_0000001",
-          "numRemesa": "REM-2025-11"
+          "num_recibo": "recibop3_25_0000002",
+          "numRemesa": "remesap3_25_00000002"
         }
       ],
       "fecha_firma_contrato": "05/09/2025",
-      "importe_total_BI_contrato": "7.230 €",
-      "id_campana_asociada": "Campaña Internacional"
+      "id_campana_asociada": "K25_000_030"
     },
     "cuenta_contrato": {
-      "nombreEmpresa": "Global Solutions Ltd.",
-      "id_cuenta_contrato": "2345",
-      "id_contacto": "Laura Fernández"
+      "id_cuenta_contrato": "62500002",
+      "id_contacto": "contact_25_0000000003",
+      "cargoContacto": "Directora Comercial"
     },
     "datosGenerales": {
-      "fechaFirma": "18/12/2025",
-      "fechaFinEstimada": "18/06/2026",
-      "id_agente_contrato": "María Gómez",
-      "codigoid_contrato": "contr_25_0000000002",
-      "codigoCampaniaAdministrativa": "K25.000.200"
+      "fecha_firma_contrato": "18/12/2025",
+      "fecha_fin_contrato": "18/06/2026",
+      "codigo_campana_administrativa": "K25.000.200"
     },
+    "array_contenidos": [
+      {"id_contenido": "content_25_00003"}
+    ],
     "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
         "publicacion": "Edición 212",
         "producto": "Doble página",
-        "precio_total_campana": "500€",
-        "deadline": "20/10/2025",
-        "fechaPublicacion": "05/01/2026",
-        "estado_contratoMaterial": "No pedido",
-        "urlcontenido": "/dashboard/produccion/contenidos/revista/contenido"
+        "precio_producto": 500,
+        "deadline_publicacion": "20/10/2025",
+        "fecha_publicacion_publicacion": "05/01/2026",
+        "estado_material_contrato": "No pedido",
+        "urlcontenido": "/dashboard/produccion/publicaciones/publ_25_rev_bi_f_al_89/content_25_00003"
       }
-    ]
+    ],
+    "descuento_final_contrato": 0,
+    "importe_total_BI_contrato": 500,
+    "iva_aplicable": true,
+    "importe_factura_con_iva": 605
   },
   {
-    "id_contacto": "contact_25_00000000003",
+    "id_contacto": "contact_25_0000000019",
     "detalles_contrato": {
       "id_contrato": "contr_25_0000000003",
-      "id_cuenta_contrato": "CRM-4591",
-      "nombre_cuenta_contrato": "Servicios Digitales SRL",
-      "id_agente_contrato": "Carlos Ramírez",
+      "id_agente_contrato": "ag_25_0004",
       "fecha_cobro_prevista_contrato": "25/09/2025",
       "fecha_cobro_factura_contrato": "28/09/2025",
       "estado_contrato": "Pendiente",
       "comisiones_contrato_pagadas": "No",
       "array_facturas": [
         {
-          "id_factura": "FAC-2025-334"
+          "id_factura": "fac_cte_25_0000003"
         }
       ],
       "fecha_factura": "22/09/2025",
-      "importe_factura_con_iva": "15.000 €",
-      "forma_cobro_factura": "PayPal",
-      "array_recibos": [
-        {
-          "num_recibo": "recibop3_25_0000001",
-          "numRemesa": "REM-2025-11"
-        }
-      ],
+      "forma_cobro_factura": "Transferencia Bancaria",
+      "array_recibos": [],
       "fecha_firma_contrato": "10/09/2025",
-      "importe_total_BI_contrato": "12.400 €",
-      "id_campana_asociada": "Campaña Digital 2025"
+      "id_campana_asociada": "K25_000_031"
     },
     "cuenta_contrato": {
-      "id_cuenta_contrato": "3456",
-      "id_cuenta_contrato_edisoft": "3456CLOUD",
-      "pais_cuenta_contrato": "ARGENTINA",
-      "id_contacto": "Marta Silva",
+      "id_cuenta_contrato": "62500003",
+      "id_contacto": "contact_25_0000000004",
       "cargoContacto": "CEO"
     },
     "datosGenerales": {
-      "fechaFirma": "22/12/2025",
-      "fechaFinEstimada": "22/08/2026",
-      "id_agente_contrato": "Carlos Ramírez",
-      "codigoid_contrato": "contr_25_0000000003",
-      "codigoCampaniaAdministrativa": "K25.000.210"
+      "fecha_firma_contrato": "22/12/2025",
+      "fecha_fin_contrato": "22/08/2026",
+      "codigo_campana_administrativa": "K25.000.210"
     },
+    "array_contenidos": [
+      {"id_contenido": "content_25_00004"}
+    ],
     "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
         "publicacion": "Edición 213",
         "producto": "Publicidad en portada",
-        "precio_total_campana": "2300€",
-        "deadline": "25/10/2025",
-        "fechaPublicacion": "10/01/2026",
-        "estado_contratoMaterial": "No pedido",
-        "urlcontenido": "/dashboard/produccion/contenidos/revista/contenido"
+        "precio_producto": 2300,
+        "deadline_publicacion": "25/10/2025",
+        "fecha_publicacion_publicacion": "10/01/2026",
+        "estado_material_contrato": "No pedido",
+        "urlcontenido": "/dashboard/produccion/publicaciones/publ_25_rev_bi_f_al_89/content_25_00004"
       }
-    ]
+    ],
+    "descuento_final_contrato": 0,
+    "importe_total_BI_contrato": 2300,
+    "iva_aplicable": false,
+    "importe_factura_con_iva": 2300
   },
   {
-    "id_contacto": "contact_25_00000000004",
+    "id_contacto": "contact_25_0000000020",
     "detalles_contrato": {
       "id_contrato": "contr_25_0000000004",
-      "id_cuenta_contrato": "CRM-4592",
-      "nombre_cuenta_contrato": "Constructora del Norte",
-      "id_agente_contrato": "Sofía Torres",
+      "id_agente_contrato": "ag_25_0004",
       "fecha_cobro_prevista_contrato": "30/09/2025",
       "fecha_cobro_factura_contrato": "01/10/2025",
       "estado_contrato": "Pendiente",
       "comisiones_contrato_pagadas": "No",
       "array_facturas": [
         {
-          "id_factura": "FAC-2025-334"
+          "id_factura": "fac_cte_25_0000004"
         }
       ],
       "fecha_factura": "25/09/2025",
-      "importe_factura_con_iva": "20.300 €",
-      "forma_cobro_factura": "Cheque",
+      "forma_cobro_factura": "Recibo Domiciliado",
       "array_recibos": [
         {
-          "num_recibo": "recibop3_25_0000001",
-          "numRemesa": "REM-2025-11"
+          "num_recibo": "recibop3_25_0000004",
+          "numRemesa": "remesap3_25_00000004"
         }
       ],
       "fecha_firma_contrato": "15/09/2025",
-      "importe_total_BI_contrato": "16.780 €",
-      "id_campana_asociada": "Campaña Construcción"
+      "id_campana_asociada": "K25_000_032"
     },
     "cuenta_contrato": {
-      "nombreEmpresa": "Constructora del Norte",
-      "id_cuenta_contrato": "4567",
-      "id_cuenta_contrato_edisoft": "4567BUILD",
-      "pais_cuenta_contrato": "MÉXICO",
-      "id_contacto": "Pedro Sánchez",
+      "id_cuenta_contrato": "62500004",
+      "id_contacto": "contact_25_0000000005",
       "cargoContacto": "Gerente General"
     },
     "datosGenerales": {
-      "fechaFirma": "01/01/2026",
-      "fechaFinEstimada": "01/01/2027",
-      "id_agente_contrato": "Sofía Torres",
-      "codigoid_contrato": "contr_25_0000000004",
-      "codigoCampaniaAdministrativa": "K25.000.220"
+      "fecha_firma_contrato": "01/01/2026",
+      "fecha_fin_contrato": "01/01/2027",
+      "codigo_campana_administrativa": "K25.000.220"
     },
+    "array_contenidos": [
+      {"id_contenido": "content_25_00005"}
+    ],
     "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
         "publicacion": "Edición 214",
         "producto": "Anuncio interior portada",
-        "precio_total_campana": "1200€",
-        "deadline": "30/10/2025",
-        "fechaPublicacion": "15/01/2026",
-        "estado_contratoMaterial": "No pedido",
-        "urlcontenido": "/dashboard/produccion/contenidos/revista/contenido"
+        "precio_producto": 1200,
+        "deadline_publicacion": "30/10/2025",
+        "fecha_publicacion_publicacion": "15/01/2026",
+        "estado_material_contrato": "No pedido",
+        "urlcontenido": "/dashboard/produccion/publicaciones/publ_25_rev_bi_f_al_89/content_25_00005"
       }
-    ]
+    ],
+    "descuento_final_contrato": 0,
+    "importe_total_BI_contrato": 1200,
+    "iva_aplicable": true,
+    "importe_factura_con_iva": 1452
   }
 ]
