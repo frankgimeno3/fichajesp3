@@ -27,12 +27,13 @@
       }
     ],
     "array_contactos_cuenta": [
-      {
-        "id_contacto": "contact_25_0000000001"
-      },
-      {
-        "id_contacto": "contact_25_0000000002"
-      }
+      { "id_contacto": "contact_25_0000000001" },
+      { "id_contacto": "contact_25_0000000002" }
+    ],
+    "array_comentarios_cuenta": [
+      "com_cuen_25_0000000001",
+      "com_cuen_25_0000000002",
+      "com_cuen_25_0000000003"
     ]
   },
   {
@@ -63,12 +64,12 @@
       }
     ],
     "array_contactos_cuenta": [
-      {
-        "id_contacto": "contact_25_0000000003"
-      },
-      {
-        "id_contacto": "contact_25_0000000004"
-      }
+      { "id_contacto": "contact_25_0000000003" },
+      { "id_contacto": "contact_25_0000000004" }
+    ],
+    "array_comentarios_cuenta": [
+      "com_cuen_25_0000000004",
+      "com_cuen_25_0000000005"
     ]
   },
   {
@@ -99,12 +100,13 @@
       }
     ],
     "array_contactos_cuenta": [
-      {
-        "id_contacto": "contact_25_0000000005"
-      },
-      {
-        "id_contacto": "contact_25_0000000006"
-      }
+      { "id_contacto": "contact_25_0000000005" },
+      { "id_contacto": "contact_25_0000000006" }
+    ],
+    "array_comentarios_cuenta": [
+      "com_cuen_25_0000000006",
+      "com_cuen_25_0000000007",
+      "com_cuen_25_0000000008"
     ]
   },
   {
@@ -135,12 +137,12 @@
       }
     ],
     "array_contactos_cuenta": [
-      {
-        "id_contacto": "contact_25_0000000007"
-      },
-      {
-        "id_contacto": "contact_25_0000000008"
-      }
+      { "id_contacto": "contact_25_0000000007" },
+      { "id_contacto": "contact_25_0000000008" }
+    ],
+    "array_comentarios_cuenta": [
+      "com_cuen_25_0000000009",
+      "com_cuen_25_0000000010"
     ]
   }
 ]
