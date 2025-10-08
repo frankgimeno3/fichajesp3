@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-interface Empresa {
+export interface Empresa {
   codigoEmpresa: string;
   nombreEmpresa: string;
   paisEmpresa: string;
@@ -15,7 +15,12 @@ interface PopupEmpresaProps {
   onSelect: (empresa: Empresa) => void;
 }
 
-const PopupEmpresa: React.FC<PopupEmpresaProps> = ({ isOpen, onClose, empresas, onSelect }) => {
+const PopupEmpresa: React.FC<PopupEmpresaProps> = ({
+  isOpen,
+  onClose,
+  empresas,
+  onSelect,
+}) => {
   const [busquedaNombre, setBusquedaNombre] = useState("");
   const [busquedaCodigo, setBusquedaCodigo] = useState("");
   const [resultados, setResultados] = useState<Empresa[] | null>(null);
@@ -57,7 +62,6 @@ const PopupEmpresa: React.FC<PopupEmpresaProps> = ({ isOpen, onClose, empresas, 
 
         <h2 className="text-xl font-bold mb-4">Buscar empresa</h2>
 
-        {/* Row búsqueda */}
         <div className="flex gap-2 mb-4">
           <input
             type="text"
@@ -81,7 +85,6 @@ const PopupEmpresa: React.FC<PopupEmpresaProps> = ({ isOpen, onClose, empresas, 
           </button>
         </div>
 
-        {/* Resultados */}
         <div className="border rounded p-4 h-60 overflow-y-auto">
           {!cargando && resultados === null && (
             <p className="text-gray-500">Busque una empresa por código o nombre.</p>

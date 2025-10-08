@@ -1,16 +1,28 @@
-import React, { FC, useState } from 'react';
-import { Contacto } from '../ContenidoGeneralContacto';
-import PopupEmpresa from './PopupEmpresa';
-import empresas from '@/app/contents/cuentasContents.json';
+import React, { FC, useState } from "react";
+import { Contacto } from "../ContenidoGeneralContacto";
+import PopupEmpresa, { Empresa } from "./PopupEmpresa";
+import empresasJSON from "@/app/contents/cuentasContents.json";
 
 interface DatosEmpresaContactoProps {
   contacto: Contacto;
   onChange: () => void;
 }
 
-const DatosEmpresaContacto: FC<DatosEmpresaContactoProps> = ({ contacto, onChange }) => {
+const DatosEmpresaContacto: FC<DatosEmpresaContactoProps> = ({
+  contacto,
+  onChange,
+}) => {
+  // Transformar el JSON a la estructura que espera PopupEmpresa
+  const empresas: Empresa[] = empresasJSON.map((e: any) => ({
+    codigoEmpresa: e.id_cuenta,
+    nombreEmpresa: e.nombre_empresa,
+    paisEmpresa: e.pais_cuenta,
+    nombreAgenteAsignado: "", // si no tienes nombre del agente, se puede dejar vacío
+    codigoAgenteAsignado: e.id_agente,
+  }));
+
   const [empresaSeleccionada, setEmpresaSeleccionada] = useState({
-    empresa: contacto.empresaAsociada || "Vidrios S.A.",
+    empresa: contacto.id_cuenta || "Vidrios S.A.",
     codigoEmpresa: "E123",
     cargo: "Director Comercial",
   });
@@ -60,10 +72,10 @@ const DatosEmpresaContacto: FC<DatosEmpresaContactoProps> = ({ contacto, onChang
               />
             </td>
           </tr>
-        </tbody>  
+        </tbody>
       </table>
 
-       <PopupEmpresa
+      <PopupEmpresa
         isOpen={popupOpen}
         onClose={() => setPopupOpen(false)}
         empresas={empresas}
