@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import { Contacto } from '../ContenidoGeneralContacto';
 import PopupEmpresa from './PopupEmpresa';
-import empresas from '@/app/contents/empresas.json';
+import empresas from '@/app/contents/cuentasContents.json';
 
 interface DatosEmpresaContactoProps {
   contacto: Contacto;

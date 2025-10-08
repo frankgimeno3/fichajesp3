@@ -4,169 +4,87 @@
     "nombre_contacto": "Juan Antonio",
     "apellidos_contacto": "Gimeno Ramirez",
     "nombre_completo_contacto": "Juan Antonio Gimeno Ramirez",
-    "id_cuenta": "Empresa Alfa S.A.",
+    "id_cuenta": "62500001",
+    "nombre_empresa": "Vidrios S.A.",
     "telefono_contacto": "600123456",
-    "email_contacto": "juan.antonio.gimeno@empresa-alfa.com",
-    "cargo_contacto":"Responsable de compras"
+    "email_contacto": "juan.antonio.gimeno@vidrios-sa.com",
+    "cargo_contacto": "Responsable de compras"
   },
   {
-    "id_contacto":  "contact_25_0000000002",
+    "id_contacto": "contact_25_0000000002",
     "nombre_contacto": "María Isabel",
     "apellidos_contacto": "Fernandez López",
     "nombre_completo_contacto": "María Isabel Fernandez López",
-    "id_cuenta": "Empresa Beta S.L.",
-    "telefono_contacto": "600223456",
-    "email_contacto": "maria.isabel.fernandez@empresa-beta.com",
-    "cargo_contacto":"Responsable de compras"
+    "id_cuenta": "62500001",
+    "nombre_empresa": "Vidrios S.A.",
+    "telefono_contacto": "600123457",
+    "email_contacto": "maria.isabel.fernandez@vidrios-sa.com",
+    "cargo_contacto": "Responsable de compras"
   },
   {
-    "id_contacto":  "contact_25_0000000003",
+    "id_contacto": "contact_25_0000000003",
     "nombre_contacto": "Carlos Eduardo",
     "apellidos_contacto": "Martínez Torres",
     "nombre_completo_contacto": "Carlos Eduardo Martínez Torres",
-    "id_cuenta": "Consultora Gamma",
-    "telefono_contacto": "600323456",
-    "email_contacto": "carlos.eduardo.martinez@consultora-gamma.com",
-    "cargo_contacto":"Responsable de compras"
+    "id_cuenta": "62500002",
+    "nombre_empresa": "Metales Unidos",
+    "telefono_contacto": "600223456",
+    "email_contacto": "carlos.eduardo.martinez@metalesunidos.com",
+    "cargo_contacto": "Responsable de compras"
   },
   {
-    "id_contacto":  "contact_25_0000000004",
+    "id_contacto": "contact_25_0000000004",
     "nombre_contacto": "Laura Beatriz",
     "apellidos_contacto": "Sánchez Morales",
     "nombre_completo_contacto": "Laura Beatriz Sánchez Morales",
-    "id_cuenta": "Servicios Delta",
-    "telefono_contacto": "600423456",
-    "email_contacto": "laura.beatriz.sanchez@servicios-delta.com",
-    "cargo_contacto":"Responsable de compras"
+    "id_cuenta": "62500002",
+    "nombre_empresa": "Metales Unidos",
+    "telefono_contacto": "600223457",
+    "email_contacto": "laura.beatriz.sanchez@metalesunidos.com",
+    "cargo_contacto": "Responsable de compras"
   },
   {
-    "id_contacto":  "contact_25_0000000005",
+    "id_contacto": "contact_25_0000000005",
     "nombre_contacto": "Francisco Javier",
     "apellidos_contacto": "Ruiz Herrera",
     "nombre_completo_contacto": "Francisco Javier Ruiz Herrera",
-    "id_cuenta": "Empresa Épsilon",
-    "telefono_contacto": "600523456",
-    "email_contacto": "francisco.javier.ruiz@empresa-epsilon.com",
-    "cargo_contacto":"Responsable de compras"
+    "id_cuenta": "62500003",
+    "nombre_empresa": "Plásticos del Sur",
+    "telefono_contacto": "600323456",
+    "email_contacto": "francisco.javier.ruiz@plasticossur.com",
+    "cargo_contacto": "Responsable de compras"
   },
   {
     "id_contacto": "contact_25_0000000006",
     "nombre_contacto": "Ana Teresa",
     "apellidos_contacto": "Ramírez Delgado",
     "nombre_completo_contacto": "Ana Teresa Ramírez Delgado",
-    "id_cuenta": "Inversiones Zeta",
-    "telefono_contacto": "600623456",
-    "email_contacto": "ana.teresa.ramirez@inversiones-zeta.com",
-    "cargo_contacto":"Responsable de compras"
+    "id_cuenta": "62500003",
+    "nombre_empresa": "Plásticos del Sur",
+    "telefono_contacto": "600323457",
+    "email_contacto": "ana.teresa.ramirez@plasticossur.com",
+    "cargo_contacto": "Responsable de compras"
   },
   {
-    "id_contacto":  "contact_25_0000000007",
+    "id_contacto": "contact_25_0000000007",
     "nombre_contacto": "Miguel Ángel",
     "apellidos_contacto": "Cruz Navarro",
     "nombre_completo_contacto": "Miguel Ángel Cruz Navarro",
-    "id_cuenta": "Tecnologías Lambda",
-    "telefono_contacto": "600723456",
-    "email_contacto": "miguel.angel.cruz@tecnologias-lambda.com",
-    "cargo_contacto":"Responsable de compras"
+    "id_cuenta": "62500004",
+    "nombre_empresa": "Químicos Globales",
+    "telefono_contacto": "600423456",
+    "email_contacto": "miguel.angel.cruz@quimicosglobales.cl",
+    "cargo_contacto": "Responsable de compras"
   },
   {
-    "id_contacto":  "contact_25_0000000008",
-     "nombre_contacto": "Patricia Elena",
+    "id_contacto": "contact_25_0000000008",
+    "nombre_contacto": "Patricia Elena",
     "apellidos_contacto": "Vargas Paredes",
     "nombre_completo_contacto": "Patricia Elena Vargas Paredes",
-    "id_cuenta": "Empresa Sigma",
-    "telefono_contacto": "600823456",
-    "email_contacto": "patricia.elena.vargas@empresa-sigma.com",
-    "cargo_contacto":"Responsable de compras"
-  },
-  {
-    "id_contacto":  "contact_25_0000000009",
-     "nombre_contacto": "José Manuel",
-    "apellidos_contacto": "Domínguez Cano",
-    "nombre_completo_contacto": "José Manuel Domínguez Cano",
-    "id_cuenta": "Transportes Omicron",
-    "telefono_contacto": "600923456",
-    "email_contacto": "jose.manuel.dominguez@transportes-omicron.com",
-    "cargo_contacto":"Responsable de compras"
-  },
-  {
-    "id_contacto":  "contact_25_0000000010",
-    "nombre_contacto": "Sofía Catalina",
-    "apellidos_contacto": "Ortega Jiménez",
-    "nombre_completo_contacto": "Sofía Catalina Ortega Jiménez",
-    "id_cuenta": "Marketing Pi",
-    "telefono_contacto": "601023456",
-    "email_contacto": "sofia.catalina.ortega@marketing-pi.com",
-    "cargo_contacto":"Responsable de compras"
-  },
-  {
-    "id_contacto":  "contact_25_0000000011",
-    "nombre_contacto": "David Alberto",
-    "apellidos_contacto": "Molina Castro",
-    "nombre_completo_contacto": "David Alberto Molina Castro",
-    "id_cuenta": "Construcciones Rho",
-    "telefono_contacto": "601123456",
-    "email_contacto": "david.alberto.molina@construcciones-rho.com",
-    "cargo_contacto":"Responsable de compras"
-  },
-  {
-    "id_contacto":  "contact_25_0000000012",
-    "nombre_contacto": "Cristina Belén",
-    "apellidos_contacto": "López Serrano",
-    "nombre_completo_contacto": "Cristina Belén López Serrano",
-    "id_cuenta": "Agencia Kappa",
-    "telefono_contacto": "601223456",
-    "email_contacto": "cristina.belen.lopez@agencia-kappa.com",
-    "cargo_contacto":"Responsable de compras"
-  },
-  {
-    "id_contacto":  "contact_25_0000000013",
-    "nombre_contacto": "Pedro Luis",
-    "apellidos_contacto": "Torres Navarro",
-    "nombre_completo_contacto": "Pedro Luis Torres Navarro",
-    "id_cuenta": "Desarrollos Theta",
-    "telefono_contacto": "601323456",
-    "email_contacto": "pedro.luis.torres@desarrollos-theta.com",
-    "cargo_contacto":"Responsable de compras"
-  },
-  {
-    "id_contacto":  "contact_25_0000000014",
-    "nombre_contacto": "Isabel María",
-    "apellidos_contacto": "Gil Romero",
-    "nombre_completo_contacto": "Isabel María Gil Romero",
-    "id_cuenta": "Finanzas Iota",
-    "telefono_contacto": "601423456",
-    "email_contacto": "isabel.maria.gil@finanzas-iota.com",
-    "cargo_contacto":"Responsable de compras"
-  },
-  {
-    "id_contacto":  "contact_25_0000000015",
-    "nombre_contacto": "Antonio José",
-    "apellidos_contacto": "Moreno Ruiz",
-    "nombre_completo_contacto": "Antonio José Moreno Ruiz",
-    "id_cuenta": "Salud Omega",
-    "telefono_contacto": "601523456",
-    "email_contacto": "antonio.jose.moreno@salud-omega.com",
-    "cargo_contacto":"Responsable de compras"
-  },
-  {
-    "id_contacto":  "contact_25_0000000016",
-    "nombre_contacto": "Lucía Andrea",
-    "apellidos_contacto": "Campos Vega",
-    "nombre_completo_contacto": "Lucía Andrea Campos Vega",
-    "id_cuenta": "Educación Upsilon",
-    "telefono_contacto": "601623456",
-    "email_contacto": "lucia.andrea.campos@educacion-upsilon.com",
-    "cargo_contacto":"Responsable de compras"
-  },
-  {
-    "id_contacto": "contact_25_0000000017",
-    "nombre_contacto": "Roberto Carlos",
-    "apellidos_contacto": "Navarro León",
-    "nombre_completo_contacto": "Roberto Carlos Navarro León",
-    "id_cuenta": "Turismo Tau",
-    "telefono_contacto": "601723456",
-    "email_contacto": "roberto.carlos.navarro@turismo-tau.com",
-    "cargo_contacto":"Responsable de compras"
+    "id_cuenta": "62500004",
+    "nombre_empresa": "Químicos Globales",
+    "telefono_contacto": "600423457",
+    "email_contacto": "patricia.elena.vargas@quimicosglobales.cl",
+    "cargo_contacto": "Responsable de compras"
   }
 ]

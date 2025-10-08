@@ -5,10 +5,14 @@ import ContenidoGeneralContacto from "../ContenidoGeneralContacto";
 import ContenidoComentariosContacto from "../ContenidoComentariosContacto";
 import contactsContents from '../../../../../contents/contactsContents.json';
 import BotonFlotante from "@/app/general_components/componentes_recurrentes/BotonFlotante";
- 
+
 const FichaContacto: FC = () => {
   const params = useParams();
-  const contactoId = params?.id ? parseInt(params.id as string, 10) : null;
+
+  // Aseguramos que contactoId sea solo string o null
+  const contactoId: string | null = Array.isArray(params?.id)
+    ? params.id[0]
+    : params?.id ?? null;
 
   const [pestana, setPestana] = useState<
     "general" | "comentarios" | "administrativo" | "registro"
@@ -33,7 +37,7 @@ const FichaContacto: FC = () => {
         <span className="px-6 font-light">
           Código Contacto: {contacto.id_contacto}
         </span>
-        <span className="px-6 font-light">Nombre: {contacto.nombreCompleto}</span>
+        <span className="px-6 font-light">Nombre: {contacto.nombre_completo_contacto}</span>
       </h2>
 
       <div className="flex flex-row mt-3 relative">
@@ -74,7 +78,7 @@ const FichaContacto: FC = () => {
         )}
       </div>
 
-       <BotonFlotante isContenidoEdited={isContenidoEdited} />
+      <BotonFlotante isContenidoEdited={isContenidoEdited} />
     </div>
   );
 };

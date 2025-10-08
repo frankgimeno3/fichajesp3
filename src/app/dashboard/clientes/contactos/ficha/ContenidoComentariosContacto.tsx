@@ -49,7 +49,7 @@ const ContenidoComentariosContacto: FC<ContenidoComentariosContactoProps> = ({
   return (
     <div>
       <h3 className="text-lg font-semibold mb-4">
-        Comentarios sobre {contacto.nombreCompleto}
+        Comentarios sobre {contacto.nombre_completo_contacto}
       </h3>
       <p className="mb-4 text-gray-600">
         Aviso: Los comentarios agregados aquí se agregarán automáticamente

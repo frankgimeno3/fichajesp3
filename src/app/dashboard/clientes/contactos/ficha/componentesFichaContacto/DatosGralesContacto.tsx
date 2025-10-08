@@ -25,7 +25,7 @@ const DatosGralesContacto: FC<DatosGralesContactoProps> = ({ contacto, onChange 
             <td className="p-2 border-b border-gray-200">
               <input
                 type="text"
-                defaultValue={contacto.nombreContacto}
+                defaultValue={contacto.nombre_contacto}
                 onChange={onChange}
                 className="w-full border border-gray-200 rounded p-1"
               />
@@ -33,16 +33,17 @@ const DatosGralesContacto: FC<DatosGralesContactoProps> = ({ contacto, onChange 
             <td className="p-2 border-b border-gray-200">
               <input
                 type="text"
-                defaultValue={contacto.apellidosContacto}
+                defaultValue={contacto.apellidos_contacto}
                 onChange={onChange}
                 className="w-full border border-gray-200 rounded p-1"
               />
             </td>
-            <td className="p-2 border-b border-gray-200">{contacto.codigoContacto}</td>
+            <td className="p-2 border-b border-gray-200">{contacto.id_contacto}</td>
             <td className="p-2 border-b border-gray-200">
               <input
                 type="text"
-                defaultValue={contacto.telefono}
+                defaultValue={contacto.telefono_contacto
+                }
                 onChange={onChange}
                 className="w-full border border-gray-200 rounded p-1"
               />
@@ -50,7 +51,7 @@ const DatosGralesContacto: FC<DatosGralesContactoProps> = ({ contacto, onChange 
             <td className="p-2 border-b border-gray-200">
               <input
                 type="email"
-                defaultValue={contacto.email}
+                defaultValue={contacto.email_contacto}
                 onChange={onChange}
                 className="w-full border border-gray-200 rounded p-1"
               />
