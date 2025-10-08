@@ -1,25 +1,48 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import CardComentario from './cards/CardComentario';
+import comentariosCuentas from "@/app/contents/comentariosCuentasContents.json";
 
-interface ContenidoComentariosProps {}
+interface ContenidoComentariosProps {
+    id_cuenta: string;   
+}
 
 interface Comentario {
+  id_comentario: string;
   autor: string;
   fecha: string;
   contenido: string;
 }
 
-const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ }) => {
-  const [comentarios, setComentarios] = useState<Comentario[]>([
-    {
-      autor: "Frank Gimeno",
-      fecha: "24 Febrero 2025",
-      contenido: "Este es un comentario inicial de ejemplo."
-    }
-  ]);
-
+const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ id_cuenta }) => {
+  const [comentarios, setComentarios] = useState<Comentario[]>([]);
   const [nuevoComentario, setNuevoComentario] = useState("");
   const [mostrarInput, setMostrarInput] = useState(false);
+
+  useEffect(() => {
+    // Filtrar comentarios según id_cuenta
+    const cuenta = comentariosCuentas.cuentasConComentarios.find(c => c.id_cuenta === id_cuenta);
+    if (!cuenta) {
+      setComentarios([]);
+      return;
+    }
+
+    const comentariosFiltrados = cuenta.array_comentarios_cuenta.map(idComentario => {
+      const c = comentariosCuentas.comentariosCuentasContents.find(com => com.id_comentario === idComentario);
+      if (!c) return null;
+      return {
+        id_comentario: c.id_comentario,
+        autor: c.nombre_completo_autor,
+        fecha: new Date(c.fecha_comentario).toLocaleDateString("es-ES", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        }),
+        contenido: c.contenido_comentario,
+      };
+    }).filter(Boolean) as Comentario[];
+
+    setComentarios(comentariosFiltrados);
+  }, [id_cuenta]);
 
   const agregarComentario = () => {
     if (nuevoComentario.trim() === "") return;
@@ -31,6 +54,7 @@ const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ }) => {
     });
 
     const comentario: Comentario = {
+      id_comentario: `temp_${Date.now()}`, // id temporal para el frontend
       autor: "Usuario Actual",
       fecha: hoy,
       contenido: nuevoComentario,
@@ -43,7 +67,7 @@ const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ }) => {
 
   return (
     <div className="flex flex-col">
-      {/* Botón añadir */}
+
       <div className="text-right w-full">
         <button
           className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-950/90"
@@ -53,8 +77,7 @@ const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ }) => {
         </button>
       </div>
 
-      {/* Input nuevo comentario */}
-      {mostrarInput && (
+       {mostrarInput && (
         <div className="flex flex-col gap-2 py-4">
           <textarea
             value={nuevoComentario}
@@ -71,11 +94,10 @@ const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ }) => {
         </div>
       )}
 
-      {/* Listado de comentarios */}
-      <div className="flex flex-col py-5 gap-3">
-        {comentarios.map((comentario, idx) => (
+       <div className="flex flex-col py-5 gap-3">
+        {comentarios.map((comentario) => (
           <CardComentario
-            key={idx}
+            key={comentario.id_comentario}
             autor={comentario.autor}
             fecha={comentario.fecha}
             contenido={comentario.contenido}

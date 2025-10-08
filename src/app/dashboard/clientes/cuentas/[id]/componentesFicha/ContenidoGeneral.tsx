@@ -9,7 +9,7 @@ import Descripcion from './general/Descripcion';
 import cuentas from "@/app/contents/cuentasContents.json";
 
 interface ContenidoGeneralProps {
-  id_cuenta: string;  // Recibimos id_cuenta directamente
+  id_cuenta: string;   
 }
 
 interface Cuenta {

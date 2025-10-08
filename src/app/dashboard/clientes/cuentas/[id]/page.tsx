@@ -37,8 +37,7 @@ const FichaCliente: FC<FichaClienteProps> = ({ id_cuenta }) => {
         </div>
       </div>
 
-      {/* Pestañas estilo Campañas */}
-      <div className="flex flex-row mt-6 relative mb-4">
+       <div className="flex flex-row mt-6 relative mb-4">
         {[
           { key: 'general', label: 'Datos Generales' },
           { key: 'comentarios', label: 'Comentarios' },
@@ -55,10 +54,9 @@ const FichaCliente: FC<FichaClienteProps> = ({ id_cuenta }) => {
         ))}
       </div>
 
-      {/* Contenido según pestaña */}
-      <div className='bg-white p-12 shadow-xl rounded-b-lg'>
+       <div className='bg-white p-12 shadow-xl rounded-b-lg'>
         {pestana === 'general' && <ContenidoGeneral id_cuenta={id_cuenta} />}
-        {pestana === 'comentarios' && <ContenidoComentarios />}
+        {pestana === 'comentarios' && <ContenidoComentarios id_cuenta={id_cuenta}/>}
       </div>
     </div>
   );
