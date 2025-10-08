@@ -2,26 +2,24 @@
 
 import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
-import resultados from './clientsdata.json'; // ✅ Importamos desde JSON
+import resultados from '@/app/contents/cuentasContents.json';
 
-interface Resultado {
-  id: number;
-  nombreEmpresa: string;
-  codigoCRM: string;
-  numerocuentas: number;
-  agenteAsignado: number;
-  fechaUltimoComentario: string;
-  telefono: string;
-  dominio: string;
-  pais: string;
-  telprincipal: string;
+interface Cuenta {
+  id_cuenta: string;
+  nombre_empresa: string;
+  pais_cuenta: string;
+  id_agente: string;
+  datos_comerciales: {
+    telefono_principal_cuenta: string;
+  };
+  fechaUltimoComentario?: string; // opcional si no existe en JSON
 }
 
 interface TablacuentasProps {
   clienteFiltro: string;
   agenteFiltro: string;
   telFiltro: string;
-  dominioFiltro: string;
+  dominioFiltro: string; // Aunque no tenemos dominio en el JSON, lo dejamos por compatibilidad
 }
 
 const Tablacuentas: FC<TablacuentasProps> = ({
@@ -30,63 +28,66 @@ const Tablacuentas: FC<TablacuentasProps> = ({
   telFiltro,
   dominioFiltro,
 }) => {
-  const resultadosFiltrados = resultados.filter((r: Resultado) => {
+  const router = useRouter();
+
+  const resultadosFiltrados = resultados.filter((r: Cuenta) => {
     const coincideCliente =
       clienteFiltro === '' ||
-      r.nombreEmpresa.toLowerCase().includes(clienteFiltro.toLowerCase()) ||
-      r.codigoCRM.toLowerCase().includes(clienteFiltro.toLowerCase());
+      r.nombre_empresa.toLowerCase().includes(clienteFiltro.toLowerCase()) ||
+      r.id_cuenta.toLowerCase().includes(clienteFiltro.toLowerCase());
 
     const coincideAgente =
-      agenteFiltro === '' || r.agenteAsignado.toString() === agenteFiltro;
+      agenteFiltro === '' || r.id_agente === agenteFiltro;
 
     const coincideTelefono =
-      telFiltro === '' || r.telefono.includes(telFiltro);
+      telFiltro === '' ||
+      r.datos_comerciales.telefono_principal_cuenta.includes(telFiltro);
 
-    const coincideDominio =
-      dominioFiltro === '' ||
-      r.dominio.toLowerCase().includes(dominioFiltro.toLowerCase());
+    // No hay dominio en tu JSON, así que siempre coincidimos
+    const coincideDominio = true;
 
     return coincideCliente && coincideAgente && coincideTelefono && coincideDominio;
   });
 
-  const router = useRouter();
-
-  const handleRedirection = (params: string) => {
-    router.push(params);
+  const handleRedirection = (id: string) => {
+    router.push(`/dashboard/clientes/cuentas/${id}`);
   };
 
   return (
     <div className="p-12">
-      <table className='min-w-full '>
-          <thead className='bg-blue-950/80 text-white '>
-              <tr>
-            <th className='text-left p-2 font-light'>Nombre Empresa</th>
-            <th className='text-left p-2 font-light'>Código CRM</th>
-            <th className='text-left p-2 font-light'>Agente Asignado</th>
-            <th className='text-left p-2 font-light'>País</th>
-            <th className='text-left p-2 font-light'>Tel principal</th>
-            <th className='text-left p-2 font-light'>Fecha Último Comentario</th>
-          </tr>
+      <table className="min-w-full">
+        <thead className="bg-blue-950/80 text-white">
+          <tr>
+            <th className="text-left p-2 font-light">Nombre Empresa</th>
+            <th className="text-left p-2 font-light">ID Cuenta</th>
+            <th className="text-left p-2 font-light">Agente Asignado</th>
+            <th className="text-left p-2 font-light">País</th>
+            <th className="text-left p-2 font-light">Tel principal</th>
+           </tr>
         </thead>
         <tbody>
           {resultadosFiltrados.map((res) => (
             <tr
-              key={res.id}
+              key={res.id_cuenta}
               className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
-              onClick={() => handleRedirection('/dashboard/clientes/cuentas/ficha')}
+              onClick={() => handleRedirection(res.id_cuenta)}
             >
-               <td className='p-2 border-b border-gray-200'>{res.nombreEmpresa}</td>
-               <td className='p-2 border-b border-gray-200'>{res.codigoCRM}</td>
-               <td className='p-2 border-b border-gray-200'>{res.agenteAsignado}</td>
-               <td className='p-2 border-b border-gray-200'>{res.pais}</td>
-               <td className='p-2 border-b border-gray-200'>{res.telprincipal}</td>
-               <td className='p-2 border-b border-gray-200'>{res.fechaUltimoComentario}</td>
+              <td className="p-2 border-b border-gray-200">{res.nombre_empresa}</td>
+              <td className="p-2 border-b border-gray-200">{res.id_cuenta}</td>
+              <td className="p-2 border-b border-gray-200">{res.id_agente}</td>
+              <td className="p-2 border-b border-gray-200">{res.pais_cuenta}</td>
+              <td className="p-2 border-b border-gray-200">
+                {res.datos_comerciales.telefono_principal_cuenta}
+              </td>
+             
             </tr>
           ))}
         </tbody>
       </table>
       {resultadosFiltrados.length === 0 && (
-        <p className="mt-4 text-center text-gray-500">No se encontraron resultados.</p>
+        <p className="mt-4 text-center text-gray-500">
+          No se encontraron resultados.
+        </p>
       )}
     </div>
   );

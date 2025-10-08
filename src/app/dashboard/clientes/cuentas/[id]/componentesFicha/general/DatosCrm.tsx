@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react';
+import cuentas from "@/app/contents/cuentasContents.json"
 
 interface CRMData {
   codigoCRM: string;
