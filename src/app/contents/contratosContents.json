@@ -8,18 +8,11 @@
       "fecha_cobro_factura_contrato": "18/09/2025",
       "estado_contrato": "Pendiente",
       "comisiones_contrato_pagadas": "Sí",
-      "array_facturas": [
-        {
-          "id_factura": "fac_cte_25_0000001"
-        }
-      ],
+      "array_facturas": [{ "id_factura": "fac_cte_25_0000001" }],
       "fecha_factura": "12/09/2025",
       "forma_cobro_factura": "Domiciliación Bancaria",
       "array_recibos": [
-        {
-          "num_recibo": "recibop3_25_0000001",
-          "numRemesa": "remesap3_25_00000001"
-        }
+        { "num_recibo": "recibop3_25_0000001", "numRemesa": "remesap3_25_00000001" }
       ],
       "fecha_firma_contrato": "01/09/2025",
       "id_campana_asociada": "K25_000_029"
@@ -35,8 +28,8 @@
       "codigo_campana_administrativa": "K25.000.182"
     },
     "array_contenidos": [
-      {"id_contenido": "content_25_00001"},
-      {"id_contenido": "content_25_00002"}
+      { "id_contenido": "content_25_00001" },
+      { "id_contenido": "content_25_00002" }
     ],
     "contenido_campana": [
       {
@@ -63,7 +56,7 @@
     "descuento_final_contrato": 500,
     "importe_total_BI_contrato": 3020,
     "iva_aplicable": true,
-    "importe_factura_con_iva": 3654.20
+    "importe_factura_con_iva": 3654.2
   },
   {
     "id_contacto": "contact_25_0000000018",
@@ -74,18 +67,11 @@
       "fecha_cobro_factura_contrato": "22/09/2025",
       "estado_contrato": "Pagado",
       "comisiones_contrato_pagadas": "Sí",
-      "array_facturas": [
-        {
-          "id_factura": "fac_cte_25_0000002"
-        }
-      ],
+      "array_facturas": [{ "id_factura": "fac_cte_25_0000002" }],
       "fecha_factura": "19/09/2025",
       "forma_cobro_factura": "Domiciliación Bancaria",
       "array_recibos": [
-        {
-          "num_recibo": "recibop3_25_0000002",
-          "numRemesa": "remesap3_25_00000002"
-        }
+        { "num_recibo": "recibop3_25_0000002", "numRemesa": "remesap3_25_00000002" }
       ],
       "fecha_firma_contrato": "05/09/2025",
       "id_campana_asociada": "K25_000_030"
@@ -100,9 +86,7 @@
       "fecha_fin_contrato": "18/06/2026",
       "codigo_campana_administrativa": "K25.000.200"
     },
-    "array_contenidos": [
-      {"id_contenido": "content_25_00003"}
-    ],
+    "array_contenidos": [{ "id_contenido": "content_25_00003" }],
     "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
@@ -129,11 +113,7 @@
       "fecha_cobro_factura_contrato": "28/09/2025",
       "estado_contrato": "Pendiente",
       "comisiones_contrato_pagadas": "No",
-      "array_facturas": [
-        {
-          "id_factura": "fac_cte_25_0000003"
-        }
-      ],
+      "array_facturas": [{ "id_factura": "fac_cte_25_0000003" }],
       "fecha_factura": "22/09/2025",
       "forma_cobro_factura": "Transferencia Bancaria",
       "array_recibos": [],
@@ -150,9 +130,7 @@
       "fecha_fin_contrato": "22/08/2026",
       "codigo_campana_administrativa": "K25.000.210"
     },
-    "array_contenidos": [
-      {"id_contenido": "content_25_00004"}
-    ],
+    "array_contenidos": [{ "id_contenido": "content_25_00004" }],
     "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
@@ -179,18 +157,11 @@
       "fecha_cobro_factura_contrato": "01/10/2025",
       "estado_contrato": "Pendiente",
       "comisiones_contrato_pagadas": "No",
-      "array_facturas": [
-        {
-          "id_factura": "fac_cte_25_0000004"
-        }
-      ],
+      "array_facturas": [{ "id_factura": "fac_cte_25_0000004" }],
       "fecha_factura": "25/09/2025",
       "forma_cobro_factura": "Recibo Domiciliado",
       "array_recibos": [
-        {
-          "num_recibo": "recibop3_25_0000004",
-          "numRemesa": "remesap3_25_00000004"
-        }
+        { "num_recibo": "recibop3_25_0000004", "numRemesa": "remesap3_25_00000004" }
       ],
       "fecha_firma_contrato": "15/09/2025",
       "id_campana_asociada": "K25_000_032"
@@ -205,9 +176,7 @@
       "fecha_fin_contrato": "01/01/2027",
       "codigo_campana_administrativa": "K25.000.220"
     },
-    "array_contenidos": [
-      {"id_contenido": "content_25_00005"}
-    ],
+    "array_contenidos": [{ "id_contenido": "content_25_00005" }],
     "contenido_campana": [
       {
         "medio": "Revista del vidrio España",

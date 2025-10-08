@@ -3,28 +3,24 @@
     "id_cuenta": "62500001",
     "nombre_empresa": "Vidrios S.A.",
     "pais_cuenta": "España",
-    "id_agente": "A001",
-    "nombre_completo_agente": "Carlos Gómez"
+    "id_agente": "ag_25_0004"
   },
   {
     "id_cuenta": "62500002",
     "nombre_empresa": "Metales Unidos",
     "pais_cuenta": "México",
-    "id_agente": "A002",
-    "nombre_completo_agente": "María López"
-  },
+    "id_agente": "ag_25_0004"
+   },
   {
     "id_cuenta": "62500003",
     "nombre_empresa": "Plásticos del Sur",
     "pais_cuenta": "Argentina",
-    "id_agente": "A003",
-    "nombre_completo_agente": "José Martínez"
-  },
+    "id_agente": "ag_25_0004"
+   },
   {
     "id_cuenta": "62500004",
     "nombre_empresa": "Químicos Globales",
     "pais_cuenta": "Chile",
-    "id_agente": "A004",
-    "nombre_completo_agente": "Lucía Fernández"
-  }
+    "id_agente": "ag_25_0004"
+   }
 ]

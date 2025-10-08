@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
-
+ 
 interface CampanasAdministrativasProps {}
 
 const CampanasAdministrativas: FC<CampanasAdministrativasProps> = () => {

@@ -1,36 +1,26 @@
 import React, { FC } from "react";
 import { useRouter } from "next/navigation";
-
-interface FilaContenido {
-  medio: string;
-  publicacion: string;
-  producto: string;
-  precio: string;
-  deadline: string;
-  fechaPublicacion: string;
-  estadoMaterial: string;
-  urlcontenido: string;
-}
+import { ContenidoCampana } from "../contratosTypes"; // Usa el tipo real
 
 interface Props {
-  contenidos: FilaContenido[];
+  contenidos: ContenidoCampana[];
 }
 
 const TablaContenidoCampaña: FC<Props> = ({ contenidos }) => {
   const router = useRouter();
 
   return (
-    <table className="table-auto border-collapse text-center">
+    <table className="table-auto border-collapse text-center w-full">
       <thead>
         <tr className="bg-blue-950 text-white">
           <th className="px-4 py-2">Medio</th>
           <th className="px-4 py-2">Publicación</th>
           <th className="px-4 py-2">Producto</th>
-          <th className="px-4 py-2">Precio pagado</th>
-          <th className="px-4 py-2">Deadline material</th>
-          <th className="px-4 py-2">Fecha de publicación</th>
-          <th className="px-4 py-2">Estado del material</th>
-          <th className="px-4 py-2">Código de contenido</th>
+          <th className="px-4 py-2">Precio (€)</th>
+          <th className="px-4 py-2">Deadline</th>
+          <th className="px-4 py-2">Fecha publicación</th>
+          <th className="px-4 py-2">Estado material</th>
+          <th className="px-4 py-2">Acción</th>
         </tr>
       </thead>
       <tbody>
@@ -39,16 +29,16 @@ const TablaContenidoCampaña: FC<Props> = ({ contenidos }) => {
             <td className="px-4 py-2">{fila.medio}</td>
             <td className="px-4 py-2">{fila.publicacion}</td>
             <td className="px-4 py-2">{fila.producto}</td>
-            <td className="px-4 py-2">{fila.precio}</td>
-            <td className="px-4 py-2">{fila.deadline}</td>
-            <td className="px-4 py-2">{fila.fechaPublicacion}</td>
-            <td className="px-4 py-2">{fila.estadoMaterial}</td>
+            <td className="px-4 py-2">{fila.precio_producto.toLocaleString()} €</td>
+            <td className="px-4 py-2">{fila.deadline_publicacion}</td>
+            <td className="px-4 py-2">{fila.fecha_publicacion_publicacion}</td>
+            <td className="px-4 py-2">{fila.estado_material_contrato}</td>
             <td className="px-4 py-2">
               <button
-                className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+                className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl hover:bg-blue-900 transition"
                 onClick={() => router.push(fila.urlcontenido)}
               >
-                Ficha del contenido
+                Ver contenido
               </button>
             </td>
           </tr>
