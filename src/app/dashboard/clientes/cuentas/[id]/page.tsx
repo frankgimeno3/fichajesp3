@@ -1,12 +1,15 @@
-'use client'
+'use client';
+
 import { useRouter } from 'next/navigation';
 import React, { FC, useState } from 'react';
 import ContenidoGeneral from './componentesFicha/ContenidoGeneral';
- import ContenidoComentarios from './componentesFicha/ContenidoComentarios';
+import ContenidoComentarios from './componentesFicha/ContenidoComentarios';
 
-interface FichaClienteProps {}
+interface FichaClienteProps {
+  id_cuenta: string;  // Recibimos id_cuenta desde la página padre
+}
 
-const FichaCliente: FC<FichaClienteProps> = ({ }) => {
+const FichaCliente: FC<FichaClienteProps> = ({ id_cuenta }) => {
   const router = useRouter();
   const [pestana, setPestana] = useState<'general' | 'comentarios' | 'administrativo'>('general');
 
@@ -43,7 +46,7 @@ const FichaCliente: FC<FichaClienteProps> = ({ }) => {
           <div
             key={key}
             className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
-              ${pestana === key ? 'bg-gray-100 z-30 rounded-tl-lg' : 'bg-blue-950 text-white z-10 hover:bg-blue-950/80  '}`}
+              ${pestana === key ? 'bg-gray-100 z-30 rounded-tl-lg' : 'bg-blue-950 text-white z-10 hover:bg-blue-950/80'}`}
             style={{ marginLeft: index === 0 ? '0px' : '-5px' }}
             onClick={() => setPestana(key as typeof pestana)}
           >
@@ -54,9 +57,9 @@ const FichaCliente: FC<FichaClienteProps> = ({ }) => {
 
       {/* Contenido según pestaña */}
       <div className='bg-white p-12 shadow-xl rounded-b-lg'>
-        {pestana === 'general' && <ContenidoGeneral />}
+        {pestana === 'general' && <ContenidoGeneral id_cuenta={id_cuenta} />}
         {pestana === 'comentarios' && <ContenidoComentarios />}
-       </div>
+      </div>
     </div>
   );
 };

@@ -1,45 +1,31 @@
-"use client"
+'use client';
 import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
 
 interface Contacto {
-  codigo: string;
+  id_contacto: string;
   nombreCompleto: string;
-  cargo: string;
-  email: string;
+  cargo?: string;
+  email?: string;
 }
 
-const mockContactos: Contacto[] = [
-  {
-    codigo: 'C001',
-    nombreCompleto: 'Juan Pérez Gómez',
-    cargo: 'Gerente de Ventas',
-    email: 'juan.perez@empresa.com',
-  },
-  {
-    codigo: 'C002',
-    nombreCompleto: 'María Rodríguez López',
-    cargo: 'Directora de Marketing',
-    email: 'maria.rodriguez@empresa.com',
-  },
-  {
-    codigo: 'C003',
-    nombreCompleto: 'Luis García Fernández',
-    cargo: 'Analista Financiero',
-    email: 'luis.garcia@empresa.com',
-  },
-];
+interface ContenidoContactosEmpresaProps {
+  contactos: Contacto[];
+}
 
-interface ContenidoContactosEmpresaProps {}
+const ContenidoContactosEmpresa: FC<ContenidoContactosEmpresaProps> = ({ contactos }) => {
+  const router = useRouter();
 
-const ContenidoContactosEmpresa: FC<ContenidoContactosEmpresaProps> = () => {
-    const router = useRouter()
+  if (!contactos || contactos.length === 0) {
+    return <p className="text-gray-500">No hay contactos disponibles para esta cuenta.</p>;
+  }
+
   return (
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4">Contactos de la Empresa</h2>
-    <table className='min-w-full '>
-          <thead className='bg-blue-950/80 text-white '>
-              <tr>
+      <table className='min-w-full'>
+        <thead className='bg-blue-950/80 text-white'>
+          <tr>
             <th className='text-left p-2 font-light'>Código de contacto</th>
             <th className='text-left p-2 font-light'>Nombre y apellidos</th>
             <th className='text-left p-2 font-light'>Cargo</th>
@@ -47,13 +33,16 @@ const ContenidoContactosEmpresa: FC<ContenidoContactosEmpresaProps> = () => {
           </tr>
         </thead>
         <tbody>
-          {mockContactos.map((contacto) => (
-            <tr key={contacto.codigo} className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
-            onClick={()=>{router.push('/dashboard/cuentas/contactos/contacto')}}>
-              <td className='p-2 border-b border-gray-200'>{contacto.codigo}</td>
+          {contactos.map((contacto) => (
+            <tr
+              key={contacto.id_contacto}
+              className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
+              onClick={() => router.push(`/dashboard/cuentas/contactos/${contacto.id_contacto}`)}
+            >
+              <td className='p-2 border-b border-gray-200'>{contacto.id_contacto}</td>
               <td className='p-2 border-b border-gray-200'>{contacto.nombreCompleto}</td>
-              <td className='p-2 border-b border-gray-200'>{contacto.cargo}</td>
-              <td className='p-2 border-b border-gray-200'>{contacto.email}</td>
+              <td className='p-2 border-b border-gray-200'>{contacto.cargo || '-'}</td>
+              <td className='p-2 border-b border-gray-200'>{contacto.email || '-'}</td>
             </tr>
           ))}
         </tbody>
