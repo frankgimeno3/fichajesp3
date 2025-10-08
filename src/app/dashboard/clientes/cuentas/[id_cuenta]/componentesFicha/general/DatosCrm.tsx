@@ -1,5 +1,6 @@
 'use client';
 import React, { FC } from 'react';
+import agentes from "@/app/contents/agentesContents.json";
 
 interface DatosCRMProps {
   nombre_empresa: string;
@@ -16,6 +17,11 @@ const DatosCRM: FC<DatosCRMProps> = ({
   actividades,
   fuente_novedades,
 }) => {
+
+  // Buscar el agente correspondiente al id_agente recibido
+  const agente = agentes.find((a) => a.id_agente === id_agente);
+  const nombreAgente = agente ? agente.nombre_agente : id_agente; // fallback si no se encuentra
+
   return (
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4">Datos CRM</h2>
@@ -23,7 +29,7 @@ const DatosCRM: FC<DatosCRMProps> = ({
         <thead className="bg-blue-950/80 text-white">
           <tr>
             <th className="text-left p-2 font-light">Nombre Empresa</th>
-            <th className="text-left p-2 font-light">ID Agente</th>
+            <th className="text-left p-2 font-light">Agente Asignado</th>
             <th className="text-left p-2 font-light">Actividades</th>
             <th className="text-left p-2 font-light">QQ?</th>
             <th className="text-left p-2 font-light">Fuentes novedades</th>
@@ -32,7 +38,7 @@ const DatosCRM: FC<DatosCRMProps> = ({
         <tbody>
           <tr className="border-t border-gray-200 hover:bg-gray-100/30">
             <td className="p-2 border-b border-gray-200">{nombre_empresa}</td>
-            <td className="p-2 border-b border-gray-200">{id_agente}</td>
+            <td className="p-2 border-b border-gray-200">{nombreAgente}</td>
             <td className="p-2 border-b border-gray-200">{actividades.join(', ')}</td>
             <td className="p-2 border-b border-gray-200">{presente_en_qq ? 'Sí' : 'No'}</td>
             <td className="p-2 border-b border-gray-200">{fuente_novedades}</td>

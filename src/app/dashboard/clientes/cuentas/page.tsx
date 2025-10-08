@@ -1,5 +1,5 @@
 'use client'
-import React, { FC, useState } from 'react'; 
+import React, { FC, useState } from 'react';
 import Filtroscuentas from '../componentesClientes/FiltrosClientes';
 import Tablacuentas from '../componentesClientes/TablaCuentas';
 import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
@@ -17,27 +17,27 @@ const Cuentas: FC = () => {
       <MiddleNav tituloprincipal={` Cuentas  `} />
       <div className="bg-gray-200 min-h-screen p-12 text-gray-600">
 
-      <div className=' rounded-lg shadow-xl bg-white'>
-        <Filtroscuentas
-          clienteFiltro={clienteFiltro}
-          setClienteFiltro={setClienteFiltro}
-          agenteFiltro={agenteFiltro}
-          setAgenteFiltro={setAgenteFiltro}
-          telFiltro={telFiltro}
-          setTelFiltro={setTelFiltro}
-          dominioFiltro={dominioFiltro}
-          setDominioFiltro={setDominioFiltro}
-        />
+        <div className=' rounded-lg shadow-xl bg-white'>
+          <Filtroscuentas
+            clienteFiltro={clienteFiltro}
+            setClienteFiltro={setClienteFiltro}
+            agenteFiltro={agenteFiltro}
+            setAgenteFiltro={setAgenteFiltro}
+            telFiltro={telFiltro}
+            setTelFiltro={setTelFiltro}
+            dominioFiltro={dominioFiltro}
+            setDominioFiltro={setDominioFiltro}
+          />
 
-        <Tablacuentas
-          clienteFiltro={clienteFiltro}
-          agenteFiltro={agenteFiltro}
-          telFiltro={telFiltro}
-          dominioFiltro={dominioFiltro}
-        />
+          <Tablacuentas
+            clienteFiltro={clienteFiltro}
+            agenteFiltro={agenteFiltro}
+            telFiltro={telFiltro}
+            dominioFiltro={dominioFiltro}
+          />
+        </div>
       </div>
     </div>
-          </div>
 
   );
 };
