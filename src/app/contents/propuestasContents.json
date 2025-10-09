@@ -3,14 +3,14 @@
     "detalles_propuesta": {
       "id_propuesta": "prop_25_0000000001",
       "id_agente_propuesta": "ag_25_0004",
-      "estado_propuesta": "Pendiente"
+      "estado_propuesta": "Pendiente",
+      "fecha_envio_propuesta":"11/01/2025"
     },
     "cuenta_propuesta": {
       "id_cuenta_propuesta": "62500001",
       "id_contacto": "contact_25_000000002",
       "cargoContacto": "Comercial"
-    },
-   
+    },   
     "contenido_propuesta": [
       {
         "medio": "Revista del vidrio España",
@@ -38,7 +38,8 @@
     "detalles_propuesta": {
       "id_propuesta": "prop_25_0000000002",
       "id_agente_propuesta": "ag_25_0004",
-      "estado_propuesta": "Pagado"
+      "estado_propuesta": "Pendiente",
+      "fecha_envio_propuesta":"12/01/2025"
     },
     "cuenta_propuesta": {
       "id_cuenta_propuesta": "62500002",
@@ -65,7 +66,8 @@
     "detalles_propuesta": {
       "id_propuesta": "prop_25_0000000003",
       "id_agente_propuesta": "ag_25_0004",
-      "estado_propuesta": "Pendiente"
+      "estado_propuesta": "Pendiente",
+      "fecha_envio_propuesta":"13/01/2025"
     },
     "cuenta_propuesta": {
       "id_cuenta_propuesta": "62500003",
@@ -92,7 +94,8 @@
     "detalles_propuesta": {
       "id_propuesta": "prop_25_0000000004",
       "id_agente_propuesta": "ag_25_0004",
-      "estado_propuesta": "Pendiente"
+      "estado_propuesta": "Aceptada",
+      "fecha_envio_propuesta":"14/01/2025"
     },
     "cuenta_propuesta": {
       "id_cuenta_propuesta": "62500004",
@@ -114,5 +117,33 @@
     "importe_total_BI_propuesta": 1200,
     "iva_aplicable": true,
     "importe_propuesta_con_iva": 1452
+  },
+  {
+    "detalles_propuesta": {
+      "id_propuesta": "prop_25_0000000005",
+      "id_agente_propuesta": "ag_25_0004",
+      "estado_propuesta": "Rechazada",
+      "fecha_envio_propuesta":"15/01/2025"
+    },
+    "cuenta_propuesta": {
+      "id_cuenta_propuesta": "62500004",
+      "id_contacto": "contact_25_000000007",
+      "cargoContacto": "Gerente General"
+    },
+     
+     "contenido_propuesta": [
+      {
+        "medio": "Revista del vidrio España",
+        "publicacion": "Edición 214",
+        "producto": "Anuncio interior portada",
+        "precio_producto": 12000,
+        "deadline_publicacion": "30/10/2025",
+        "fecha_publicacion_publicacion": "15/01/2026" 
+       }
+    ],
+    "descuento_final_propuesta": 0,
+    "importe_total_BI_propuesta": 12000,
+    "iva_aplicable": true,
+    "importe_propuesta_con_iva": 14520
   }
 ]

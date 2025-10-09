@@ -11,8 +11,7 @@ const Contratos: FC<ContratosProps> = ({ }) => {
     useEffect(() => {
       try {
         const payload = JSON.parse(localStorage.getItem("userPayload") || "{}");
-        const roles = payload?.["cognito:groups"] || [];
-        if (payload) { setAgenteActual(payload.email)}
+         if (payload) { setAgenteActual(payload.email)}
       } catch (e) {
         console.error("Error leyendo payload del usuario:", e);
       }  
