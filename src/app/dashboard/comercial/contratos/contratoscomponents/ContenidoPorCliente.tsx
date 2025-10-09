@@ -1,77 +1,146 @@
 'use client'
 import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
+import contratosContents from "@/app/contents/contratosContents.json";
+import cuentasContents from "@/app/contents/cuentasContents.json";
+import contactosContents from "@/app/contents/contactsContents.json";
 
-interface ContenidoPorClienteProps {}
+type ContenidoCampana = {
+  medio?: string;
+  publicacion?: string;
+  producto?: string;
+  precio_producto?: number;
+  deadline_publicacion?: string; // "dd/mm/yyyy"
+  fecha_publicacion_publicacion?: string;
+  estado_material_contrato?: string;
+  urlcontenido?: string;
+};
+
+type Contrato = {
+  detalles_contrato?: {
+    id_contrato?: string;
+    fecha_firma_contrato?: string;
+  };
+  cuenta_contrato?: {
+    id_cuenta_contrato?: string;
+    id_contacto?: string;
+    cargoContacto?: string;
+  };
+  datosGenerales?: {
+    fecha_firma_contrato?: string;
+    fecha_fin_contrato?: string;
+    codigo_campana_administrativa?: string;
+  };
+  contenido_campana?: ContenidoCampana[];
+};
+
+type Cuenta = {
+  id_cuenta: string;
+  nombre_empresa: string;
+};
+
+type Contacto = {
+  id_contacto: string;
+  nombre_completo_contacto: string;
+};
+
+const parseDMY = (s?: string): Date | null => {
+  if (!s) return null;
+  const [d, m, y] = s.split('/').map(p => p.trim());
+  if (!d || !m || !y) return null;
+  const date = new Date(Number(y), Number(m) - 1, Number(d));
+  return isNaN(date.getTime()) ? null : date;
+};
+
+const formatDateToISO = (s?: string): string => {
+  const d = parseDMY(s);
+  if (!d) return '-';
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+};
+
+const getEarliestDeadlineISO = (contenidos?: ContenidoCampana[]): string => {
+  if (!contenidos || contenidos.length === 0) return '-';
+  const dates = contenidos
+    .map(c => parseDMY(c.deadline_publicacion))
+    .filter((x): x is Date => x !== null);
+  if (dates.length === 0) return '-';
+  const earliest = dates.reduce((a, b) => (a.getTime() <= b.getTime() ? a : b));
+  const yyyy = earliest.getFullYear();
+  const mm = String(earliest.getMonth() + 1).padStart(2, '0');
+  const dd = String(earliest.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+};
+
+interface ContenidoPorClienteProps { }
 
 const ContenidoPorCliente: FC<ContenidoPorClienteProps> = ({ }) => {
   const router = useRouter();
 
-  const mockClientes = [
-    {
-      empresa: 'TVITEC',
-      fechaFirma: '2024-03-15',
-      fechaRenovacion: '2025-03-15',
-      fechaMaterial: '2025-08-10',
-      contacto: 'Laura Gómez',
-    },
-    {
-      empresa: 'VITRUM',
-      fechaFirma: '2023-11-20',
-      fechaRenovacion: '2024-11-20',
-      fechaMaterial: '2025-08-12',
-      contacto: 'Carlos Méndez',
-    },
-    {
-      empresa: 'SOLUTEC',
-      fechaFirma: '2024-01-10',
-      fechaRenovacion: '2025-01-10',
-      fechaMaterial: '2025-08-15',
-      contacto: 'Ana Torres',
-    },
-    {
-      empresa: 'HANJIANG',
-      fechaFirma: '2023-07-01',
-      fechaRenovacion: '2024-07-01',
-      fechaMaterial: '2025-08-17',
-      contacto: 'Javier López',
-    },
-    {
-      empresa: 'A&W',
-      fechaFirma: '2024-05-05',
-      fechaRenovacion: '2025-05-05',
-      fechaMaterial: '2025-08-20',
-      contacto: 'María Fernández',
-    },
-  ];
+  const contratos = contratosContents as Contrato[];
+  const cuentas = cuentasContents as Cuenta[];
+  const contactos = contactosContents as Contacto[];
 
   return (
-      <div className='flex flex-col gap-3'>
-        <div className='overflow-x-auto'>
-        <table className='min-w-full '>
-          <thead className='bg-blue-950 text-white '>
-              <tr>
-                <th className='text-left p-2 font-light'>Empresa</th>
-                <th className='text-left p-2 font-light'>Fecha de firma</th>
-                <th className='text-left p-2 font-light'>Fecha renovación</th>
-                <th className='text-left p-2 font-light'>Fecha próximo material</th>
-                <th className='text-left p-2 font-light'>Contacto principal</th>
-              </tr>
-            </thead>
-            <tbody>
-              {mockClientes.map((cliente, index) => (
-                <tr key={index} className='hover:bg-gray-50 cursor-pointer' onClick={() => router.push('/dashboard/comercial/contratos/resumen')}>
-                  <td className='p-2 border-b border-gray-200'>{cliente.empresa}</td>
-                  <td className='p-2 border-b border-gray-200'>{cliente.fechaFirma}</td>
-                  <td className='p-2 border-b border-gray-200'>{cliente.fechaRenovacion}</td>
-                  <td className='p-2 border-b border-gray-200'>{cliente.fechaMaterial}</td>
-                  <td className='p-2 border-b border-gray-200'>{cliente.contacto}</td>
+    <div className="flex flex-col gap-3">
+      <div className="overflow-x-auto">
+        <table className="min-w-full">
+          <thead className="bg-blue-950 text-white">
+            <tr>
+              <th className="text-left p-2 font-light">Empresa</th>
+              <th className="text-left p-2 font-light">Fecha de firma</th>
+              <th className="text-left p-2 font-light">Fecha renovación</th>
+              <th className="text-left p-2 font-light">Fecha próximo material</th>
+              <th className="text-left p-2 font-light">Contacto principal</th>
+            </tr>
+          </thead>
+          <tbody>
+            {contratos.map((c, index) => {
+              const idContrato =
+                c.detalles_contrato?.id_contrato ??
+                `${c.cuenta_contrato?.id_contacto ?? 'no_id'}_${index}`;
+
+              const idCuenta = c.cuenta_contrato?.id_cuenta_contrato;
+              const cuentaInfo = cuentas.find(cta => cta.id_cuenta === idCuenta);
+              const empresa = cuentaInfo?.nombre_empresa ?? idCuenta ?? '—';
+
+              const fechaFirmaRaw =
+                c.detalles_contrato?.fecha_firma_contrato ??
+                c.datosGenerales?.fecha_firma_contrato;
+              const fechaFirma = formatDateToISO(fechaFirmaRaw);
+              const fechaRenovacion = formatDateToISO(c.datosGenerales?.fecha_fin_contrato);
+              const fechaProxMaterial = getEarliestDeadlineISO(c.contenido_campana);
+
+              const contactoInfo = contactos.find(
+                ct => ct.id_contacto === c.cuenta_contrato?.id_contacto
+              );
+              const contactoPrincipal =
+                contactoInfo?.nombre_completo_contacto ??
+                c.cuenta_contrato?.id_contacto ??
+                '—';
+
+              return (
+                <tr
+                  key={idContrato}
+                  className="hover:bg-gray-50 cursor-pointer"
+                  onClick={() =>
+                    router.push(`/dashboard/comercial/contratos/${idContrato}`)
+                  }
+                >
+                  <td className="p-2 border-b border-gray-200">{empresa}</td>
+                  <td className="p-2 border-b border-gray-200">{fechaFirma}</td>
+                  <td className="p-2 border-b border-gray-200">{fechaRenovacion}</td>
+                  <td className="p-2 border-b border-gray-200">{fechaProxMaterial}</td>
+                  <td className="p-2 border-b border-gray-200">{contactoPrincipal}</td>
                 </tr>
-              ))}
+              );
+            })}          
             </tbody>
-          </table>
-        </div>
+        </table>
       </div>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 [
   {
     "id_cuenta": "62500001",
-    "nombre_empresa": "Vidrios S.A.",
+    "nombre_empresa": "TVITEC",
     "pais_cuenta": "España",
     "id_agente": "ag_25_0004",
     "descripcion_cuenta": "Venta de vidrio industrial y soluciones arquitectónicas",
@@ -38,7 +38,7 @@
   },
   {
     "id_cuenta": "62500002",
-    "nombre_empresa": "Metales Unidos",
+    "nombre_empresa": "MAVHISA",
     "pais_cuenta": "México",
     "id_agente": "ag_25_0004",
     "descripcion_cuenta": "Distribución de metales y productos derivados",
@@ -74,7 +74,7 @@
   },
   {
     "id_cuenta": "62500003",
-    "nombre_empresa": "Plásticos del Sur",
+    "nombre_empresa": "TECNOPERFILES - MUCHTECK",
     "pais_cuenta": "Argentina",
     "id_agente": "ag_25_0004",
     "descripcion_cuenta": "Fabricación de plásticos industriales y embalajes",
@@ -111,7 +111,7 @@
   },
   {
     "id_cuenta": "62500004",
-    "nombre_empresa": "Químicos Globales",
+    "nombre_empresa": "G-U Herrajes",
     "pais_cuenta": "Chile",
     "id_agente": "ag_25_0004",
     "descripcion_cuenta": "Suministro de productos químicos y soluciones industriales",
