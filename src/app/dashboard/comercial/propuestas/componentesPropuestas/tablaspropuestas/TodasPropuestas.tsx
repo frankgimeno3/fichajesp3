@@ -145,11 +145,10 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
             <th className="text-left p-2 font-light"></th>
             <th className="text-left p-2 font-light">Nombre Empresa</th>
             <th className="text-left p-2 font-light">Código CRM</th>
-            <th className="text-left p-2 font-light">Propuestas creadas</th>
             <th className="text-left p-2 font-light">Agente asignado actual</th>
             <th className="text-left p-2 font-light">Estados presentes</th>
             <th className="text-left p-2 font-light">Fecha Última Propuesta</th>
-          </tr>
+           </tr>
         </thead>
         <tbody>
           {resultadosFiltrados.map((res) => (
@@ -165,11 +164,10 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
               </td>
               <td className="p-2 border-b border-gray-200">{res.nombreEmpresa}</td>
               <td className="p-2 border-b border-gray-200">{res.codigoCRM}</td>
-              <td className="p-2 border-b border-gray-200">{res.numeroPropuestas}</td>
               <td className="p-2 border-b border-gray-200">{res.agenteAsignado}</td>
               <td className="p-2 border-b border-gray-200">{res.estadosIncluidos.join(', ')}</td>
               <td className="p-2 border-b border-gray-200">{res.fechaUltimaPropuesta}</td>
-            </tr>
+             </tr>
           ))}
         </tbody>
       </table>
