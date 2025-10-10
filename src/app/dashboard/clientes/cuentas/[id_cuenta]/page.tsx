@@ -29,7 +29,7 @@ const FichaCliente = () => {
           <div className='flex flex-row gap-4 items-center'>
             <button
               className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-              onClick={() => router.push('/dashboard/comercial/propuestas/propuestascliente')}
+              onClick={() => router.push(`/dashboard/comercial/propuestas/cuentas/${id_cuenta}`)}
             >
               <p>Propuestas</p>
             </button>
