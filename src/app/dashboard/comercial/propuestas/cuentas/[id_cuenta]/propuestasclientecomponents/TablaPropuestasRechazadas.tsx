@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import PropSvg from '../../componentesPropuestas/svg/PropSvg';
+import PropSvg from '../../../componentesPropuestas/svg/PropSvg';
 import { useRouter } from 'next/navigation';
 
 interface Resultado {
@@ -23,22 +23,25 @@ const mockResultados: Resultado[] = [
     nombrePropuesta: 'Propuesta A',
     creadaPor: 'Juan Pérez',
     fechaCreacion: '2025-07-20',
-    valorTotal: 15000  },
+    valorTotal: 15000,
+  },
   {
     id: 2,
     nombrePropuesta: 'Propuesta B',
     creadaPor: 'María Gómez',
     fechaCreacion: '2025-07-10',
-    valorTotal: 32000  },
+    valorTotal: 32000,
+  },
   {
     id: 3,
     nombrePropuesta: 'Propuesta X',
     creadaPor: 'Carlos Ruiz',
     fechaCreacion: '2025-06-30',
-    valorTotal: 7800  },
+    valorTotal: 7800,
+  },
 ];
 
-const TablaPropuestasAprobadas: FC<TablaPropuestasProps> = ({
+const TablaPropuestasRechazadas: FC<TablaPropuestasProps> = ({
   clienteFiltro,
   agenteFiltro,
   fechaInicio,
@@ -100,4 +103,4 @@ const TablaPropuestasAprobadas: FC<TablaPropuestasProps> = ({
   );
 };
 
-export default TablaPropuestasAprobadas;
+export default TablaPropuestasRechazadas;

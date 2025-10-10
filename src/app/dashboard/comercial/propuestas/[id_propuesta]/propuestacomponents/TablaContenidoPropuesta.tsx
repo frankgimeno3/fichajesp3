@@ -1,76 +1,24 @@
 import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
 
-
 interface FilaContenido {
   medio: string;
   publicacion: string;
   producto: string;
-  precio: string;
-  deadline: string;
-  fechaPublicacion: string;
-  estadoMaterial: string;
-  urlcontenido: string;
+  precio_producto: number;
+  deadline_publicacion: string;
+  fecha_publicacion_publicacion: string;
 }
 
-const datosTabla: FilaContenido[] = [
-  {
-    medio: "Revista del vidrio España",
-    publicacion: "Edición 210",
-    producto: "Anuncio de una página",
-    precio: "1760€",
-    deadline: "11/10/2025",
-    fechaPublicacion: "12/12/2025",
-    estadoMaterial: "Publicado",
-    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
-  },
-  {
-    medio: "Revista del vidrio España",
-    publicacion: "Edición 211",
-    producto: "Media página",
-    precio: "850€",
-    deadline: "15/10/2025",
-    fechaPublicacion: "01/01/2026",
-    estadoMaterial: "Pedido no recibido",
-    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
-  },
-  {
-    medio: "Revista del vidrio España",
-    publicacion: "Edición 212",
-    producto: "Doble página",
-    precio: "500€",
-    deadline: "20/10/2025",
-    fechaPublicacion: "05/01/2026",
-    estadoMaterial: "No pedido",
-    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
-  },
-  {
-    medio: "Revista del vidrio España",
-    publicacion: "Edición 213",
-    producto: "Publicidad en portada",
-    precio: "2300€",
-    deadline: "25/10/2025",
-    fechaPublicacion: "10/01/2026",
-    estadoMaterial: "No pedido",
-    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
-  },
-  {
-    medio: "Revista del vidrio España",
-    publicacion: "Edición 214",
-    producto: "Anuncio interior portada",
-    precio: "1200€",
-    deadline: "30/10/2025",
-    fechaPublicacion: "15/01/2026",
-    estadoMaterial: "No pedido",
-    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
-  },
-];
+interface Props {
+  contenido: FilaContenido[];
+}
 
-const TablaContenidoPropuesta: FC = () => {
-    const router = useRouter()
+const TablaContenidoPropuesta: FC<Props> = ({ contenido }) => {
+  const router = useRouter();
 
   return (
-    <table className="table-auto border-collapse text-center">
+    <table className="table-auto border-collapse text-center w-full">
       <thead>
         <tr className="bg-blue-950 text-white">
           <th className="px-4 py-2">Medio</th>
@@ -82,15 +30,14 @@ const TablaContenidoPropuesta: FC = () => {
         </tr>
       </thead>
       <tbody>
-        {datosTabla.map((fila, index) => (
+        {contenido.map((fila, index) => (
           <tr key={index} className="bg-white text-gray-700">
             <td className="px-4 py-2">{fila.medio}</td>
             <td className="px-4 py-2">{fila.publicacion}</td>
             <td className="px-4 py-2">{fila.producto}</td>
-            <td className="px-4 py-2">{fila.precio}</td>
-            <td className="px-4 py-2">{fila.deadline}</td>
-            <td className="px-4 py-2">{fila.fechaPublicacion}</td>
-         
+            <td className="px-4 py-2">{fila.precio_producto}€</td>
+            <td className="px-4 py-2">{fila.deadline_publicacion}</td>
+            <td className="px-4 py-2">{fila.fecha_publicacion_publicacion}</td>
           </tr>
         ))}
       </tbody>

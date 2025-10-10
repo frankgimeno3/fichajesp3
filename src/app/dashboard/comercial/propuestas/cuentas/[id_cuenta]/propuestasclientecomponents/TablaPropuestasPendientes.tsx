@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import PropSvg from '../../componentesPropuestas/svg/PropSvg';
+import PropSvg from '../../../componentesPropuestas/svg/PropSvg';
 import { useRouter } from 'next/navigation';
 
 interface Resultado {
@@ -41,7 +41,7 @@ const mockResultados: Resultado[] = [
   },
 ];
 
-const TablaPropuestasRechazadas: FC<TablaPropuestasProps> = ({
+const TablaPropuestasPendientes: FC<TablaPropuestasProps> = ({
   clienteFiltro,
   agenteFiltro,
   fechaInicio,
@@ -103,4 +103,4 @@ const TablaPropuestasRechazadas: FC<TablaPropuestasProps> = ({
   );
 };
 
-export default TablaPropuestasRechazadas;
+export default TablaPropuestasPendientes;

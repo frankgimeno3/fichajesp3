@@ -63,8 +63,7 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
 }) => {
   const router = useRouter();
 
-  // ✅ Agrupar propuestas por cliente
-  const agrupadasPorCliente = (propuestas as Propuesta[]).reduce(
+   const agrupadasPorCliente = (propuestas as Propuesta[]).reduce(
     (acc: Record<string, any>, p: Propuesta) => {
       const idCuenta = p.cuenta_propuesta.id_cuenta_propuesta;
       if (!acc[idCuenta]) {
@@ -82,8 +81,7 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
     {}
   );
 
-  // ✅ Convertir agrupaciones a lista de resultados por cliente
-  const resultados: ResultadoCliente[] = Object.values(agrupadasPorCliente).map(
+   const resultados: ResultadoCliente[] = Object.values(agrupadasPorCliente).map(
     (c: any) => {
       const deadlines: Date[] = c.propuestas
         .map(
@@ -115,8 +113,7 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
     }
   );
 
-  // ✅ Aplicar filtros
-  const resultadosFiltrados = resultados.filter((r) => {
+   const resultadosFiltrados = resultados.filter((r) => {
     const coincideCliente =
       clienteFiltro === '' ||
       r.nombreEmpresa.toLowerCase().includes(clienteFiltro.toLowerCase()) ||
@@ -157,7 +154,7 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
               key={res.id}
               className="hover:bg-gray-50 cursor-pointer"
               onClick={() =>
-                router.push(`/dashboard/comercial/propuestas/${res.codigoCRM}`)
+                router.push(`/dashboard/comercial/propuestas/cuentas/${res.codigoCRM}`)
               }
             >
               <td className="p-2 border-b border-gray-200">
