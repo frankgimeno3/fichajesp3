@@ -34,7 +34,7 @@ const PropuestasCliente: FC<PropuestasClienteProps> = ({ }) => {
           <div>
             <button
               className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-              onClick={() => router.push('/dashboard/clientes/ficha')}
+              onClick={() => router.push(`/dashboard/clientes/cuentas/${id_cuenta}`)}
             >
               <p>Ficha del cliente</p>
             </button>
