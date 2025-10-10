@@ -5,8 +5,7 @@ import MiddleNav from '../../../general_components/componentes_recurrentes/Middl
 import { useRouter } from 'next/navigation';
 import TodasPropuestas from './componentesPropuestas/tablaspropuestas/TodasPropuestas';
 import MisPendientes from './componentesPropuestas/tablaspropuestas/MisPendientes';
-import agentes from '@/app/contents/agentesContents.json';
-import propuestas from '@/app/contents/propuestasContents.json';
+
 
 const Propuestas: FC = () => {
   const [pestana, setPestana] = useState<'miasenproceso' | 'todasporcliente'>('miasenproceso');

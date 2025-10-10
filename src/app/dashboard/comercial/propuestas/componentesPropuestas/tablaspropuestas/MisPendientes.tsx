@@ -50,10 +50,7 @@ const MisPendientes: FC<MisPendientesProps> = ({
 
     return coincideEstado && coincideAgente && coincideCliente && coincideFecha;
   });
-
-  const handleRedirection = (idPropuesta: string) => {
-    router.push(`/dashboard/comercial/propuestas/${idPropuesta}`);
-  };
+ 
 
   return (
     <div className="h-full">
@@ -79,7 +76,7 @@ const MisPendientes: FC<MisPendientesProps> = ({
                 key={res.detalles_propuesta.id_propuesta + index}
                 className="hover:bg-gray-50 cursor-pointer"
                 onClick={() =>
-                  handleRedirection(res.detalles_propuesta.id_propuesta)
+                  router.push(`/dashboard/comercial/propuestas/${res.detalles_propuesta.id_propuesta}`)
                 }
               >
                 <td className="p-2 border-b border-gray-200">

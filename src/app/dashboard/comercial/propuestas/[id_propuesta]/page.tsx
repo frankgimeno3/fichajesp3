@@ -1,7 +1,6 @@
 "use client";
 import React, { FC, useState } from 'react';
 
-import TablaContenidoCampaña from './propuestacomponents/TablaContenidoPropuesta';
 import TablaDatosGenerales from './propuestacomponents/TablaDatosGenerales';
 import TablaDatosFirmante from './propuestacomponents/TablaDatosFirmante';
 import TablaDatosAnunciante from './propuestacomponents/TablaDatosAnunciante';
@@ -11,6 +10,7 @@ import DatosCobroPropuesta from './propuestacomponents/DatosCobroPropuesta';
 import { useRouter } from 'next/navigation';
 import TablaContenidoPropuesta from './propuestacomponents/TablaContenidoPropuesta';
 import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
+import propuestas from '@/app/contents/propuestasContents.json';
 
 const ResumenPropuesta: FC = () => {
   const router = useRouter()
@@ -20,15 +20,13 @@ const ResumenPropuesta: FC = () => {
     setIsDatosContactoShown(!isDatosContactoShown)
   }
 
-  // Datos simulados (puedes pasar esto como props si lo deseas)
-  const empresaAnunciante = {
+   const empresaAnunciante = {
     nombreEmpresa: 'Tvitec',
     codigoCrm: '1234',
     codigoEdisoft: '1234TIGER',
     pais: 'ESTONIA',
     nombreContacto: 'Frank Gimeno',
-    //   codigoContacto:'1234',
-    cargoContacto: 'Comercial',
+     cargoContacto: 'Comercial',
   };
 
   const empresaFirmante = {

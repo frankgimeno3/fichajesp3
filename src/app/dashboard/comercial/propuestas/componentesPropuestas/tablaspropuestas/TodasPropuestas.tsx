@@ -157,7 +157,7 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
               key={res.id}
               className="hover:bg-gray-50 cursor-pointer"
               onClick={() =>
-                router.push('/dashboard/comercial/propuestas/propuestascliente')
+                router.push(`/dashboard/comercial/propuestas/${res.codigoCRM}`)
               }
             >
               <td className="p-2 border-b border-gray-200">

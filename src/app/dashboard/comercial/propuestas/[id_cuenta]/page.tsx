@@ -1,7 +1,6 @@
 "use client"
 import React, { FC, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import TablaPropuestasCliente from './propuestasclientecomponents/TablaPropuestasAprobadas';
 import PropsAprobadasContent from './propuestasclientecomponents/PropsAprobadas';
 import PropsPendientesContent from './propuestasclientecomponents/PropsPendientes';
 import PropsRechazadasContent from './propuestasclientecomponents/PropsRechazadas';
