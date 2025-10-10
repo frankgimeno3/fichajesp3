@@ -11,7 +11,7 @@ interface PropuestasClienteProps {}
 const PropuestasCliente: FC<PropuestasClienteProps> = ({ }) => {
   const router = useRouter();
   const params = useParams();
-  const id_CUENTA = params?.id_CUENTA as string;
+  const id_cuenta = params?.id_cuenta as string;
 
   const [pestana, setPestana] = useState<'pendientes' | 'aprobadas' | 'rechazadas'>('pendientes');
 
@@ -30,7 +30,7 @@ const PropuestasCliente: FC<PropuestasClienteProps> = ({ }) => {
 
       <div className='flex flex-col mt-12 p-3 rounded-lg shadow-xl bg-white'>
         <div className='flex flex-row w-full justify-between'>
-          <h2 className="text-lg font-semibold mb-4 py-3">Propuestas del cliente {id_CUENTA}</h2>
+          <h2 className="text-lg font-semibold mb-4 py-3">Propuestas del cliente {id_cuenta}</h2>
           <div>
             <button
               className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
@@ -56,9 +56,9 @@ const PropuestasCliente: FC<PropuestasClienteProps> = ({ }) => {
         </div>
 
         <div className="bg-white p-8 shadow-xl rounded-b-lg">
-          {pestana === 'pendientes' && <PropsPendientesContent id_CUENTA={id_CUENTA} />}
-          {pestana === 'aprobadas' && <PropsAprobadasContent id_CUENTA={id_CUENTA} />}
-          {pestana === 'rechazadas' && <PropsRechazadasContent id_CUENTA={id_CUENTA} />}
+          {pestana === 'pendientes' && <PropsPendientesContent id_cuenta={id_cuenta} />}
+          {pestana === 'aprobadas' && <PropsAprobadasContent id_cuenta={id_cuenta} />}
+          {pestana === 'rechazadas' && <PropsRechazadasContent id_cuenta={id_cuenta} />}
         </div>
       </div>
     </div>
