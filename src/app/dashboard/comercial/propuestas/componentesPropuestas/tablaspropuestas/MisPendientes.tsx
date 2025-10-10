@@ -59,8 +59,7 @@ const MisPendientes: FC<MisPendientesProps> = ({
           <tr>
             <th className="text-left p-2 font-light"></th>
             <th className="px-4 py-2">ID Propuesta</th>
-            <th className="text-left p-2 font-light">Estado</th>
-            <th className="text-left p-2 font-light">ID Cuenta</th>
+             <th className="text-left p-2 font-light">ID Cuenta</th>
             <th className="text-left p-2 font-light">Cargo Contacto</th>
             <th className="text-left p-2 font-light">Producto</th>
             <th className="text-left p-2 font-light">Precio (€)</th>
@@ -85,9 +84,7 @@ const MisPendientes: FC<MisPendientesProps> = ({
                 <td className="p-2 border-b border-gray-200">
                   {res.detalles_propuesta.id_propuesta}
                 </td>
-                <td className="p-2 border-b border-gray-200">
-                  {res.detalles_propuesta.estado_propuesta}
-                </td>
+            
                 <td className="p-2 border-b border-gray-200">
                   {res.cuenta_propuesta.id_cuenta_propuesta}
                 </td>
