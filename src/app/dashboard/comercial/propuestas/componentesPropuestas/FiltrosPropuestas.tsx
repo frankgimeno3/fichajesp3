@@ -1,10 +1,12 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface FiltrosPropuestasProps {
   clienteFiltro: string;
   setClienteFiltro: (value: string) => void;
+  codigoCRMFiltro: string;
+  setCodigoCRMFiltro: (value: string) => void;
   agenteFiltro: string;
   setAgenteFiltro: (value: string) => void;
   fechaInicio: string;
@@ -20,6 +22,8 @@ interface FiltrosPropuestasProps {
 const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
   clienteFiltro,
   setClienteFiltro,
+  codigoCRMFiltro,
+  setCodigoCRMFiltro,
   agenteFiltro,
   setAgenteFiltro,
   fechaInicio,
@@ -33,7 +37,6 @@ const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
 }) => {
   const router = useRouter();
 
-  // 🔒 Control de bloqueo dinámico
   const bloqueaAgente = pestana === 'miasenproceso';
   const bloqueaFechas = pestana === 'todasporcliente';
   const bloqueaEstado = pestana === 'miasenproceso';
@@ -43,7 +46,7 @@ const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
       <p className="text-lg font-semibold mb-2">Buscador de propuestas</p>
 
       <div className="flex flex-wrap gap-4 items-end p-5">
-        {/* Cliente */}
+        {/* Nombre cliente */}
         <div className="flex flex-col">
           <label className="text-sm font-medium">Nombre cliente</label>
           <input
@@ -60,8 +63,8 @@ const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
           <label className="text-sm font-medium">Código CRM</label>
           <input
             type="text"
-            value={clienteFiltro}
-            onChange={(e) => setClienteFiltro(e.target.value)}
+            value={codigoCRMFiltro}
+            onChange={(e) => setCodigoCRMFiltro(e.target.value)}
             placeholder="Cuenta de cliente"
             className="border px-2 py-1 rounded"
           />
@@ -76,9 +79,7 @@ const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
             onChange={(e) => !bloqueaAgente && setAgenteFiltro(e.target.value)}
             placeholder="Ej: ag_25_0004"
             disabled={bloqueaAgente}
-            className={`border px-2 py-1 rounded ${
-              bloqueaAgente ? 'bg-gray-400 cursor-not-allowed' : ''
-            }`}
+            className={`border px-2 py-1 rounded ${bloqueaAgente ? 'bg-blue-950/50 text-white cursor-not-allowed' : ''}`}
           />
         </div>
 
@@ -90,9 +91,7 @@ const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
             value={fechaInicio}
             onChange={(e) => !bloqueaFechas && setFechaInicio(e.target.value)}
             disabled={bloqueaFechas}
-            className={`border px-2 py-1 rounded ${
-              bloqueaFechas ? 'bg-gray-400 cursor-not-allowed' : ''
-            }`}
+            className={`border px-2 py-1 rounded ${bloqueaFechas ? 'bg-blue-950/50 text-white cursor-not-allowed' : ''}`}
           />
         </div>
 
@@ -104,9 +103,7 @@ const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
             value={fechaFin}
             onChange={(e) => !bloqueaFechas && setFechaFin(e.target.value)}
             disabled={bloqueaFechas}
-            className={`border px-2 py-1 rounded ${
-              bloqueaFechas ? 'bg-gray-400 cursor-not-allowed' : ''
-            }`}
+            className={`border px-2 py-1 rounded ${bloqueaFechas ? 'bg-blue-950/50 text-white cursor-not-allowed' : ''}`}
           />
         </div>
 
@@ -117,9 +114,7 @@ const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
             value={bloqueaEstado ? 'Pendiente' : estadoFiltro}
             onChange={(e) => !bloqueaEstado && setEstadoFiltro(e.target.value)}
             disabled={bloqueaEstado}
-            className={`border px-2 py-1 rounded ${
-              bloqueaEstado ? 'bg-gray-400 cursor-not-allowed' : ''
-            }`}
+            className={`border px-2 py-1 rounded ${bloqueaEstado ? 'bg-blue-950/50 text-white cursor-not-allowed' : ''}`}
           >
             {!bloqueaEstado && <option value="">Todos</option>}
             <option value="Pendiente">Pendiente</option>
@@ -131,13 +126,6 @@ const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
             )}
           </select>
         </div>
-
-        <button
-          className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-          onClick={() => router.refresh()}
-        >
-          <p>Buscar</p>
-        </button>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
 import FolderSvg from '../svg/FolderSvg';
 import propuestas from '@/app/contents/propuestasContents.json';
+import cuentas from "@/app/contents/cuentasContents.json";
 
 interface ContenidoPropuesta {
   medio: string;
@@ -48,6 +49,7 @@ interface ResultadoCliente {
 
 interface TodasPropuestasProps {
   clienteFiltro: string;
+  codigoCRMFiltro: string;
   agenteFiltro: string;
   fechaInicio: string;
   fechaFin: string;
@@ -56,6 +58,7 @@ interface TodasPropuestasProps {
 
 const TodasPropuestas: FC<TodasPropuestasProps> = ({
   clienteFiltro,
+  codigoCRMFiltro,
   agenteFiltro,
   fechaInicio,
   fechaFin,
@@ -63,31 +66,32 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
 }) => {
   const router = useRouter();
 
-   const agrupadasPorCliente = (propuestas as Propuesta[]).reduce(
+  const agrupadasPorCliente = (propuestas as Propuesta[]).reduce(
     (acc: Record<string, any>, p: Propuesta) => {
       const idCuenta = p.cuenta_propuesta.id_cuenta_propuesta;
+
+      const cuentaInfo = cuentas.find((c: any) => c.id_cuenta === idCuenta);
+
       if (!acc[idCuenta]) {
         acc[idCuenta] = {
           id: idCuenta,
-          nombreEmpresa: `Cuenta ${idCuenta}`,
+          nombreEmpresa: cuentaInfo ? cuentaInfo.nombre_empresa : `Cuenta ${idCuenta}`,
           codigoCRM: idCuenta,
           propuestas: [],
           agenteAsignado: p.detalles_propuesta.id_agente_propuesta,
         };
       }
+
       acc[idCuenta].propuestas.push(p);
       return acc;
     },
     {}
   );
 
-   const resultados: ResultadoCliente[] = Object.values(agrupadasPorCliente).map(
+  const resultados: ResultadoCliente[] = Object.values(agrupadasPorCliente).map(
     (c: any) => {
       const deadlines: Date[] = c.propuestas
-        .map(
-          (p: Propuesta) =>
-            p.contenido_propuesta?.[0]?.deadline_publicacion || '01/01/1970'
-        )
+        .map((p: Propuesta) => p.contenido_propuesta?.[0]?.deadline_publicacion || '01/01/1970')
         .map((f: string) => new Date(f.split('/').reverse().join('-')));
 
       const fechaUltimaPropuesta =
@@ -113,25 +117,24 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
     }
   );
 
-   const resultadosFiltrados = resultados.filter((r) => {
+  // Filtrado corregido
+  const resultadosFiltrados = resultados.filter((r) => {
     const coincideCliente =
-      clienteFiltro === '' ||
-      r.nombreEmpresa.toLowerCase().includes(clienteFiltro.toLowerCase()) ||
-      r.codigoCRM.toLowerCase().includes(clienteFiltro.toLowerCase());
+      clienteFiltro === '' || r.nombreEmpresa.toLowerCase().includes(clienteFiltro.toLowerCase());
 
-    const coincideAgente =
-      agenteFiltro === '' || r.agenteAsignado === agenteFiltro;
+    const coincideCRM =
+      codigoCRMFiltro === '' || r.codigoCRM.toLowerCase().includes(codigoCRMFiltro.toLowerCase());
+
+    const coincideAgente = agenteFiltro === '' || r.agenteAsignado === agenteFiltro;
 
     const coincideEstado =
-      estadoFiltro === '' ||
-      r.estadosIncluidos.includes(estadoFiltro);
+      estadoFiltro === '' || r.estadosIncluidos.includes(estadoFiltro);
 
     const coincideFecha =
-      (!fechaInicio ||
-        new Date(r.fechaUltimaPropuesta) >= new Date(fechaInicio)) &&
+      (!fechaInicio || new Date(r.fechaUltimaPropuesta) >= new Date(fechaInicio)) &&
       (!fechaFin || new Date(r.fechaUltimaPropuesta) <= new Date(fechaFin));
 
-    return coincideCliente && coincideAgente && coincideEstado && coincideFecha;
+    return coincideCliente && coincideCRM && coincideAgente && coincideEstado && coincideFecha;
   });
 
   return (
@@ -160,31 +163,19 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
               <td className="p-2 border-b border-gray-200">
                 <FolderSvg />
               </td>
-              <td className="p-2 border-b border-gray-200">
-                {res.nombreEmpresa}
-              </td>
+              <td className="p-2 border-b border-gray-200">{res.nombreEmpresa}</td>
               <td className="p-2 border-b border-gray-200">{res.codigoCRM}</td>
-              <td className="p-2 border-b border-gray-200">
-                {res.numeroPropuestas}
-              </td>
-              <td className="p-2 border-b border-gray-200">
-                {res.agenteAsignado}
-              </td>
-              <td className="p-2 border-b border-gray-200">
-                {res.estadosIncluidos.join(', ')}
-              </td>
-              <td className="p-2 border-b border-gray-200">
-                {res.fechaUltimaPropuesta}
-              </td>
+              <td className="p-2 border-b border-gray-200">{res.numeroPropuestas}</td>
+              <td className="p-2 border-b border-gray-200">{res.agenteAsignado}</td>
+              <td className="p-2 border-b border-gray-200">{res.estadosIncluidos.join(', ')}</td>
+              <td className="p-2 border-b border-gray-200">{res.fechaUltimaPropuesta}</td>
             </tr>
           ))}
         </tbody>
       </table>
 
       {resultadosFiltrados.length === 0 && (
-        <p className="mt-4 text-center text-gray-500">
-          No se encontraron resultados.
-        </p>
+        <p className="mt-4 text-center text-gray-500">No se encontraron resultados.</p>
       )}
     </div>
   );
