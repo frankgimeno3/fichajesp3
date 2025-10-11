@@ -1,6 +1,5 @@
 "use client"
-import { useRouter } from 'next/navigation';
-import React, { FC, useState } from 'react'; 
+ import React, { FC, useState } from 'react'; 
 import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
 import FiltrosServicios from './serviciosComponents/FiltrosServicios';
 import TablaServicios from './serviciosComponents/TablaServicios';
@@ -10,8 +9,7 @@ interface ServiciosProps {
 }
 
 const Servicios: FC<ServiciosProps> = ({ }) => {
-    const router = useRouter();
-    const [medioFiltro, setMedioFiltro] = useState('')
+     const [medioFiltro, setMedioFiltro] = useState('')
     const [publicacionFiltro, setPublicacionFiltro] = useState('')
     const [servicioFiltro, setServicioFiltro] = useState('')
   

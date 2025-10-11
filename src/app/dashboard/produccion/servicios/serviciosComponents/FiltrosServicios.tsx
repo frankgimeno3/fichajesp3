@@ -30,7 +30,7 @@ const FiltrosServicios: FC<FiltrosServiciosProps> = ({
           className='bg-blue-950 text-xs text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
           onClick={() => router.push('/dashboard/produccion/servicios/crear')}
         >
-          <p>Crear nuevas publicaciones</p>
+          <p>Crear nuevo servicio</p>
         </button>
         </div>
       </div>

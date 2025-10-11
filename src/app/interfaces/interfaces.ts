@@ -49,3 +49,24 @@ export interface InterfazCuenta {
   array_contactos_cuenta: { id_contacto: string }[];
   array_comentarios_cuenta: string[];
 }
+
+export interface InterfazServicio {
+  id_servicio: string;
+  ano_servicio: string;
+  soporte_servicio: string;
+  precio_servicio: string;
+  fecha_deadline_servicio: string;
+  fecha_publicacion_servicio: string;
+  es: {
+    medio: string;
+    edicion: string;
+    publicacion: string;
+    nombre: string;
+  };
+  en: {
+    medio: string;
+    edicion: string;
+    publicacion: string;
+    nombre: string;
+  };
+}
