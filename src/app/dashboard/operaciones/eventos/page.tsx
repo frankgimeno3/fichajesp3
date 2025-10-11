@@ -1,96 +1,114 @@
-"use client"
+"use client";
 import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
 import React, { FC, useEffect, useState } from 'react';
 import { ModificationService } from '@/app/service/ModificationService';
-import { TimeLogService } from '@/app/service/TimeLogService';
 import FiltroTemporal from './eventoscomponents/FiltroTemporal';
-import EventoHistorial from './eventoscomponents/EventoHistorial';
+import EventoHistorial from '@/app/contents/EventosRegistradosContents.json';
 
-interface EventosProps {
-  
+interface EventosProps {}
+
+interface Evento {
+  id_evento: string;
+  fecha_evento: string; // dd/mm/yyyy
+  autor_evento: string;
+  tipo_evento: string;
+  descripcion_evento: string;
 }
 
-const Eventos: FC<EventosProps> = ({ }) => {
-        const [showPopup, setShowPopup] = useState(false);
-        const [timeLogs, setTimeLogs] = useState([]);
-        const [selectedEvent, setSelectedEvent] = useState<{
-            id: string;
-            createdBy: string;
-            type: string;
-            createdAt: Date,
-            comment: string;
-            modifications: any
-        } | null>(null);
-    
-    
-        const handleEdit = (eventData: typeof selectedEvent) => {
-            setSelectedEvent(eventData);
-            setShowPopup(true);
-        };
-    
-        const handleConfirm = async (newType: string, newDate: string, comment: string) => {
-            try {
-                const modification = await ModificationService.createModification(selectedEvent?.id, newType, newDate, comment);
-                alert("Evento registrado correctamente");
-            } catch (e: any) {
-                alert(e.message)
-            }
-            setShowPopup(false);
-        };
-    
-    
-        useEffect(() => {
-            try {
-                const now = new Date();
-                handleFilter(
-                    String(now.getMonth() + 1),
-                    String(now.getFullYear())
-                );
-            } catch (error) {
-                alert(error)
-            }
-        }, [])
-    
-        async function getTimeLogs(afterTime: any, beforeTime: any) {
-            try {
-                const timeLogs = await TimeLogService.getUserTimeLogs(afterTime, beforeTime);
-                setTimeLogs(timeLogs);
-                console.log("timelogs", timeLogs)
-            } catch (error) {
-                alert(error)
-            }
-        }
-    
-        function handleFilter(monthStr: string, yearStr: string) {
-            const month = parseInt(monthStr, 10) - 1;
-            const year = parseInt(yearStr, 10);
-    
-            const afterTime = new Date(year, month, 1, 0, 0, 0).toISOString();
-            const beforeTime = new Date(year, month + 1, 0, 23, 59, 59).toISOString();
-            getTimeLogs(afterTime, beforeTime);
-            console.log("timelogs", timeLogs)
-        }
-        
+const Eventos: FC<EventosProps> = () => {
+  const [showPopup, setShowPopup] = useState(false);
+  const [timeLogs, setTimeLogs] = useState<Evento[]>([]);
+  const [selectedEvent, setSelectedEvent] = useState<{
+    id: string;
+    createdBy: string;
+    type: string;
+    createdAt: string;
+    comment: string;
+    modifications: any;
+  } | null>(null);
+
+  const handleEdit = (eventData: typeof selectedEvent) => {
+    setSelectedEvent(eventData);
+    setShowPopup(true);
+  };
+
+  const handleConfirm = async (newType: string, newDate: string, comment: string) => {
+    try {
+      if (!selectedEvent) return;
+      await ModificationService.createModification(selectedEvent.id, newType, newDate, comment);
+      alert("Evento registrado correctamente");
+    } catch (e: any) {
+      alert(e.message);
+    }
+    setShowPopup(false);
+  };
+
+  useEffect(() => {
+    // Inicialmente mostramos todos los eventos
+    setTimeLogs(EventoHistorial as Evento[]);
+  }, []);
+
+  const handleFilter = (mesStr: string, anioStr: string, agente: string, tipoEvento: string) => {
+    const month = parseInt(mesStr, 10);
+    const year = parseInt(anioStr, 10);
+
+    const filtered = (EventoHistorial as Evento[]).filter(evento => {
+      const [day, evtMonth, evtYear] = evento.fecha_evento.split('/').map(Number);
+
+      const monthMatch = evtMonth === month;
+      const yearMatch = evtYear === year;
+      const agenteMatch = agente === "Todos" || evento.autor_evento === agente;
+      const tipoMatch = tipoEvento === "Todos" || evento.tipo_evento === tipoEvento;
+
+      return monthMatch && yearMatch && agenteMatch && tipoMatch;
+    });
+
+    setTimeLogs(filtered);
+  };
+
   return (
-        <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
+    <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
+      <MiddleNav tituloprincipal={'Listado completo de eventos registrados'} />
 
-            <MiddleNav tituloprincipal={'Listado completo de eventos registrados'} />
+    <div className='w-full justify-end text-end p-7'>
+        <button className='bg-blue-950 hover:bg-blue-950/80 text-white rounded-lg shadow-xl p-2 px-4'>
+        Extraer informe
+        </button>
+    </div>
 
-            <div className='p-7 text-gray-700 gap-12 '>
-                     
-                    <FiltroTemporal onFiltrar={handleFilter} />
-                {timeLogs.length != 0 ? 
-                <div className='bg-white p-12'>
-                    {timeLogs.map((evento, index) => (
-                        <EventoHistorial key={index} data={evento} onEdit={handleEdit} />
-                    ))}  
-                </div> :
-                    <div className='bg-white p-12 border-y border-gray-200 p-3 px-5  text-gray-600 shadow'>
-                             <p>No se han encontrado resultados de eventos con los criterios seleccionados</p>
-                     </div>
-                }
-            </div>
-        </div>  );
+      <div className='p-7 text-gray-700 gap-12'>
+        <FiltroTemporal onFiltrar={handleFilter} />
+
+        {timeLogs.length !== 0 ? 
+          <div className='bg-white p-12'>
+            {timeLogs.map((evento) => (
+              <div
+                key={evento.id_evento}
+                className="border-b border-gray-200 p-3 cursor-pointer hover:bg-gray-100"
+                onClick={() => handleEdit({
+                  id: evento.id_evento,
+                  createdBy: evento.autor_evento,
+                  type: evento.tipo_evento,
+                  createdAt: evento.fecha_evento,
+                  comment: evento.descripcion_evento,
+                  modifications: null
+                })}
+              >
+                <p><strong>Tipo:</strong> {evento.tipo_evento}</p>
+                <p><strong>Fecha:</strong> {evento.fecha_evento}</p>
+                <p><strong>Autor:</strong> {evento.autor_evento}</p>
+                <p><strong>Descripción:</strong> {evento.descripcion_evento}</p>
+              </div>
+            ))}
+          </div>
+        :
+          <div className='bg-white p-12 border-y border-gray-200 p-3 px-5 text-gray-600 shadow'>
+            <p>No se han encontrado resultados de eventos con los criterios seleccionados</p>
+          </div>
+        }
+      </div>
+    </div>
+  );
 };
 
 export default Eventos;

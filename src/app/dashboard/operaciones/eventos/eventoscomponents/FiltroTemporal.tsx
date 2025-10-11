@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { FC, useState } from 'react';
 
@@ -6,11 +6,8 @@ interface Props {
   onFiltrar: (mes: string, anio: string, agente: string, tipoEvento: string) => void;
 }
 
-// Mock data de agentes
-const agentesMock = ["Todos", "Agente 1", "Agente 2", "Agente 3", "Agente 4"];
-
-// Mock data de tipos de evento
-const tiposEventoMock = [
+const agentesMock = ["Todos", "ag_25_0004", "ag_25_0005"];
+const tiposEvento = [
   "Todos",
   "Modificación en cuenta o contacto",
   "Creación en cuenta o contacto",
@@ -32,7 +29,7 @@ const tiposEventoMock = [
 ];
 
 const FiltroTemporal: FC<Props> = ({ onFiltrar }) => {
-  const [mes, setMes] = useState('02');
+  const [mes, setMes] = useState('01');
   const [anio, setAnio] = useState('2025');
   const [agente, setAgente] = useState('Todos');
   const [tipoEvento, setTipoEvento] = useState('Todos');
@@ -42,11 +39,11 @@ const FiltroTemporal: FC<Props> = ({ onFiltrar }) => {
   };
 
   return (
-    <div className='flex flex-row bg-blue-950 text-white justify-between items-end text-lg rounded-t px-6   py-3'>
+    <div className='flex flex-row bg-blue-950 text-white justify-between items-end text-lg rounded-t px-6 py-3'>
       <div className='flex flex-row justify-left items-center w-full'>
         <p className='w-full text-lg font-bold'>Eventos registrados</p>
 
-        <div className='flex flex-row items-center justify-end p-2 text-right text-sm space-x-5   w-full'>
+        <div className='flex flex-row items-center justify-end p-2 text-right text-sm space-x-5 w-full'>
           <div className='flex flex-row items-center'>
             <p className='text-gray-200'>Mes:</p>
             <select
@@ -61,7 +58,6 @@ const FiltroTemporal: FC<Props> = ({ onFiltrar }) => {
             </select>
           </div>
 
-          {/* Filtro de Año */}
           <div className='flex flex-row items-center'>
             <p className='text-gray-200'>Año:</p>
             <select
@@ -76,9 +72,8 @@ const FiltroTemporal: FC<Props> = ({ onFiltrar }) => {
             </select>
           </div>
 
-          {/* Filtro de Agente */}
           <div className='flex flex-row items-center'>
-            <p className='text-gray-200 '>Agente:</p>
+            <p className='text-gray-200'>Agente:</p>
             <select
               className="text-gray-600 px-2 py-1 rounded bg-white ml-2"
               value={agente}
@@ -90,7 +85,6 @@ const FiltroTemporal: FC<Props> = ({ onFiltrar }) => {
             </select>
           </div>
 
-          {/* Filtro de Tipo de Evento */}
           <div className='flex flex-row items-center'>
             <p className='w-24 text-gray-200'>Tipo de evento:</p>
             <select
@@ -98,13 +92,12 @@ const FiltroTemporal: FC<Props> = ({ onFiltrar }) => {
               value={tipoEvento}
               onChange={(e) => setTipoEvento(e.target.value)}
             >
-              {tiposEventoMock.map((tipo) => (
+              {tiposEvento.map((tipo) => (
                 <option className='text-black' key={tipo} value={tipo}>{tipo}</option>
               ))}
             </select>
           </div>
 
-          {/* Botón */}
           <button
             className='px-3 py-1 cursor-pointer border border-gray-600 rounded hover:bg-gray-200 hover:text-black transition-color w-44'
             onClick={handleFiltrar}
@@ -113,7 +106,6 @@ const FiltroTemporal: FC<Props> = ({ onFiltrar }) => {
           </button>
         </div>
       </div>
-
     </div>
   );
 };
