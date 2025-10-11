@@ -1,8 +1,8 @@
+import { InterfazContacto } from '@/app/interfaces/interfaces';
 import React, { FC, ChangeEvent } from 'react';
-import { Contacto } from './ContenidoGeneralContacto';
-
+ 
 interface DatosGralesContactoProps {
-  contacto: Contacto;
+  contacto: InterfazContacto;
   onChange: () => void;
 }
 

@@ -2,22 +2,15 @@
 
 import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
+import { InterfazContacto } from '@/app/interfaces/interfaces';
 
-export interface Resultado {
-  id: string;  
-  nombreContacto: string;
-  apellidosContacto: string;
-  codigoContacto: string;
-  empresaAsociada: string;
-  telefono: string;
-  email: string;
- }
+ 
 
 interface TablaContactosProps {
-  resultados: Resultado[];
+  contactosFiltrados: InterfazContacto[];
 }
 
-const TablaContactos: FC<TablaContactosProps> = ({ resultados }) => {
+const TablaContactos: FC<TablaContactosProps> = ({ contactosFiltrados }) => {
   const router = useRouter();
 
   const handleRedirection = (id: string) => {
@@ -38,19 +31,19 @@ const TablaContactos: FC<TablaContactosProps> = ({ resultados }) => {
           </tr>
         </thead>
         <tbody>
-          {resultados.length > 0 ? (
-            resultados.map((res) => (
+          {contactosFiltrados.length > 0 ? (
+            contactosFiltrados.map((res) => (
               <tr
-                key={res.id}
+                key={res.id_contacto}
                 className="border-t border-gray-200 hover:bg-gray-100/40 cursor-pointer transition-colors"
-                onClick={() => handleRedirection(res.id)}
+                onClick={() => handleRedirection(res.id_contacto)}
               >
-                <td className="p-2 border-b border-gray-200">{res.nombreContacto}</td>
-                <td className="p-2 border-b border-gray-200">{res.apellidosContacto}</td>
-                <td className="p-2 border-b border-gray-200">{res.codigoContacto}</td>
-                <td className="p-2 border-b border-gray-200">{res.empresaAsociada}</td>
-                <td className="p-2 border-b border-gray-200">{res.telefono}</td>
-                <td className="p-2 border-b border-gray-200">{res.email}</td>
+                <td className="p-2 border-b border-gray-200">{res.nombre_contacto}</td>
+                <td className="p-2 border-b border-gray-200">{res.apellidos_contacto}</td>
+                <td className="p-2 border-b border-gray-200">{res.id_contacto}</td>
+                <td className="p-2 border-b border-gray-200">{res.nombre_empresa}</td>
+                <td className="p-2 border-b border-gray-200">{res.telefono_contacto}</td>
+                <td className="p-2 border-b border-gray-200">{res.email_contacto}</td>
               </tr>
             ))
           ) : (

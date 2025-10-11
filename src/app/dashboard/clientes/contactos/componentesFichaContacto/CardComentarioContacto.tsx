@@ -22,7 +22,7 @@ const CardComentarioContacto: FC<CardComentarioProps> = ({ autor, fecha, conteni
   const closeModal = () => {
     setModalType(null);
     setIsModalOpen(false);
-    setEditContenido(contenido); // reset si cancela
+    setEditContenido(contenido);  
   };
 
   const handleEditar = () => {

@@ -1,26 +1,24 @@
+import { InterfazContacto } from "@/app/interfaces/interfaces";
 import React, { FC, useState, useEffect } from "react";
-import { Contacto } from "./ContenidoGeneralContacto";
-
+ 
 interface OtrosDatosContactoProps {
-  contacto: Contacto;
-  onChange: (updatedContacto: Contacto) => void;
+  contacto: InterfazContacto;
+  onChange: (updatedContacto: InterfazContacto) => void;
 }
 
 const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ contacto, onChange }) => {
   const [suscripciones, setSuscripciones] = useState<string[]>(contacto.suscripciones || []);
   const [otrosDatos, setOtrosDatos] = useState<string>(contacto.otros_datos_interes || "");
-  const [idiomas, setIdiomas] = useState<string>(contacto.idiomas?.join(", ") || "");
+  const [idiomas, setIdiomas] = useState<string>(contacto.idiomas);
   const [conocidoEn, setConocidoEn] = useState<string>(contacto.conocido_en || "");
-  const [contactadoEnFeria, setContactadoEnFeria] = useState<string>(
-    contacto.contactado_en_feria?.join(", ") || ""
-  );
+  const [contactadoEnFeria, setContactadoEnFeria] = useState<string>(contacto.contactado_en_feria );
 
   useEffect(() => {
     setSuscripciones(contacto.suscripciones || []);
     setOtrosDatos(contacto.otros_datos_interes || "");
-    setIdiomas(contacto.idiomas?.join(", ") || "");
+    setIdiomas(contacto.idiomas);
     setConocidoEn(contacto.conocido_en || "");
-    setContactadoEnFeria(contacto.contactado_en_feria?.join(", ") || "");
+    setContactadoEnFeria(contacto.contactado_en_feria);
   }, [contacto]);
 
   const opcionesSuscripciones = [
@@ -60,7 +58,7 @@ const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ contacto, onChange })
   const handleIdiomasChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setIdiomas(value);
-    onChange({ ...contacto, idiomas: value.split(",").map((i) => i.trim()) });
+    onChange({ ...contacto, idiomas: value});
   };
 
   const handleConocidoEnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,7 +70,7 @@ const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ contacto, onChange })
   const handleContactadoEnFeriaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setContactadoEnFeria(value);
-    onChange({ ...contacto, contactado_en_feria: value.split(",").map((f) => f.trim()) });
+    onChange({ ...contacto, contactado_en_feria: value});
   };
 
   return (

@@ -1,18 +1,13 @@
+import { InterfazCuenta } from "@/app/interfaces/interfaces";
 import React, { useEffect, useState } from "react";
 
-export interface Empresa {
-  codigoEmpresa: string;
-  nombreEmpresa: string;
-  paisEmpresa: string;
-  nombreAgenteAsignado: string;
-  codigoAgenteAsignado: string;
-}
+ 
 
 interface PopupEmpresaProps {
   isOpen: boolean;
   onClose: () => void;
-  empresas: Empresa[];
-  onSelect: (empresa: Empresa) => void;
+  empresas: InterfazCuenta[];
+  onSelect: (empresa: InterfazCuenta) => void;
 }
 
 const PopupEmpresa: React.FC<PopupEmpresaProps> = ({
@@ -23,7 +18,7 @@ const PopupEmpresa: React.FC<PopupEmpresaProps> = ({
 }) => {
   const [busquedaNombre, setBusquedaNombre] = useState("");
   const [busquedaCodigo, setBusquedaCodigo] = useState("");
-  const [resultados, setResultados] = useState<Empresa[] | null>(null);
+  const [resultados, setResultados] = useState<InterfazCuenta[] | null>(null);
   const [cargando, setCargando] = useState(false);
 
   useEffect(() => {
@@ -40,8 +35,8 @@ const PopupEmpresa: React.FC<PopupEmpresaProps> = ({
     setTimeout(() => {
       const coincidencias = empresas.filter(
         (e) =>
-          e.nombreEmpresa.toLowerCase().includes(busquedaNombre.toLowerCase()) ||
-          e.codigoEmpresa.toLowerCase().includes(busquedaCodigo.toLowerCase())
+          e.nombre_empresa.toLowerCase().includes(busquedaNombre.toLowerCase()) ||
+          e.id_cuenta.toLowerCase().includes(busquedaCodigo.toLowerCase())
       );
       setResultados(coincidencias);
       setCargando(false);
@@ -112,9 +107,9 @@ const PopupEmpresa: React.FC<PopupEmpresaProps> = ({
                       onClose();
                     }}
                   >
-                    <td className="p-2 border-t">{e.codigoEmpresa}</td>
-                    <td className="p-2 border-t">{e.nombreEmpresa}</td>
-                    <td className="p-2 border-t">{e.paisEmpresa}</td>
+                    <td className="p-2 border-t">{e.id_cuenta}</td>
+                    <td className="p-2 border-t">{e.nombre_empresa}</td>
+                    <td className="p-2 border-t">{e.pais_cuenta}</td>
                    </tr>
                 ))}
               </tbody>

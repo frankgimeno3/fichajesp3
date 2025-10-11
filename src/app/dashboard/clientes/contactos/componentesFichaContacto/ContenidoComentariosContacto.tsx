@@ -1,9 +1,9 @@
 import React, { FC, useState } from "react";
 import CardComentarioContacto from "./CardComentarioContacto";
-import { Contacto } from "./ContenidoGeneralContacto";
+ import { InterfazContacto } from "@/app/interfaces/interfaces";
 
 interface ContenidoComentariosContactoProps {
-  contacto: Contacto;
+  contacto: InterfazContacto;
 }
 
 interface Comentario {

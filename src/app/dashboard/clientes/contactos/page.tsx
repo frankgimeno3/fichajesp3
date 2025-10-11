@@ -1,63 +1,52 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import React, { FC, useState, useEffect } from 'react';
 import FiltrosContactos from './componentesContactos/FiltrosContactos';
 import TablaContactos from './componentesContactos/TablaContactos';
 import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
 import ButtonsRow from '@/app/general_components/componentes_recurrentes/ButtonsRow';
-import contactos from "@/app/contents/contactsContents.json";
-
-interface Contacto {
-  id: string;
-  nombreContacto: string;
-  apellidosContacto: string;
-  codigoContacto: string;
-  empresaAsociada: string;
-  telefono: string;
-  email: string;
-}
+import contactosJSON from "@/app/contents/contactsContents.json";
+import { InterfazContacto } from '@/app/interfaces/interfaces';
 
 const Contactos: FC = () => {
-  const router = useRouter();
-
-  const [contactoFiltro, setContactoFiltro] = useState('');
+   const [contactoFiltro, setContactoFiltro] = useState('');
   const [apellidosFiltro, setApellidosFiltro] = useState('');
   const [codigoContactoFiltro, setCodigoContactoFiltro] = useState('');
   const [empresaAsociadaFiltro, setEmpresaAsociadaFiltro] = useState('');
   const [telFiltro, setTelFiltro] = useState('');
   const [emailFiltro, setEmailFiltro] = useState('');
 
-  const [currentPage, setCurrentPage] = useState(1);
+   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 15;
 
-  const [allContactos, setAllContactos] = useState<Contacto[]>([]);
+   const [allContactos, setAllContactos] = useState<InterfazContacto[]>([]);
 
-  useEffect(() => {
-    const mapeados: Contacto[] = contactos.map((c) => ({
-      id: c.id_contacto,
-      nombreContacto: c.nombre_contacto,
-      apellidosContacto: c.apellidos_contacto,
-      codigoContacto: c.id_cuenta, 
-      empresaAsociada: c.nombre_empresa,
-      telefono: c.telefono_contacto,
-      email: c.email_contacto,
+   useEffect(() => {
+    const mapeados: InterfazContacto[] = contactosJSON.map((c) => ({
+      ...c,
+      nombre_completo_contacto: `${c.nombre_contacto} ${c.apellidos_contacto}`,
+      suscripciones: c.suscripciones || [],
+      cargo_contacto: c.cargo_contacto || '',
+      idiomas: c.idiomas ,
+      conocido_en: c.conocido_en || '',
+      contactado_en_feria: c.contactado_en_feria,
+      otros_datos_interes: c.otros_datos_interes || '',
     }));
 
     setAllContactos(mapeados);
   }, []);
 
-  const filteredContactos = allContactos.filter((c) =>
-    c.nombreContacto.toLowerCase().includes(contactoFiltro.toLowerCase()) &&
-    c.apellidosContacto.toLowerCase().includes(apellidosFiltro.toLowerCase()) &&
-    c.codigoContacto.toLowerCase().includes(codigoContactoFiltro.toLowerCase()) &&
-    c.empresaAsociada.toLowerCase().includes(empresaAsociadaFiltro.toLowerCase()) &&
-    c.telefono.includes(telFiltro) &&
-    c.email.toLowerCase().includes(emailFiltro.toLowerCase())
+   const filteredContactos = allContactos.filter((c) =>
+    c.nombre_contacto.toLowerCase().includes(contactoFiltro.toLowerCase()) &&
+    c.apellidos_contacto.toLowerCase().includes(apellidosFiltro.toLowerCase()) &&
+    c.id_cuenta.toLowerCase().includes(codigoContactoFiltro.toLowerCase()) &&
+    c.nombre_empresa.toLowerCase().includes(empresaAsociadaFiltro.toLowerCase()) &&
+    c.telefono_contacto.includes(telFiltro) &&
+    c.email_contacto.toLowerCase().includes(emailFiltro.toLowerCase())
   );
 
-  const startIdx = (currentPage - 1) * itemsPerPage;
-  const currentItems = filteredContactos.slice(startIdx, startIdx + itemsPerPage);
+   const startIdx = (currentPage - 1) * itemsPerPage;
+  const contactosFiltrados = filteredContactos.slice(startIdx, startIdx + itemsPerPage);
 
   return (
     <div className="flex flex-col h-full min-h-screen text-gray-600">
@@ -80,7 +69,7 @@ const Contactos: FC = () => {
             setEmailFiltro={setEmailFiltro}
           />
 
-          <TablaContactos resultados={currentItems} />
+          <TablaContactos contactosFiltrados={contactosFiltrados} />
 
           <div className="mt-4">
             <ButtonsRow

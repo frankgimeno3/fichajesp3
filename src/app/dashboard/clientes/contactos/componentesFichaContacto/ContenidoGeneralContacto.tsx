@@ -2,27 +2,11 @@ import React, { FC } from 'react';
 import DatosEmpresaContacto from './DatosEmpresaContacto';
 import DatosGralesContacto from './DatosGralesContacto';
 import OtrosDatosContacto from './OtrosDatosContacto';
-
- export interface Contacto {
-  nombre_empresa: string;
-  id_contacto: string;
-  nombre_contacto: string;
-  apellidos_contacto: string;
-  nombre_completo_contacto: string;
-  id_cuenta: string;
-  telefono_contacto: string;
-  email_contacto: string;
-  cargo_contacto?: string;
-   idiomas:string[];
-   conocido_en: string;
-   contactado_en_feria : string[];
-   suscripciones:string[]; 
-  otros_datos_interes: string;
-
-}
+import { InterfazContacto } from '@/app/interfaces/interfaces';
+ 
 
 interface ContenidoGeneralContactoProps {
-  contacto: Contacto;
+  contacto: InterfazContacto;
   setIsContenidoEdited: (val: boolean) => void;
 }
 
