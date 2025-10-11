@@ -54,8 +54,8 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenido
       />
 
       <DatosComerciales
-        nombre_empresa={cuentaEditable.nombre_empresa}
         datos_comerciales={cuentaEditable.datos_comerciales}
+        pais_cuenta={cuentaEditable.pais_cuenta}
         onChange={() => setIsContenidoEdited(true)}
       />
 

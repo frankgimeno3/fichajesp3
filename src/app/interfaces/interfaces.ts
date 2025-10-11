@@ -42,6 +42,7 @@ export interface InterfazCuenta {
     ciudad_principal_cuenta: string;
     telefono_principal_cuenta: string;
     categoria_principal_cuenta: string;
+    contacto_principal: string;
     resumen_actividad_cuenta: string;
   };
   array_direcciones_cuenta: InterfazDireccion[];
