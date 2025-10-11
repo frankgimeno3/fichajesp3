@@ -11,8 +11,19 @@ const MiddleNav: FC<MiddleNavProps> = ({ tituloprincipal }) => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const pathSegments = pathname.split('/').filter(Boolean); // elimina los vacíos
+  const pathSegments = pathname.split('/').filter(Boolean);
+  
   const buildPath = (index: number) => '/' + pathSegments.slice(0, index + 1).join('/');
+
+  const problematicSegments = ['fichajes', 'comercial', 'clientes', 'produccion', 'administracion', 'operaciones'];
+
+  const handleClick = (segment: string, index: number) => {
+    if (problematicSegments.includes(segment)) {
+      router.push('/dashboard');
+    } else {
+      router.push(buildPath(index));
+    }
+  };
 
   return (
     <div className='flex flex-row text-white items-center justify-between bg-blue-950/70 px-8 py-1'>
@@ -20,8 +31,10 @@ const MiddleNav: FC<MiddleNavProps> = ({ tituloprincipal }) => {
       <div className='flex flex-row flex-wrap items-center gap-1 py-3 text-sm'>
         {pathSegments.map((segment, index) => (
           <div className="flex items-center" key={index}>
-            <p className="cursor-pointer text-white bg-blue-950/50 px-3 py-1 rounded hover:bg-blue-900" 
-              onClick={() => router.push(buildPath(index))} >
+            <p
+              className="cursor-pointer text-white bg-blue-950/50 px-3 py-1 rounded hover:bg-blue-900"
+              onClick={() => handleClick(segment, index)}
+            >
               {segment.charAt(0).toUpperCase() + segment.slice(1)}
             </p>
             {index < pathSegments.length - 1 && (
