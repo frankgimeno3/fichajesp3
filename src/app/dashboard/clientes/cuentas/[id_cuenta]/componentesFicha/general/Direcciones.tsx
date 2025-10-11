@@ -1,7 +1,8 @@
 'use client';
 import React, { FC, useState } from 'react';
-import ModalAnadirDireccion from './ModalAnadirDireccion';
-import ModalEditarDireccion from './ModalEditarDireccion';
+import ModalAnadirDireccion from './modalsDirecciones/ModalAnadirDireccion';
+import ModalEditarDireccion from './modalsDirecciones/ModalEditarDireccion';
+import ModalBorrarDireccion from './modalsDirecciones/ModalBorrarDireccion';
 
 interface Direccion {
   nombre_direccion: string;
@@ -24,13 +25,17 @@ const Direcciones: FC<DireccionesProps> = ({ direcciones: initialDirecciones, on
   const [isAddOpen, setIsAddOpen] = useState(false);
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [direccionEdit, setDireccionEdit] = useState<Direccion | null>(null);
+  const [isDeleteOpen, setIsDeleteOpen] = useState(false);
+  const [direccionDelete, setDireccionDelete] = useState<Direccion | null>(null);
 
+  // Añadir
   const handleAdd = (newDir: Direccion) => {
     setDirecciones([...direcciones, newDir]);
     setIsAddOpen(false);
     onChange();
   };
 
+  // Editar
   const handleEdit = (updatedDir: Direccion) => {
     if (direccionEdit) {
       setDirecciones(direcciones.map(d => d === direccionEdit ? updatedDir : d));
@@ -40,12 +45,20 @@ const Direcciones: FC<DireccionesProps> = ({ direcciones: initialDirecciones, on
     }
   };
 
+  // Borrar
+  const handleDelete = (dir: Direccion) => {
+    setDirecciones(direcciones.filter(d => d !== dir));
+    setIsDeleteOpen(false);
+    setDireccionDelete(null);
+    onChange();
+  };
+
   return (
     <div className="p-4 space-y-6">
       <div className='flex flex-row justify-between'>
         <h2 className="text-xl font-bold">Direcciones</h2>
         <button
-          className=' p-2 px-4 text-lg rounded-lg shadow-xl bg-blue-950/80 hover:bg-blue-950/70 text-white cursor-pointer'
+          className='p-2 px-4 text-lg rounded-lg shadow-xl bg-blue-950/80 hover:bg-blue-950/70 text-white cursor-pointer'
           onClick={() => setIsAddOpen(true)}
         >
           +
@@ -74,20 +87,31 @@ const Direcciones: FC<DireccionesProps> = ({ direcciones: initialDirecciones, on
               <th></th>
             </tr>
           </thead>
-          <tbody>
-            <tr className=" hover:bg-gray-100/30 ">
+          <tbody className=''>
+            <tr className="hover:bg-gray-100/30 w-36">
               {Object.values(d).map((val, i) => (
                 <td key={i} className="p-2 border-b">{val}</td>
               ))}
-              <td className="p-2 border-b w-36">
+              <td className="flex flex-row justify-end p-2 gap-3">
                 <button
-                  className=' p-2 px-4 text-xs rounded-lg shadow-xl bg-blue-950/80 hover:bg-blue-950/70 text-white cursor-pointer'
+                  className='p-2 px-4 text-xs rounded-lg shadow-xl bg-blue-950/80 hover:bg-blue-950/70 text-white cursor-pointer'
                   onClick={() => {
                     setDireccionEdit(d);
                     setIsEditOpen(true);
                   }}
                 >
                   Editar
+                </button>
+                <button
+                  className={`p-2 px-4 text-xs rounded-lg shadow-xl text-white  
+                ${direcciones.length === 1 ? 'bg-gray-400 cursor-not-allowed' : 'bg-red-600 hover:bg-red-700 cursor-pointer'}`}
+                  onClick={() => {
+                    setDireccionDelete(d);
+                    setIsDeleteOpen(true);
+                  }}
+                  disabled={direcciones.length == 1}
+                >
+                  X
                 </button>
               </td>
             </tr>
@@ -107,6 +131,15 @@ const Direcciones: FC<DireccionesProps> = ({ direcciones: initialDirecciones, on
           onClose={() => setIsEditOpen(false)}
           direccion={direccionEdit}
           onConfirm={handleEdit}
+        />
+      )}
+
+      {direccionDelete && (
+        <ModalBorrarDireccion
+          isOpen={isDeleteOpen}
+          onClose={() => setIsDeleteOpen(false)}
+          direccion={direccionDelete}
+          onConfirm={handleDelete}
         />
       )}
     </div>

@@ -34,8 +34,7 @@ const DatosCRM: FC<DatosCRMProps> = ({
   return (
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4">Datos generales</h2>
-      <table           className="min-w-full border border-gray-300 text-xs bg-white rounded shadow-sm overflow-hidden"
->
+      <table className="min-w-full border border-gray-300 text-xs bg-white rounded shadow-sm overflow-hidden">
         <thead className="bg-blue-950/80 text-white">
           <tr>
             <th className="text-left p-2 font-light">Nombre Empresa</th>
