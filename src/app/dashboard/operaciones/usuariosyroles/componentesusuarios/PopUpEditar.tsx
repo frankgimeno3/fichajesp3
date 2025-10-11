@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useState } from "react";
-import { UserType } from "@/app/admin/dashboard/usuarios/UserType";
+import { EyeIcon } from "@heroicons/react/24/outline"; // <- Iconos profesionales
+import { UserType } from "./UserType";
 import UserSerivce from "@/app/service/UserSerivce";
 
 interface PopUpEditarProps {
@@ -13,9 +14,10 @@ const PopUpEditar: FC<PopUpEditarProps> = ({ user, onClose, onEdit }) => {
     const [email, setEmail] = useState<string>(user.attributes.email);
     const [password, setPassword] = useState<string>("");
     const [status, setStatus] = useState<boolean>(user.enabled);
-    const [role, setRole] = useState<string>("Agente"); // por defecto Agente
+    const [role, setRole] = useState<string>("Agente");
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<boolean>(false);
+    const [showPassword, setShowPassword] = useState<boolean>(false);
 
     useEffect(() => {
         const handleEsc = (event: KeyboardEvent) => {
@@ -24,12 +26,11 @@ const PopUpEditar: FC<PopUpEditarProps> = ({ user, onClose, onEdit }) => {
             }
         };
         window.addEventListener("keydown", handleEsc);
-
         return () => {
             window.removeEventListener("keydown", handleEsc);
         };
     }, [onClose]);
-    
+
     const handleEdit = async () => {
         setLoading(true);
         try {
@@ -47,7 +48,7 @@ const PopUpEditar: FC<PopUpEditarProps> = ({ user, onClose, onEdit }) => {
     return (
         <div
             className="fixed inset-0 flex justify-center items-center z-50 text-gray-600"
-            style={{ backgroundColor: "rgb(0, 0, 0, 0.8)" }}
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.8)" }}
         >
             <div className="bg-white p-6 rounded-xl w-96 relative shadow-lg">
                 <button
@@ -80,15 +81,28 @@ const PopUpEditar: FC<PopUpEditarProps> = ({ user, onClose, onEdit }) => {
                             placeholder="Correo electrónico"
                         />
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col  ">
                         <label className="text-sm text-gray-700">Nueva contraseña</label>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            className="px-4 py-2 border rounded-xl"
-                            placeholder="Contraseña"
-                        />
+                        <div className="flex flex-row">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
+                                className="px-4 py-2 border rounded-xl pr-10"
+                                placeholder="Contraseña"
+                            />
+                            <button
+                                type="button"
+                                onClick={() => setShowPassword(!showPassword)}
+                                className="pl-6 text-gray-600 hover:text-gray-800"
+                            >
+                                {showPassword ? (
+                                    <p>X</p>
+                                ) : (
+                                    <EyeIcon className="h-5 w-5" />
+                                )}
+                            </button>
+                        </div>
                     </div>
                     <div className="flex flex-col">
                         <label className="text-sm text-gray-700">Estado</label>
@@ -118,8 +132,9 @@ const PopUpEditar: FC<PopUpEditarProps> = ({ user, onClose, onEdit }) => {
                     <button
                         onClick={handleEdit}
                         className="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700"
+                        disabled={loading}
                     >
-                        Editar
+                        {loading ? "Editando..." : "Editar"}
                     </button>
                     <button
                         onClick={onClose}

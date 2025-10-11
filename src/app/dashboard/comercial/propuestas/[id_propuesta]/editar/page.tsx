@@ -19,15 +19,13 @@ const EditarPropuesta: FC = () => {
     setIsDatosContactoShown(!isDatosContactoShown)
   }
 
-  // Datos simulados (puedes pasar esto como props si lo deseas)
-  const empresaAnunciante = {
+   const empresaAnunciante = {
     nombreEmpresa: 'Tvitec',
     codigoCrm: '1234',
     codigoEdisoft: '1234TIGER',
     pais: 'ESTONIA',
     nombreContacto: 'Frank Gimeno',
-    //   codigoContacto:'1234',
-    cargoContacto: 'Comercial',
+     cargoContacto: 'Comercial',
   };
 
   const empresaFirmante = {
@@ -36,8 +34,7 @@ const EditarPropuesta: FC = () => {
     codigoEdisoft: '1234TIGER',
     pais: 'ESTONIA',
     nombreContacto: 'Frank Gimeno',
-    //   codigoContacto:'1234',
-    cargoContacto: 'Comercial',
+     cargoContacto: 'Comercial',
   };
 
   const empresaGestion = {
@@ -46,8 +43,7 @@ const EditarPropuesta: FC = () => {
     codigoEdisoft: '1234TIGER',
     pais: 'ESTONIA',
     nombreContacto: 'Frank Gimeno',
-    //   codigoContacto:'1234',
-    cargoContacto: 'Comercial',
+     cargoContacto: 'Comercial',
   };
 
   return (

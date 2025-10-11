@@ -12,41 +12,30 @@ import OtrosDatosEnPropuesta from './propuestacomponents/OtrosDatosEnPropuesta';
 const ResumenPropuesta: FC = () => {
   const router = useRouter();
   const params = useParams();  
-  const idPropuesta = params.id;
+  const idPropuesta = params.id_propuesta;
 
   const [isDatosContactoShown, setIsDatosContactoShown] = useState(false);
 
    const propuesta = propuestas.find(p => p.detalles_propuesta.id_propuesta === idPropuesta);
 
   if (!propuesta) {
-    return <div className="text-red-500 p-6">Propuesta no encontrada.</div>;
+    return <div className="text-red-500 p-6">Propuesta no encontrada. {idPropuesta} </div>;
   }
 
   const handleTogleDatosContactoShown = () => {
     setIsDatosContactoShown(!isDatosContactoShown);
   };
 
-  const empresaAnunciante = {
-    nombreEmpresa: 'Tvitec',
-    codigoCrm: '1234',
-    codigoEdisoft: '1234TIGER',
-    pais: 'ESTONIA',
-    nombreContacto: 'Frank Gimeno',
-    cargoContacto: propuesta.cuenta_propuesta.cargoContacto,
-  };
-
-  const empresaFirmante = { ...empresaAnunciante };
-  const empresaGestion = { ...empresaAnunciante };
-
+    
+ 
   return (
     <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
-      <MiddleNav tituloprincipal={`Propuesta completa`} />
+      <MiddleNav tituloprincipal={`Propuesta con Código ${propuesta.detalles_propuesta.id_propuesta}`} />
 
       <div className="bg-gray-100 min-h-screen px-12 text-gray-600">
         <div className='flex flex-row justify-between py-12'>
-          <h2 className="text-lg font-semibold mb-4">Propuesta con Código {propuesta.detalles_propuesta.id_propuesta}</h2>
-
-          <div className='flex flex-row gap-5'>
+ 
+          <div className='flex flex-row justify-end text-right items-right gap-5'>
             <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
               onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')}>
               Actualizar
@@ -55,18 +44,15 @@ const ResumenPropuesta: FC = () => {
               onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')}>
               Eliminar
             </button>
-            <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')}>
+            <button className="bg-green-600 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              onClick={() => router.push('/dashboard/comercial/propuestas')}>
               Marcar como aceptada
             </button>
-            <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')}>
+            <button className="bg-red-600 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              onClick={() => router.push('/dashboard/comercial/propuestas')}>
               Marcar como rechazada
             </button>
-            <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta/editar')}>
-              Usar como plantilla
-            </button>
+           
           </div>
         </div>
 

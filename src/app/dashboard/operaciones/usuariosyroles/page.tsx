@@ -2,7 +2,7 @@
 import React, {FC, use, useEffect, useState} from 'react';
 
 import UserSerivce from "@/app/service/UserSerivce";
-import {UserType} from "@/app/admin/dashboard/usuarios/UserType";
+import {UserType} from "./componentesusuarios/UserType";
 import PopUpCrear from './componentesusuarios/PopUpCrear';
 import PopUpEditar from './componentesusuarios/PopUpEditar';
 

@@ -31,7 +31,7 @@ const Filtroscuentas: FC<FiltroscuentasProps> = ({
         <p className="text-lg font-semibold pb-5">Todas las cuentas</p>
         <div className='my-auto '>
           <button className='bg-white text-blue-950 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-950/70 hover:text-white'
-            onClick={() => router.push('/dashboard/cuentas/crear')} >
+            onClick={() => router.push('/dashboard/clientes/cuentas/crear')} >
             <p>Crear cuenta</p>
           </button>
         </div>
