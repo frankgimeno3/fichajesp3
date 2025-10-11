@@ -1,5 +1,5 @@
 import React, { FC, ChangeEvent } from 'react';
-import { Contacto } from '../ContenidoGeneralContacto';
+import { Contacto } from './ContenidoGeneralContacto';
 
 interface DatosGralesContactoProps {
   contacto: Contacto;

@@ -22,6 +22,28 @@
     "cargo_contacto": "Responsable de compras"
   },
   {
+    "id_contacto": "contact_25_0000000009",
+    "nombre_contacto": "Luis Alberto",
+    "apellidos_contacto": "Navarro Soto",
+    "nombre_completo_contacto": "Luis Alberto Navarro Soto",
+    "id_cuenta": "62500001",
+    "nombre_empresa": "Vidrios S.A.",
+    "telefono_contacto": "600123458",
+    "email_contacto": "luis.alberto.navarro@vidrios-sa.com",
+    "cargo_contacto": "Jefe de almacén"
+  },
+  {
+    "id_contacto": "contact_25_0000000010",
+    "nombre_contacto": "Beatriz Elena",
+    "apellidos_contacto": "Domínguez Pérez",
+    "nombre_completo_contacto": "Beatriz Elena Domínguez Pérez",
+    "id_cuenta": "62500001",
+    "nombre_empresa": "Vidrios S.A.",
+    "telefono_contacto": "600123459",
+    "email_contacto": "beatriz.elena.dominguez@vidrios-sa.com",
+    "cargo_contacto": "Asistente de compras"
+  },
+  {
     "id_contacto": "contact_25_0000000003",
     "nombre_contacto": "Carlos Eduardo",
     "apellidos_contacto": "Martínez Torres",
@@ -42,6 +64,28 @@
     "telefono_contacto": "600223457",
     "email_contacto": "laura.beatriz.sanchez@metalesunidos.com",
     "cargo_contacto": "Responsable de compras"
+  },
+  {
+    "id_contacto": "contact_25_0000000011",
+    "nombre_contacto": "Javier Manuel",
+    "apellidos_contacto": "Ortiz Delgado",
+    "nombre_completo_contacto": "Javier Manuel Ortiz Delgado",
+    "id_cuenta": "62500002",
+    "nombre_empresa": "Metales Unidos",
+    "telefono_contacto": "600223458",
+    "email_contacto": "javier.manuel.ortiz@metalesunidos.com",
+    "cargo_contacto": "Encargado de logística"
+  },
+  {
+    "id_contacto": "contact_25_0000000012",
+    "nombre_contacto": "Silvia Carolina",
+    "apellidos_contacto": "Gómez Rojas",
+    "nombre_completo_contacto": "Silvia Carolina Gómez Rojas",
+    "id_cuenta": "62500002",
+    "nombre_empresa": "Metales Unidos",
+    "telefono_contacto": "600223459",
+    "email_contacto": "silvia.carolina.gomez@metalesunidos.com",
+    "cargo_contacto": "Asistente administrativa"
   },
   {
     "id_contacto": "contact_25_0000000005",
@@ -66,6 +110,28 @@
     "cargo_contacto": "Responsable de compras"
   },
   {
+    "id_contacto": "contact_25_0000000013",
+    "nombre_contacto": "Roberto Carlos",
+    "apellidos_contacto": "Molina Vega",
+    "nombre_completo_contacto": "Roberto Carlos Molina Vega",
+    "id_cuenta": "62500003",
+    "nombre_empresa": "Plásticos del Sur",
+    "telefono_contacto": "600323458",
+    "email_contacto": "roberto.carlos.molina@plasticossur.com",
+    "cargo_contacto": "Encargado de producción"
+  },
+  {
+    "id_contacto": "contact_25_0000000014",
+    "nombre_contacto": "Lucía Fernanda",
+    "apellidos_contacto": "Nieto Campos",
+    "nombre_completo_contacto": "Lucía Fernanda Nieto Campos",
+    "id_cuenta": "62500003",
+    "nombre_empresa": "Plásticos del Sur",
+    "telefono_contacto": "600323459",
+    "email_contacto": "lucia.fernanda.nieto@plasticossur.com",
+    "cargo_contacto": "Asistente de calidad"
+  },
+  {
     "id_contacto": "contact_25_0000000007",
     "nombre_contacto": "Miguel Ángel",
     "apellidos_contacto": "Cruz Navarro",
@@ -86,5 +152,291 @@
     "telefono_contacto": "600423457",
     "email_contacto": "patricia.elena.vargas@quimicosglobales.cl",
     "cargo_contacto": "Responsable de compras"
+  },
+  {
+    "id_contacto": "contact_25_0000000015",
+    "nombre_contacto": "Andrés Felipe",
+    "apellidos_contacto": "López Cárdenas",
+    "nombre_completo_contacto": "Andrés Felipe López Cárdenas",
+    "id_cuenta": "62500004",
+    "nombre_empresa": "Químicos Globales",
+    "telefono_contacto": "600423458",
+    "email_contacto": "andres.felipe.lopez@quimicosglobales.cl",
+    "cargo_contacto": "Coordinador técnico"
+  },
+  {
+    "id_contacto": "contact_25_0000000016",
+    "nombre_contacto": "Verónica Alejandra",
+    "apellidos_contacto": "Muñoz Rivera",
+    "nombre_completo_contacto": "Verónica Alejandra Muñoz Rivera",
+    "id_cuenta": "62500004",
+    "nombre_empresa": "Químicos Globales",
+    "telefono_contacto": "600423459",
+    "email_contacto": "veronica.alejandra.munoz@quimicosglobales.cl",
+    "cargo_contacto": "Asistente de laboratorio"
+  },
+  {
+    "id_contacto": "contact_25_0000000017",
+    "nombre_contacto": "Sergio Daniel",
+    "apellidos_contacto": "Martín Cuevas",
+    "nombre_completo_contacto": "Sergio Daniel Martín Cuevas",
+    "id_cuenta": "62500001",
+    "nombre_empresa": "Vidrios S.A.",
+    "telefono_contacto": "600123460",
+    "email_contacto": "sergio.daniel.martin@vidrios-sa.com",
+    "cargo_contacto": "Jefe de mantenimiento"
+  },
+  {
+    "id_contacto": "contact_25_0000000018",
+    "nombre_contacto": "Carmen Rosa",
+    "apellidos_contacto": "López Jiménez",
+    "nombre_completo_contacto": "Carmen Rosa López Jiménez",
+    "id_cuenta": "62500001",
+    "nombre_empresa": "Vidrios S.A.",
+    "telefono_contacto": "600123461",
+    "email_contacto": "carmen.rosa.lopez@vidrios-sa.com",
+    "cargo_contacto": "Supervisora de producción"
+  },
+  {
+    "id_contacto": "contact_25_0000000019",
+    "nombre_contacto": "Jorge Ignacio",
+    "apellidos_contacto": "Rey Delgado",
+    "nombre_completo_contacto": "Jorge Ignacio Rey Delgado",
+    "id_cuenta": "62500001",
+    "nombre_empresa": "Vidrios S.A.",
+    "telefono_contacto": "600123462",
+    "email_contacto": "jorge.ignacio.rey@vidrios-sa.com",
+    "cargo_contacto": "Encargado de seguridad industrial"
+  },
+  {
+    "id_contacto": "contact_25_0000000020",
+    "nombre_contacto": "Marisol Andrea",
+    "apellidos_contacto": "Campos Navarro",
+    "nombre_completo_contacto": "Marisol Andrea Campos Navarro",
+    "id_cuenta": "62500001",
+    "nombre_empresa": "Vidrios S.A.",
+    "telefono_contacto": "600123463",
+    "email_contacto": "marisol.andrea.campos@vidrios-sa.com",
+    "cargo_contacto": "Asistente de dirección"
+  },
+  {
+    "id_contacto": "contact_25_0000000021",
+    "nombre_contacto": "Felipe Andrés",
+    "apellidos_contacto": "Domingo Cordero",
+    "nombre_completo_contacto": "Felipe Andrés Domingo Cordero",
+    "id_cuenta": "62500002",
+    "nombre_empresa": "Metales Unidos",
+    "telefono_contacto": "600223460",
+    "email_contacto": "felipe.andres.domingo@metalesunidos.com",
+    "cargo_contacto": "Técnico en control de calidad"
+  },
+  {
+    "id_contacto": "contact_25_0000000022",
+    "nombre_contacto": "Rosa Emilia",
+    "apellidos_contacto": "Vidal Campos",
+    "nombre_completo_contacto": "Rosa Emilia Vidal Campos",
+    "id_cuenta": "62500002",
+    "nombre_empresa": "Metales Unidos",
+    "telefono_contacto": "600223461",
+    "email_contacto": "rosa.emilia.vidal@metalesunidos.com",
+    "cargo_contacto": "Asistente de recursos humanos"
+  },
+  {
+    "id_contacto": "contact_25_0000000023",
+    "nombre_contacto": "Iván Gerardo",
+    "apellidos_contacto": "Aranda León",
+    "nombre_completo_contacto": "Iván Gerardo Aranda León",
+    "id_cuenta": "62500002",
+    "nombre_empresa": "Metales Unidos",
+    "telefono_contacto": "600223462",
+    "email_contacto": "ivan.gerardo.aranda@metalesunidos.com",
+    "cargo_contacto": "Coordinador de seguridad"
+  },
+  {
+    "id_contacto": "contact_25_0000000024",
+    "nombre_contacto": "Elena Patricia",
+    "apellidos_contacto": "Torres Galván",
+    "nombre_completo_contacto": "Elena Patricia Torres Galván",
+    "id_cuenta": "62500002",
+    "nombre_empresa": "Metales Unidos",
+    "telefono_contacto": "600223463",
+    "email_contacto": "elena.patricia.torres@metalesunidos.com",
+    "cargo_contacto": "Analista de compras"
+  },
+  {
+    "id_contacto": "contact_25_0000000025",
+    "nombre_contacto": "Fernando José",
+    "apellidos_contacto": "Salazar Peña",
+    "nombre_completo_contacto": "Fernando José Salazar Peña",
+    "id_cuenta": "62500003",
+    "nombre_empresa": "Plásticos del Sur",
+    "telefono_contacto": "600323460",
+    "email_contacto": "fernando.jose.salazar@plasticossur.com",
+    "cargo_contacto": "Supervisor de planta"
+  },
+  {
+    "id_contacto": "contact_25_0000000026",
+    "nombre_contacto": "Natalia Esther",
+    "apellidos_contacto": "Reyes Cruz",
+    "nombre_completo_contacto": "Natalia Esther Reyes Cruz",
+    "id_cuenta": "62500003",
+    "nombre_empresa": "Plásticos del Sur",
+    "telefono_contacto": "600323461",
+    "email_contacto": "natalia.esther.reyes@plasticossur.com",
+    "cargo_contacto": "Jefa de calidad"
+  },
+  {
+    "id_contacto": "contact_25_0000000027",
+    "nombre_contacto": "Alberto Martín",
+    "apellidos_contacto": "Ortega Ramírez",
+    "nombre_completo_contacto": "Alberto Martín Ortega Ramírez",
+    "id_cuenta": "62500003",
+    "nombre_empresa": "Plásticos del Sur",
+    "telefono_contacto": "600323462",
+    "email_contacto": "alberto.martin.ortega@plasticossur.com",
+    "cargo_contacto": "Coordinador logístico"
+  },
+  {
+    "id_contacto": "contact_25_0000000028",
+    "nombre_contacto": "Daniela Lorena",
+    "apellidos_contacto": "Herrera Soto",
+    "nombre_completo_contacto": "Daniela Lorena Herrera Soto",
+    "id_cuenta": "62500003",
+    "nombre_empresa": "Plásticos del Sur",
+    "telefono_contacto": "600323463",
+    "email_contacto": "daniela.lorena.herrera@plasticossur.com",
+    "cargo_contacto": "Asistente técnica"
+  },
+  {
+    "id_contacto": "contact_25_0000000029",
+    "nombre_contacto": "José Enrique",
+    "apellidos_contacto": "Pérez Araya",
+    "nombre_completo_contacto": "José Enrique Pérez Araya",
+    "id_cuenta": "62500004",
+    "nombre_empresa": "Químicos Globales",
+    "telefono_contacto": "600423460",
+    "email_contacto": "jose.enrique.perez@quimicosglobales.cl",
+    "cargo_contacto": "Supervisor de laboratorio"
+  },
+  {
+    "id_contacto": "contact_25_0000000030",
+    "nombre_contacto": "Carolina Andrea",
+    "apellidos_contacto": "Fuentes Tapia",
+    "nombre_completo_contacto": "Carolina Andrea Fuentes Tapia",
+    "id_cuenta": "62500004",
+    "nombre_empresa": "Químicos Globales",
+    "telefono_contacto": "600423461",
+    "email_contacto": "carolina.andrea.fuentes@quimicosglobales.cl",
+    "cargo_contacto": "Analista de procesos"
+  },
+  {
+    "id_contacto": "contact_25_0000000031",
+    "nombre_contacto": "Esteban Mauricio",
+    "apellidos_contacto": "Ríos Guzmán",
+    "nombre_completo_contacto": "Esteban Mauricio Ríos Guzmán",
+    "id_cuenta": "62500004",
+    "nombre_empresa": "Químicos Globales",
+    "telefono_contacto": "600423462",
+    "email_contacto": "esteban.mauricio.rios@quimicosglobales.cl",
+    "cargo_contacto": "Encargado de inventarios"
+  },
+  {
+    "id_contacto": "contact_25_0000000032",
+    "nombre_contacto": "María Fernanda",
+    "apellidos_contacto": "Silva Cabrera",
+    "nombre_completo_contacto": "María Fernanda Silva Cabrera",
+    "id_cuenta": "62500004",
+    "nombre_empresa": "Químicos Globales",
+    "telefono_contacto": "600423463",
+    "email_contacto": "maria.fernanda.silva@quimicosglobales.cl",
+    "cargo_contacto": "Asistente de control de calidad"
+  },
+  {
+    "id_contacto": "contact_25_0000000033",
+    "nombre_contacto": "Óscar David",
+    "apellidos_contacto": "Ramón Peña",
+    "nombre_completo_contacto": "Óscar David Ramón Peña",
+    "id_cuenta": "62500001",
+    "nombre_empresa": "Vidrios S.A.",
+    "telefono_contacto": "600123464",
+    "email_contacto": "oscar.david.ramon@vidrios-sa.com",
+    "cargo_contacto": "Coordinador comercial"
+  },
+  {
+    "id_contacto": "contact_25_0000000034",
+    "nombre_contacto": "Leticia Aurora",
+    "apellidos_contacto": "Navarro Díaz",
+    "nombre_completo_contacto": "Leticia Aurora Navarro Díaz",
+    "id_cuenta": "62500001",
+    "nombre_empresa": "Vidrios S.A.",
+    "telefono_contacto": "600123465",
+    "email_contacto": "leticia.aurora.navarro@vidrios-sa.com",
+    "cargo_contacto": "Analista de finanzas"
+  },
+  {
+    "id_contacto": "contact_25_0000000035",
+    "nombre_contacto": "Ricardo Esteban",
+    "apellidos_contacto": "Guzmán Flores",
+    "nombre_completo_contacto": "Ricardo Esteban Guzmán Flores",
+    "id_cuenta": "62500002",
+    "nombre_empresa": "Metales Unidos",
+    "telefono_contacto": "600223464",
+    "email_contacto": "ricardo.esteban.guzman@metalesunidos.com",
+    "cargo_contacto": "Encargado de mantenimiento"
+  },
+  {
+    "id_contacto": "contact_25_0000000036",
+    "nombre_contacto": "Claudia Marcela",
+    "apellidos_contacto": "Moreno Díaz",
+    "nombre_completo_contacto": "Claudia Marcela Moreno Díaz",
+    "id_cuenta": "62500002",
+    "nombre_empresa": "Metales Unidos",
+    "telefono_contacto": "600223465",
+    "email_contacto": "claudia.marcela.moreno@metalesunidos.com",
+    "cargo_contacto": "Ingeniera de procesos"
+  },
+  {
+    "id_contacto": "contact_25_0000000037",
+    "nombre_contacto": "Gabriel Alejandro",
+    "apellidos_contacto": "Soto Núñez",
+    "nombre_completo_contacto": "Gabriel Alejandro Soto Núñez",
+    "id_cuenta": "62500003",
+    "nombre_empresa": "Plásticos del Sur",
+    "telefono_contacto": "600323464",
+    "email_contacto": "gabriel.alejandro.soto@plasticossur.com",
+    "cargo_contacto": "Técnico de mantenimiento"
+  },
+  {
+    "id_contacto": "contact_25_0000000038",
+    "nombre_contacto": "María José",
+    "apellidos_contacto": "Benítez Herrera",
+    "nombre_completo_contacto": "María José Benítez Herrera",
+    "id_cuenta": "62500003",
+    "nombre_empresa": "Plásticos del Sur",
+    "telefono_contacto": "600323465",
+    "email_contacto": "maria.jose.benitez@plasticossur.com",
+    "cargo_contacto": "Asistente de producción"
+  },
+  {
+    "id_contacto": "contact_25_0000000039",
+    "nombre_contacto": "Tomás Eduardo",
+    "apellidos_contacto": "Bravo Molina",
+    "nombre_completo_contacto": "Tomás Eduardo Bravo Molina",
+    "id_cuenta": "62500004",
+    "nombre_empresa": "Químicos Globales",
+    "telefono_contacto": "600423464",
+    "email_contacto": "tomas.eduardo.bravo@quimicosglobales.cl",
+    "cargo_contacto": "Supervisor de turno"
+  },
+  {
+    "id_contacto": "contact_25_0000000040",
+    "nombre_contacto": "Camila Verónica",
+    "apellidos_contacto": "Rojas Medina",
+    "nombre_completo_contacto": "Camila Verónica Rojas Medina",
+    "id_cuenta": "62500004",
+    "nombre_empresa": "Químicos Globales",
+    "telefono_contacto": "600423465",
+    "email_contacto": "camila.veronica.rojas@quimicosglobales.cl",
+    "cargo_contacto": "Analista ambiental"
   }
 ]

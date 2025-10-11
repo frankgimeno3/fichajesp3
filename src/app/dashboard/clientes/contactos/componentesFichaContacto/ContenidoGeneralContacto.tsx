@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import DatosEmpresaContacto from './componentesFichaContacto/DatosEmpresaContacto';
-import DatosGralesContacto from './componentesFichaContacto/DatosGralesContacto';
-import OtrosDatosContacto from './componentesFichaContacto/OtrosDatosContacto';
+import DatosEmpresaContacto from './DatosEmpresaContacto';
+import DatosGralesContacto from './DatosGralesContacto';
+import OtrosDatosContacto from './OtrosDatosContacto';
 
-// Tipos consistentes con tu JSON
-export interface Contacto {
+ export interface Contacto {
+  nombre_empresa: string;
   id_contacto: string;
   nombre_contacto: string;
   apellidos_contacto: string;

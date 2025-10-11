@@ -4,29 +4,29 @@ import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
 
 export interface Resultado {
-  id: number;
+  id: string;  
   nombreContacto: string;
   apellidosContacto: string;
   codigoContacto: string;
   empresaAsociada: string;
   telefono: string;
   email: string;
-}
+ }
 
 interface TablaContactosProps {
-  resultados: Resultado[]; // <-- nueva prop
+  resultados: Resultado[];
 }
 
 const TablaContactos: FC<TablaContactosProps> = ({ resultados }) => {
   const router = useRouter();
 
-  const handleRedirection = (id: number) => {
-    router.push(`/dashboard/clientes/contactos/ficha/${id}`);
+  const handleRedirection = (id: string) => {
+    router.push(`/dashboard/clientes/contactos/${id}`);
   };
 
   return (
     <div className="p-3 overflow-x-auto">
-      <table className="min-w-full">
+      <table className="min-w-full border border-gray-200 rounded-lg">
         <thead className="bg-blue-950/80 text-white">
           <tr>
             <th className="text-left p-2 font-light">Nombre</th>
@@ -42,7 +42,7 @@ const TablaContactos: FC<TablaContactosProps> = ({ resultados }) => {
             resultados.map((res) => (
               <tr
                 key={res.id}
-                className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
+                className="border-t border-gray-200 hover:bg-gray-100/40 cursor-pointer transition-colors"
                 onClick={() => handleRedirection(res.id)}
               >
                 <td className="p-2 border-b border-gray-200">{res.nombreContacto}</td>

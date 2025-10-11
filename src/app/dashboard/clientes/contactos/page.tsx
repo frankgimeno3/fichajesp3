@@ -3,12 +3,13 @@
 import { useRouter } from 'next/navigation';
 import React, { FC, useState, useEffect } from 'react';
 import FiltrosContactos from './componentesContactos/FiltrosContactos';
-import TablaContactos, { Resultado } from './componentesContactos/TablaContactos';
+import TablaContactos from './componentesContactos/TablaContactos';
 import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
 import ButtonsRow from '@/app/general_components/componentes_recurrentes/ButtonsRow';
+import contactos from "@/app/contents/contactsContents.json";
 
 interface Contacto {
-  id: number;
+  id: string;
   nombreContacto: string;
   apellidosContacto: string;
   codigoContacto: string;
@@ -20,7 +21,6 @@ interface Contacto {
 const Contactos: FC = () => {
   const router = useRouter();
 
-  // Filtros
   const [contactoFiltro, setContactoFiltro] = useState('');
   const [apellidosFiltro, setApellidosFiltro] = useState('');
   const [codigoContactoFiltro, setCodigoContactoFiltro] = useState('');
@@ -28,63 +28,26 @@ const Contactos: FC = () => {
   const [telFiltro, setTelFiltro] = useState('');
   const [emailFiltro, setEmailFiltro] = useState('');
 
-  // Paginación
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 15;
 
-  // Mock original + generar contactos adicionales para pruebas
   const [allContactos, setAllContactos] = useState<Contacto[]>([]);
 
   useEffect(() => {
-    const baseMock: Contacto[] = [
-      {
-        id: 1,
-        nombreContacto: 'Juan',
-        apellidosContacto: 'Pérez',
-        codigoContacto: '001',
-        empresaAsociada: 'Empresa A',
-        telefono: '123456789',
-        email: 'juan.perez@empresaA.com',
-      },
-      {
-        id: 2,
-        nombreContacto: 'María',
-        apellidosContacto: 'Gómez',
-        codigoContacto: '002',
-        empresaAsociada: 'Empresa B',
-        telefono: '987654321',
-        email: 'maria.gomez@empresaB.com',
-      },
-      {
-        id: 3,
-        nombreContacto: 'Carlos',
-        apellidosContacto: 'López',
-        codigoContacto: '003',
-        empresaAsociada: 'Empresa A',
-        telefono: '123123123',
-        email: 'carlos.lopez@empresaA.com',
-      },
-    ];
+    const mapeados: Contacto[] = contactos.map((c) => ({
+      id: c.id_contacto,
+      nombreContacto: c.nombre_contacto,
+      apellidosContacto: c.apellidos_contacto,
+      codigoContacto: c.id_cuenta, 
+      empresaAsociada: c.nombre_empresa,
+      telefono: c.telefono_contacto,
+      email: c.email_contacto,
+    }));
 
-    // Generar contactos adicionales artificialmente
-    const adicionales: Contacto[] = [];
-    for (let i = 4; i <= 110; i++) { // 110 total => 7+ páginas con 15 por página
-      adicionales.push({
-        id: i,
-        nombreContacto: `Nombre${i}`,
-        apellidosContacto: `Apellido${i}`,
-        codigoContacto: i.toString().padStart(3, '0'),
-        empresaAsociada: `Empresa ${String.fromCharCode(65 + (i % 10))}`,
-        telefono: `555-00${i}`,
-        email: `contacto${i}@ejemplo.com`,
-      });
-    }
-
-    setAllContactos([...baseMock, ...adicionales]);
+    setAllContactos(mapeados);
   }, []);
 
-  // Filtrar resultados
-  const filteredContactos = allContactos.filter(c =>
+  const filteredContactos = allContactos.filter((c) =>
     c.nombreContacto.toLowerCase().includes(contactoFiltro.toLowerCase()) &&
     c.apellidosContacto.toLowerCase().includes(apellidosFiltro.toLowerCase()) &&
     c.codigoContacto.toLowerCase().includes(codigoContactoFiltro.toLowerCase()) &&
@@ -93,7 +56,6 @@ const Contactos: FC = () => {
     c.email.toLowerCase().includes(emailFiltro.toLowerCase())
   );
 
-  // Paginación
   const startIdx = (currentPage - 1) * itemsPerPage;
   const currentItems = filteredContactos.slice(startIdx, startIdx + itemsPerPage);
 

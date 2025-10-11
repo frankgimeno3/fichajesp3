@@ -42,7 +42,7 @@ const ButtonsRow: FC<ButtonsRowProps> = ({
         return (
           <button
             key={idx}
-            className={`p-2 px-4 rounded-xl shadow text-sm font-bold text-white
+            className={`p-2 px-4 rounded-xl shadow text-sm font-bold text-white cursor-pointer
               ${isActive ? 'bg-blue-700 hover:bg-blue-600' : 'bg-blue-900 hover:bg-blue-800'}
               ${isNav ? 'font-normal' : ''}`}
             onClick={() => {

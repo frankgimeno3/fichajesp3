@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { Contacto } from "../ContenidoGeneralContacto";
+import { Contacto } from "./ContenidoGeneralContacto";
 
 interface OtrosDatosContactoProps {
   contacto: Contacto;

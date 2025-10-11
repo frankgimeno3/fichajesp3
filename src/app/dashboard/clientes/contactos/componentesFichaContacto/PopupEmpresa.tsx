@@ -100,8 +100,7 @@ const PopupEmpresa: React.FC<PopupEmpresaProps> = ({
                   <th className="p-2 text-left">Código Empresa</th>
                   <th className="p-2 text-left">Nombre Empresa</th>
                   <th className="p-2 text-left">País</th>
-                  <th className="p-2 text-left">Nombre Agente</th>
-                </tr>
+                 </tr>
               </thead>
               <tbody>
                 {resultados.map((e, idx) => (
@@ -116,8 +115,7 @@ const PopupEmpresa: React.FC<PopupEmpresaProps> = ({
                     <td className="p-2 border-t">{e.codigoEmpresa}</td>
                     <td className="p-2 border-t">{e.nombreEmpresa}</td>
                     <td className="p-2 border-t">{e.paisEmpresa}</td>
-                    <td className="p-2 border-t">{e.nombreAgenteAsignado}</td>
-                  </tr>
+                   </tr>
                 ))}
               </tbody>
             </table>
