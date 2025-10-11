@@ -2,6 +2,7 @@
 
 import React, { FC } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
+import { Home } from 'lucide-react'; 
 
 interface MiddleNavProps {
   tituloprincipal: string;
@@ -17,20 +18,28 @@ const MiddleNav: FC<MiddleNavProps> = ({ tituloprincipal }) => {
     '/' + pathSegments.slice(0, index + 1).join('/');
 
   const problematicSegments = [
-    'fichajes',
-    'comercial',
-    'clientes',
-    'produccion',
-    'administracion',
-    'operaciones',
+    '/dashboard/fichajes',
+    '/dashboard/comercial',
+    '/dashboard/clientes',
+    '/dashboard/produccion',
+    '/dashboard/administracion',
+    '/dashboard/operaciones',
   ];
 
-  const handleClick = (segment: string, index: number) => {
-    if (problematicSegments.includes(segment)) {
+  const handleClick = (index: number) => {
+    const fullPath = buildPath(index);
+    if (problematicSegments.includes(fullPath)) {
       router.push('/dashboard');
     } else {
-      router.push(buildPath(index));
+      router.push(fullPath);
     }
+  };
+
+   const renderSegmentLabel = (segment: string, fullPath: string) => {
+    if (fullPath === '/' || fullPath === '/dashboard') {
+      return <Home className="w-5 h-5 text-white mx-4" />;  
+    }
+    return segment.charAt(0).toUpperCase() + segment.slice(1);
   };
 
   return (
@@ -38,19 +47,20 @@ const MiddleNav: FC<MiddleNavProps> = ({ tituloprincipal }) => {
       <h2 className="text-xl font-black">{tituloprincipal}</h2>
       <div className="flex flex-row flex-wrap items-center gap-1 py-3 text-sm">
         {pathSegments.map((segment, index) => {
-          const isProblematic = problematicSegments.includes(segment);
+          const fullPath = buildPath(index);
+          const isProblematic = problematicSegments.includes(fullPath);
 
           return (
             <div className="flex items-center" key={index}>
               <p
-                className={`px-3 py-1 rounded bg-blue-950/50 ${
+                className={`flex items-center gap-1 px-3 py-1 rounded bg-blue-950/50 ${
                   isProblematic
-                    ? 'cursor-default text-gray-300'
+                    ? 'cursor-not-allowed text-gray-300'
                     : 'cursor-pointer hover:bg-blue-900'
                 }`}
-                onClick={() => handleClick(segment, index)}
+                onClick={() => handleClick(index)}
               >
-                {segment.charAt(0).toUpperCase() + segment.slice(1)}
+                {renderSegmentLabel(segment, fullPath)}
               </p>
               {index < pathSegments.length - 1 && (
                 <svg

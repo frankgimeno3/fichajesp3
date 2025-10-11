@@ -1,6 +1,7 @@
 'use client'
 import React, {FC, use, useState} from 'react';
 import {TimeLogService} from "@/app/service/TimeLogService";
+import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
 
 interface InformesProps {}
 
@@ -84,7 +85,8 @@ const Informes: FC<InformesProps> = ({}) => {
     };
 
     return (
- 
+     <div className="flex flex-col h-full min-h-screen text-gray-600">
+      <MiddleNav tituloprincipal={`Gestión de fichajes`} />
             <div className="p-6 px-12 bg-gray-100 min-h-screen">
                 <div className="flex flex-col space-y-4 mb-6">
                     <div className="flex flex-col space-y-4 bg-white shadow p-4  rounded">
@@ -98,7 +100,7 @@ const Informes: FC<InformesProps> = ({}) => {
                                     value={empleados}
                                     onChange={(e) => setEmpleados(e.target.value)}
                                     placeholder="Ejemplo: lena.wooden12@email.com, mike.stone88@mailhub.net, toby.green04@inbox.org"
-                                    className="p-2 w-full border border-gray-300 rounded"
+                                    className="p-2 w-full border placeholder-gray-400 border-gray-300 rounded"
                                 />
                             </div>
                             <div className="flex space-x-2">
@@ -134,10 +136,8 @@ const Informes: FC<InformesProps> = ({}) => {
                         </button>
                     </div>
 
-                    {/* Segundo div: resultados */}
-                    <div className="flex flex-col bg-white shadow ">
-                        {/* Cabezal */}
-                        <div className="flex justify-between items-center p-4 border-b border-gray-100">
+                     <div className="flex flex-col bg-white shadow ">
+                         <div className="flex justify-between items-center p-4 border-b border-gray-100">
                             <p className="text-lg font-semibold">Resultados</p>
                             <button
                                 onClick={handleDescargarCSV}
@@ -147,8 +147,7 @@ const Informes: FC<InformesProps> = ({}) => {
                             </button>
                         </div>
 
-                        {/* Tabla de eventos */}
-                        <div className="bg-white p-4 shadow-md">
+                         <div className="bg-white p-4 shadow-md">
                             {resultados.length === 0 ? (
                                 <p className="text-center text-gray-500">Introduzca valores para empezar</p>
                             ) : (
@@ -186,6 +185,7 @@ const Informes: FC<InformesProps> = ({}) => {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
     );
 };
