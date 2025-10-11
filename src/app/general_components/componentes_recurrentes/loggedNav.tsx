@@ -8,8 +8,7 @@ const LoggedNav: FC<LoggedNavProps> = () => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const unreadNotifications = ['1', '2', '3']; // Aquí simulas notificaciones no leídas
-
+ 
   const handleLogout = async () => {
     await AuthenticationService.logout();
     router.replace('/');
@@ -21,13 +20,12 @@ const LoggedNav: FC<LoggedNavProps> = () => {
 
   const routeDescriptions: Record<string, string> = {
     '/dashboard': 'Haga click en un módulo para continuar',
+    '/dashboard/fichajes': 'Módulo de fichaje',
+    '/dashboard/clientes': 'Módulo de gestión de cuentas y contactos',
+    '/dashboard/comercial': 'Módulo de gestión de propuestas y contratos',
     '/dashboard/administracion': 'Módulo administrativo',
-    '/dashboard/clientes': 'Módulo de gestión de clientes y contactos',
     '/dashboard/produccion': 'Módulo de producción',
-    '/dashboard/propuestas': 'Módulo de propuestas',
-    '/dashboard/registro': 'Módulo de fichaje',
-    '/dashboard/seguimientos': 'Módulo de seguimientos',
-    '/dashboard/servicios': 'Módulo de servicios',
+    '/dashboard/operaciones': 'Módulo de operaciones como moderador',
   };
 
   const getDescription = (pathname: string, routes: Record<string, string>) => {
