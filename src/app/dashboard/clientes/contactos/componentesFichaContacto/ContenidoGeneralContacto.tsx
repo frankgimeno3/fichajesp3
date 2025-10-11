@@ -13,6 +13,12 @@ import OtrosDatosContacto from './OtrosDatosContacto';
   telefono_contacto: string;
   email_contacto: string;
   cargo_contacto?: string;
+   idiomas:string[];
+   conocido_en: string;
+   contactado_en_feria : string[];
+   suscripciones:string[]; 
+  otros_datos_interes: string;
+
 }
 
 interface ContenidoGeneralContactoProps {
