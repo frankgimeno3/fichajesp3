@@ -7,6 +7,7 @@ import DatosComerciales from './general/DatosComerciales';
 import Direcciones from './general/Direcciones';
 import Descripcion from './general/Descripcion';
 import cuentas from "@/app/contents/cuentasContents.json";
+import { InterfazCuenta } from '@/app/interfaces/interfaces';
 
 interface ContenidoGeneralProps {
   id_cuenta: string;
@@ -14,12 +15,12 @@ interface ContenidoGeneralProps {
 }
 
 const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenidoEdited }) => {
-   const cuentaSeleccionada = cuentas.find((c: InterfazCuenta) => c.id_cuenta === id_cuenta);
-
-  const [cuentaEditable, setCuentaEditable] = useState<InterfazCuenta | undefined>(cuentaSeleccionada);
+   const [cuentaEditable, setCuentaEditable] = useState<InterfazCuenta | undefined>(
+    () => cuentas.find((c) => c.id_cuenta === id_cuenta)
+  );
 
   useEffect(() => {
-    const cuenta = cuentas.find((c: InterfazCuenta) => c.id_cuenta === id_cuenta);
+    const cuenta = cuentas.find((c) => c.id_cuenta === id_cuenta);
     setCuentaEditable(cuenta);
   }, [id_cuenta]);
 
@@ -40,8 +41,6 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenido
     );
     setIsContenidoEdited(true);
   };
-
-  const idContactoSeleccionado = "";
 
   return (
     <div className="flex flex-col">
@@ -78,7 +77,6 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenido
       <div className="flex flex-col py-12 gap-5">
          <ContenidoContactosEmpresa
              id_cuenta={id_cuenta}
-             onChange={() => setIsContenidoEdited(true)}
         />
       </div>
     </div>

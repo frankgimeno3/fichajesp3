@@ -6,9 +6,9 @@ interface DatosCRMProps {
   nombre_empresa: string;
   id_agente: string;
   presente_en_qq: boolean;
-  actividades: string[];
+  actividades: string;  
   fuente_novedades: string;
-  onChange: (field: string, value: string | boolean | string[]) => void;
+  onChange: (field: string, value: string | boolean) => void; 
 }
 
 const DatosCRM: FC<DatosCRMProps> = ({
@@ -31,14 +31,6 @@ const DatosCRM: FC<DatosCRMProps> = ({
     onChange('presente_en_qq', e.target.value === 'Sí');
   };
 
-  const handleActividadesChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value
-      .split(',')
-      .map((a) => a.trim())
-      .filter((a) => a.length > 0);
-    onChange('actividades', value);
-  };
-
   return (
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4">Datos CRM</h2>
@@ -54,8 +46,7 @@ const DatosCRM: FC<DatosCRMProps> = ({
         </thead>
         <tbody>
           <tr className="border-t border-gray-200 hover:bg-gray-100/30">
-            {/* Nombre Empresa */}
-            <td className="p-2 border-b border-gray-200">
+             <td className="p-2 border-b border-gray-200">
               <input
                 type="text"
                 name="nombre_empresa"
@@ -65,24 +56,21 @@ const DatosCRM: FC<DatosCRMProps> = ({
               />
             </td>
 
-            {/* Agente Asignado (no editable) */}
-            <td className="p-2 border-b border-gray-200">
+             <td className="p-2 border-b border-gray-200">
               {nombreAgente}
             </td>
 
-            {/* Actividades */}
-            <td className="p-2 border-b border-gray-200">
+             <td className="p-2 border-b border-gray-200">
               <input
                 type="text"
                 name="actividades"
-                value={actividades.join(', ')}
-                onChange={handleActividadesChange}
+                value={actividades}  
+                onChange={handleInputChange}  
                 className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring focus:ring-blue-400"
               />
             </td>
 
-            {/* QQ? */}
-            <td className="p-2 border-b border-gray-200">
+             <td className="p-2 border-b border-gray-200">
               <select
                 name="presente_en_qq"
                 value={presente_en_qq ? 'Sí' : 'No'}
@@ -94,8 +82,7 @@ const DatosCRM: FC<DatosCRMProps> = ({
               </select>
             </td>
 
-            {/* Fuentes novedades */}
-            <td className="p-2 border-b border-gray-200">
+             <td className="p-2 border-b border-gray-200">
               <input
                 type="text"
                 name="fuente_novedades"

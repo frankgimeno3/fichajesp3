@@ -5,7 +5,7 @@
     "pais_cuenta": "España",
     "id_agente": "ag_25_0004",
     "descripcion_cuenta": "Venta de vidrio industrial y soluciones arquitectónicas",
-    "actividades_cuenta": ["Ventas", "Consultoría", "Distribución"],
+    "actividades_cuenta": "Transformador de vidrio, Cristalería, Grandes almacenes",
     "presente_en_qq": true,
     "fuente_novedades_cuenta": "Web, Email",
     "datos_comerciales": {
@@ -42,7 +42,7 @@
     "pais_cuenta": "México",
     "id_agente": "ag_25_0004",
     "descripcion_cuenta": "Distribución de metales y productos derivados",
-    "actividades_cuenta": ["Ventas", "Distribución"],
+    "actividades_cuenta": "Transformador de vidrio, Cristalería, Grandes almacenes",
     "presente_en_qq": false,
     "fuente_novedades_cuenta": "Web, Ferias",
     "datos_comerciales": {
@@ -78,7 +78,7 @@
     "pais_cuenta": "Argentina",
     "id_agente": "ag_25_0004",
     "descripcion_cuenta": "Fabricación de plásticos industriales y embalajes",
-    "actividades_cuenta": ["Producción", "Ventas"],
+    "actividades_cuenta": "Transformador de vidrio, Cristalería, Grandes almacenes",
     "presente_en_qq": true,
     "fuente_novedades_cuenta": "Email, Referencias",
     "datos_comerciales": {
@@ -115,7 +115,7 @@
     "pais_cuenta": "Chile",
     "id_agente": "ag_25_0004",
     "descripcion_cuenta": "Suministro de productos químicos y soluciones industriales",
-    "actividades_cuenta": ["Distribución", "Consultoría"],
+    "actividades_cuenta": "Transformador de vidrio, Cristalería, Grandes almacenes",
     "presente_en_qq": false,
     "fuente_novedades_cuenta": "Web, Ferias, Email",
     "datos_comerciales": {

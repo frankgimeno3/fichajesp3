@@ -1,24 +1,21 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
-import contactos from "@/app/contents/contactsContents.json"
-
-
+import contactos from "@/app/contents/contactsContents.json";
+import cuentas from "@/app/contents/cuentasContents.json";  
 
 interface ContenidoContactosEmpresaProps {
-  id_cuenta:string;
-  onChange: () => void;
+  id_cuenta: string;
 }
 
-const ContenidoContactosEmpresa: FC<ContenidoContactosEmpresaProps> = ({
-  id_cuenta,
-  onChange
-}) => {
+const ContenidoContactosEmpresa: FC<ContenidoContactosEmpresaProps> = ({ id_cuenta }) => {
   const router = useRouter();
 
-  const contactosFiltrados = id_cuenta
-    ? contactos.filter((c) => c.id_contacto === id_cuenta)
-    : contactos;
+   const cuentaSeleccionada = cuentas.find((c) => c.id_cuenta === id_cuenta);
+
+   const idsContactos = cuentaSeleccionada?.array_contactos_cuenta.map(c => c.id_contacto) || [];
+
+   const contactosFiltrados = contactos.filter((c) => idsContactos.includes(c.id_contacto));
 
   if (!contactosFiltrados || contactosFiltrados.length === 0) {
     return (
@@ -46,7 +43,7 @@ const ContenidoContactosEmpresa: FC<ContenidoContactosEmpresaProps> = ({
               key={contacto.id_contacto}
               className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
               onClick={() =>
-                router.push(`/dashboard/cuentas/contactos/${contacto.id_contacto}`)
+                router.push(`/dashboard/clientes/contactos/${contacto.id_contacto}`)
               }
             >
               <td className="p-2 border-b border-gray-200">
