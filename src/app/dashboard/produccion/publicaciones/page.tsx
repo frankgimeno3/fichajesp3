@@ -13,7 +13,7 @@ const Materiales: FC<MaterialesProps> = ({ }) => {
   return (
     <div className="flex flex-col  h-full min-h-screen text-gray-600">
 
-      <MiddleNav tituloprincipal={` Publicaciones  `} />
+      <MiddleNav tituloprincipal={` Publicaciones con contenidos `} />
       <div className="bg-gray-200 min-h-screen p-12 text-gray-600">
 
         <p className='font-bold pb-5'>Seleccione una publicación para ver sus contenidos</p>

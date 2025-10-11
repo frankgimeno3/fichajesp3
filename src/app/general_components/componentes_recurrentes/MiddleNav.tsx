@@ -37,15 +37,15 @@ const MiddleNav: FC<MiddleNavProps> = ({ tituloprincipal }) => {
 
    const renderSegmentLabel = (segment: string, fullPath: string) => {
     if (fullPath === '/' || fullPath === '/dashboard') {
-      return <Home className="w-5 h-5 text-white mx-4" />;  
+      return <Home className="w-5 h-5  text-gray-600 mx-4" />;  
     }
     return segment.charAt(0).toUpperCase() + segment.slice(1);
   };
 
   return (
-    <div className="flex flex-row text-white items-center justify-between bg-blue-950/70 px-8 py-1">
+    <div className="flex flex-row text-white  items-center justify-between bg-blue-950/70 px-8 py-1">
       <h2 className="text-xl font-black">{tituloprincipal}</h2>
-      <div className="flex flex-row flex-wrap items-center gap-1 py-3 text-sm">
+      <div className="flex flex-row flex-wrap items-center gap-1 py-3 ">
         {pathSegments.map((segment, index) => {
           const fullPath = buildPath(index);
           const isProblematic = problematicSegments.includes(fullPath);
@@ -53,10 +53,10 @@ const MiddleNav: FC<MiddleNavProps> = ({ tituloprincipal }) => {
           return (
             <div className="flex items-center" key={index}>
               <p
-                className={`flex items-center gap-1 px-3 py-1 rounded bg-blue-950/50 ${
+                className={`flex items-center gap-1 px-3 py-1 rounded bg-white text-sm text-gray-400  ${
                   isProblematic
                     ? 'cursor-not-allowed text-gray-300'
-                    : 'cursor-pointer hover:bg-blue-900'
+                    : 'cursor-pointer hover:bg-gray-200 text-gray-600 font-base  '
                 }`}
                 onClick={() => handleClick(index)}
               >
