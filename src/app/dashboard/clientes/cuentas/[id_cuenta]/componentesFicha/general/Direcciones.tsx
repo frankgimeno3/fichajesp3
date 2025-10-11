@@ -14,9 +14,11 @@ interface Direccion {
 
 interface DireccionesProps {
   direcciones: Direccion[];
+      onChange: () => void;
+
 }
 
-const Direcciones: FC<DireccionesProps> = ({ direcciones }) => {
+const Direcciones: FC<DireccionesProps> = ({ direcciones, onChange }) => {
   if (!direcciones || direcciones.length === 0) {
     return <p className="text-gray-500">No hay direcciones registradas para esta cuenta.</p>;
   }
@@ -44,14 +46,14 @@ const Direcciones: FC<DireccionesProps> = ({ direcciones }) => {
           </thead>
           <tbody>
             <tr className="border-t border-gray-200 hover:bg-gray-100/30">
-              <td className="p-2 border-b">{d.nombre_direccion}</td>
-              <td className="p-2 border-b">{d.pais_direccion}</td>
-              <td className="p-2 border-b">{d.region_direccion}</td>
-              <td className="p-2 border-b">{d.ciudad_direccion}</td>
-              <td className="p-2 border-b">{d.codigo_postal}</td>
-              <td className="p-2 border-b">{d.direccion_completa}</td>
-              <td className="p-2 border-b">{d.telefono_direccion}</td>
-              <td className="p-2 border-b">{d.descripcion_direccion}</td>
+              <td className="p-2 border-b" onChange={onChange}>{d.nombre_direccion}</td>
+              <td className="p-2 border-b" onChange={onChange}>{d.pais_direccion}</td>
+              <td className="p-2 border-b" onChange={onChange}>{d.region_direccion}</td>
+              <td className="p-2 border-b" onChange={onChange}>{d.ciudad_direccion}</td>
+              <td className="p-2 border-b" onChange={onChange}>{d.codigo_postal}</td>
+              <td className="p-2 border-b" onChange={onChange}>{d.direccion_completa}</td>
+              <td className="p-2 border-b" onChange={onChange}>{d.telefono_direccion}</td>
+              <td className="p-2 border-b" onChange={onChange}>{d.descripcion_direccion}</td>
             </tr>
           </tbody>
         </table>

@@ -5,12 +5,14 @@ import React, { useState } from 'react';
 import ContenidoGeneral from './componentesFicha/ContenidoGeneral';
 import ContenidoComentarios from './componentesFicha/ContenidoComentarios';
 import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
+import BotonFlotante from '@/app/general_components/componentes_recurrentes/BotonFlotante';
 
 const FichaCliente = () => {
   const router = useRouter();
   const params = useParams();
-  const id_cuenta = params?.id_cuenta as string; // obtenemos id_cuenta de la URL
+  const id_cuenta = params?.id_cuenta as string; 
   const [pestana, setPestana] = useState<'general' | 'comentarios' | 'administrativo'>('general');
+  const [isContenidoEdited, setIsContenidoEdited] = useState(false);
 
   if (!id_cuenta) {
     return <p>ID de cuenta no encontrado en la URL</p>;
@@ -33,16 +35,11 @@ const FichaCliente = () => {
             >
               <p>Propuestas</p>
             </button>
-            <button
-              className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-              onClick={() => router.push('/dashboard/Clientes/ficha/editar')}
-            >
-              <p>Editar</p>
-            </button>
+            
           </div>
         </div>
 
-        <div className="flex flex-row mt-6 relative mb-4">
+        <div className="flex flex-row mt-6 relative  ">
           {[
             { key: 'general', label: 'Datos Generales' },
             { key: 'comentarios', label: 'Comentarios' },
@@ -60,10 +57,13 @@ const FichaCliente = () => {
         </div>
 
         <div className='bg-white p-12 shadow-xl rounded-b-lg'>
-          {pestana === 'general' && <ContenidoGeneral id_cuenta={id_cuenta} />}
-          {pestana === 'comentarios' && <ContenidoComentarios id_cuenta={id_cuenta} />}
+          {pestana === 'general' && <ContenidoGeneral id_cuenta={id_cuenta} setIsContenidoEdited={setIsContenidoEdited} />}
+          {pestana === 'comentarios' && <ContenidoComentarios id_cuenta={id_cuenta}   />}
         </div>
       </div>
+
+              <BotonFlotante isContenidoEdited={isContenidoEdited} />
+
     </div>
   );
 };

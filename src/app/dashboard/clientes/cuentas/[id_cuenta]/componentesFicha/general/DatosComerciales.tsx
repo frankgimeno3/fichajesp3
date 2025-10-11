@@ -7,11 +7,13 @@ interface DatosComercialesProps {
     telefono_principal_cuenta: string;
     categoria_principal_cuenta: string;
     resumen_actividad_cuenta: string;
+    
   };
   nombre_empresa: string;
+  onChange: () => void;
 }
 
-const DatosComerciales: FC<DatosComercialesProps> = ({ datos_comerciales, nombre_empresa }) => {
+const DatosComerciales: FC<DatosComercialesProps> = ({ datos_comerciales, nombre_empresa, onChange }) => {
   return (
     <div className="p-4 space-y-6 w-full">
       <h2 className="text-xl font-bold">Datos Comerciales</h2>
@@ -28,11 +30,11 @@ const DatosComerciales: FC<DatosComercialesProps> = ({ datos_comerciales, nombre
         </thead>
         <tbody className="text-sm">
           <tr className="border-t border-gray-200 hover:bg-gray-100/30">
-            <td className="p-2 border-b">{nombre_empresa}</td>
-            <td className="p-2 border-b">{datos_comerciales.ciudad_principal_cuenta}</td>
-            <td className="p-2 border-b">{datos_comerciales.telefono_principal_cuenta}</td>
-            <td className="p-2 border-b">{datos_comerciales.categoria_principal_cuenta}</td>
-            <td className="p-2 border-b">{datos_comerciales.resumen_actividad_cuenta}</td>
+            <td className="p-2 border-b" onChange={onChange}>{nombre_empresa}</td>
+            <td className="p-2 border-b" onChange={onChange}>{datos_comerciales.ciudad_principal_cuenta}</td>
+            <td className="p-2 border-b" onChange={onChange}>{datos_comerciales.telefono_principal_cuenta}</td>
+            <td className="p-2 border-b" onChange={onChange}>{datos_comerciales.categoria_principal_cuenta}</td>
+            <td className="p-2 border-b" onChange={onChange}>{datos_comerciales.resumen_actividad_cuenta}</td>
           </tr>
         </tbody>
       </table>

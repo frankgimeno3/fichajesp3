@@ -1,5 +1,5 @@
 'use client';
-import React, { FC } from 'react';
+import React, { FC, ChangeEvent } from 'react';
 import agentes from "@/app/contents/agentesContents.json";
 
 interface DatosCRMProps {
@@ -8,6 +8,7 @@ interface DatosCRMProps {
   presente_en_qq: boolean;
   actividades: string[];
   fuente_novedades: string;
+  onChange: (field: string, value: string | boolean | string[]) => void;
 }
 
 const DatosCRM: FC<DatosCRMProps> = ({
@@ -16,16 +17,32 @@ const DatosCRM: FC<DatosCRMProps> = ({
   presente_en_qq,
   actividades,
   fuente_novedades,
+  onChange
 }) => {
-
-  // Buscar el agente correspondiente al id_agente recibido
   const agente = agentes.find((a) => a.id_agente === id_agente);
-  const nombreAgente = agente ? agente.nombre_agente : id_agente; // fallback si no se encuentra
+  const nombreAgente = agente ? agente.nombre_agente : id_agente;
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    onChange(name, value);
+  };
+
+  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    onChange('presente_en_qq', e.target.value === 'Sí');
+  };
+
+  const handleActividadesChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value
+      .split(',')
+      .map((a) => a.trim())
+      .filter((a) => a.length > 0);
+    onChange('actividades', value);
+  };
 
   return (
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4">Datos CRM</h2>
-      <table className="min-w-full">
+      <table className="min-w-full border border-gray-200 rounded-lg overflow-hidden">
         <thead className="bg-blue-950/80 text-white">
           <tr>
             <th className="text-left p-2 font-light">Nombre Empresa</th>
@@ -37,11 +54,56 @@ const DatosCRM: FC<DatosCRMProps> = ({
         </thead>
         <tbody>
           <tr className="border-t border-gray-200 hover:bg-gray-100/30">
-            <td className="p-2 border-b border-gray-200">{nombre_empresa}</td>
-            <td className="p-2 border-b border-gray-200">{nombreAgente}</td>
-            <td className="p-2 border-b border-gray-200">{actividades.join(', ')}</td>
-            <td className="p-2 border-b border-gray-200">{presente_en_qq ? 'Sí' : 'No'}</td>
-            <td className="p-2 border-b border-gray-200">{fuente_novedades}</td>
+            {/* Nombre Empresa */}
+            <td className="p-2 border-b border-gray-200">
+              <input
+                type="text"
+                name="nombre_empresa"
+                value={nombre_empresa}
+                onChange={handleInputChange}
+                className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring focus:ring-blue-400"
+              />
+            </td>
+
+            {/* Agente Asignado (no editable) */}
+            <td className="p-2 border-b border-gray-200">
+              {nombreAgente}
+            </td>
+
+            {/* Actividades */}
+            <td className="p-2 border-b border-gray-200">
+              <input
+                type="text"
+                name="actividades"
+                value={actividades.join(', ')}
+                onChange={handleActividadesChange}
+                className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring focus:ring-blue-400"
+              />
+            </td>
+
+            {/* QQ? */}
+            <td className="p-2 border-b border-gray-200">
+              <select
+                name="presente_en_qq"
+                value={presente_en_qq ? 'Sí' : 'No'}
+                onChange={handleSelectChange}
+                className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring focus:ring-blue-400"
+              >
+                <option value="Sí">Sí</option>
+                <option value="No">No</option>
+              </select>
+            </td>
+
+            {/* Fuentes novedades */}
+            <td className="p-2 border-b border-gray-200">
+              <input
+                type="text"
+                name="fuente_novedades"
+                value={fuente_novedades}
+                onChange={handleInputChange}
+                className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring focus:ring-blue-400"
+              />
+            </td>
           </tr>
         </tbody>
       </table>

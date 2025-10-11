@@ -13,10 +13,7 @@ const FichaContacto: FC = () => {
     ? params.id[0]
     : params?.id ?? null;
 
-  const [pestana, setPestana] = useState<
-    "general" | "comentarios" | "administrativo" | "registro"
-  >("general");
-
+ 
   const [isContenidoEdited, setIsContenidoEdited] = useState(false);
 
   const contacto = contactsContents.find((c) => c.id_contacto === contactoId);
@@ -35,9 +32,7 @@ const FichaContacto: FC = () => {
       <div className="bg-gray-100 min-h-screen p-12 text-gray-600 relative">
 
         <div className="flex flex-row mt-3 relative">
-          <div className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300
-            ${pestana === "general" ? "bg-white z-30 rounded-tl-lg" : "bg-gray-200/70 z-10 hover:bg-gray-200"}`}
-            onClick={() => setPestana("general")} >
+          <div className="p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300 bg-white z-30 rounded-tl-lg">
             Datos Generales
           </div>
         </div>

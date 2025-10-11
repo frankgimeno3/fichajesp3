@@ -4,8 +4,8 @@ import comentariosCuentas from "@/app/contents/comentariosCuentasContents.json";
 import agentes from "@/app/contents/agentesContents.json";
 
 interface ContenidoComentariosProps {
-    id_cuenta: string;   
-}
+  id_cuenta: string;
+ }
 
 interface Comentario {
   id_comentario: string;
@@ -14,7 +14,7 @@ interface Comentario {
   contenido: string;
 }
 
-const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ id_cuenta }) => {
+const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ id_cuenta,   }) => {
   const [comentarios, setComentarios] = useState<Comentario[]>([]);
   const [nuevoComentario, setNuevoComentario] = useState("");
   const [mostrarInput, setMostrarInput] = useState(false);
@@ -24,7 +24,7 @@ const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ id_cuenta }) => {
     if (!cuenta) {
       setComentarios([]);
       return;
-    }
+    } 
 
     const comentariosFormateados = cuenta.array_comentarios_cuenta.map(c => {
       const agente = agentes.find(a => a.id_agente === c.id_autor);
