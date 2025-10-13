@@ -14,19 +14,12 @@ const ResumenPropuesta: FC = () => {
   const params = useParams();  
   const idPropuesta = params.id_propuesta;
 
-  const [isDatosContactoShown, setIsDatosContactoShown] = useState(false);
-
+  
    const propuesta = propuestas.find(p => p.detalles_propuesta.id_propuesta === idPropuesta);
 
   if (!propuesta) {
     return <div className="text-red-500 p-6">Propuesta no encontrada. {idPropuesta} </div>;
   }
-
-  const handleTogleDatosContactoShown = () => {
-    setIsDatosContactoShown(!isDatosContactoShown);
-  };
-
-    
  
   return (
     <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
@@ -59,29 +52,16 @@ const ResumenPropuesta: FC = () => {
         <p className="font-bold text-gray-500">Datos generales:</p>
         <TablaDatosGenerales codigoPropuesta={propuesta.detalles_propuesta.id_propuesta} />
 
-        <div className='flex flex-col bg-gray-100 rounded-lg shadow-xl mt-12 '>
-          <div className='flex flex-row items-center justify-between bg-blue-950 text-white p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-            onClick={handleTogleDatosContactoShown}>
-            <p className="font-bold">Datos de contacto</p>
-            <div className="ml-2">
-              {isDatosContactoShown ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                </svg>
-              )}
-            </div>
+
+
+            
+
+         
+         <div className=' bg-gray-100 py-12'>
+        <p className="font-bold text-gray-500">Datos de contacto:</p>
+            <TablaDatosAnunciante empresaAnunciante={propuesta.cuenta_propuesta.id_cuenta_propuesta} />
           </div>
-
-          {isDatosContactoShown && <div className='px-12 bg-gray-100 pb-12'>
-            <p className="font-bold text-gray-500 mt-6">Datos de la empresa anunciante:</p>
-            <TablaDatosAnunciante empresaAnunciante={empresaAnunciante} />
-          </div>}
-        </div>
-
+ 
         <p className="font-bold text-gray-500 mt-6">Contenido en campaña:</p>
         <TablaContenidoPropuesta contenido={propuesta.contenido_propuesta} />
 
