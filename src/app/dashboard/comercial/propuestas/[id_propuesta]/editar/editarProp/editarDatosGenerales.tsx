@@ -5,6 +5,8 @@ interface TablaDatosGeneralesProps {
 }
 
 const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ codigoPropuesta }) => {
+  
+  
   const [formData, setFormData] = useState({
     fechaEnvio: '12/12/2025',
     fechaValidez: '12/03/2026',

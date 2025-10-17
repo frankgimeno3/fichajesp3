@@ -1,86 +1,63 @@
 import React, { FC, useState } from "react";
+import propuestas from "@/app/contents/propuestasContents.json";
+import { InterfazPropuesta } from "@/app/interfaces/interfaces";
 
 interface FilaContenido {
   medio: string;
   publicacion: string;
   producto: string;
-  precio: string;
+  precio: number;
   deadline: string;
   fechaPublicacion: string;
-  estadoMaterial: string;
-  urlcontenido: string;
+  estadoMaterial?: string;
+  urlcontenido?: string;
 }
 
-const datosIniciales: FilaContenido[] = [
-  {
-    medio: "Revista del vidrio España",
-    publicacion: "Edición 210",
-    producto: "Anuncio de una página",
-    precio: "1760€",
-    deadline: "11/10/2025",
-    fechaPublicacion: "12/12/2025",
-    estadoMaterial: "Publicado",
-    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
-  },
-  {
-    medio: "Revista del vidrio España",
-    publicacion: "Edición 211",
-    producto: "Media página",
-    precio: "850€",
-    deadline: "15/10/2025",
-    fechaPublicacion: "01/01/2026",
-    estadoMaterial: "Pedido no recibido",
-    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
-  },
-  {
-    medio: "Revista del vidrio España",
-    publicacion: "Edición 212",
-    producto: "Doble página",
-    precio: "500€",
-    deadline: "20/10/2025",
-    fechaPublicacion: "05/01/2026",
-    estadoMaterial: "No pedido",
-    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
-  },
-  {
-    medio: "Revista del vidrio España",
-    publicacion: "Edición 213",
-    producto: "Publicidad en portada",
-    precio: "2300€",
-    deadline: "25/10/2025",
-    fechaPublicacion: "10/01/2026",
-    estadoMaterial: "No pedido",
-    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
-  },
-  {
-    medio: "Revista del vidrio España",
-    publicacion: "Edición 214",
-    producto: "Anuncio interior portada",
-    precio: "1200€",
-    deadline: "30/10/2025",
-    fechaPublicacion: "15/01/2026",
-    estadoMaterial: "No pedido",
-    urlcontenido: "/dashboard/produccion/contenidos/revista/contenido",
-  },
-];
+interface TablaContenidoPropuestaProps {
+  codigoPropuesta: string;
+}
 
+const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropuesta }) => {
+  const propuestasData = propuestas as InterfazPropuesta[];
 
-const TablaContenidoPropuesta: FC = () => {
-  const [filas, setFilas] = useState<FilaContenido[]>(datosIniciales);
+  // Buscar la propuesta seleccionada por su id
+  const propuesta_seleccionada = propuestasData.find(
+    (p) => p.detalles_propuesta.id_propuesta === codigoPropuesta
+  );
+
+  // Si no se encuentra la propuesta, mostramos un mensaje
+  if (!propuesta_seleccionada) {
+    return <div>No se encontró la propuesta con código: {codigoPropuesta}</div>;
+  }
+
+  // Convertimos el contenido del JSON al formato usado en la tabla
+  const contenidoInicial: FilaContenido[] = propuesta_seleccionada.contenido_propuesta.map(
+    (item) => ({
+      medio: item.medio,
+      publicacion: item.publicacion,
+      producto: item.producto,
+      precio: item.precio_producto,
+      deadline: item.deadline_publicacion,
+      fechaPublicacion: item.fecha_publicacion_publicacion,
+      estadoMaterial: "",
+      urlcontenido: "",
+    })
+  );
+
+  const [filas, setFilas] = useState<FilaContenido[]>(contenidoInicial);
   const [filaAEliminar, setFilaAEliminar] = useState<number | null>(null);
   const [showAgregar, setShowAgregar] = useState(false);
   const [nuevaFila, setNuevaFila] = useState<FilaContenido>({
     medio: "",
     publicacion: "",
     producto: "",
-    precio: "",
+    precio: 0,
     deadline: "",
     fechaPublicacion: "",
     estadoMaterial: "",
     urlcontenido: "",
   });
 
-  // Función para eliminar una fila confirmada
   const confirmarEliminar = () => {
     if (filaAEliminar !== null) {
       setFilas(filas.filter((_, i) => i !== filaAEliminar));
@@ -88,14 +65,13 @@ const TablaContenidoPropuesta: FC = () => {
     }
   };
 
-  // Función para agregar una fila
   const agregarFila = () => {
     setFilas([...filas, nuevaFila]);
     setNuevaFila({
       medio: "",
       publicacion: "",
       producto: "",
-      precio: "",
+      precio: 0,
       deadline: "",
       fechaPublicacion: "",
       estadoMaterial: "",
@@ -106,7 +82,7 @@ const TablaContenidoPropuesta: FC = () => {
 
   return (
     <div className="overflow-x-auto">
-           <table className="table-auto border-collapse text-center w-full">
+      <table className="table-auto border-collapse text-center w-full">
         <thead>
           <tr className="bg-blue-950 text-white">
             <th className="px-4 py-2">Medio</th>
@@ -140,19 +116,19 @@ const TablaContenidoPropuesta: FC = () => {
           ))}
         </tbody>
       </table>
- <button
+
+      <button
         onClick={() => setShowAgregar(true)}
-        className=" px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 w-full"
+        className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 w-full mt-2"
       >
         + Agregar fila
       </button>
-      {/* Popup para confirmar eliminación */}
+
+      {/* Modal eliminar */}
       {filaAEliminar !== null && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
           <div className="bg-white p-6 rounded shadow-md w-80 text-center">
-            <p className="mb-4">
-              ¿Seguro que quieres eliminar esta fila?
-            </p>
+            <p className="mb-4">¿Seguro que quieres eliminar esta fila?</p>
             <div className="flex justify-around">
               <button
                 onClick={() => setFilaAEliminar(null)}
@@ -171,7 +147,7 @@ const TablaContenidoPropuesta: FC = () => {
         </div>
       )}
 
-      {/* Popup para agregar fila */}
+      {/* Modal agregar */}
       {showAgregar && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
           <div className="bg-white p-6 rounded shadow-md w-96">
@@ -186,32 +162,30 @@ const TablaContenidoPropuesta: FC = () => {
               </button>
             </div>
 
-            {/* Inputs para agregar nueva fila */}
             <div className="grid grid-cols-2 gap-2">
-              {(
-                [
-                  "medio",
-                  "publicacion",
-                  "producto",
-                  "precio",
-                  "deadline",
-                  "fechaPublicacion",
-                ] as (keyof FilaContenido)[]
-              ).map((field) => (
-                <div key={field} className="flex flex-col">
-                  <label className="text-left text-sm font-semibold capitalize">
-                    {field.replace(/([A-Z])/g, " $1")}
-                  </label>
-                  <input
-                    type="text"
-                    value={nuevaFila[field]}
-                    onChange={(e) =>
-                      setNuevaFila({ ...nuevaFila, [field]: e.target.value })
-                    }
-                    className="border border-gray-300 rounded px-2 py-1"
-                  />
-                </div>
-              ))}
+              {(["medio", "publicacion", "producto", "precio", "deadline", "fechaPublicacion"] as (keyof FilaContenido)[]).map(
+                (field) => (
+                  <div key={field} className="flex flex-col">
+                    <label className="text-left text-sm font-semibold capitalize">
+                      {field.replace(/([A-Z])/g, " $1")}
+                    </label>
+                    <input
+                      type={field === "precio" ? "number" : "text"}
+                      value={nuevaFila[field] as string | number}
+                      onChange={(e) =>
+                        setNuevaFila({
+                          ...nuevaFila,
+                          [field]:
+                            field === "precio"
+                              ? Number(e.target.value)
+                              : e.target.value,
+                        })
+                      }
+                      className="border border-gray-300 rounded px-2 py-1"
+                    />
+                  </div>
+                )
+              )}
             </div>
 
             <div className="mt-4 flex justify-end gap-2">
@@ -224,11 +198,7 @@ const TablaContenidoPropuesta: FC = () => {
               <button
                 onClick={agregarFila}
                 className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-                disabled={
-                  !nuevaFila.medio ||
-                  !nuevaFila.publicacion ||
-                  !nuevaFila.producto
-                }
+                disabled={!nuevaFila.medio || !nuevaFila.publicacion || !nuevaFila.producto}
               >
                 Agregar
               </button>

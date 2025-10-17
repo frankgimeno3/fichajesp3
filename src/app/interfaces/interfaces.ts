@@ -70,3 +70,29 @@ export interface InterfazServicio {
     nombre: string;
   };
 }
+
+export interface InterfazPropuesta {
+  detalles_propuesta: {
+    id_propuesta: string;
+    id_agente_propuesta: string;
+    estado_propuesta: 'Pendiente' | 'Aceptada' | 'Rechazada';
+    fecha_envio_propuesta: string;  
+  };
+  cuenta_propuesta: {
+    id_cuenta_propuesta: string;
+    id_contacto: string;
+    cargoContacto: string;
+  };
+  contenido_propuesta: {
+    medio: string;
+    publicacion: string;
+    producto: string;
+    precio_producto: number;
+    deadline_publicacion: string;  
+    fecha_publicacion_publicacion: string; 
+  }[];
+  descuento_final_propuesta: number;
+  importe_total_BI_propuesta: number;
+  iva_aplicable: boolean;
+  importe_propuesta_con_iva: number;
+}
