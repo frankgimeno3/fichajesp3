@@ -20,18 +20,15 @@ interface TablaContenidoPropuestaProps {
 const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropuesta }) => {
   const propuestasData = propuestas as InterfazPropuesta[];
 
-  // Buscar la propuesta seleccionada por su id
-  const propuesta_seleccionada = propuestasData.find(
+   const propuesta_seleccionada = propuestasData.find(
     (p) => p.detalles_propuesta.id_propuesta === codigoPropuesta
   );
 
-  // Si no se encuentra la propuesta, mostramos un mensaje
-  if (!propuesta_seleccionada) {
+   if (!propuesta_seleccionada) {
     return <div>No se encontró la propuesta con código: {codigoPropuesta}</div>;
   }
 
-  // Convertimos el contenido del JSON al formato usado en la tabla
-  const contenidoInicial: FilaContenido[] = propuesta_seleccionada.contenido_propuesta.map(
+   const contenidoInicial: FilaContenido[] = propuesta_seleccionada.contenido_propuesta.map(
     (item) => ({
       medio: item.medio,
       publicacion: item.publicacion,

@@ -95,4 +95,5 @@ export interface InterfazPropuesta {
   importe_total_BI_propuesta: number;
   iva_aplicable: boolean;
   importe_propuesta_con_iva: number;
+  comentarios_adicionales_propuesta:string;
 }

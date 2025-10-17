@@ -1,14 +1,27 @@
 import React, { FC, useState, useEffect } from 'react';
+import propuestas from "@/app/contents/propuestasContents.json";
+import { InterfazPropuesta } from '@/app/interfaces/interfaces';
 
-const DatosCobroPropuesta: FC = () => {
+
+interface DatosCobroPropuestaProps {
+  codigoPropuesta: string;
+}
+
+const DatosCobroPropuesta: FC <DatosCobroPropuestaProps> = ({codigoPropuesta}) => {
   const [formData, setFormData] = useState({
     numeroCobros: '3',
-    baseImponible: '1500', // solo número como string
-    impuesto: '21', // porcentaje sin %
-    precioTotal: '0', // se calcula automáticamente
+    baseImponible: '1500', 
+    impuesto: '21', 
+    precioTotal: '0', 
     formaCobro: 'Transferencia',
     cuentaCobro: 'ES76 1234 5678 9012 3456 7890',
   });
+  
+const propuestasData = propuestas as InterfazPropuesta[];
+
+   const propuesta_seleccionada = propuestasData.find(
+    (p) => p.detalles_propuesta.id_propuesta === codigoPropuesta
+  );
 
   useEffect(() => {
     const base = parseFloat(formData.baseImponible) || 0;

@@ -28,11 +28,12 @@
         "deadline_publicacion": "15/10/2025",
         "fecha_publicacion_publicacion": "01/01/2026"
        }
-    ],
-    "descuento_final_propuesta": 500,
-    "importe_total_BI_propuesta": 3020,
-    "iva_aplicable": true,
-    "importe_propuesta_con_iva": 3654.2
+      ],
+      "descuento_final_propuesta": 500,
+      "importe_total_BI_propuesta": 3020,
+      "iva_aplicable": true,
+      "importe_propuesta_con_iva": 3654.2,
+      "comentarios_adicionales_propuesta":"Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum repellendus voluptate?"
   },
   {
     "detalles_propuesta": {
@@ -60,7 +61,8 @@
     "descuento_final_propuesta": 0,
     "importe_total_BI_propuesta": 500,
     "iva_aplicable": true,
-    "importe_propuesta_con_iva": 605
+    "importe_propuesta_con_iva": 605,
+      "comentarios_adicionales_propuesta":"Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum repellendus voluptate?"
   },
   {
     "detalles_propuesta": {
@@ -88,7 +90,8 @@
     "descuento_final_propuesta": 0,
     "importe_total_BI_propuesta": 2300,
     "iva_aplicable": false,
-    "importe_propuesta_con_iva": 2300
+    "importe_propuesta_con_iva": 2300,
+      "comentarios_adicionales_propuesta":"Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum repellendus voluptate?"
   },
   {
     "detalles_propuesta": {
@@ -116,7 +119,8 @@
     "descuento_final_propuesta": 0,
     "importe_total_BI_propuesta": 1200,
     "iva_aplicable": true,
-    "importe_propuesta_con_iva": 1452
+    "importe_propuesta_con_iva": 1452,
+      "comentarios_adicionales_propuesta":"Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum repellendus voluptate?"
   },
   {
     "detalles_propuesta": {
@@ -144,6 +148,7 @@
     "descuento_final_propuesta": 0,
     "importe_total_BI_propuesta": 12000,
     "iva_aplicable": true,
-    "importe_propuesta_con_iva": 14520
+    "importe_propuesta_con_iva": 14520,
+      "comentarios_adicionales_propuesta":"Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum repellendus voluptate?"
   }
 ]
