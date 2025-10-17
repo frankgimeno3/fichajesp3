@@ -57,8 +57,7 @@ const PropsAprobadasContent: FC<PropsAprobadasContentProps> = ({ id_cuenta }) =>
             <tr
               key={p.detalles_propuesta.id_propuesta}
               className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
-              onClick={() => router.push('/dashboard/comercial/propuestas/propuesta')}
-            >
+              onClick={() => router.push(`/dashboard/comercial/propuestas/${p.detalles_propuesta.id_propuesta}`)}>
               <td className="p-2 border-b border-gray-200"><PropSvg /></td>
               <td className="p-2 border-b border-gray-200">{p.detalles_propuesta.id_propuesta}</td>
               <td className="p-2 border-b border-gray-200">{p.detalles_propuesta.id_agente_propuesta}</td>

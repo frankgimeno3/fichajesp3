@@ -117,8 +117,7 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
     }
   );
 
-  // Filtrado corregido
-  const resultadosFiltrados = resultados.filter((r) => {
+   const resultadosFiltrados = resultados.filter((r) => {
     const coincideCliente =
       clienteFiltro === '' || r.nombreEmpresa.toLowerCase().includes(clienteFiltro.toLowerCase());
 

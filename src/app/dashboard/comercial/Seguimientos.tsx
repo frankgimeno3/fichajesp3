@@ -1,6 +1,6 @@
 "use client"
 import React, { FC } from "react";
-import seguimientos from "../../contents/seguimientos.json"; // Importamos el JSON
+import seguimientos from "@/app/contents/seguimientosContents.json"; // Importamos el JSON
 
 interface Seguimiento {
   id_seguimeinto: string;

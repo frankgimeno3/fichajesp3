@@ -1,5 +1,4 @@
-// /dashboard/comercial/propuestas/[id_propuesta]/editar/page.tsx
-
+ 
 "use client";
 
 import React, { FC, useState } from "react";
