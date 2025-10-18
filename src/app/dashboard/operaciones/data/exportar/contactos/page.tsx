@@ -1,9 +1,9 @@
 "use client"
 import MiddleNav from "@/app/general_components/componentes_recurrentes/MiddleNav";
+import { useRouter } from "next/navigation";
 import React, { FC } from "react";
 
 interface ExportarContactosProps { }
-
 const idiomas = ["inglés", "turco", "chino", "portugués", "alemán", "español", "italiano", "otros"];
 
  const opcionesSuscripciones = [
@@ -32,6 +32,8 @@ const idiomas = ["inglés", "turco", "chino", "portugués", "alemán", "español
 ];
 
 const ExportarContactos: FC<ExportarContactosProps> = ({ }) => {
+  const router = useRouter()
+
   return (
     <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
 
@@ -39,7 +41,8 @@ const ExportarContactos: FC<ExportarContactosProps> = ({ }) => {
       <div className="bg-white mx-12 my-6 p-12 rounded-xl shadow">
         <div className="flex flex-row items-center justify-between mb-12">
           <p className="font-semibold text-3xl text-blue-950">Exportación de contactos</p>
-          <button className="bg-blue-950 hover:bg-blue-950/50 cursor-pointer text-white rounded-lg shadow-xl px-3 py-2">
+          <button className="bg-blue-950 hover:bg-blue-950/50 cursor-pointer text-white rounded-lg shadow-xl px-3 py-2"
+                    onClick={()=>{router.push("/dashboard/operaciones/data/exportar/cuentas")}}>
             Deseo exportar cuentas
           </button>
         </div>
@@ -82,8 +85,15 @@ const ExportarContactos: FC<ExportarContactosProps> = ({ }) => {
               </fieldset>
             </div>
           </div>
-          <label className="block text-sm  mt-8 font-bold">Listado de cuentas  </label>
+          <label className="block text-sm  mt-8 font-bold">Exportar todos los contactos de cuentas específicas</label>
           <label className="block text-sm  mb-2 ">Introduzca códigos de empresa separados por comas</label>
+          <textarea
+            className="border  border-gray-300 rounded-md px-2 py-1 w-full min-h-[80px]"
+            placeholder="1001,1002,1003"
+          />
+
+                  <label className="block text-sm  mt-8 font-bold">Exportar contactos específicos  </label>
+          <label className="block text-sm  mb-2 ">Introduzca códigos de contacto separados por comas</label>
           <textarea
             className="border  border-gray-300 rounded-md px-2 py-1 w-full min-h-[80px]"
             placeholder="1001,1002,1003"
