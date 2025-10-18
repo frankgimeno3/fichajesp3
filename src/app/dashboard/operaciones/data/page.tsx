@@ -1,8 +1,8 @@
 'use client'
 import React, { FC, useState } from 'react';
  import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
-import Importar from './importexportcomponents/Importar';
-import Exportar from './importexportcomponents/Exportar';
+import Importar from './datacomponents/Importar';
+import Exportar from './datacomponents/Exportar';
   
 const Importexport: FC = () => {
   const [pestana, setPestana] = useState("importar")
@@ -38,6 +38,7 @@ const Importexport: FC = () => {
              
           </div>
           <div className='border border-gray-100 shadow-xl'>
+            <p className='p-5 text-xl font-bold'>Qué deseas hacer?</p>
           {pestana == "importar" && <Importar />}
 
           {pestana == "exportar" && <Exportar/>}

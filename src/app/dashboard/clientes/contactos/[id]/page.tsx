@@ -2,9 +2,9 @@
 import React, { FC, useState } from "react";
 import { useParams } from "next/navigation";
 import ContenidoGeneralContacto from "../componentesFichaContacto/ContenidoGeneralContacto";
-import contactsContents from '@/app/contents/contactsContents.json';
 import BotonFlotante from "@/app/general_components/componentes_recurrentes/BotonFlotante";
 import MiddleNav from "@/app/general_components/componentes_recurrentes/MiddleNav";
+import contactsContents from '@/app/contents/contactsContents.json';
 
 const FichaContacto: FC = () => {
   const params = useParams();
@@ -21,7 +21,7 @@ const FichaContacto: FC = () => {
   if (!contacto) {
     return (
       <div className="bg-gray-100 min-h-screen p-12 text-gray-600">
-        <h2 className="text-lg font-semibold">Contacto no encontrado</h2>
+        <h2 className="text-lg font-semibold">Contacto no encontrado {contactoId}</h2>
       </div>
     );
   }

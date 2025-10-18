@@ -100,15 +100,14 @@ const EditarPropuesta: FC = () => {
         <div className="flex flex-row px-12 bg-gray-100 py-5 gap-2">
           <div className="flex flex-col w-full">
             <EditarDatosAnunciante
-              empresaAnunciante={
-                propuestaSeleccionada.cuenta_propuesta.id_cuenta_propuesta
-              }
+              empresaAnunciante={ propuestaSeleccionada.cuenta_propuesta.id_cuenta_propuesta }
+              contactoPropuesta={propuestaSeleccionada.cuenta_propuesta.id_contacto}
             />
           </div>
         </div>
       </div>
 
-       <p className="font-bold text-gray-500 mt-6">Contenido en campaña:</p>
+       <p className="font-bold text-gray-500 mt-6">Contenido en propuesta:</p>
       <EditarContenidoPropuesta
         codigoPropuesta={propuestaSeleccionada.detalles_propuesta.id_propuesta}
       />

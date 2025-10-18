@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import UserSerivce from "@/app/service/UserSerivce";
-import { UserType } from "@/app/admin/dashboard/usuarios/UserType";
-
+import { UserType } from "./UserType";
+ 
 interface PopUpCrearProps {
     onClose: () => void;
     onCreate: (user: UserType, role: string) => void; // agregamos role
@@ -98,7 +98,7 @@ const PopUpCrear: FC<PopUpCrearProps> = ({ onClose, onCreate }) => {
                         >
                             <option value="Agente">Agente</option>
                             <option value="Administración">Administración</option>
-                            <option value="Moderador">Moderador</option>
+                            <option value="Moderador">Operaciones</option>
                         </select>
                     </div>
                 </div>

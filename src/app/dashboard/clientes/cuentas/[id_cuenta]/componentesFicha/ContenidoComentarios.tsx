@@ -107,7 +107,7 @@ const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ id_cuenta }) => {
           />
           <button
             onClick={agregarComentario}
-            className="bg-blue-600 text-white rounded-lg px-5 py-2 hover:bg-blue-700 self-end"
+            className="bg-blue-600 text-white rounded-lg px-5 py-2 hover:bg-blue-700 self-end cursor-pointer text-sm"
           >
             Guardar comentario
           </button>
@@ -149,13 +149,13 @@ const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ id_cuenta }) => {
                 <div className="flex justify-end gap-3">
                   <button
                     onClick={cerrarModal}
-                    className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300"
+                    className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 cursor-pointer"
                   >
                     Cancelar
                   </button>
                   <button
                     onClick={handleConfirmar}
-                    className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700"
+                    className="px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 cursor-pointer"
                   >
                     Modificar
                   </button>
@@ -171,13 +171,13 @@ const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ id_cuenta }) => {
                 <div className="flex justify-end gap-3">
                   <button
                     onClick={cerrarModal}
-                    className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300"
+                    className="px-4 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 cursor-pointer"
                   >
                     No, cancelar
                   </button>
                   <button
                     onClick={handleConfirmar}
-                    className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700"
+                    className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700 cursor-pointer"
                   >
                     Sí, borrar
                   </button>

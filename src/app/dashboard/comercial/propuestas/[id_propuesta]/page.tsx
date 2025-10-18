@@ -45,13 +45,13 @@ const ResumenPropuesta: FC = () => {
             </button>
             <button
               className="bg-green-600 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push('/dashboard/comercial/propuestas')}
+              onClick={() => router.push(`/dashboard/comercial/propuestas`)}
             >
               Marcar como aceptada
             </button>
             <button
               className="bg-red-600 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push('/dashboard/comercial/propuestas')}
+              onClick={() => router.push(`/dashboard/comercial/propuestas`)}
             >
               Marcar como rechazada
             </button>
@@ -63,10 +63,13 @@ const ResumenPropuesta: FC = () => {
 
         <div className="bg-gray-100 py-12">
           <p className="font-bold text-gray-500">Datos de contacto:</p>
-          <TablaDatosAnunciante empresaAnunciante={propuesta.cuenta_propuesta.id_cuenta_propuesta} />
+          <TablaDatosAnunciante empresaAnunciante={propuesta.cuenta_propuesta.id_cuenta_propuesta}
+                        contactoPropuesta={propuesta.cuenta_propuesta.id_contacto}
+ />
+          
         </div>
 
-        <p className="font-bold text-gray-500 mt-6">Contenido en campaña:</p>
+        <p className="font-bold text-gray-500 mt-6">Contenido en propuesta:</p>
         <TablaContenidoPropuesta contenido={propuesta.contenido_propuesta} />
 
         <p className="font-bold text-gray-500 mt-6">Datos para facturación:</p>

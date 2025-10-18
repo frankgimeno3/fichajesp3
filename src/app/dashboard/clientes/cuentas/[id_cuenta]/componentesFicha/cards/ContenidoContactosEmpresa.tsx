@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import React, { FC } from 'react';
 import contactos from "@/app/contents/contactsContents.json";
-import cuentas from "@/app/contents/cuentasContents.json";  
+import cuentas from "@/app/contents/cuentasContents.json";
 
 interface ContenidoContactosEmpresaProps {
   id_cuenta: string;
@@ -11,11 +11,11 @@ interface ContenidoContactosEmpresaProps {
 const ContenidoContactosEmpresa: FC<ContenidoContactosEmpresaProps> = ({ id_cuenta }) => {
   const router = useRouter();
 
-   const cuentaSeleccionada = cuentas.find((c) => c.id_cuenta === id_cuenta);
+  const cuentaSeleccionada = cuentas.find((c) => c.id_cuenta === id_cuenta);
 
-   const idsContactos = cuentaSeleccionada?.array_contactos_cuenta.map(c => c.id_contacto) || [];
+  const idsContactos = cuentaSeleccionada?.array_contactos_cuenta.map(c => c.id_contacto) || [];
 
-   const contactosFiltrados = contactos.filter((c) => idsContactos.includes(c.id_contacto));
+  const contactosFiltrados = contactos.filter((c) => idsContactos.includes(c.id_contacto));
 
   if (!contactosFiltrados || contactosFiltrados.length === 0) {
     return (
@@ -27,7 +27,16 @@ const ContenidoContactosEmpresa: FC<ContenidoContactosEmpresaProps> = ({ id_cuen
 
   return (
     <div className="p-4">
-      <h2 className="text-xl font-bold mb-4">Contactos de la Empresa</h2>
+      <div className='flex flex-row justify-between items-center'>
+        <h2 className="text-xl font-bold mb-4">Contactos de la Empresa</h2>
+
+        <button
+          className='p-2 px-4 text-sm mb-2 rounded-lg shadow-xl bg-blue-950/80 hover:bg-blue-950/70 text-white cursor-pointer'
+          onClick={() => router.push("/dashboard/clientes/contactos/crear")}
+        >
+          Crear
+        </button>
+      </div>
       <table className="min-w-full">
         <thead className="bg-blue-950/80 text-white">
           <tr>

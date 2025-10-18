@@ -5,9 +5,10 @@ import cuentas from "@/app/contents/cuentasContents.json"
 
 interface TablaDatosAnuncianteProps {
   empresaAnunciante: string;
+    contactoPropuesta:string;
 }
 
-const TablaDatosAnunciante: FC<TablaDatosAnuncianteProps> = ({ empresaAnunciante }) => {
+const TablaDatosAnunciante: FC<TablaDatosAnuncianteProps> = ({ empresaAnunciante, contactoPropuesta }) => {
   const router = useRouter()
   const cuentaSeleccionada = cuentas.find (c => c.id_cuenta === empresaAnunciante);
 
@@ -30,7 +31,7 @@ const TablaDatosAnunciante: FC<TablaDatosAnuncianteProps> = ({ empresaAnunciante
           <tr className="bg-white text-gray-700">
             <td className="px-4 py-2 flex-1/6">
               <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-                onClick={() => router.push('/dashboard/clientes/ficha')} >
+                onClick={() => router.push(`/dashboard/clientes/cuentas/${cuentaSeleccionada.id_cuenta}`)}  >
                 {cuentaSeleccionada.nombre_empresa}
               </button>
             </td>
@@ -38,7 +39,7 @@ const TablaDatosAnunciante: FC<TablaDatosAnuncianteProps> = ({ empresaAnunciante
             <td className="px-4 py-2 flex-1/6">{cuentaSeleccionada.pais_cuenta}</td>
             <td className="px-4 py-2 flex-1/6">
               <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-                onClick={() => router.push('/dashboard/clientes/contactos/contacto')} >
+                onClick={() => router.push(`/dashboard/clientes/contactos/${contactoPropuesta}`)} >
                 {cuentaSeleccionada.datos_comerciales.contacto_principal}
               </button>
             </td>

@@ -28,15 +28,13 @@ const Direcciones: FC<DireccionesProps> = ({ direcciones: initialDirecciones, on
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [direccionDelete, setDireccionDelete] = useState<Direccion | null>(null);
 
-  // Añadir
-  const handleAdd = (newDir: Direccion) => {
+   const handleAdd = (newDir: Direccion) => {
     setDirecciones([...direcciones, newDir]);
     setIsAddOpen(false);
     onChange();
   };
 
-  // Editar
-  const handleEdit = (updatedDir: Direccion) => {
+   const handleEdit = (updatedDir: Direccion) => {
     if (direccionEdit) {
       setDirecciones(direcciones.map(d => d === direccionEdit ? updatedDir : d));
       setIsEditOpen(false);
@@ -45,8 +43,7 @@ const Direcciones: FC<DireccionesProps> = ({ direcciones: initialDirecciones, on
     }
   };
 
-  // Borrar
-  const handleDelete = (dir: Direccion) => {
+   const handleDelete = (dir: Direccion) => {
     setDirecciones(direcciones.filter(d => d !== dir));
     setIsDeleteOpen(false);
     setDireccionDelete(null);
@@ -58,10 +55,10 @@ const Direcciones: FC<DireccionesProps> = ({ direcciones: initialDirecciones, on
       <div className='flex flex-row justify-between'>
         <h2 className="text-xl font-bold">Direcciones</h2>
         <button
-          className='p-2 px-4 text-lg rounded-lg shadow-xl bg-blue-950/80 hover:bg-blue-950/70 text-white cursor-pointer'
+          className='p-2 px-4 text-sm rounded-lg shadow-xl bg-blue-950/80 hover:bg-blue-950/70 text-white cursor-pointer'
           onClick={() => setIsAddOpen(true)}
         >
-          +
+          + 
         </button>
       </div>
 

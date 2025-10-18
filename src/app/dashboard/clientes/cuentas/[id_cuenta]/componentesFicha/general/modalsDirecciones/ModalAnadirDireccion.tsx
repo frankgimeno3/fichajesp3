@@ -43,7 +43,20 @@ const ModalAnadirDireccion: FC<ModalAnadirDireccionProps> = ({ isOpen, onClose, 
     setIsValid(allFilled);
     if (allFilled) setShowError(false);
   }, [form]);
+ useEffect(() => {
+    if (!isOpen) return;
 
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleEsc);
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, [isOpen, onClose]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -85,7 +98,7 @@ const ModalAnadirDireccion: FC<ModalAnadirDireccionProps> = ({ isOpen, onClose, 
     >
       <div className="bg-white p-6 rounded-lg w-full max-w-lg relative">
         <button
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-900"
+          className="absolute top-2 right-2 text-gray-500 hover:text-gray-900 cursor-pointer"
           onClick={onClose}
         >
           ✕
@@ -122,14 +135,14 @@ const ModalAnadirDireccion: FC<ModalAnadirDireccionProps> = ({ isOpen, onClose, 
 
         <div className="mt-4 flex justify-end space-x-2">
           <button
-            className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+            className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400 cursor-pointer"
             onClick={onClose}
           >
             Cancelar
           </button>
           <button
             className={`px-4 py-2 rounded text-white ${
-              isValid ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'
+              isValid ? 'bg-blue-600 hover:bg-blue-700 cursor-pointer' : 'bg-gray-400 cursor-not-allowed'
             }`}
             onClick={handleConfirm}
             disabled={!isValid}
