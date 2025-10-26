@@ -26,8 +26,7 @@ const Fase1: FC<Fase1Props> = ({
 
   const isFormValid = nombreContenido && tipoContenido && especificaciones;
 
-  // Buscar la publicación seleccionada en el JSON
-  const publicacion = useMemo(() => {
+   const publicacion = useMemo(() => {
     return data.find((item) => item.id_publicacion === publicacionSeleccionada);
   }, [publicacionSeleccionada]);
 

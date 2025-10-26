@@ -24,7 +24,9 @@ const MiddleNav: FC<MiddleNavProps> = ({ tituloprincipal }) => {
     '/dashboard/produccion',
     '/dashboard/administracion',
     '/dashboard/operaciones',
-  ];
+    '/dashboard/operaciones/data/importar',
+    '/dashboard/operaciones/data/exportar'
+    ];
 
   const handleClick = (index: number) => {
     const fullPath = buildPath(index);
