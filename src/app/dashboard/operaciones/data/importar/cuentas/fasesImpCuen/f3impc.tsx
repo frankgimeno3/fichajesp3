@@ -2,15 +2,15 @@ import React, { FC } from 'react';
 import { useRouter } from 'next/navigation';
 
 interface F3impcProps {
-  setFaseImportacionContacto: React.Dispatch<React.SetStateAction<number>>;
+  setFaseImportacionCuenta: React.Dispatch<React.SetStateAction<number>>;
   incidencias: { existe: boolean; contenido: string } | null;
 }
 
-const F3impc: FC<F3impcProps> = ({ setFaseImportacionContacto, incidencias }) => {
+const F3impc: FC<F3impcProps> = ({ setFaseImportacionCuenta, incidencias }) => {
   const router = useRouter();
 
   const handleVolverFase2 = () => {
-    setFaseImportacionContacto(2);
+    setFaseImportacionCuenta(2);
   };
 
   const handleIrDashboard = () => {

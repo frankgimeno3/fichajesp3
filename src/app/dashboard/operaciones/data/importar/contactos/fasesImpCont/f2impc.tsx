@@ -44,11 +44,15 @@ const f2impc: FC<f2impcProps> = ({ setFaseImportacionContacto, configuracion }) 
     <div>
       <p className='font-bold text-xl'>Fase 2/3 - Importación</p>
 
-      <div className='border border-gray-100 rounded-xl shadow-xl p-5 m-5'>
-        <p className='font-bold'>Resumen de configuración actual</p>
-        <p className='text-gray-400'>
-          Opción seleccionada: <span className='font-bold'>{configuracion}</span>
-        </p>
+      <div className='flex flex-row items-center justify-between border border-gray-100 rounded-xl shadow-xl p-5 m-5'>
+        <div className='flex flex-col'>
+          <p className='font-bold'>Resumen de configuración actual</p>
+          <p className='text-gray-400'>
+            Opción seleccionada: <span className='font-bold'>{configuracion}</span>
+          </p>
+        </div>
+        <button className='bg-gray-600 hover:bg-gray-600/90 cursor-pointer rounded-xl shadow-xl text-white text-sm px-3 p-2  '
+        onClick={()=>{setFaseImportacionContacto(1)}}>Modificar</button>
       </div>
 
       <div className='my-12'>
