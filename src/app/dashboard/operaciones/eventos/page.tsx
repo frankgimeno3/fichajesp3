@@ -4,19 +4,22 @@ import React, { FC, useEffect, useState } from 'react';
 import { ModificationService } from '@/app/service/ModificationService';
 import FiltroTemporal from './eventoscomponents/FiltroTemporal';
 import EventoHistorial from '@/app/contents/EventosRegistradosContents.json';
+import ExtraerInformeModal from './eventoscomponents/modal/ExtraerInformeModal';
 
 interface EventosProps {}
 
 interface Evento {
   id_evento: string;
-  fecha_evento: string; // dd/mm/yyyy
+  fecha_evento: string;  
   autor_evento: string;
   tipo_evento: string;
   descripcion_evento: string;
 }
 
+
 const Eventos: FC<EventosProps> = () => {
   const [showPopup, setShowPopup] = useState(false);
+  const [showModal, setShowModal] = useState(false);  
   const [timeLogs, setTimeLogs] = useState<Evento[]>([]);
   const [selectedEvent, setSelectedEvent] = useState<{
     id: string;
@@ -44,7 +47,6 @@ const Eventos: FC<EventosProps> = () => {
   };
 
   useEffect(() => {
-    // Inicialmente mostramos todos los eventos
     setTimeLogs(EventoHistorial as Evento[]);
   }, []);
 
@@ -54,12 +56,10 @@ const Eventos: FC<EventosProps> = () => {
 
     const filtered = (EventoHistorial as Evento[]).filter(evento => {
       const [day, evtMonth, evtYear] = evento.fecha_evento.split('/').map(Number);
-
       const monthMatch = evtMonth === month;
       const yearMatch = evtYear === year;
       const agenteMatch = agente === "Todos" || evento.autor_evento === agente;
       const tipoMatch = tipoEvento === "Todos" || evento.tipo_evento === tipoEvento;
-
       return monthMatch && yearMatch && agenteMatch && tipoMatch;
     });
 
@@ -70,11 +70,14 @@ const Eventos: FC<EventosProps> = () => {
     <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
       <MiddleNav tituloprincipal={'Listado completo de eventos registrados'} />
 
-    <div className='w-full justify-end text-end p-7'>
-        <button className='bg-blue-950 hover:bg-blue-950/80 text-white rounded-lg shadow-xl p-2 px-4'>
-        Extraer informe
+      <div className='w-full justify-end text-end p-7'>
+        <button
+          className='bg-blue-950 hover:bg-blue-950/80 cursor-pointer text-white rounded-lg shadow-xl p-2 px-4'
+          onClick={() => setShowModal(true)}  
+        >
+          Extraer informe
         </button>
-    </div>
+      </div>
 
       <div className='p-7 text-gray-700 gap-12'>
         <FiltroTemporal onFiltrar={handleFilter} />
@@ -107,6 +110,11 @@ const Eventos: FC<EventosProps> = () => {
           </div>
         }
       </div>
+
+       <ExtraerInformeModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+      />
     </div>
   );
 };
