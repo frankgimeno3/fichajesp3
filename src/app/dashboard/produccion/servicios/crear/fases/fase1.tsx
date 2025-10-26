@@ -33,7 +33,7 @@ const Fase1: FC<Fase1Props> = ({
 
   const handleSubmit = () => {
     if (!isFormValid) return;
-    router.push(`/dashboard/produccion/servicios/${nombreContenido}`);
+    router.push(`/dashboard/produccion/servicios `);
   };
 
   return (
@@ -83,7 +83,7 @@ const Fase1: FC<Fase1Props> = ({
           <button
             onClick={handleSubmit}
             disabled={!isFormValid}
-            className={`mt-6 w-full py-2 rounded-2xl text-white transition-all ${isFormValid
+            className={`mt-6 w-full py-2 rounded-2xl text-white transition-all cursor-pointer ${isFormValid
                 ? "bg-blue-900 opacity-100 hover:bg-blue-800"
                 : "bg-blue-900 opacity-50 cursor-not-allowed"
               }`}

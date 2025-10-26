@@ -38,20 +38,17 @@ const DetallePublicacion: FC<DetallePublicacionProps> = ({ publicacionSelecciona
                         <span className='text-sm'>{publicacion.detalle_publicacion}</span>
                     </div>
                 </div>
-                <div className='flex flex-row gap-12'>
+                <div className='flex flex-row '>
 
-                    <div className='flex flex-col flex-1 pb-5  gap-3'>
+                    <div className='flex flex-col w-1/3 pb-5  gap-3'>
                         <span className="font-semibold text-blue-950">Deadline Material: </span>
                         <span className='text-sm'>{publicacion.deadline_material}</span>
                     </div>
-                    <div className='flex flex-col flex-1 pb-5  gap-3'>
+                    <div className='flex flex-col w-1/3 pb-5 pl-4  gap-3'>
                         <span className="font-semibold text-blue-950">Fecha Publicación: </span>
                         <span className='text-sm'>{publicacion.fecha_publicacion}</span>
                     </div>
-                    <div className='flex flex-col flex-1 pb-5  gap-3'>
-                        <span className="font-semibold text-blue-950">Estado: </span>
-                        <span className='text-sm'>{publicacion.estado}</span>
-                    </div>
+ 
                 </div>
             </div>
 
