@@ -15,7 +15,6 @@ const f1impc: FC<f1impcProps> = ({ setFaseImportacionCuenta, configuracion, setC
       return;
     }
 
-    // Guardamos la opción seleccionada en configuracion
     setConfiguracion(opcionSeleccionada);
 
     console.log('Opción seleccionada:', opcionSeleccionada);
