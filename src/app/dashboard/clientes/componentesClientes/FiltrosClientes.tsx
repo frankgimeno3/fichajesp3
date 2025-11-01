@@ -26,51 +26,46 @@ const Filtroscuentas: FC<FiltroscuentasProps> = ({
   const router = useRouter();
 
   return (
-    <div className='flex flex-col justify-between   text-white bg-blue-950 p-5 rounded-t'>
-      <div className='flex flex-row justify-between items-top'>
-        <p className="text-lg font-semibold pb-5">Todas las cuentas</p>
-        <div className='my-auto '>
-          <button className='bg-white text-blue-950 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-950/70 hover:text-white'
-            onClick={() => router.push('/dashboard/clientes/cuentas/crear')} >
-            <p>Crear cuenta</p>
-          </button>
+      <div className="flex flex-col justify-left w-full  bg-white rounded p-5">
+      <p className="text-lg font-semibold mb-2">Buscador de cuentas</p>
+
+      <div className='flex flex-row w-full justify-between items-end'>
+
+         {/* Nombre cliente */}
+        <div className="flex flex-col">
+          <label className="text-sm font-medium">Nombre cliente</label>
+          <input
+            type="text"
+            value={clienteFiltro}
+            onChange={(e) => setClienteFiltro(e.target.value)}
+            placeholder="Nombre de empresa"
+            className="border px-2 py-1 rounded"
+          />
         </div>
-      </div>
-      <div className='flex flex-row justify-end items-center'>
 
-        <div className='flex flex-row gap-4 items-end  text-xs '>
-          <div className='flex flex-col'>
-            <label className=' font-medium'>Nombre cliente</label>
-            <input
-              type='text'
-              value={clienteFiltro}
+        {/* Código CRM */}
+        <div className="flex flex-col">
+          <label className="text-sm font-medium">Código CRM</label>
+          <input
+            type="text"
+       value={clienteFiltro}
               onChange={(e) => setClienteFiltro(e.target.value)}
-              placeholder='Nombre de empresa'
-              className='border px-2 py-1 rounded'
-            />
-          </div>
+            placeholder="Cuenta de cliente"
+            className="border px-2 py-1 rounded"
+          />
+        </div>
 
-          <div className='flex flex-col'>
-            <label className=' font-medium'>Código CRM</label>
-            <input
-              type='number'
-              value={clienteFiltro}
-              onChange={(e) => setClienteFiltro(e.target.value)}
-              placeholder='Cuenta de cliente'
-              className='border px-2 py-1 rounded'
-            />
-          </div>
-
-          <div className='flex flex-col'>
-            <label className=' font-medium'>Agente (número)</label>
-            <input
-              type='number'
-              value={agenteFiltro}
+        {/* Agente */}
+        <div className="flex flex-col">
+          <label className="text-sm font-medium">Agente (número)</label>
+          <input
+            type="text"
+           value={agenteFiltro}
               onChange={(e) => setAgenteFiltro(e.target.value)}
-              placeholder='Ej: 123'
-              className='border px-2 py-1 rounded'
-            />
-          </div>
+            placeholder="Ej: ag_25_0004"
+            className="border px-2 py-1 rounded"
+          />
+        </div>
           <div className='flex flex-col'>
             <label className=' font-medium'>Tel principal</label>
             <input
@@ -93,7 +88,7 @@ const Filtroscuentas: FC<FiltroscuentasProps> = ({
           </div>
 
 
-          <button className='bg-white text-blue-950 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-950/70 hover:text-white'
+          <button className='bg-blue-950 text-white p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-950/70 hover:text-white'
             onClick={() => router.push('/dashboard/cuentas/crear')}
           >
             <p>Buscar</p>
@@ -102,8 +97,7 @@ const Filtroscuentas: FC<FiltroscuentasProps> = ({
       </div>
 
 
-    </div>
-  );
+   );
 };
 
 export default Filtroscuentas;

@@ -42,8 +42,10 @@ const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
   const bloqueaEstado = pestana === 'miasenproceso';
 
   return (
-    <div className="flex flex-col justify-between w-full">
-      <p className="text-lg font-semibold mb-2">Buscador de propuestas</p>
+      <div className="flex flex-col  w-full  bg-white rounded p-5">
+    
+       <p className="text-lg font-semibold mb-2">Buscador de propuestas</p>
+      <div className='flex flex-row w-full justify-between items-center'>
 
       <div className="flex flex-wrap gap-4 items-end p-5">
         {/* Nombre cliente */}
@@ -125,6 +127,8 @@ const FiltrosPropuestas: FC<FiltrosPropuestasProps> = ({
               </>
             )}
           </select>
+                </div>
+
         </div>
       </div>
     </div>

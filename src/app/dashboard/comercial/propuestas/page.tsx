@@ -43,8 +43,7 @@ const Propuestas: FC = () => {
             <p>Crear propuesta</p>
           </button>
         </div>
-
-        <div className="flex flex-row justify-between w-full items-center bg-white rounded p-5">
+ 
           <FiltrosPropuestas
             clienteFiltro={clienteFiltro}
             setClienteFiltro={setClienteFiltro}
@@ -61,8 +60,7 @@ const Propuestas: FC = () => {
             pestana={pestana}
             agenteActual={agenteActual}
           />
-        </div>
-
+ 
         <div className="mt-5 p-12 rounded-lg shadow-xl bg-white">
           <div className="flex flex-row relative mb-4">
             <div
