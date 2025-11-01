@@ -17,9 +17,9 @@ const TablaDatosAnunciante: FC<TablaDatosAnuncianteProps> = ({ empresaAnunciante
   }
   return (
     <div className="overflow-x-auto">
-      <table className="table-auto border-collapse w-full text-center">
+        <table className=" w-full border  shadow-xs border-gray-100  text-center  text-sm"  >
         <thead>
-          <tr className="bg-blue-950 text-white">
+          <tr className="bg-blue-950/80 text-white">
             <th className="px-6 py-2 flex-1/6">Empresa anunciante</th>
             <th className="px-4 py-2 flex-1/6">Código CRM</th>
             <th className="px-4 py-2 flex-1/6">País</th>
@@ -30,7 +30,7 @@ const TablaDatosAnunciante: FC<TablaDatosAnuncianteProps> = ({ empresaAnunciante
         <tbody>
           <tr className="bg-white text-gray-700">
             <td className="px-4 py-2 flex-1/6">
-              <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              <button className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
                 onClick={() => router.push(`/dashboard/clientes/cuentas/${cuentaSeleccionada.id_cuenta}`)}  >
                 {cuentaSeleccionada.nombre_empresa}
               </button>
@@ -38,7 +38,7 @@ const TablaDatosAnunciante: FC<TablaDatosAnuncianteProps> = ({ empresaAnunciante
             <td className="px-4 py-2 flex-1/6">{cuentaSeleccionada.id_cuenta}</td>
             <td className="px-4 py-2 flex-1/6">{cuentaSeleccionada.pais_cuenta}</td>
             <td className="px-4 py-2 flex-1/6">
-              <button className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              <button className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
                 onClick={() => router.push(`/dashboard/clientes/contactos/${contactoPropuesta}`)} >
                 {cuentaSeleccionada.datos_comerciales.contacto_principal}
               </button>

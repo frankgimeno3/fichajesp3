@@ -7,10 +7,10 @@ interface TablaDatosGeneralesProps {
 
 const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({codigoPropuesta}) => {
     return (
-        <table className="table-auto border-collapse text-center"  >
+        <table className=" w-full border  shadow-xs border-gray-100  text-center text-sm"  >
             <thead>
-                <tr className="bg-blue-950 text-white">
-                    <th className="px-4 py-2">Fecha de envío al cliente</th>
+                    <tr className="bg-blue-950/80 text-white ">
+                    <th className="px-4 py-2 ">Fecha de envío al cliente</th>
                     <th className="px-4 py-2">Fecha máxima de validez</th>
                     <th className="px-4 py-2">Agente ofertate</th>
                     <th className="px-4 py-2">Código codigoPropuesta</th>

@@ -18,9 +18,9 @@ const TablaContenidoPropuesta: FC<Props> = ({ contenido }) => {
   const router = useRouter();
 
   return (
-    <table className="table-auto border-collapse text-center w-full">
+        <table className=" w-full border  shadow-xs border-gray-100  text-center  text-sm"  >
       <thead>
-        <tr className="bg-blue-950 text-white">
+        <tr className="bg-blue-950/80 text-white">
           <th className="px-4 py-2">Medio</th>
           <th className="px-4 py-2">Publicación</th>
           <th className="px-4 py-2">Producto</th>

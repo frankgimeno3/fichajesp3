@@ -9,9 +9,9 @@ interface Props {
 const OtrosDatosEnPropuesta: FC<Props> = ({ propuesta }) => {
  
   return (
-    <table className="table-auto border-collapse text-center w-full">
+        <table className=" w-full border  shadow-xs border-gray-100  text-center  text-sm"  >
       <thead>
-        <tr className="bg-blue-950 text-white">
+        <tr className="bg-blue-950/80 text-white">
           <th className="px-4 py-2">Total</th>
           <th className="px-4 py-2">Descuento</th>
           <th className="px-4 py-2">Base Imponible</th>
