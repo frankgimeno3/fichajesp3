@@ -12,14 +12,14 @@ interface Cuenta {
   datos_comerciales: {
     telefono_principal_cuenta: string;
   };
-  fechaUltimoComentario?: string; // opcional si no existe en JSON
+  fechaUltimoComentario?: string;  
 }
 
 interface TablacuentasProps {
   clienteFiltro: string;
   agenteFiltro: string;
   telFiltro: string;
-  dominioFiltro: string; // Aunque no tenemos dominio en el JSON, lo dejamos por compatibilidad
+  dominioFiltro: string;  
 }
 
 const Tablacuentas: FC<TablacuentasProps> = ({
@@ -54,11 +54,11 @@ const Tablacuentas: FC<TablacuentasProps> = ({
   };
 
   return (
-    <div className="p-12">
-      <table className="min-w-full">
-        <thead className="bg-blue-950/80 text-white">
+        <div className="">
+      <table className="mt-5  rounded-lg shadow-xl bg-white min-w-full">
+        <thead className="bg-blue-950/80 text-white rounded-lg">
           <tr>
-            <th className="text-left p-2 font-light">Nombre Empresa</th>
+            <th className="text-left p-2 font-light">Nombre Empresa </th>
             <th className="text-left p-2 font-light">ID Cuenta</th>
             <th className="text-left p-2 font-light">Agente Asignado</th>
             <th className="text-left p-2 font-light">País</th>
