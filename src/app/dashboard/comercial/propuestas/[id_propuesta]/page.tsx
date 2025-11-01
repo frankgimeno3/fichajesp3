@@ -6,15 +6,19 @@ import TablaDatosGenerales from './propuestacomponents/TablaDatosGenerales';
 import TablaDatosAnunciante from './propuestacomponents/TablaDatosAnunciante';
 import TablaContenidoPropuesta from './propuestacomponents/TablaContenidoPropuesta';
 import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
-import propuestas from '@/app/contents/propuestasContents.json';
+import propuestasRaw from '@/app/contents/propuestasContents.json';
 import OtrosDatosEnPropuesta from './propuestacomponents/OtrosDatosEnPropuesta';
 import ModalBorrarPropuesta from './propuestacomponents/ModalBorrarPropuesta';
+import { InterfazPropuesta } from '@/app/interfaces/interfaces';
+import TablaDeCobros from './propuestacomponents/TablaDeCobros';
 
 const ResumenPropuesta: FC = () => {
   const router = useRouter();
   const params = useParams();
   const idPropuesta = params.id_propuesta;
   const [modalOpen, setModalOpen] = useState(false);
+
+const propuestas = propuestasRaw as InterfazPropuesta[];
 
   const propuesta = propuestas.find(p => p.detalles_propuesta.id_propuesta === idPropuesta);
 
@@ -62,11 +66,8 @@ const ResumenPropuesta: FC = () => {
         <TablaDatosGenerales codigoPropuesta={propuesta.detalles_propuesta.id_propuesta} />
 
         <div className="bg-gray-100 py-12">
-          <p className="font-bold text-gray-500">Datos de contacto:</p>
-          <TablaDatosAnunciante empresaAnunciante={propuesta.cuenta_propuesta.id_cuenta_propuesta}
-                        contactoPropuesta={propuesta.cuenta_propuesta.id_contacto}
- />
-          
+          <p className="font-bold text-gray-500">Datos de contacto anunciante:</p>
+          <TablaDatosAnunciante empresaAnunciante={propuesta.cuenta_propuesta.id_cuenta_propuesta} contactoPropuesta={propuesta.cuenta_propuesta.id_contacto}  />
         </div>
 
         <p className="font-bold text-gray-500 mt-6">Contenido en propuesta:</p>
@@ -74,6 +75,9 @@ const ResumenPropuesta: FC = () => {
 
         <p className="font-bold text-gray-500 mt-6">Datos para facturación:</p>
         <OtrosDatosEnPropuesta propuesta={propuesta} />
+
+        <p className="font-bold text-gray-500 mt-6">Cobros propuestos:</p>
+        <TablaDeCobros propuesta={propuesta} />
 
         <p className="font-bold text-gray-500 mt-6">Comentarios adicionales:</p>
         <div className="bg-white rounded text-gray-500 p-5 mb-24">

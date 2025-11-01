@@ -91,9 +91,16 @@ export interface InterfazPropuesta {
     deadline_publicacion: string;  
     fecha_publicacion_publicacion: string; 
   }[];
+  total_previo_propuesta:number;
   descuento_final_propuesta: number;
   importe_total_BI_propuesta: number;
   iva_aplicable: boolean;
   importe_propuesta_con_iva: number;
   comentarios_adicionales_propuesta:string;
+  cobros:{
+    numero_cobro:string;
+    fecha_cobro:string;
+    importe_cobro:string;
+    forma_cobro:string;
+  }[]
 }
