@@ -55,7 +55,7 @@ const LoggedNav: FC<LoggedNavProps> = () => {
       </div>
       <div className="flex flex-row gap-12 text-lg items-center">
         <button
-          className="text-gray-300 hover:text-white transition-colors duration-[2000ms] cursor-pointer"
+          className="bg-white hover:bg-gray-100 text-gray-600 cursor-pointer px-2 py-1 text-xs rounded-sm"
           onClick={handleLogout}
         >
           Cerrar sesión

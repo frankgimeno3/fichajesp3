@@ -84,12 +84,12 @@ const ContenidoPorCliente: FC<ContenidoPorClienteProps> = ({ }) => {
   const contactos = contactosContents as Contacto[];
 
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-3 mt-12 rounded-xl">
       <div className="overflow-x-auto">
-        <table className="min-w-full">
+        <table className="min-w-full bg-white">
           <thead className="bg-blue-950 text-white">
             <tr>
-              <th className="text-left p-2 font-light">Empresa</th>
+              <th className="text-left p-2 font-light pl-6">Empresa</th>
               <th className="text-left p-2 font-light">Fecha de firma</th>
               <th className="text-left p-2 font-light">Fecha renovación</th>
               <th className="text-left p-2 font-light">Fecha próximo material</th>
@@ -129,7 +129,7 @@ const ContenidoPorCliente: FC<ContenidoPorClienteProps> = ({ }) => {
                     router.push(`/dashboard/comercial/contratos/${idContrato}`)
                   }
                 >
-                  <td className="p-2 border-b border-gray-200">{empresa}</td>
+                  <td className="p-2 border-b border-gray-200 pl-6">{empresa}</td>
                   <td className="p-2 border-b border-gray-200">{fechaFirma}</td>
                   <td className="p-2 border-b border-gray-200">{fechaRenovacion}</td>
                   <td className="p-2 border-b border-gray-200">{fechaProxMaterial}</td>

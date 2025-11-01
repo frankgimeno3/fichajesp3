@@ -22,12 +22,9 @@ const Contratos: FC<ContratosProps> = ({ }) => {
   return (
     <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
 
-      <MiddleNav tituloprincipal={`Mis contratos  `} />
+      <MiddleNav tituloprincipal={`Contratos en curso del agente ${agenteActual}  `} />
 
       <div className="bg-gray-100 min-h-screen px-12 text-gray-600">
-        <h2 className="text-lg font-semibold my-4">Contratos en curso del agente {agenteActual}</h2>
-        <div className="flex flex-row relative mb-4">
-        </div>
         <ContenidoPorCliente />
       </div>
     </div>
