@@ -64,24 +64,22 @@ const propuestas = propuestasRaw as InterfazPropuesta[];
 
       <div className='bg-white rounded-lg p-12'>
 
-        <p className="font-bold text-gray-500">Datos generales:</p>
+        <p className="font-bold mb-1 text-gray-500">Datos generales:</p>
         <TablaDatosGenerales codigoPropuesta={propuesta.detalles_propuesta.id_propuesta} />
 
-        <div className=" py-12">
-          <p className="font-bold text-gray-500">Datos de contacto anunciante:</p>
+           <p className="font-bold mb-1 text-gray-500 mt-6">Datos de contacto anunciante:</p>
           <TablaDatosAnunciante empresaAnunciante={propuesta.cuenta_propuesta.id_cuenta_propuesta} contactoPropuesta={propuesta.cuenta_propuesta.id_contacto}  />
-        </div>
-
-        <p className="font-bold text-gray-500 mt-6">Contenido en propuesta:</p>
+ 
+        <p className="font-bold mb-1 text-gray-500 mt-6">Contenido en propuesta:</p>
         <TablaContenidoPropuesta contenido={propuesta.contenido_propuesta} />
 
-        <p className="font-bold text-gray-500 mt-6">Datos para facturación:</p>
+        <p className="font-bold mb-1 text-gray-500 mt-6">Datos para facturación:</p>
         <OtrosDatosEnPropuesta propuesta={propuesta} />
 
-        <p className="font-bold text-gray-500 mt-6">Cobros propuestos:</p>
+        <p className="font-bold mb-1 text-gray-500 mt-6">Cobros propuestos:</p>
         <TablaDeCobros propuesta={propuesta} />
 
-        <p className="font-bold text-gray-500 mt-6">Comentarios adicionales:</p>
+        <p className="font-bold mb-1 text-gray-500 mt-6">Comentarios adicionales:</p>
         <div className="bg-white rounded text-gray-500 p-5 mb-24 border border-gray-100 shadow-sm  text-sm">
           Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus
           atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum
