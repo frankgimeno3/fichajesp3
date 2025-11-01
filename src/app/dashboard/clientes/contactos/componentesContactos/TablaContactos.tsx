@@ -18,11 +18,11 @@ const TablaContactos: FC<TablaContactosProps> = ({ contactosFiltrados }) => {
   };
 
   return (
-    <div className="p-3 overflow-x-auto">
-      <table className="min-w-full border border-gray-200 rounded-lg">
-        <thead className="bg-blue-950/80 text-white">
+    <div className="mt-5">
+   <table className="mt-5  rounded-lg shadow-xl bg-white min-w-full">
+        <thead className="bg-blue-950/80 text-white rounded-lg">
           <tr>
-            <th className="text-left p-2 font-light">Nombre</th>
+            <th className="text-left p-2 font-light pl-6">Nombre</th>
             <th className="text-left p-2 font-light">Apellidos</th>
             <th className="text-left p-2 font-light">Código Contacto</th>
             <th className="text-left p-2 font-light">Empresa Asociada</th>
@@ -38,7 +38,7 @@ const TablaContactos: FC<TablaContactosProps> = ({ contactosFiltrados }) => {
                 className="border-t border-gray-200 hover:bg-gray-100/40 cursor-pointer transition-colors"
                 onClick={() => handleRedirection(res.id_contacto)}
               >
-                <td className="p-2 border-b border-gray-200">{res.nombre_contacto}</td>
+                <td className="p-2 border-b border-gray-200 pl-6">{res.nombre_contacto}</td>
                 <td className="p-2 border-b border-gray-200">{res.apellidos_contacto}</td>
                 <td className="p-2 border-b border-gray-200">{res.id_contacto}</td>
                 <td className="p-2 border-b border-gray-200">{res.nombre_empresa}</td>

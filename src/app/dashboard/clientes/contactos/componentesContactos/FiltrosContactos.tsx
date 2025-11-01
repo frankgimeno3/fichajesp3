@@ -35,19 +35,13 @@ const FiltrosContactos: FC<FiltrosContactosProps> = ({
   const router = useRouter();
 
   return (
-    <div className='flex flex-col justify-between mb-6'>
-      <div className='flex flex-row justify-between'>
-        <p className="text-lg font-semibold">Buscador de Contactos</p>
-        <button
-          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/clientes/contactos/crear')}
-        >
-          <p>Crear</p>
-        </button>
-      </div>
+      <div className="flex flex-col justify-left w-full  bg-white rounded p-5">
+      <p className="text-lg font-semibold">Buscador de contactos</p>
 
-      <div className='flex flex-wrap gap-4 items-end p-5'>
-        <div className='flex flex-col'>
+      <div className='flex flex-wrap pb-3 w-full justify-between items-end'>
+
+         {/* Nombre cliente */}
+        <div className="flex flex-col mt-4">
           <label className='text-sm font-medium'>Nombre del contacto</label>
           <input
             type='text'
@@ -58,7 +52,7 @@ const FiltrosContactos: FC<FiltrosContactosProps> = ({
           />
         </div>
 
-        <div className='flex flex-col'>
+        <div className='flex flex-col mt-4'>
           <label className='text-sm font-medium'>Apellidos cliente</label>
           <input
             type='text'
@@ -69,7 +63,7 @@ const FiltrosContactos: FC<FiltrosContactosProps> = ({
           />
         </div>
 
-        <div className='flex flex-col'>
+        <div className='flex flex-col mt-4'>
           <label className='text-sm font-medium'>Código Contacto</label>
           <input
             type='number'
@@ -80,7 +74,7 @@ const FiltrosContactos: FC<FiltrosContactosProps> = ({
           />
         </div>
 
-        <div className='flex flex-col'>
+        <div className='flex flex-col mt-4'>
           <label className='text-sm font-medium'>Empresa asociada</label>
           <input
             type='number'
@@ -91,7 +85,7 @@ const FiltrosContactos: FC<FiltrosContactosProps> = ({
           />
         </div>
 
-        <div className='flex flex-col'>
+        <div className='flex flex-col mt-4'>
           <label className='text-sm font-medium'>Tel principal</label>
           <input
             type='number'
@@ -102,7 +96,7 @@ const FiltrosContactos: FC<FiltrosContactosProps> = ({
           />
         </div>
 
-        <div className='flex flex-col'>
+        <div className='flex flex-col mt-4'>
           <label className='text-sm font-medium'>Email</label>
           <input
             type='text'
@@ -114,7 +108,7 @@ const FiltrosContactos: FC<FiltrosContactosProps> = ({
         </div>
 
         <button
-          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
+          className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 mt-4'
           onClick={() => router.push('/dashboard/cuentas/contactos/crear')}
         >
           <p>Buscar</p>

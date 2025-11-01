@@ -19,13 +19,13 @@ const Cuentas: FC = () => {
     <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
 
       <MiddleNav tituloprincipal={` Cuentas  `} />
-      <div className="bg-gray-100 min-h-screen px-12 text-gray-600">
-        <div className="flex flex-row justify-end py-5">
+      <div className="bg-gray-100 min-h-screen px-8 text-gray-600">
+        <div className="flex flex-row justify-end py-4">
           <button
-            className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 text-md"
+            className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 text-sm"
             onClick={() => router.push('/dashboard/clientes/cuentas/crear')}
           >
-            <p>Crear propuesta</p>
+            <p>Crear cuenta</p>
           </button>
         </div>
  

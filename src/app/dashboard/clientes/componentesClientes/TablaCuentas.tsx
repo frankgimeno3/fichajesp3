@@ -43,8 +43,7 @@ const Tablacuentas: FC<TablacuentasProps> = ({
       telFiltro === '' ||
       r.datos_comerciales.telefono_principal_cuenta.includes(telFiltro);
 
-    // No hay dominio en tu JSON, así que siempre coincidimos
-    const coincideDominio = true;
+     const coincideDominio = true;
 
     return coincideCliente && coincideAgente && coincideTelefono && coincideDominio;
   });
@@ -58,7 +57,7 @@ const Tablacuentas: FC<TablacuentasProps> = ({
       <table className="mt-5  rounded-lg shadow-xl bg-white min-w-full">
         <thead className="bg-blue-950/80 text-white rounded-lg">
           <tr>
-            <th className="text-left p-2 font-light">Nombre Empresa </th>
+            <th className="text-left p-2 font-light pl-6">Nombre Empresa </th>
             <th className="text-left p-2 font-light">ID Cuenta</th>
             <th className="text-left p-2 font-light">Agente Asignado</th>
             <th className="text-left p-2 font-light">País</th>
@@ -72,7 +71,7 @@ const Tablacuentas: FC<TablacuentasProps> = ({
               className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
               onClick={() => handleRedirection(res.id_cuenta)}
             >
-              <td className="p-2 border-b border-gray-200">{res.nombre_empresa}</td>
+              <td className="p-2 border-b border-gray-200 pl-6">{res.nombre_empresa}</td>
               <td className="p-2 border-b border-gray-200">{res.id_cuenta}</td>
               <td className="p-2 border-b border-gray-200">{res.id_agente}</td>
               <td className="p-2 border-b border-gray-200">{res.pais_cuenta}</td>

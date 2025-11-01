@@ -7,6 +7,7 @@ import MiddleNav from '../../../general_components/componentes_recurrentes/Middl
 import ButtonsRow from '@/app/general_components/componentes_recurrentes/ButtonsRow';
 import contactosJSON from "@/app/contents/contactsContents.json";
 import { InterfazContacto } from '@/app/interfaces/interfaces';
+import { useRouter } from 'next/navigation';
 
 const Contactos: FC = () => {
    const [contactoFiltro, setContactoFiltro] = useState('');
@@ -47,13 +48,20 @@ const Contactos: FC = () => {
 
    const startIdx = (currentPage - 1) * itemsPerPage;
   const contactosFiltrados = filteredContactos.slice(startIdx, startIdx + itemsPerPage);
+    const router = useRouter();
 
   return (
-    <div className="flex flex-col h-full min-h-screen text-gray-600">
+    <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
       <MiddleNav tituloprincipal="Contactos" />
-
-      <div className="bg-gray-100 h-full min-h-screen px-12 text-gray-600">
-        <div className="mt-12 p-3 rounded-lg shadow-xl bg-white">
+ <div className="bg-gray-100 min-h-screen px-8 text-gray-600">
+        <div className="flex flex-row justify-end py-4">
+          <button
+            className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 text-sm"
+            onClick={() => router.push('/dashboard/clientes/contactos/crear')}
+          >
+            <p>Crear contacto</p>
+          </button>
+        </div>
           <FiltrosContactos
             contactoFiltro={contactoFiltro}
             setContactoFiltro={setContactoFiltro}
@@ -81,8 +89,7 @@ const Contactos: FC = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+   );
 };
 
 export default Contactos;
