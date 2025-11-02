@@ -1,13 +1,11 @@
 import React, { FC } from 'react';
-import { useRouter } from 'next/navigation';
-
+ 
 interface FilaContenido {
   medio: string;
   publicacion: string;
   producto: string;
-  precio_producto: number;
-  deadline_publicacion: string;
-  fecha_publicacion_publicacion: string;
+  precio_producto: number; 
+  descuento_unitario:number;
 }
 
 interface Props {
@@ -15,8 +13,7 @@ interface Props {
 }
 
 const TablaContenidoPropuesta: FC<Props> = ({ contenido }) => {
-  const router = useRouter();
-
+ 
   return (
         <table className=" w-full border  shadow-xs border-gray-100  text-center  text-sm"  >
       <thead>
@@ -24,9 +21,8 @@ const TablaContenidoPropuesta: FC<Props> = ({ contenido }) => {
           <th className="px-4 py-2">Medio</th>
           <th className="px-4 py-2">Publicación</th>
           <th className="px-4 py-2">Producto</th>
-          <th className="px-4 py-2">Precio tarifa</th>
-          <th className="px-4 py-2">Deadline material</th>
-          <th className="px-4 py-2">Fecha de publicación</th>
+          <th className="px-4 py-2">Precio tarifa</th> 
+          <th className="px-4 py-2">Descuento unitario</th> 
         </tr>
       </thead>
       <tbody>
@@ -35,9 +31,8 @@ const TablaContenidoPropuesta: FC<Props> = ({ contenido }) => {
             <td className="px-4 py-2">{fila.medio}</td>
             <td className="px-4 py-2">{fila.publicacion}</td>
             <td className="px-4 py-2">{fila.producto}</td>
-            <td className="px-4 py-2">{fila.precio_producto}€</td>
-            <td className="px-4 py-2">{fila.deadline_publicacion}</td>
-            <td className="px-4 py-2">{fila.fecha_publicacion_publicacion}</td>
+            <td className="px-4 py-2">{fila.precio_producto}€</td> 
+            <td className="px-4 py-2">{fila.descuento_unitario}€</td> 
           </tr>
         ))}
       </tbody>

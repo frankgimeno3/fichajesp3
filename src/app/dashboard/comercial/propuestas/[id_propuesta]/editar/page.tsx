@@ -54,9 +54,9 @@ const EditarPropuesta: FC = () => {
     <div className="min-h-screen flex flex-col bg-gray-200 text-gray-600  ">
       <MiddleNav tituloprincipal={`Editando propuesta con Código ${propuestaSeleccionada.detalles_propuesta.id_propuesta}`} />
 
-      <div className="flex flex-col p-12">
-        <div className="flex flex-row justify-end text-sm">
-          <div className="flex flex-row gap-3">
+      <div className="flex flex-col px-12">
+           <div className="flex flex-row justify-end py-5">
+          <div className="flex flex-row justify-end text-right items-right gap-5 text-sm">
             <button
               className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
               onClick={() =>
@@ -90,35 +90,35 @@ const EditarPropuesta: FC = () => {
 
         <div className="bg-white p-12 rounded-lg">
 
-          <p className="font-bold text-gray-500">Datos generales:</p>
+          <p className="font-bold mb-1 text-gray-500">Datos generales:</p>
           <EditarDatosGenerales
             codigoPropuesta={propuestaSeleccionada.detalles_propuesta.id_propuesta}
           />
 
-          <p className="font-bold text-gray-500">Datos de contacto:</p>
+          <p className="font-bold mb-1 text-gray-500 mt-6">Datos de contacto:</p>
           <EditarDatosAnunciante
             empresaAnunciante={propuestaSeleccionada.cuenta_propuesta.id_cuenta_propuesta}
             contactoPropuesta={propuestaSeleccionada.cuenta_propuesta.id_contacto}
           />
 
-          <p className="font-bold text-gray-500 mt-6">Contenido en propuesta:</p>
+          <p className="font-bold mb-1 text-gray-500 mt-6">Contenido en propuesta:</p>
           <EditarContenidoPropuesta
             codigoPropuesta={propuestaSeleccionada.detalles_propuesta.id_propuesta}
           />
 
-          <p className="font-bold text-gray-500 mt-6">Datos para facturación:</p>
+          <p className="font-bold mb-1 text-gray-500 mt-6">Datos para facturación:</p>
           <EditarOtrosDatosEnFactura
             codigoPropuesta={propuestaSeleccionada.detalles_propuesta.id_propuesta}
           />
 
-          <p className="font-bold text-gray-500 mt-6">Forma de cobro:</p>
+          <p className="font-bold mb-1 text-gray-500 mt-6">Forma de cobro:</p>
           <EditarDatosCobro
             codigoPropuesta={propuestaSeleccionada.detalles_propuesta.id_propuesta}
           />
 
-          <p className="font-bold text-gray-500 mt-6">Comentarios adicionales:</p>
+          <p className="font-bold mb-1 text-gray-500 mt-6">Comentarios adicionales:</p>
           <textarea
-            className="bg-white rounded text-gray-500 p-5 w-full min-h-[120px]"
+            className="bg-white rounded text-gray-500 p-5 mb-24 border border-gray-100 shadow-sm  text-sm w-full min-h-[120px]"
             value={comentariosAdicionales}
             onChange={(evento) => setComentariosAdicionales(evento.target.value)}
           />

@@ -1,7 +1,7 @@
 import React, { FC, useState } from "react";
 import empresasJSON from "@/app/contents/cuentasContents.json";
 import { InterfazContacto, InterfazCuenta } from "@/app/interfaces/interfaces";
-import PopupEmpresa from "./PopupEmpresa"; // Asumiendo que tienes este componente
+import PopupEmpresa from "./PopupEmpresa";
 
 interface DatosEmpresaContactoProps {
   contacto: InterfazContacto;
@@ -13,7 +13,7 @@ const DatosEmpresaContacto: FC<DatosEmpresaContactoProps> = ({
   onChange,
 }) => {
 
-  const empresas: InterfazCuenta[] = empresasJSON.map((e: any) => ({
+   const empresas: InterfazCuenta[] = empresasJSON.map((e: any) => ({
     id_cuenta: e.id_cuenta || "",
     nombre_empresa: e.nombre_empresa || "",
     pais_cuenta: e.pais_cuenta || "",
@@ -26,6 +26,7 @@ const DatosEmpresaContacto: FC<DatosEmpresaContactoProps> = ({
       ciudad_principal_cuenta: e.datos_comerciales?.ciudad_principal_cuenta || "",
       telefono_principal_cuenta: e.datos_comerciales?.telefono_principal_cuenta || "",
       categoria_principal_cuenta: e.datos_comerciales?.categoria_principal_cuenta || "",
+      contacto_principal: e.datos_comerciales?.contacto_principal || "",  
       resumen_actividad_cuenta: e.datos_comerciales?.resumen_actividad_cuenta || "",
     },
     array_direcciones_cuenta: e.array_direcciones_cuenta?.length
@@ -44,7 +45,7 @@ const DatosEmpresaContacto: FC<DatosEmpresaContactoProps> = ({
         ],
     array_contactos_cuenta: e.array_contactos_cuenta?.length
       ? e.array_contactos_cuenta
-      : [{ id_contacto: "" }, { id_contacto: "" }],
+      : [{ id_contacto: "" }],
     array_comentarios_cuenta: e.array_comentarios_cuenta || [],
   }));
 
@@ -74,7 +75,7 @@ const DatosEmpresaContacto: FC<DatosEmpresaContactoProps> = ({
             </td>
             <td className="p-2 border-b border-gray-200">
               <div className="flex flex-row items-center">
-                <span
+                  <span
                   className="hover:bg-gray-200 cursor-pointer"
                   onClick={() => setPopupOpen(true)}
                 >

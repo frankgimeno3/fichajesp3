@@ -1,14 +1,15 @@
-import React, { FC, useState } from "react";
+// TablaContenidoPropuesta.tsx
+import React, { FC, useState, useEffect } from "react";
 import propuestas from "@/app/contents/propuestasContents.json";
 import { InterfazPropuesta } from "@/app/interfaces/interfaces";
-
+import AnadirContenido from "./modals/AnadirContenido";
+ 
 interface FilaContenido {
   medio: string;
   publicacion: string;
   producto: string;
   precio: number;
-  deadline: string;
-  fechaPublicacion: string;
+  descuento_unitario?: number;
   estadoMaterial?: string;
   urlcontenido?: string;
 }
@@ -20,22 +21,21 @@ interface TablaContenidoPropuestaProps {
 const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropuesta }) => {
   const propuestasData = propuestas as InterfazPropuesta[];
 
-   const propuesta_seleccionada = propuestasData.find(
+  const propuesta_seleccionada = propuestasData.find(
     (p) => p.detalles_propuesta.id_propuesta === codigoPropuesta
   );
 
-   if (!propuesta_seleccionada) {
+  if (!propuesta_seleccionada) {
     return <div>No se encontró la propuesta con código: {codigoPropuesta}</div>;
   }
 
-   const contenidoInicial: FilaContenido[] = propuesta_seleccionada.contenido_propuesta.map(
+  const contenidoInicial: FilaContenido[] = propuesta_seleccionada.contenido_propuesta.map(
     (item) => ({
       medio: item.medio,
       publicacion: item.publicacion,
       producto: item.producto,
       precio: item.precio_producto,
-      deadline: item.deadline_publicacion,
-      fechaPublicacion: item.fecha_publicacion_publicacion,
+      descuento_unitario: item.descuento_unitario,
       estadoMaterial: "",
       urlcontenido: "",
     })
@@ -44,16 +44,6 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
   const [filas, setFilas] = useState<FilaContenido[]>(contenidoInicial);
   const [filaAEliminar, setFilaAEliminar] = useState<number | null>(null);
   const [showAgregar, setShowAgregar] = useState(false);
-  const [nuevaFila, setNuevaFila] = useState<FilaContenido>({
-    medio: "",
-    publicacion: "",
-    producto: "",
-    precio: 0,
-    deadline: "",
-    fechaPublicacion: "",
-    estadoMaterial: "",
-    urlcontenido: "",
-  });
 
   const confirmarEliminar = () => {
     if (filaAEliminar !== null) {
@@ -62,32 +52,29 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
     }
   };
 
-  const agregarFila = () => {
-    setFilas([...filas, nuevaFila]);
-    setNuevaFila({
-      medio: "",
-      publicacion: "",
-      producto: "",
-      precio: 0,
-      deadline: "",
-      fechaPublicacion: "",
-      estadoMaterial: "",
-      urlcontenido: "",
-    });
-    setShowAgregar(false);
-  };
+  // 🔹 Cerrar modales con la tecla Escape
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        if (showAgregar) setShowAgregar(false);
+        if (filaAEliminar !== null) setFilaAEliminar(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
+  }, [showAgregar, filaAEliminar]);
 
   return (
     <div className="overflow-x-auto">
-      <table className="table-auto border-collapse text-center w-full">
+      <table className="w-full border shadow-xs border-gray-100 text-center text-sm">
         <thead>
-          <tr className="bg-blue-950 text-white">
+          <tr className="bg-blue-950/80 text-white">
             <th className="px-4 py-2">Medio</th>
             <th className="px-4 py-2">Publicación</th>
             <th className="px-4 py-2">Producto</th>
             <th className="px-4 py-2">Precio tarifa</th>
-            <th className="px-4 py-2">Deadline material</th>
-            <th className="px-4 py-2">Fecha de publicación</th>
+            <th className="px-4 py-2">Descuento unitario</th>
             <th className="px-4 py-2">Eliminar</th>
           </tr>
         </thead>
@@ -98,12 +85,11 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
               <td className="px-4 py-2">{fila.publicacion}</td>
               <td className="px-4 py-2">{fila.producto}</td>
               <td className="px-4 py-2">{fila.precio}</td>
-              <td className="px-4 py-2">{fila.deadline}</td>
-              <td className="px-4 py-2">{fila.fechaPublicacion}</td>
+              <td className="px-4 py-2">{fila.descuento_unitario}</td>
               <td className="px-4 py-2">
                 <button
                   onClick={() => setFilaAEliminar(index)}
-                  className="text-red-600 font-bold text-xl hover:text-red-800"
+                  className="text-red-600 font-bold text-xl hover:text-red-800 cursor-pointer"
                   aria-label={`Eliminar fila ${index + 1}`}
                 >
                   ×
@@ -116,7 +102,7 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
 
       <button
         onClick={() => setShowAgregar(true)}
-        className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 w-full mt-2"
+        className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 w-full mt-2 cursor-pointer"
       >
         + Agregar fila
       </button>
@@ -144,64 +130,15 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
         </div>
       )}
 
-      {/* Modal agregar */}
+      {/* Modal Agregar (extraído en componente aparte) */}
       {showAgregar && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
-          <div className="bg-white p-6 rounded shadow-md w-96">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-bold">Agregar nueva fila</h2>
-              <button
-                onClick={() => setShowAgregar(false)}
-                className="text-gray-600 font-bold text-xl hover:text-gray-800"
-                aria-label="Cerrar"
-              >
-                ×
-              </button>
-            </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              {(["medio", "publicacion", "producto", "precio", "deadline", "fechaPublicacion"] as (keyof FilaContenido)[]).map(
-                (field) => (
-                  <div key={field} className="flex flex-col">
-                    <label className="text-left text-sm font-semibold capitalize">
-                      {field.replace(/([A-Z])/g, " $1")}
-                    </label>
-                    <input
-                      type={field === "precio" ? "number" : "text"}
-                      value={nuevaFila[field] as string | number}
-                      onChange={(e) =>
-                        setNuevaFila({
-                          ...nuevaFila,
-                          [field]:
-                            field === "precio"
-                              ? Number(e.target.value)
-                              : e.target.value,
-                        })
-                      }
-                      className="border border-gray-300 rounded px-2 py-1"
-                    />
-                  </div>
-                )
-              )}
-            </div>
-
-            <div className="mt-4 flex justify-end gap-2">
-              <button
-                onClick={() => setShowAgregar(false)}
-                className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
-              >
-                Cancelar ×
-              </button>
-              <button
-                onClick={agregarFila}
-                className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-                disabled={!nuevaFila.medio || !nuevaFila.publicacion || !nuevaFila.producto}
-              >
-                Agregar
-              </button>
-            </div>
-          </div>
-        </div>
+        <AnadirContenido
+          onClose={() => setShowAgregar(false)}
+          onAgregar={(nuevaFila) => {
+            setFilas([...filas, nuevaFila]);
+            setShowAgregar(false);
+          }}
+        />
       )}
     </div>
   );

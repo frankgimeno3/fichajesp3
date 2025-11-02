@@ -80,11 +80,8 @@ const propuestas = propuestasRaw as InterfazPropuesta[];
         <TablaDeCobros propuesta={propuesta} />
 
         <p className="font-bold mb-1 text-gray-500 mt-6">Comentarios adicionales:</p>
-        <div className="bg-white rounded text-gray-500 p-5 mb-24 border border-gray-100 shadow-sm  text-sm">
-          Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus
-          atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum
-          repellendus voluptate?
-        </div>
+        <textarea className={propuesta.comentarios_adicionales_propuesta}
+        />
       </div>
       </div>
 

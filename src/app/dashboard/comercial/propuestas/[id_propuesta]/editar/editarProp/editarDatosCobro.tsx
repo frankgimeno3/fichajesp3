@@ -1,121 +1,158 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useEffect } from "react";
 import propuestas from "@/app/contents/propuestasContents.json";
-import { InterfazPropuesta } from '@/app/interfaces/interfaces';
-
+import { InterfazPropuesta } from "@/app/interfaces/interfaces";
 
 interface DatosCobroPropuestaProps {
   codigoPropuesta: string;
 }
 
-const DatosCobroPropuesta: FC <DatosCobroPropuestaProps> = ({codigoPropuesta}) => {
-  const [formData, setFormData] = useState({
-    numeroCobros: '3',
-    baseImponible: '1500', 
-    impuesto: '21', 
-    precioTotal: '0', 
-    formaCobro: 'Transferencia',
-    cuentaCobro: 'ES76 1234 5678 9012 3456 7890',
-  });
-  
-const propuestasData = propuestas as InterfazPropuesta[];
-
-   const propuesta_seleccionada = propuestasData.find(
+const DatosCobroPropuesta: FC<DatosCobroPropuestaProps> = ({ codigoPropuesta }) => {
+  const propuestasData = propuestas as InterfazPropuesta[];
+  const propuesta_seleccionada = propuestasData.find(
     (p) => p.detalles_propuesta.id_propuesta === codigoPropuesta
   );
 
-  useEffect(() => {
-    const base = parseFloat(formData.baseImponible) || 0;
-    const impuestoNum = parseInt(formData.impuesto) || 0;
-    const factor = impuestoNum === 21 ? 1.21 : 1;
-    const total = base * factor;
-    setFormData((prev) => ({ ...prev, precioTotal: total.toFixed(2) }));
-  }, [formData.baseImponible, formData.impuesto]);
+  const [cobros, setCobros] = useState<any[]>([]);
+  const [showModal, setShowModal] = useState(false);
+  const [cobroAEliminar, setCobroAEliminar] = useState<number | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  useEffect(() => {
+    if (propuesta_seleccionada?.cobros) {
+      setCobros(propuesta_seleccionada.cobros);
+    }
+  }, [propuesta_seleccionada]);
+
+  // Cerrar modal con ESC
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setShowModal(false);
+        setCobroAEliminar(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  const handleChange = (index: number, field: string, value: string | number) => {
+    const updated = [...cobros];
+    updated[index] = { ...updated[index], [field]: value };
+    setCobros(updated);
   };
 
+  const handleEliminarClick = (index: number) => {
+    setCobroAEliminar(index);
+    setShowModal(true);
+  };
+
+  const handleConfirmarEliminar = () => {
+    if (cobroAEliminar !== null) {
+      const updated = cobros.filter((_, i) => i !== cobroAEliminar);
+      setCobros(updated);
+      setCobroAEliminar(null);
+      setShowModal(false);
+    }
+  };
+
+  const handleCancelar = () => {
+    setShowModal(false);
+    setCobroAEliminar(null);
+  };
+
+  if (!propuesta_seleccionada) {
+    return <p className="text-center text-gray-500">Propuesta no encontrada.</p>;
+  }
+
   return (
-    <div className="space-y-6">
-      <table className="table-auto border-collapse w-full text-left">
+    <>
+      <table className="w-full border shadow-xs border-gray-100 text-center text-sm">
         <thead>
-          <tr className="bg-blue-950 text-white">
-            <th className="px-4 py-2">Número de cobros</th>
-            <th className="px-4 py-2">Base imponible</th>
-            <th className="px-4 py-2">Impuesto</th>
-            <th className="px-4 py-2">Precio total</th>
+          <tr className="bg-blue-950/80 text-white">
+            <th className="px-4 py-2">Número de cobro</th>
+            <th className="px-4 py-2">Fecha</th>
+            <th className="px-4 py-2">Importe</th>
             <th className="px-4 py-2">Forma de pago</th>
-            <th className="px-4 py-2">Cuenta de Cobro</th>
+            <th className="px-4 py-2">Eliminar</th>
           </tr>
         </thead>
         <tbody>
-          <tr className="bg-white text-gray-700">
-            <td className="px-4 py-2">
-              <input
-                type="number"
-                name="numeroCobros"
-                value={formData.numeroCobros}
-                onChange={handleChange}
-                min={1}
-                className="border border-gray-300 rounded px-2 py-1 w-full"
-              />
-            </td>
-            <td className="px-4 py-2">
-              <input
-                type="number"
-                name="baseImponible"
-                value={formData.baseImponible}
-                onChange={handleChange}
-                min={0}
-                step="0.01"
-                className="border border-gray-300 rounded px-2 py-1 w-full"
-              />
-            </td>
-            <td className="px-4 py-2">
-              <select
-                name="impuesto"
-                value={formData.impuesto}
-                onChange={handleChange}
-                className="border border-gray-300 rounded px-2 py-1 w-full"
-              >
-                <option value="21">21%</option>
-                <option value="0">0%</option>
-              </select>
-            </td>
-            <td className="px-4 py-2">
-              <input
-                type="number"
-                name="precioTotal"
-                value={formData.precioTotal}
-                readOnly
-                className="border border-gray-300 rounded px-2 py-1 w-full bg-gray-100"
-              />
-            </td>
-            <td className="px-4 py-2">
-              <select
-                name="formaCobro"
-                value={formData.formaCobro}
-                onChange={handleChange}
-                className="border border-gray-300 rounded px-2 py-1 w-full"
-              >
-                <option value="Transferencia">Transferencia</option>
-                <option value="Recibo domiciliado">Recibo domiciliado</option>
-              </select>
-            </td>
-            <td className="px-4 py-2">
-              <input
-                type="text"
-                name="cuentaCobro"
-                value={formData.cuentaCobro}
-                onChange={handleChange}
-                className="border border-gray-300 rounded px-2 py-1 w-full"
-              />
-            </td>
-          </tr>
+          {cobros.map((cobro, index) => (
+            <tr key={index} className="bg-white text-gray-700 border-t border-gray-100">
+              <td className="px-4 py-2">{cobro.numero_cobro}</td>
+              <td className="px-4 py-2">
+                <input
+                  type="date"
+                  value={cobro.fecha_cobro || ""}
+                  onChange={(e) => handleChange(index, "fecha_cobro", e.target.value)}
+                  className="border border-gray-300 rounded px-2 py-1 w-full"
+                />
+              </td>
+              <td className="px-4 py-2">
+                <input
+                  type="number"
+                  value={cobro.importe_cobro || ""}
+                  onChange={(e) => handleChange(index, "importe_cobro", parseFloat(e.target.value))}
+                  step="0.01"
+                  min="0"
+                  className="border border-gray-300 rounded px-2 py-1 w-full"
+                />
+              </td>
+              <td className="px-4 py-2">
+                <select
+                  value={cobro.forma_cobro || ""}
+                  onChange={(e) => handleChange(index, "forma_cobro", e.target.value)}
+                  className="border border-gray-300 rounded px-2 py-1 w-full"
+                >
+                  <option value="Otros">Otros</option>
+                  <option value="Transferencia Bancaria">Transferencia Bancaria</option>
+                  <option value="Recibo domiciliado">Recibo domiciliado</option>
+                </select>
+              </td>
+             <td className="px-4 py-2">
+                <button
+                  onClick={() => handleEliminarClick(index)}
+                  className="text-red-600 font-bold text-xl hover:text-red-800"
+                  aria-label={`Eliminar fila ${index + 1}`}
+                >
+                  ×
+                </button>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
-    </div>
+
+      {/* MODAL */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+          <div className="bg-white rounded-xl shadow-lg w-[90%] max-w-sm p-4 relative">
+            <button
+              onClick={handleCancelar}
+              className="absolute top-2 right-3 text-gray-500 text-lg font-bold hover:text-gray-700"
+            >
+              ×
+            </button>
+            <h2 className="text-lg font-semibold text-center mb-4">
+              ¿Seguro que desea eliminar?
+            </h2>
+            <div className="flex justify-center gap-4 mt-6">
+              <button
+                onClick={handleCancelar}
+                className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium"
+              >
+                Cancelar
+              </button>
+              <button
+                onClick={handleConfirmarEliminar}
+                className="px-4 py-2 rounded bg-red-600 hover:bg-red-700 text-white font-medium"
+              >
+                Confirmar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

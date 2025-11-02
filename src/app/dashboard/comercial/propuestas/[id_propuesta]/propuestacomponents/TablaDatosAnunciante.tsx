@@ -12,19 +12,17 @@ interface TablaDatosAnuncianteProps {
 const TablaDatosAnunciante: FC<TablaDatosAnuncianteProps> = ({ empresaAnunciante, contactoPropuesta }) => {
   const router = useRouter()
   const cuentaSeleccionada = cuentas.find (c => c.id_cuenta === empresaAnunciante);
-  
   const contactoSeleccionado = contactos.find (c => c.id_contacto === contactoPropuesta) as InterfazContacto;
 
     if (!cuentaSeleccionada) {
     return <div className="text-red-500 p-6">Propuesta no encontrada.    </div>;
   }
   return (
-    <div className="overflow-x-auto">
-        <table className=" w-full border  shadow-xs border-gray-100  text-center  text-sm"  >
+         <table className=" w-full border  shadow-xs border-gray-100  text-center  text-sm"  >
         <thead>
           <tr className="bg-blue-950/80 text-white">
             <th className="px-6 py-2 flex-1/6">Empresa anunciante</th>
-            <th className="px-4 py-2 flex-1/6">Código CRM</th>
+            <th className="px-4 py-2 flex-1/6"> Código CRM  </th>
             <th className="px-4 py-2 flex-1/6">País</th>
             <th className="px-4 py-2 flex-1/6">Contacto de gestión</th>
             <th className="px-4 py-2 flex-1/6">Cargo del contacto</th>
@@ -50,8 +48,7 @@ const TablaDatosAnunciante: FC<TablaDatosAnuncianteProps> = ({ empresaAnunciante
           </tr>
         </tbody>
       </table>
-    </div>
-  );
+   );
 };
 
 export default TablaDatosAnunciante;
