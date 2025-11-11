@@ -1,5 +1,6 @@
-// AnadirContenido.tsx
 import React, { FC, useState, useEffect } from "react";
+import servicios from "@/app/contents/ServiciosContents.json"
+import publicaciones from "@/app/contents/publicacionesContents.json"
 
 interface FilaContenido {
   medio: string;
@@ -25,8 +26,7 @@ const AnadirContenido: FC<AnadirContenidoProps> = ({ onClose, onAgregar }) => {
     descuento_unitario: 0,
   });
 
-  // Cerrar con tecla Escape
-  useEffect(() => {
+   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
@@ -34,8 +34,7 @@ const AnadirContenido: FC<AnadirContenidoProps> = ({ onClose, onAgregar }) => {
     return () => window.removeEventListener("keydown", handleEsc);
   }, [onClose]);
 
-  // Cerrar si se hace clic fuera del modal
-  const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
+   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) onClose();
   };
 

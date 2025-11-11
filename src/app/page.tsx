@@ -11,7 +11,6 @@ export default function Home() {
     const [error, setError] = useState<string | null>(null);
     const [showPassword, setShowPassword] = useState(false);
 
-    // 🔹 Si ya está loggeado (payload en localStorage), redirigir a /dashboard
     useEffect(() => {
         const storedPayload = localStorage.getItem("userPayload");
         if (storedPayload) {
@@ -26,10 +25,8 @@ export default function Home() {
         try {
             const payload: any = await AuthenticationService.login(employeeNumber, password);
 
-            // 🔹 Guardar payload en localStorage
             localStorage.setItem("userPayload", JSON.stringify(payload));
 
-            // 🔹 Redirigir siempre a /dashboard
             router.replace('/dashboard');
         } catch (e: any) {
             console.error(e);
@@ -90,8 +87,7 @@ export default function Home() {
                         </button>
                     </div>
 
-                    {/* MOSTRAR ERROR */}
-                    {error && (
+                     {error && (
                         <div className="flex flex-col text-red-500 text-sm text-center">
                             <p>ERROR:</p>
                             <p>{error}</p>

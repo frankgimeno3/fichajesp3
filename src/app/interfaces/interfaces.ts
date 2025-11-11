@@ -103,3 +103,12 @@ export interface InterfazPropuesta {
     forma_cobro: string;
   }[]
 }
+export interface InterfazAgente {
+  id_agente: string;
+  nombre_agente: string;
+  apellidos_agente: string;
+  nombre_completo_agente: string;
+  DNI_agente: string;
+  rol_agente: string;
+  estado_agente: 'activo' | 'inactivo' ;
+}
