@@ -1,7 +1,8 @@
 'use client';
 import React, { FC, ChangeEvent, useState } from "react";
 import agentes from "@/app/contents/agentesContents.json";
-import PopUpAgentes, { InterfazAgente } from "./modalsAgentes/PopUpAgentes";
+import contactos from "@/app/contents/contactsContents.json";
+import PopUpAgentes, { InterfazAgente } from "./modals/PopUpAgentes";
 
 interface DatosCRMProps {
   nombre_empresa: string;
@@ -25,7 +26,10 @@ const DatosCRM: FC<DatosCRMProps> = ({
     agentes.find((a) => a.id_agente === id_agente) || null
   );
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     onChange(name, value);
   };
@@ -39,6 +43,8 @@ const DatosCRM: FC<DatosCRMProps> = ({
     onChange("id_agente", agente.id_agente);
   };
 
+
+
   return (
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4">Datos generales</h2>
@@ -47,13 +53,12 @@ const DatosCRM: FC<DatosCRMProps> = ({
           <tr>
             <th className="text-left p-2 font-light">Nombre Empresa</th>
             <th className="text-left p-2 font-light">Agente Asignado</th>
-            <th className="text-left p-2 font-light">Actividades</th>
             <th className="text-left p-2 font-light">QQ?</th>
             <th className="text-left p-2 font-light">Fuentes novedades</th>
           </tr>
         </thead>
         <tbody>
-          <tr className="border-t border-gray-200 hover:bg-gray-100/30">
+          <tr className="border-t border-gray-200 hover:bg-gray-100/30 ">
             <td className="p-2 border-b border-gray-200">
               <input
                 type="text"
@@ -63,7 +68,6 @@ const DatosCRM: FC<DatosCRMProps> = ({
                 className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring focus:ring-blue-400"
               />
             </td>
-
             <td className="p-2 border-b border-gray-200">
               <div className="flex flex-row items-center gap-2">
                 <span
@@ -93,16 +97,6 @@ const DatosCRM: FC<DatosCRMProps> = ({
             </td>
 
             <td className="p-2 border-b border-gray-200">
-              <input
-                type="text"
-                name="actividades"
-                value={actividades}
-                onChange={handleInputChange}
-                className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring focus:ring-blue-400"
-              />
-            </td>
-
-            <td className="p-2 border-b border-gray-200">
               <select
                 name="presente_en_qq"
                 value={presente_en_qq ? "Sí" : "No"}
@@ -123,15 +117,29 @@ const DatosCRM: FC<DatosCRMProps> = ({
                 className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring focus:ring-blue-400"
               />
             </td>
+
           </tr>
+
         </tbody>
       </table>
+
+      <div className="py-4">
+
+        <h2 className="text-xl font-bold mt-4">Actividades</h2>
+           <textarea
+            name="actividades"
+            value={actividades}
+            onChange={handleInputChange}
+            className="w-full border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring focus:ring-blue-400 min-h-24 text-sm"
+          />
+       </div>
 
       <PopUpAgentes
         isOpen={popupOpen}
         onClose={() => setPopupOpen(false)}
         onSelect={handleAgenteSeleccionado}
       />
+
     </div>
   );
 };

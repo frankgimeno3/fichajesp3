@@ -15,7 +15,7 @@ interface ContenidoGeneralProps {
 }
 
 const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenidoEdited }) => {
-   const [cuentaEditable, setCuentaEditable] = useState<InterfazCuenta | undefined>(
+  const [cuentaEditable, setCuentaEditable] = useState<InterfazCuenta | undefined>(
     () => cuentas.find((c) => c.id_cuenta === id_cuenta)
   );
 
@@ -42,6 +42,31 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenido
     setIsContenidoEdited(true);
   };
 
+  const handleDatosComercialesChange = (field: string, value: string) => {
+    // Si el campo pertenece a datos_comerciales:
+    if (field in cuentaEditable.datos_comerciales) {
+      setCuentaEditable(prev =>
+        prev
+          ? {
+              ...prev,
+              datos_comerciales: {
+                ...prev.datos_comerciales,
+                [field]: value,
+              },
+            }
+          : prev
+      );
+    }
+    // Si el campo es "pais_cuenta", lo actualizamos directamente
+    else if (field === "pais_cuenta") {
+      setCuentaEditable(prev =>
+        prev ? { ...prev, pais_cuenta: value } : prev
+      );
+    }
+
+    setIsContenidoEdited(true);
+  };
+
   return (
     <div className="flex flex-col">
       <DatosCRM
@@ -56,7 +81,7 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenido
       <DatosComerciales
         datos_comerciales={cuentaEditable.datos_comerciales}
         pais_cuenta={cuentaEditable.pais_cuenta}
-        onChange={() => setIsContenidoEdited(true)}
+        onChange={handleDatosComercialesChange}
       />
 
       <Direcciones
@@ -75,9 +100,7 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenido
       />
 
       <div className="flex flex-col py-12 gap-5">
-         <ContenidoContactosEmpresa
-             id_cuenta={id_cuenta}
-        />
+        <ContenidoContactosEmpresa id_cuenta={id_cuenta} />
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 'use client';
 import React, { FC, useState } from 'react';
-import ModalAnadirDireccion from './modalsDirecciones/ModalAnadirDireccion';
-import ModalEditarDireccion from './modalsDirecciones/ModalEditarDireccion';
-import ModalBorrarDireccion from './modalsDirecciones/ModalBorrarDireccion';
+import ModalAnadirDireccion from './modals/modalsDirecciones/ModalAnadirDireccion';
+import ModalEditarDireccion from './modals/modalsDirecciones/ModalEditarDireccion';
+import ModalBorrarDireccion from './modals/modalsDirecciones/ModalBorrarDireccion';
 
 interface Direccion {
   nombre_direccion: string;
