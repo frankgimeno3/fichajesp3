@@ -16,6 +16,7 @@ export interface InterfazContacto {
   contactado_en_feria: string,
   suscripciones: string[],
   otros_datos_interes: string
+  pais_contacto:string
 }
 
 export interface InterfazDireccion {

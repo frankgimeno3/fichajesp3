@@ -10,6 +10,7 @@ const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ contacto, onChange })
   const [suscripciones, setSuscripciones] = useState<string[]>(contacto.suscripciones || []);
   const [otrosDatos, setOtrosDatos] = useState<string>(contacto.otros_datos_interes || "");
   const [idiomas, setIdiomas] = useState<string>(contacto.idiomas);
+  const [pais, setPais] = useState<string>(contacto.pais_contacto);
   const [conocidoEn, setConocidoEn] = useState<string>(contacto.conocido_en || "");
   const [contactadoEnFeria, setContactadoEnFeria] = useState<string>(contacto.contactado_en_feria );
 
@@ -61,6 +62,12 @@ const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ contacto, onChange })
     onChange({ ...contacto, idiomas: value});
   };
 
+  const handlePaisChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPais(value);
+    onChange({ ...contacto, pais_contacto: value});
+  };
+
   const handleConocidoEnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setConocidoEn(value);
@@ -79,6 +86,17 @@ const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ contacto, onChange })
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
          <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-4">
+            <label className="w-1/3 text-gray-700">País</label>
+            <input
+              type="text"
+              value={pais}
+              onChange={handlePaisChange}
+              className="flex-1 border border-gray-300 rounded-lg p-2 text-gray-700"
+              placeholder="Ej: España"
+            />
+          </div>
+
           <div className="flex items-center gap-4">
             <label className="w-1/3 text-gray-700">Idiomas</label>
             <input
