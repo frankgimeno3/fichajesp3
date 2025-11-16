@@ -3,11 +3,12 @@
 import React, { FC, useState } from "react";
 import { useRouter } from "next/navigation";
 import ModalFase2 from "./fasescomponents/ModalFase2";
+import cuentas from "@/app/contents/cuentasContents.json";
 
 interface Cuenta {
-  codigo: string;
-  nombre: string;
-  pais: string;
+  id_cuenta: string;
+  nombre_empresa: string;
+  pais_cuenta: string;
 }
 
 interface Fase2Props {
@@ -27,12 +28,6 @@ const Fase2: FC<Fase2Props> = ({ setId_Cuenta, setCargo }) => {
 
   const router = useRouter();
 
-  const cuentasMock: Cuenta[] = [
-    { codigo: "123", nombre: "Empresa A", pais: "España" },
-    { codigo: "456", nombre: "Empresa B", pais: "México" },
-    { codigo: "789", nombre: "Empresa C", pais: "Argentina" },
-  ];
-
   const isFormValid = codigo.trim() !== "" || nombre.trim() !== "";
 
   const handleBuscar = (e?: React.FormEvent) => {
@@ -49,20 +44,21 @@ const Fase2: FC<Fase2Props> = ({ setId_Cuenta, setCargo }) => {
     setResultados(null);
 
     setTimeout(() => {
-      const filtradas = cuentasMock.filter(
+      const filtradas = cuentas.filter(
         (c) =>
-          (codigo && c.codigo.includes(codigo)) ||
-          (nombre && c.nombre.toLowerCase().includes(nombre.toLowerCase()))
+          (codigo && c.id_cuenta.includes(codigo)) ||
+          (nombre && c.nombre_empresa.toLowerCase().includes(nombre.toLowerCase()))
       );
+
       setResultados(filtradas.length > 0 ? filtradas : []);
       setLoading(false);
     }, 2000);
   };
 
   const handleSeleccionar = (cuenta: Cuenta) => {
-    setId_Cuenta(cuenta.codigo);
-    setCodigo(cuenta.codigo);
-    setNombre(cuenta.nombre);
+    setId_Cuenta(cuenta.id_cuenta);
+    setCodigo(cuenta.id_cuenta);
+    setNombre(cuenta.nombre_empresa);
     setSeleccionado(true);
     setModalOpen(false);
   };
@@ -83,7 +79,7 @@ const Fase2: FC<Fase2Props> = ({ setId_Cuenta, setCargo }) => {
 
       <form className="flex flex-col gap-3" onSubmit={handleBuscar}>
         <label className="flex flex-col">
-          <p className="text-sm mb-1 flex flex-row">Código de la cuenta {seleccionado?<p className="pl-1">seleccionada</p>:<></>}</p>
+          <p className="text-sm mb-1 flex flex-row">Código de la cuenta {seleccionado && <span className="pl-1">seleccionada</span>}</p>
           <input
             type="text"
             value={codigo}
@@ -94,7 +90,7 @@ const Fase2: FC<Fase2Props> = ({ setId_Cuenta, setCargo }) => {
         </label>
 
         <label className="flex flex-col">
-          <p className="text-sm mb-1 flex flex-row">Nombre de la cuenta {seleccionado?<p className="pl-1">seleccionada</p>:<></>}</p>
+          <p className="text-sm mb-1 flex flex-row">Nombre de la cuenta {seleccionado && <span className="pl-1">seleccionada</span>}</p>
           <input
             type="text"
             value={nombre}
@@ -114,17 +110,15 @@ const Fase2: FC<Fase2Props> = ({ setId_Cuenta, setCargo }) => {
             className={`rounded-lg px-4 py-2 mt-5 transition ${isFormValid
               ? 'bg-blue-900 text-white cursor-pointer hover:bg-blue-600'
               : 'bg-blue-900/50 text-white cursor-not-allowed'
-              }`}          >
+              }`}
+          >
             Buscar
           </button>
         ) : (
           <>
             <label className="flex flex-col">
-              <p className="text-sm">
-                Introduzca el cargo del contacto en la empresa</p>
-                <p className="text-xs mb-3 italic text-gray-400">
-                pe: Director de márketing
-              </p>
+              <p className="text-sm">Introduzca el cargo del contacto en la empresa</p>
+              <p className="text-xs mb-3 italic text-gray-400">pe: Director de márketing</p>
               <input
                 type="text"
                 value={cargo}
@@ -134,7 +128,7 @@ const Fase2: FC<Fase2Props> = ({ setId_Cuenta, setCargo }) => {
             </label>
 
             <button
-              onClick={() => router.push("/dashboard/clientes/contactos/ficha/1")}
+              onClick={() => router.push("/dashboard/clientes/contactos")}
               className={`rounded-lg px-4 py-2 transition mb-16 ${cargo.trim()
                   ? "bg-green-500 text-white hover:bg-green-600 cursor-pointer"
                   : "bg-green-500 text-white opacity-50 cursor-not-allowed"
