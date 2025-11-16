@@ -16,7 +16,7 @@ const Fase1: FC<Fase1Props> = ({ setFaseCrearContacto }) => {
       <p className='text-gray-500 pb-6 italic' >Deseas asociarlo a una cuenta? </p>
     
     <div className='flex flex-col gap-6 px-24'>
-      <button onClick={() => { router.push('/dashboard/clientes/contactos/ficha/1') }} className='bg-gray-100 hover:bg-gray-100/50 text-sm border border-gray-100 shadow-lg cursor-pointer rounded-lg px-3 py-1'>
+      <button onClick={() => { router.push('/dashboard/clientes/contactos') }} className='bg-gray-100 hover:bg-gray-100/50 text-sm border border-gray-100 shadow-lg cursor-pointer rounded-lg px-3 py-1'>
         Ahora mismo <span className='font-bold text-md'>no</span>, ir a la ficha completa del contacto
       </button>
         <button onClick={() => { setFaseCrearContacto(2) }} 
