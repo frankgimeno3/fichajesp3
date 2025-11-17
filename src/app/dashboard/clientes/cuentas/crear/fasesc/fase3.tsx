@@ -53,8 +53,8 @@ const Fase3: FC<Fase3Props> = ({ setFaseCrearCuenta, setNombre, setApellidos, se
   };
 
   return (
-    <div className="p-4 bg-gray-100 rounded-2xl shadow-md max-w-md mx-auto">
-      <h2 className="text-xl font-semibold mb-4">Cuenta creada con éxito</h2>
+       <div className="p-10 px-8 md:px-56 bg-white rounded-2xl shadow-md max-w-5xl mx-auto text-center">
+            <h2 className="text-xl font-semibold mb-4 pt-10">Cuenta creada con éxito</h2>
 
       {!vincular ? (
         <>

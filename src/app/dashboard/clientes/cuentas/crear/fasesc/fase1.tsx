@@ -40,8 +40,8 @@ const CrearCuenta: FC<CrearCuentaProps> = ({
   };
 
   return (
-    <div className="p-4 bg-gray-100 rounded-2xl shadow-md max-w-md mx-auto">
-      <h2 className="text-xl font-semibold mb-4">Crear nueva cuenta</h2>
+     <div className="p-10 px-8 md:px-56 bg-white rounded-2xl shadow-md max-w-5xl mx-auto text-center py-24">
+      <h2 className="text-xl font-semibold mb-4 ">Crear nueva cuenta</h2>
       <div className="flex flex-col gap-3">
         <input
           type="text"
@@ -83,7 +83,7 @@ const CrearCuenta: FC<CrearCuentaProps> = ({
 
         <button
           onClick={() => setFaseCrearCuenta(2)}
-          className="bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600 transition"
+          className="bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600 transition cursor-pointer"
         >
           Siguiente fase
         </button>

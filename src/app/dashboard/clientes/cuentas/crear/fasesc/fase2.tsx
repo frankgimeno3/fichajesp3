@@ -60,8 +60,8 @@ const Fase2: FC<Fase2Props> = ({
   };
 
   return (
-    <div className="p-4 bg-gray-100 rounded-2xl shadow-md max-w-md mx-auto">
-      <h2 className="text-xl font-semibold mb-4">Fase 2 - Dirección de la cuenta</h2>
+        <div className="p-10 px-8 md:px-56 bg-white rounded-2xl shadow-md max-w-5xl mx-auto text-center">
+            <h2 className="text-xl font-semibold mb-4 pt-10"> Dirección de la cuenta</h2>
       <div className="flex flex-col gap-3">
         <input type="text" placeholder="Nombre de la ubicación" className="border p-2 rounded-lg"
           value={nombreUbicacion} onChange={(e) => actualizarSetter(setNombreUbicacion, e.target.value, setNombreUbicacionLocal)} />
