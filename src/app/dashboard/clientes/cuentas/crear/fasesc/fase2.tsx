@@ -3,8 +3,7 @@
 import React, { FC, ChangeEvent } from "react";
 
 interface Fase2Props {
-  setNombreUbicacion: React.Dispatch<React.SetStateAction<string>>;
-  setPaisUbicacion: React.Dispatch<React.SetStateAction<string>>;
+   setPaisUbicacion: React.Dispatch<React.SetStateAction<string>>;
   setEstadoUbicacion: React.Dispatch<React.SetStateAction<string>>;
   setCiudadUbicacion: React.Dispatch<React.SetStateAction<string>>;
   setCodigoPostal: React.Dispatch<React.SetStateAction<string>>;
@@ -23,8 +22,7 @@ export const paises = [
 ];
 
 const Fase2: FC<Fase2Props> = ({
-  setNombreUbicacion,
-  setPaisUbicacion,
+   setPaisUbicacion,
   setEstadoUbicacion,
   setCiudadUbicacion,
   setCodigoPostal,
@@ -40,8 +38,7 @@ const Fase2: FC<Fase2Props> = ({
   };
 
 
-  const [nombreUbicacion, setNombreUbicacionLocal] = React.useState('');
-  const [paisUbicacion, setPaisUbicacionLocal] = React.useState('');
+   const [paisUbicacion, setPaisUbicacionLocal] = React.useState('');
   const [estadoUbicacion, setEstadoUbicacionLocal] = React.useState('');
   const [ciudadUbicacion, setCiudadUbicacionLocal] = React.useState('');
   const [codigoPostal, setCodigoPostalLocal] = React.useState('');
@@ -50,8 +47,7 @@ const Fase2: FC<Fase2Props> = ({
   const [descripcionUbicacion, setDescripcionUbicacionLocal] = React.useState('');
   
   const todosCamposCompletos = (
-    nombreUbicacion && paisUbicacion && estadoUbicacion && ciudadUbicacion &&
-    codigoPostal && direccionCompleta && telefonoPrincipal && descripcionUbicacion
+     paisUbicacion && telefonoPrincipal  
   );
 
   const actualizarSetter = (setter: React.Dispatch<React.SetStateAction<string>>, valor: string, localSetter: React.Dispatch<React.SetStateAction<string>>) => {
@@ -61,35 +57,33 @@ const Fase2: FC<Fase2Props> = ({
 
   return (
         <div className="p-10 px-8 md:px-56 bg-white rounded-2xl shadow-md max-w-5xl mx-auto text-center">
-            <h2 className="text-xl font-semibold mb-4 pt-10"> Dirección de la cuenta</h2>
+            <h2 className="text-xl font-semibold mb-4 pt-10"> Dirección principal de la empresa</h2>
       <div className="flex flex-col gap-3">
-        <input type="text" placeholder="Nombre de la ubicación" className="border p-2 rounded-lg"
-          value={nombreUbicacion} onChange={(e) => actualizarSetter(setNombreUbicacion, e.target.value, setNombreUbicacionLocal)} />
-
         <select className="border p-2 rounded-lg" value={paisUbicacion} onChange={(e) => actualizarSetter(setPaisUbicacion, e.target.value, setPaisUbicacionLocal)}>
-          <option value="" disabled>Selecciona un país</option>
+          <option value="" disabled>Selecciona un país (obligatorio)</option>
           {paises.map((p, i) => <option key={i} value={p}>{p}</option>)}
         </select>
-
-        <input type="text" placeholder="Estado" className="border p-2 rounded-lg"
-          value={estadoUbicacion} onChange={(e) => actualizarSetter(setEstadoUbicacion, e.target.value, setEstadoUbicacionLocal)} />
-
-        <input type="text" placeholder="Ciudad" className="border p-2 rounded-lg"
-          value={ciudadUbicacion} onChange={(e) => actualizarSetter(setCiudadUbicacion, e.target.value, setCiudadUbicacionLocal)} />
-
-        <input type="text" placeholder="Código postal" className="border p-2 rounded-lg"
-          value={codigoPostal} onChange={(e) => actualizarSetter(setCodigoPostal, e.target.value, setCodigoPostalLocal)} />
-
-        <input type="text" placeholder="Dirección completa" className="border p-2 rounded-lg"
-          value={direccionCompleta} onChange={(e) => actualizarSetter(setDireccionCompleta, e.target.value, setDireccionCompletaLocal)} />
-
-        <input type="tel" placeholder="Teléfono principal" className="border p-2 rounded-lg"
+         <input type="tel" placeholder="Teléfono principal (obligatorio)" className="border p-2 rounded-lg"
           value={telefonoPrincipal} onChange={(e) => actualizarSetter(setTelefonoPrincipal, e.target.value, setTelefonoPrincipalLocal)} />
 
-        <textarea placeholder="Descripción de la ubicación" rows={3} className="border p-2 rounded-lg"
+
+        <input type="text" placeholder="Estado (opcional)" className="border p-2 rounded-lg"
+          value={estadoUbicacion} onChange={(e) => actualizarSetter(setEstadoUbicacion, e.target.value, setEstadoUbicacionLocal)} />
+
+        <input type="text" placeholder="Ciudad (opcional)" className="border p-2 rounded-lg"
+          value={ciudadUbicacion} onChange={(e) => actualizarSetter(setCiudadUbicacion, e.target.value, setCiudadUbicacionLocal)} />
+
+        <input type="text" placeholder="Código postal (opcional)" className="border p-2 rounded-lg"
+          value={codigoPostal} onChange={(e) => actualizarSetter(setCodigoPostal, e.target.value, setCodigoPostalLocal)} />
+
+        <input type="text" placeholder="Dirección completa (opcional)" className="border p-2 rounded-lg"
+          value={direccionCompleta} onChange={(e) => actualizarSetter(setDireccionCompleta, e.target.value, setDireccionCompletaLocal)} />
+
+       
+        <textarea placeholder="Descripción de la ubicación (opcional)" rows={3} className="border p-2 rounded-lg"
           value={descripcionUbicacion} onChange={(e) => actualizarSetter(setDescripcionUbicacion, e.target.value, setDescripcionUbicacionLocal)} />
 
-        <button className={`rounded-lg px-4 py-2 transition ${todosCamposCompletos ? "bg-green-500 text-white hover:bg-green-600" : "bg-green-500 text-white opacity-50 cursor-not-allowed"}`}
+        <button className={`rounded-lg px-4 py-2 transition ${todosCamposCompletos ? "bg-green-500 text-white hover:bg-green-600  cursor-pointer" : "bg-green-500 text-white opacity-50 cursor-not-allowed"}`}
           disabled={!todosCamposCompletos}
           onClick={() => setFaseCrearCuenta(3)}
         >

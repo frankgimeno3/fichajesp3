@@ -1,4 +1,6 @@
-import React, { FC, ChangeEvent } from 'react';
+import React, { FC, ChangeEvent, useState } from 'react';
+import cuentas from "@/app/contents/cuentasContents.json";
+import { useRouter } from 'next/navigation';
 
 interface Agente {
   id_usuario: string;
@@ -23,30 +25,58 @@ const CrearCuenta: FC<CrearCuentaProps> = ({
   setTelefono,
   setDescripcion
 }) => {
+  const [nombre, setNombre] = useState("");
+  const [pais, setPaisLocal] = useState("");
+  const [telefono, setTelefonoLocal] = useState("");
+  const [error, setError] = useState<string | null>(null);
+
+  const router = useRouter();
+
   const agentes: Agente[] = [
+    { id_usuario: '', nombre_usuario: 'Seleccione un agente asignado', rol: 'Obligatorio' },
+    { id_usuario: 'usr_25_00008', nombre_usuario: 'Jose Luis Fernandez Llop', rol: 'Agente' },
     { id_usuario: 'usr_25_00003', nombre_usuario: 'Carlos David Ortega', rol: 'Empleado' },
     { id_usuario: 'usr_25_00004', nombre_usuario: 'Carlos Lamiel', rol: 'Empleado' },
     { id_usuario: 'usr_25_00005', nombre_usuario: 'Frank Admin', rol: 'Superadmin' },
     { id_usuario: 'usr_25_00006', nombre_usuario: 'Frank Auxiliar', rol: 'Empleado' },
     { id_usuario: 'usr_25_00007', nombre_usuario: 'Gimeno Auxiliar', rol: 'Agente' },
-    { id_usuario: 'usr_25_00008', nombre_usuario: 'Jose Luis Fernandez Llop', rol: 'Agente' },
     { id_usuario: 'usr_25_00001', nombre_usuario: 'Montserrat Valencia', rol: 'Administrativo' },
     { id_usuario: 'usr_25_00002', nombre_usuario: 'Ricardo Calleja', rol: 'Moderador' },
   ];
 
-  const handleChange = (setter: React.Dispatch<React.SetStateAction<string>>) =>
+  const handleChange = (
+    setter: React.Dispatch<React.SetStateAction<string>>,
+    localSetter?: React.Dispatch<React.SetStateAction<string>>
+  ) =>
     (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       setter(e.target.value);
+      if (localSetter) localSetter(e.target.value);
+      setError(null);
+    };
+
+  const isValid = nombre.trim() !== "" && pais.trim() !== "" && telefono.trim() !== "";
+
+  const handleValidityCheck = () => {
+    const existingAccount = cuentas.find(
+      (cuenta) => cuenta.nombre_empresa.toLowerCase() === nombre.toLowerCase()
+    );
+
+    if (existingAccount) {
+      setError(`Ya existe una cuenta con ese nombre.`);
+    } else {
+      setFaseCrearCuenta(2);
+    }
   };
 
   return (
-     <div className="p-10 px-8 md:px-56 bg-white rounded-2xl shadow-md max-w-5xl mx-auto text-center py-24">
-      <h2 className="text-xl font-semibold mb-4 ">Crear nueva cuenta</h2>
+    <div className="p-10 px-8 md:px-56 bg-white rounded-2xl shadow-md max-w-5xl mx-auto text-center py-24">
+      <h2 className="text-xl font-semibold mb-4">Crear nueva cuenta</h2>
       <div className="flex flex-col gap-3">
         <input
           type="text"
           placeholder="Nombre de la cuenta"
-          onChange={handleChange(setNombreCuenta)}
+          value={nombre}
+          onChange={handleChange(setNombreCuenta, setNombre)}
           className="border p-2 rounded-lg"
         />
 
@@ -56,21 +86,25 @@ const CrearCuenta: FC<CrearCuentaProps> = ({
         >
           <option value="" disabled>Selecciona un agente asignado</option>
           {agentes.map(a => (
-            <option key={a.id_usuario} value={a.id_usuario}>{a.nombre_usuario} ({a.rol})</option>
+            <option key={a.id_usuario} value={a.id_usuario}>
+              {a.nombre_usuario} ({a.rol})
+            </option>
           ))}
         </select>
 
         <input
           type="text"
           placeholder="País de la cuenta"
-          onChange={handleChange(setPais)}
+          value={pais}
+          onChange={handleChange(setPais, setPaisLocal)}
           className="border p-2 rounded-lg"
         />
 
         <input
           type="tel"
           placeholder="Teléfono principal de la cuenta"
-          onChange={handleChange(setTelefono)}
+          value={telefono}
+          onChange={handleChange(setTelefono, setTelefonoLocal)}
           className="border p-2 rounded-lg"
         />
 
@@ -81,9 +115,33 @@ const CrearCuenta: FC<CrearCuentaProps> = ({
           rows={4}
         />
 
+        {error && (
+          <div className="text-red-600 text-sm flex flex-col items-center gap-2">
+            {error}
+            {(() => {
+              const cuentaDuplicada = cuentas.find(
+                (cuenta) => cuenta.nombre_empresa.toLowerCase() === nombre.toLowerCase()
+              );
+              return cuentaDuplicada ? (
+                <button
+                  className="bg-blue-950 text-white text-sm px-3 py-1 rounded-lg shadow-xl hover:bg-blue-950/80 cursor-pointer"
+                  onClick={() => router.push(`/dashboard/clientes/cuentas/${cuentaDuplicada.id_cuenta}`)}
+                >
+                  Código {cuentaDuplicada.id_cuenta}
+                </button>
+              ) : null;
+            })()}
+          </div>
+        )}
+
         <button
-          onClick={() => setFaseCrearCuenta(2)}
-          className="bg-blue-500 text-white rounded-lg px-4 py-2 hover:bg-blue-600 transition cursor-pointer"
+          onClick={handleValidityCheck}
+          disabled={!isValid}
+          className={`bg-blue-500 text-white rounded-lg px-4 py-2 transition ${
+            isValid
+              ? "hover:bg-blue-600 cursor-pointer"
+              : "opacity-50 cursor-not-allowed"
+          }`}
         >
           Siguiente fase
         </button>

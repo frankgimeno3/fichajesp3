@@ -58,8 +58,7 @@ const CrearCuenta: FC = () => {
         )}
         {faseCrearCuenta === 2 && (
           <Fase2
-            setNombreUbicacion={setNombreUbicacion}
-            setPaisUbicacion={setPaisUbicacion}
+             setPaisUbicacion={setPaisUbicacion}
             setEstadoUbicacion={setEstadoUbicacion}
             setCiudadUbicacion={setCiudadUbicacion}
             setCodigoPostal={setCodigoPostal}
