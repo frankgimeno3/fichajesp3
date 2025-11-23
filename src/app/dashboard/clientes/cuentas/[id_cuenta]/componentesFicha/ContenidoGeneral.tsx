@@ -43,8 +43,7 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenido
   };
 
   const handleDatosComercialesChange = (field: string, value: string) => {
-    // Si el campo pertenece a datos_comerciales:
-    if (field in cuentaEditable.datos_comerciales) {
+     if (field in cuentaEditable.datos_comerciales) {
       setCuentaEditable(prev =>
         prev
           ? {
@@ -57,8 +56,7 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenido
           : prev
       );
     }
-    // Si el campo es "pais_cuenta", lo actualizamos directamente
-    else if (field === "pais_cuenta") {
+     else if (field === "pais_cuenta") {
       setCuentaEditable(prev =>
         prev ? { ...prev, pais_cuenta: value } : prev
       );

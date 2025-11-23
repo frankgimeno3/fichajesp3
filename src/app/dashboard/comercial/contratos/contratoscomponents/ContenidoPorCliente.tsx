@@ -10,7 +10,7 @@ type ContenidoCampana = {
   publicacion?: string;
   producto?: string;
   precio_producto?: number;
-  deadline_publicacion?: string; // "dd/mm/yyyy"
+  deadline_publicacion?: string;
   fecha_publicacion_publicacion?: string;
   estado_material_contrato?: string;
   urlcontenido?: string;
@@ -23,7 +23,7 @@ type Contrato = {
   };
   cuenta_contrato?: {
     id_cuenta_contrato?: string;
-    id_contacto?: string;
+    id_contacto?: string;   
     cargoContacto?: string;
   };
   datosGenerales?: {
@@ -74,15 +74,17 @@ const getEarliestDeadlineISO = (contenidos?: ContenidoCampana[]): string => {
   return `${yyyy}-${mm}-${dd}`;
 };
 
-interface ContenidoPorClienteProps { }
+interface ContenidoPorClienteProps {}
 
-const ContenidoPorCliente: FC<ContenidoPorClienteProps> = ({ }) => {
+const ContenidoPorCliente: FC<ContenidoPorClienteProps> = () => {
   const router = useRouter();
 
   const contratos = contratosContents as Contrato[];
   const cuentas = cuentasContents as Cuenta[];
   const contactos = contactosContents as Contacto[];
 
+ 
+  
   return (
     <div className="flex flex-col gap-3 mt-12 rounded-xl">
       <div className="overflow-x-auto">
@@ -113,12 +115,13 @@ const ContenidoPorCliente: FC<ContenidoPorClienteProps> = ({ }) => {
               const fechaRenovacion = formatDateToISO(c.datosGenerales?.fecha_fin_contrato);
               const fechaProxMaterial = getEarliestDeadlineISO(c.contenido_campana);
 
+              const contactoPrincipalID = c.cuenta_contrato?.id_contacto;
               const contactoInfo = contactos.find(
-                ct => ct.id_contacto === c.cuenta_contrato?.id_contacto
+                ct => ct.id_contacto === contactoPrincipalID
               );
               const contactoPrincipal =
                 contactoInfo?.nombre_completo_contacto ??
-                c.cuenta_contrato?.id_contacto ??
+                contactoPrincipalID ??
                 '—';
 
               return (
@@ -136,8 +139,8 @@ const ContenidoPorCliente: FC<ContenidoPorClienteProps> = ({ }) => {
                   <td className="p-2 border-b border-gray-200">{contactoPrincipal}</td>
                 </tr>
               );
-            })}          
-            </tbody>
+            })}
+          </tbody>
         </table>
       </div>
     </div>

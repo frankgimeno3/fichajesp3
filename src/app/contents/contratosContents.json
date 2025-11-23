@@ -18,7 +18,7 @@
     },
     "cuenta_contrato": {
       "id_cuenta_contrato": "62500001",
-      "id_contacto": "contact_25_000000002",
+      "id_contacto": "contact_25_00000000002",
       "cargoContacto": "Comercial"
     },
     "datosGenerales": {
@@ -76,7 +76,7 @@
     },
     "cuenta_contrato": {
       "id_cuenta_contrato": "62500002",
-      "id_contacto": "contact_25_000000003",
+      "id_contacto": "contact_25_00000000003",
       "cargoContacto": "Directora Comercial"
     },
     "datosGenerales": {
@@ -119,7 +119,7 @@
     },
     "cuenta_contrato": {
       "id_cuenta_contrato": "62500003",
-      "id_contacto": "contact_25_000000006",
+      "id_contacto": "contact_25_00000000006",
       "cargoContacto": "CEO"
     },
     "datosGenerales": {
@@ -164,7 +164,7 @@
     },
     "cuenta_contrato": {
       "id_cuenta_contrato": "62500004",
-      "id_contacto": "contact_25_000000007",
+      "id_contacto": "contact_25_00000000007",
       "cargoContacto": "Gerente General"
     },
     "datosGenerales": {

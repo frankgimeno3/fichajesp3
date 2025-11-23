@@ -4,9 +4,9 @@ interface DatosGenerales {
   fecha_firma_contrato: string;
   fecha_fin_contrato: string;
   codigo_campana_administrativa: string;
-  id_agente_contrato?: string; // opcional, si quieres mostrar agente ofertante
-  account_manager_actual?: string; // opcional, si quieres mostrar account manager
-  id_contrato?: string; // opcional, para mostrar código de contrato
+  id_agente_contrato?: string; 
+  account_manager_actual?: string; 
+  id_contrato?: string;  
 }
 
 interface TablaDatosGeneralesProps {
