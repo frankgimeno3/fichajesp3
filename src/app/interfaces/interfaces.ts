@@ -75,6 +75,7 @@ export interface InterfazServicio {
 export interface InterfazPropuesta {
   id_propuesta: string;
   id_agente_propuesta: string;
+  estado_propuesta:string;
   fecha_envio_propuesta: string;
   fecha_cobro_prevista_propuesta: string;
   forma_cobro_propuesta: string;
@@ -87,7 +88,7 @@ export interface InterfazPropuesta {
     id_contacto: string;
     cargoContacto: string;
   };
-  contenido_campana: {
+  contenido_propuesta: {
     medio: string;
     publicacion: string;
     producto: string;

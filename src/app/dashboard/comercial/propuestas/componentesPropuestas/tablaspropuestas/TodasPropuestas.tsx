@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import FolderSvg from '../svg/FolderSvg';
 import propuestas from '@/app/contents/propuestasContents.json';
 import cuentas from "@/app/contents/cuentasContents.json";
+import { InterfazPropuesta } from '@/app/interfaces/interfaces';
 
 interface ContenidoPropuesta {
   medio: string;
@@ -26,17 +27,7 @@ interface CuentaPropuesta {
   id_contacto: string;
   cargoContacto: string;
 }
-
-interface Propuesta {
-  detalles_propuesta: DetallesPropuesta;
-  cuenta_propuesta: CuentaPropuesta;
-  contenido_propuesta: ContenidoPropuesta[];
-  descuento_final_propuesta: number;
-  importe_total_BI_propuesta: number;
-  iva_aplicable: boolean;
-  importe_propuesta_con_iva: number;
-}
-
+ 
 interface ResultadoCliente {
   id: string;
   nombreEmpresa: string;
@@ -66,8 +57,8 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
 }) => {
   const router = useRouter();
 
-  const agrupadasPorCliente = (propuestas as Propuesta[]).reduce(
-    (acc: Record<string, any>, p: Propuesta) => {
+  const agrupadasPorCliente = (propuestas as InterfazPropuesta[]).reduce(
+    (acc: Record<string, any>, p: InterfazPropuesta) => {
       const idCuenta = p.cuenta_propuesta.id_cuenta_propuesta;
 
       const cuentaInfo = cuentas.find((c: any) => c.id_cuenta === idCuenta);
@@ -78,7 +69,7 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
           nombreEmpresa: cuentaInfo ? cuentaInfo.nombre_empresa : `Cuenta ${idCuenta}`,
           codigoCRM: idCuenta,
           propuestas: [],
-          agenteAsignado: p.detalles_propuesta.id_agente_propuesta,
+          agenteAsignado: p.id_agente_propuesta,
         };
       }
 
@@ -91,7 +82,7 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
   const resultados: ResultadoCliente[] = Object.values(agrupadasPorCliente).map(
     (c: any) => {
       const deadlines: Date[] = c.propuestas
-        .map((p: Propuesta) => p.contenido_propuesta?.[0]?.deadline_publicacion || '01/01/1970')
+        .map((p: InterfazPropuesta) => p.contenido_propuesta?.[0]?.deadline_publicacion || '01/01/1970')
         .map((f: string) => new Date(f.split('/').reverse().join('-')));
 
       const fechaUltimaPropuesta =
@@ -102,7 +93,7 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
           : '';
 
       const estadosIncluidos = c.propuestas.map(
-        (p: Propuesta) => p.detalles_propuesta.estado_propuesta
+        (p: InterfazPropuesta) => p.estado_propuesta
       );
 
       return {
