@@ -111,5 +111,66 @@ export interface InterfazAgente {
   nombre_completo_agente: string;
   DNI_agente: string;
   rol_agente: string;
-  estado_agente: 'activo' | 'inactivo' ;
+  estado_agente: 'activo' | 'inactivo' | string ;
+}
+
+export interface InterfazContrato {
+  detalles_contrato: {
+    id_contrato: string;
+    id_agente_contrato: string;
+    fecha_cobro_prevista_contrato: string;
+    fecha_cobro_factura_contrato: string;
+    estado_contrato: 'Pendiente' | 'Pagado' | string;
+    comisiones_contrato_pagadas: 'Sí' | 'No' | string;
+    array_facturas: {
+      id_factura: string;
+    }[];
+    fecha_factura: string;
+    forma_cobro_factura:
+      | 'Domiciliación Bancaria'
+      | 'Transferencia Bancaria'
+      | 'Recibo Domiciliado' 
+      | string;
+    array_recibos: {
+      num_recibo: string;
+      numRemesa: string;
+    }[];
+    fecha_firma_contrato: string;
+    id_campana_asociada: string;
+  };
+
+  cuenta_contrato: {
+    id_cuenta_contrato: string;
+    id_contacto: string;
+    cargoContacto: string;
+  };
+
+  datosGenerales: {
+    fecha_firma_contrato: string;
+    fecha_fin_contrato: string;
+    codigo_campana_administrativa: string;
+  };
+
+  array_contenidos: {
+    id_contenido: string;
+  }[];
+
+  contenido_campana: {
+    medio: string;
+    publicacion: string;
+    producto: string;
+    precio_producto: number;
+    deadline_publicacion: string;
+    fecha_publicacion_publicacion: string;
+    estado_material_contrato:
+      | 'Publicado'
+      | 'Pedido no recibido'
+      | 'No pedido' | string;
+    urlcontenido: string;
+  }[];
+
+  descuento_final_contrato: number;
+  importe_total_BI_contrato: number;
+  iva_aplicable: boolean;
+  importe_factura_con_iva: number;
 }

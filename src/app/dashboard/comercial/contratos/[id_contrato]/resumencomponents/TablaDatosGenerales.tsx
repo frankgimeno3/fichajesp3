@@ -1,48 +1,48 @@
-import React, { FC } from "react";
-
-interface DatosGenerales {
-  fecha_firma_contrato: string;
-  fecha_fin_contrato: string;
-  codigo_campana_administrativa: string;
-  id_agente_contrato?: string; 
-  account_manager_actual?: string; 
-  id_contrato?: string;  
-}
+import { InterfazAgente, InterfazContrato } from "@/app/interfaces/interfaces";
+import React, { FC, useEffect, useState } from "react";
+import agentes from "@/app/contents/agentesContents.json";
 
 interface TablaDatosGeneralesProps {
-  datosGenerales: DatosGenerales;
+  contrato: InterfazContrato;
 }
 
-const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ datosGenerales }) => {
-  const {
-    fecha_firma_contrato,
-    fecha_fin_contrato,
-    codigo_campana_administrativa,
-    id_agente_contrato,
-    account_manager_actual,
-    id_contrato,
-  } = datosGenerales;
+const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ contrato }) => {
+  const [agenteEditado, setAgenteEditado] = useState<InterfazAgente | undefined>(() =>
+    agentes.find(
+      (a) => a.id_agente === contrato.detalles_contrato.id_agente_contrato
+    )
+  );
+
+  useEffect(() => {
+    const agente = agentes.find(
+      (a) => a.id_agente === contrato.detalles_contrato.id_agente_contrato
+    );
+    setAgenteEditado(agente);
+  }, [contrato]);
 
   return (
     <table className="table-auto border-collapse text-center w-full">
       <thead>
         <tr className="bg-blue-950 text-white">
+          <th className="px-4 py-2">Código contrato</th>
           <th className="px-4 py-2">Fecha de firma</th>
           <th className="px-4 py-2">Fecha estimada finalización</th>
-          <th className="px-4 py-2">Agente ofertante</th>
-          <th className="px-4 py-2">Account manager actual</th>
-          <th className="px-4 py-2">Código contrato</th>
+          <th className="px-4 py-2">Agente</th>
           <th className="px-4 py-2">Código campaña administrativa</th>
         </tr>
       </thead>
       <tbody>
         <tr className="bg-white text-gray-700">
-          <td className="px-4 py-2">{fecha_firma_contrato}</td>
-          <td className="px-4 py-2">{fecha_fin_contrato}</td>
-          <td className="px-4 py-2">{id_agente_contrato || "—"}</td>
-          <td className="px-4 py-2">{account_manager_actual || "—"}</td>
-          <td className="px-4 py-2">{id_contrato || "—"}</td>
-          <td className="px-4 py-2">{codigo_campana_administrativa}</td>
+          <td className="px-4 py-2">
+            {contrato.detalles_contrato.id_contrato || "—"}
+          </td>
+          <td className="px-4 py-2">{contrato.datosGenerales.fecha_firma_contrato}</td>
+          <td className="px-4 py-2">{contrato.datosGenerales.fecha_fin_contrato}</td>
+          <td className="px-4 py-2">
+            {agenteEditado ? agenteEditado.nombre_completo_agente : "—"}
+          </td>
+
+          <td className="px-4 py-2">{contrato.detalles_contrato.id_campana_asociada}</td>
         </tr>
       </tbody>
     </table>

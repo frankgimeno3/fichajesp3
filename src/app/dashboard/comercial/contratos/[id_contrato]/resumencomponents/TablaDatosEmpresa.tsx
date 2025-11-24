@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 import { useRouter } from "next/navigation";
+import { InterfazContrato } from "@/app/interfaces/interfaces";
 
-interface TablaDatosGestionProps {
-  contrato: any;
+interface TablaDatosEmpresaProps {
+  contrato: InterfazContrato;
 }
 
-const TablaDatosGestion: FC<TablaDatosGestionProps> = ({ contrato }) => {
+const TablaDatosEmpresa: FC<TablaDatosEmpresaProps> = ({ contrato }) => {
   const router = useRouter();
   const { cuenta_contrato } = contrato;
 
@@ -14,10 +15,9 @@ const TablaDatosGestion: FC<TablaDatosGestionProps> = ({ contrato }) => {
       <table className="table-auto border-collapse w-full text-center">
         <thead>
           <tr className="bg-blue-950 text-white">
-            <th className="px-4 py-2">Gestora de la campaña</th>
+            <th className="px-6 py-2">Empresa anunciante</th>
             <th className="px-4 py-2">Código CRM</th>
-            <th className="px-4 py-2">Código Edisoft</th>
-            <th className="px-4 py-2">País</th>
+             <th className="px-4 py-2">País</th>
             <th className="px-4 py-2">Contacto de gestión</th>
             <th className="px-4 py-2">Cargo del contacto</th>
           </tr>
@@ -32,7 +32,6 @@ const TablaDatosGestion: FC<TablaDatosGestionProps> = ({ contrato }) => {
                 Empresa {cuenta_contrato.id_cuenta_contrato}
               </button>
             </td>
-            <td className="px-4 py-2">{cuenta_contrato.id_cuenta_contrato}</td>
             <td className="px-4 py-2">{cuenta_contrato.id_cuenta_contrato}</td>
             <td className="px-4 py-2">N/A</td>
             <td className="px-4 py-2">
@@ -53,4 +52,4 @@ const TablaDatosGestion: FC<TablaDatosGestionProps> = ({ contrato }) => {
   );
 };
 
-export default TablaDatosGestion;
+export default TablaDatosEmpresa;
