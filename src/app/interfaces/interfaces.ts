@@ -73,37 +73,31 @@ export interface InterfazServicio {
 }
 
 export interface InterfazPropuesta {
-  detalles_propuesta: {
-    id_propuesta: string;
-    id_agente_propuesta: string;
-    estado_propuesta: 'Pendiente' | 'Aceptada' | 'Rechazada';
-    fecha_envio_propuesta: string;
-  };
+  id_propuesta: string;
+  id_agente_propuesta: string;
+  fecha_envio_propuesta: string;
+  fecha_cobro_prevista_propuesta: string;
+  forma_cobro_propuesta: string;
+  descuento_final_propuesta: number;
+  importe_total_BI_propuesta: number;
+  iva_aplicable: boolean;
+  importe_propuesta_con_iva: number;
   cuenta_propuesta: {
     id_cuenta_propuesta: string;
     id_contacto: string;
     cargoContacto: string;
   };
-  contenido_propuesta: {
+  contenido_campana: {
     medio: string;
     publicacion: string;
     producto: string;
     precio_producto: number;
-    descuento_unitario:number;
+    deadline_publicacion: string;
+    fecha_publicacion_publicacion: string;
   }[];
-  total_previo_propuesta: number;
-  descuento_final_propuesta: number;
-  importe_total_BI_propuesta: number;
-  iva_aplicable: boolean;
-  importe_propuesta_con_iva: number;
-  comentarios_adicionales_propuesta: string;
-  cobros: {
-    numero_cobro: string;
-    fecha_cobro: string;
-    importe_cobro: string;
-    forma_cobro: string;
-  }[]
 }
+
+
 export interface InterfazAgente {
   id_agente: string;
   nombre_agente: string;
@@ -113,6 +107,7 @@ export interface InterfazAgente {
   rol_agente: string;
   estado_agente: 'activo' | 'inactivo' | string ;
 }
+
 export interface InterfazContrato {
   id_contrato: string;
   id_agente_contrato: string;

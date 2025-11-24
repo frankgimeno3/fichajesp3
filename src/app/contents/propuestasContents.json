@@ -1,212 +1,139 @@
 [
   {
-    "detalles_propuesta": {
-      "id_propuesta": "prop_25_0000000001",
-      "id_agente_propuesta": "ag_25_0004",
-      "estado_propuesta": "Pendiente",
-      "fecha_envio_propuesta": "2025-01-11"
-    },
+    "id_propuesta": "prop_25_0000000001",
+    "id_agente_propuesta": "ag_25_0004",
+    "fecha_cobro_prevista_propuesta": "12/12/2025",
+    "forma_cobro_propuesta": "Transferencia Bancaria",
+    "fecha_envio_propuesta": "11/01/2025",
+    "descuento_final_propuesta": 500.00,
+    "importe_total_BI_propuesta": 3020.00,
+    "iva_aplicable": true,
+    "importe_propuesta_con_iva": 3654.20,
     "cuenta_propuesta": {
       "id_cuenta_propuesta": "62500001",
       "id_contacto": "contact_25_00000000001",
       "cargoContacto": "Comercial"
     },
-    "contenido_propuesta": [
+    "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
         "publicacion": "Edición 210",
         "producto": "Anuncio de una página",
-        "precio_producto": 1760,
-        "descuento_unitario": 0
+        "precio_producto": 1760.00,
+        "deadline_publicacion": "10/01/2025",
+        "fecha_publicacion_publicacion": "12/12/2025"
       },
       {
         "medio": "Revista del vidrio España",
         "publicacion": "Edición 211",
         "producto": "Media página",
-        "precio_producto": 1760,
-        "descuento_unitario": 0
-      }
-    ],
-    "total_previo_propuesta": 3520,
-    "descuento_final_propuesta": 500,
-    "importe_total_BI_propuesta": 3020,
-    "iva_aplicable": true,
-    "importe_propuesta_con_iva": 3654.2,
-    "comentarios_adicionales_propuesta": "Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum repellendus voluptate?",
-    "cobros": [
-      {
-        "numero_cobro": "1/2",
-        "fecha_cobro": "2025-12-12",
-        "importe_cobro": "1827.1",
-        "forma_cobro": "Transferencia Bancaria"
-      },
-      {
-        "numero_cobro": "2/2",
-        "fecha_cobro": "2026-01-12",
-        "importe_cobro": "1827.1",
-        "forma_cobro": "Transferencia Bancaria"
+        "precio_producto": 1760.00,
+        "deadline_publicacion": "12/01/2025",
+        "fecha_publicacion_publicacion": "01/01/2026"
       }
     ]
   },
   {
-    "detalles_propuesta": {
-      "id_propuesta": "prop_25_0000000002",
-      "id_agente_propuesta": "ag_25_0004",
-      "estado_propuesta": "Pendiente",
-      "fecha_envio_propuesta": "2025-01-12"
-    },
+    "id_propuesta": "prop_25_0000000002",
+    "id_agente_propuesta": "ag_25_0004",
+    "fecha_cobro_prevista_propuesta": "12/12/2025",
+    "forma_cobro_propuesta": "Transferencia Bancaria",
+    "fecha_envio_propuesta": "12/01/2025",
+    "descuento_final_propuesta": 0.00,
+    "importe_total_BI_propuesta": 500.00,
+    "iva_aplicable": true,
+    "importe_propuesta_con_iva": 605.00,
     "cuenta_propuesta": {
       "id_cuenta_propuesta": "62500002",
       "id_contacto": "contact_25_00000000003",
       "cargoContacto": "Directora Comercial"
     },
-    "contenido_propuesta": [
+    "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
         "publicacion": "Edición 212",
         "producto": "Doble página",
-        "precio_producto": 500,
-        "descuento_unitario": 0
-      }
-    ],
-    "total_previo_propuesta": 500,
-    "descuento_final_propuesta": 0,
-    "importe_total_BI_propuesta": 500,
-    "iva_aplicable": true,
-    "importe_propuesta_con_iva": 605,
-    "comentarios_adicionales_propuesta": "Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum repellendus voluptate?",
-    "cobros": [
-      {
-        "numero_cobro": "1/1",
-        "fecha_cobro": "2025-12-12",
-        "importe_cobro": "605",
-        "forma_cobro": "Transferencia Bancaria"
+        "precio_producto": 500.00,
+        "deadline_publicacion": "15/01/2025",
+        "fecha_publicacion_publicacion": "05/01/2026"
       }
     ]
   },
   {
-    "detalles_propuesta": {
-      "id_propuesta": "prop_25_0000000003",
-      "id_agente_propuesta": "ag_25_0004",
-      "estado_propuesta": "Pendiente",
-      "fecha_envio_propuesta": "2025-01-13"
-    },
+    "id_propuesta": "prop_25_0000000003",
+    "id_agente_propuesta": "ag_25_0004",
+    "fecha_cobro_prevista_propuesta": "12/12/2025",
+    "forma_cobro_propuesta": "Transferencia Bancaria",
+    "fecha_envio_propuesta": "13/01/2025",
+    "descuento_final_propuesta": 0.00,
+    "importe_total_BI_propuesta": 2300.00,
+    "iva_aplicable": false,
+    "importe_propuesta_con_iva": 2300.00,
     "cuenta_propuesta": {
       "id_cuenta_propuesta": "62500003",
       "id_contacto": "contact_25_00000000005",
       "cargoContacto": "CEO"
     },
-    "contenido_propuesta": [
+    "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
         "publicacion": "Edición 213",
         "producto": "Publicidad en portada",
-        "precio_producto": 2300,
-        "descuento_unitario": 0
-      }
-    ],
-    "total_previo_propuesta": 2300,
-    "descuento_final_propuesta": 0,
-    "importe_total_BI_propuesta": 2300,
-    "iva_aplicable": false,
-    "importe_propuesta_con_iva": 2300,
-    "comentarios_adicionales_propuesta": "Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum repellendus voluptate?",
-    "cobros": [
-      {
-        "numero_cobro": "1/2",
-        "fecha_cobro": "2025-12-12",
-        "importe_cobro": "1150",
-        "forma_cobro": "Transferencia Bancaria"
-      },
-      {
-        "numero_cobro": "2/2",
-        "fecha_cobro": "2026-01-12",
-        "importe_cobro": "1150",
-        "forma_cobro": "Transferencia Bancaria"
+        "precio_producto": 2300.00,
+        "deadline_publicacion": "20/01/2025",
+        "fecha_publicacion_publicacion": "10/01/2026"
       }
     ]
   },
   {
-    "detalles_propuesta": {
-      "id_propuesta": "prop_25_0000000004",
-      "id_agente_propuesta": "ag_25_0004",
-      "estado_propuesta": "Aceptada",
-      "fecha_envio_propuesta": "2025-01-14"
-    },
+    "id_propuesta": "prop_25_0000000004",
+    "id_agente_propuesta": "ag_25_0004",
+    "fecha_cobro_prevista_propuesta": "12/12/2025",
+    "forma_cobro_propuesta": "Transferencia Bancaria",
+    "fecha_envio_propuesta": "14/01/2025",
+    "descuento_final_propuesta": 0.00,
+    "importe_total_BI_propuesta": 1200.00,
+    "iva_aplicable": true,
+    "importe_propuesta_con_iva": 1452.00,
     "cuenta_propuesta": {
       "id_cuenta_propuesta": "62500004",
       "id_contacto": "contact_25_00000000007",
       "cargoContacto": "Gerente General"
     },
-    "contenido_propuesta": [
+    "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
         "publicacion": "Edición 214",
         "producto": "Anuncio interior portada",
-        "precio_producto": 1200,
-        "descuento_unitario": 0
-      }
-    ],
-    "total_previo_propuesta": 1200,
-    "descuento_final_propuesta": 0,
-    "importe_total_BI_propuesta": 1200,
-    "iva_aplicable": true,
-    "importe_propuesta_con_iva": 1452,
-    "comentarios_adicionales_propuesta": "Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum repellendus voluptate?",
-    "cobros": [
-      {
-        "numero_cobro": "1/2",
-        "fecha_cobro": "2025-12-12",
-        "importe_cobro": "727",
-        "forma_cobro": "Transferencia Bancaria"
-      },
-      {
-        "numero_cobro": "2/2",
-        "fecha_cobro": "2026-01-12",
-        "importe_cobro": "727",
-        "forma_cobro": "Transferencia Bancaria"
+        "precio_producto": 1200.00,
+        "deadline_publicacion": "25/01/2025",
+        "fecha_publicacion_publicacion": "15/01/2026"
       }
     ]
   },
   {
-    "detalles_propuesta": {
-      "id_propuesta": "prop_25_0000000005",
-      "id_agente_propuesta": "ag_25_0004",
-      "estado_propuesta": "Rechazada",
-      "fecha_envio_propuesta": "2025-01-15"
-    },
+    "id_propuesta": "prop_25_0000000005",
+    "id_agente_propuesta": "ag_25_0004",
+    "fecha_cobro_prevista_propuesta": "12/12/2025",
+    "forma_cobro_propuesta": "Transferencia Bancaria",
+    "fecha_envio_propuesta": "15/01/2025",
+    "descuento_final_propuesta": 0.00,
+    "importe_total_BI_propuesta": 12000.00,
+    "iva_aplicable": true,
+    "importe_propuesta_con_iva": 14520.00,
     "cuenta_propuesta": {
       "id_cuenta_propuesta": "62500004",
       "id_contacto": "contact_25_00000000007",
       "cargoContacto": "Gerente General"
     },
-    "contenido_propuesta": [
+    "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
         "publicacion": "Edición 214",
         "producto": "Anuncio interior portada",
-        "precio_producto": 12000,
-        "descuento_unitario": 0
-      }
-    ],
-    "total_previo_propuesta": 1200,
-    "descuento_final_propuesta": 0,
-    "importe_total_BI_propuesta": 12000,
-    "iva_aplicable": true,
-    "importe_propuesta_con_iva": 14520,
-    "comentarios_adicionales_propuesta": "Contenido aquí, Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus dicta et nemo delectus atque at unde, cupiditate fugit quisquam. A ducimus qui cupiditate doloribus nulla maxime obcaecati illum repellendus voluptate?",
-    "cobros": [
-      {
-        "numero_cobro": "1/2",
-        "fecha_cobro": "2025-12-12",
-        "importe_cobro": "7260",
-        "forma_cobro": "Transferencia Bancaria"
-      },
-      {
-        "numero_cobro": "2/2",
-        "fecha_cobro": "2026-01-12",
-        "importe_cobro": "7260",
-        "forma_cobro": "Transferencia Bancaria"
+        "precio_producto": 12000.00,
+        "deadline_publicacion": "28/01/2025",
+        "fecha_publicacion_publicacion": "15/01/2026"
       }
     ]
   }
