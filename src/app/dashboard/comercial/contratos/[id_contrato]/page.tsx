@@ -1,5 +1,5 @@
 "use client";
-import React, { FC, useState, useMemo } from "react";
+import React, { FC, useMemo } from "react";
 import { useParams } from "next/navigation";
 import TablaContenidoCampaña from "./resumencomponents/TablaContenidoCampaña";
 import TablaDatosCobro from "./resumencomponents/TablaDatosCobro";
@@ -14,10 +14,7 @@ const ResumenContrato: FC = () => {
   const id_contrato = params?.id_contrato as string;
 
   const contrato = useMemo<InterfazContrato | undefined>(
-    () =>
-      contratosContents.find(
-        (item) => item.detalles_contrato.id_contrato === id_contrato
-      ),
+    () => contratosContents.find((item) => item.id_contrato === id_contrato),
     [id_contrato]
   );
 
@@ -31,13 +28,9 @@ const ResumenContrato: FC = () => {
     );
   }
 
-  const { detalles_contrato } = contrato;
-
   return (
     <div className="min-h-screen flex flex-col bg-gray-200 text-gray-600">
-      <MiddleNav
-        tituloprincipal={`Resumen del contrato nº ${detalles_contrato.id_contrato}`}
-      />
+      <MiddleNav tituloprincipal={`Resumen del contrato nº ${contrato.id_contrato}`} />
       <div className="p-12">
         <p className="font-bold text-gray-500">Datos generales:</p>
         <TablaDatosGenerales contrato={contrato} />

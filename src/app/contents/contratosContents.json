@@ -1,34 +1,35 @@
 [
   {
-    "detalles_contrato": {
-      "id_contrato": "contr_25_0000000001",
-      "id_agente_contrato": "ag_25_0004",
-      "fecha_cobro_prevista_contrato": "15/09/2025",
-      "fecha_cobro_factura_contrato": "18/09/2025",
-      "estado_contrato": "Pendiente",
-      "comisiones_contrato_pagadas": "Sí",
-      "array_facturas": [{ "id_factura": "fac_cte_25_0000001" }],
-      "fecha_factura": "12/09/2025",
-      "forma_cobro_factura": "Domiciliación Bancaria",
-      "array_recibos": [
-        { "num_recibo": "recibop3_25_0000001", "numRemesa": "remesap3_25_00000001" }
-      ],
-      "fecha_firma_contrato": "01/09/2025",
-      "id_campana_asociada": "K25_000_029"
-    },
+    "id_contrato": "contr_25_0000000001",
+    "id_agente_contrato": "ag_25_0004",
+    "fecha_cobro_prevista_contrato": "13/12/2025",
+    "forma_cobro_contrato": "Domiciliación Bancaria",
+    "fecha_firma_contrato": "12/12/2025",
+    "fecha_fin_contrato": "12/12/2026",
+    "id_campana_asociada": "K25_000_029",
+    "descuento_final_contrato": 500.00,
+    "importe_total_BI_contrato": 3020.00,
+    "iva_aplicable": true,
+    "importe_contrato_con_iva": 3049.20,
+    "array_ordenes_cobro": [
+      {
+        "id_orden": "C25.000.036-1/1",
+        "tipo_cobro": "Recibo domiciliado",
+        "id_factura": "525074"
+      }
+    ],
     "cuenta_contrato": {
       "id_cuenta_contrato": "62500001",
       "id_contacto": "contact_25_00000000002",
       "cargoContacto": "Comercial"
     },
-    "datosGenerales": {
-      "fecha_firma_contrato": "12/12/2025",
-      "fecha_fin_contrato": "12/12/2026",
-      "codigo_campana_administrativa": "K25.000.182"
-    },
     "array_contenidos": [
-      { "id_contenido": "content_25_00001" },
-      { "id_contenido": "content_25_00002" }
+      {
+        "id_contenido": "content_25_00001"
+      },
+      {
+        "id_contenido": "content_25_00002"
+      }
     ],
     "contenido_campana": [
       {
@@ -48,43 +49,40 @@
         "precio_producto": 1760.00,
         "deadline_publicacion": "15/10/2025",
         "fecha_publicacion_publicacion": "01/01/2026",
-        "estado_material_contrato": "Pedido no recibido",
+        "estado_material_contrato": "Pedido, no recibido",
         "urlcontenido": "/dashboard/produccion/publicaciones/publ_25_rev_bi_f_al_89/content_25_00002"
       }
-    ],
-    "descuento_final_contrato": 500.00,
-    "importe_total_BI_contrato": 3020.00,
-    "iva_aplicable": true,
-    "importe_factura_con_iva": 3654.20
+    ]
   },
   {
-    "detalles_contrato": {
-      "id_contrato": "contr_25_0000000002",
-      "id_agente_contrato": "ag_25_0004",
-      "fecha_cobro_prevista_contrato": "20/09/2025",
-      "fecha_cobro_factura_contrato": "22/09/2025",
-      "estado_contrato": "Pagado",
-      "comisiones_contrato_pagadas": "Sí",
-      "array_facturas": [{ "id_factura": "fac_cte_25_0000002" }],
-      "fecha_factura": "19/09/2025",
-      "forma_cobro_factura": "Domiciliación Bancaria",
-      "array_recibos": [
-        { "num_recibo": "recibop3_25_0000002", "numRemesa": "remesap3_25_00000002" }
-      ],
-      "fecha_firma_contrato": "05/09/2025",
-      "id_campana_asociada": "K25_000_030"
-    },
+    "id_contrato": "contr_25_0000000002",
+    "id_agente_contrato": "ag_25_0004",
+    "fecha_cobro_prevista_contrato": "19/12/2025",
+    "forma_cobro_contrato": "Domiciliación Bancaria",
+    "fecha_firma_contrato": "18/12/2025",
+    "fecha_fin_contrato": "18/06/2026",
+    "id_campana_asociada": "K25_000_030",
+    "descuento_final_contrato": 0.00,
+    "importe_total_BI_contrato": 500.00,
+    "iva_aplicable": true,
+    "importe_contrato_con_iva": 605.00,
+    "array_ordenes_cobro": [
+      {
+        "id_orden": "C25.000.037-1/1",
+        "tipo_cobro": "Recibo domiciliado",
+        "id_factura": "525075"
+      }
+    ],
     "cuenta_contrato": {
       "id_cuenta_contrato": "62500002",
       "id_contacto": "contact_25_00000000003",
       "cargoContacto": "Directora Comercial"
     },
-    "datosGenerales": {
-      "fecha_firma_contrato": "18/12/2025",
-      "fecha_fin_contrato": "18/06/2026",
-      "codigo_campana_administrativa": "K25.000.200"
-    },
-    "array_contenidos": [{ "id_contenido": "content_25_00003" }],
+    "array_contenidos": [
+      {
+        "id_contenido": "content_25_00003"
+      }
+    ],
     "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
@@ -96,38 +94,37 @@
         "estado_material_contrato": "No pedido",
         "urlcontenido": "/dashboard/produccion/publicaciones/publ_25_rev_bi_f_al_89/content_25_00003"
       }
-    ],
-    "descuento_final_contrato": 0.00,
-    "importe_total_BI_contrato": 500.00,
-    "iva_aplicable": true,
-    "importe_factura_con_iva": 605.00
+    ]
   },
   {
-    "detalles_contrato": {
-      "id_contrato": "contr_25_0000000003",
-      "id_agente_contrato": "ag_25_0004",
-      "fecha_cobro_prevista_contrato": "25/09/2025",
-      "fecha_cobro_factura_contrato": "28/09/2025",
-      "estado_contrato": "Pendiente",
-      "comisiones_contrato_pagadas": "No",
-      "array_facturas": [{ "id_factura": "fac_cte_25_0000003" }],
-      "fecha_factura": "22/09/2025",
-      "forma_cobro_factura": "Transferencia Bancaria",
-      "array_recibos": [],
-      "fecha_firma_contrato": "10/09/2025",
-      "id_campana_asociada": "K25_000_031"
-    },
+    "id_contrato": "contr_25_0000000003",
+    "id_agente_contrato": "ag_25_0004",
+    "fecha_cobro_prevista_contrato": "23/12/2025",
+    "forma_cobro_contrato": "Transferencia Bancaria",
+    "fecha_firma_contrato": "22/12/2025",
+    "fecha_fin_contrato": "22/08/2026",
+    "id_campana_asociada": "K25_000_031",
+    "descuento_final_contrato": 0.00,
+    "importe_total_BI_contrato": 2300.00,
+    "iva_aplicable": false,
+    "importe_contrato_con_iva": 2300.00,
+    "array_ordenes_cobro": [
+      {
+        "id_orden": "C25.000.038-1/1",
+        "tipo_cobro": "Transferencia bancaria",
+        "id_factura": "525076"
+      }
+    ],
     "cuenta_contrato": {
       "id_cuenta_contrato": "62500003",
       "id_contacto": "contact_25_00000000006",
       "cargoContacto": "CEO"
     },
-    "datosGenerales": {
-      "fecha_firma_contrato": "22/12/2025",
-      "fecha_fin_contrato": "22/08/2026",
-      "codigo_campana_administrativa": "K25.000.210"
-    },
-    "array_contenidos": [{ "id_contenido": "content_25_00004" }],
+    "array_contenidos": [
+      {
+        "id_contenido": "content_25_00004"
+      }
+    ],
     "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
@@ -139,40 +136,37 @@
         "estado_material_contrato": "No pedido",
         "urlcontenido": "/dashboard/produccion/publicaciones/publ_25_rev_bi_f_al_89/content_25_00004"
       }
-    ],
-    "descuento_final_contrato": 0.00,
-    "importe_total_BI_contrato": 2300.00,
-    "iva_aplicable": false,
-    "importe_factura_con_iva": 2300.00
+    ]
   },
   {
-    "detalles_contrato": {
-      "id_contrato": "contr_25_0000000004",
-      "id_agente_contrato": "ag_25_0004",
-      "fecha_cobro_prevista_contrato": "30/09/2025",
-      "fecha_cobro_factura_contrato": "01/10/2025",
-      "estado_contrato": "Pendiente",
-      "comisiones_contrato_pagadas": "No",
-      "array_facturas": [{ "id_factura": "fac_cte_25_0000004" }],
-      "fecha_factura": "25/09/2025",
-      "forma_cobro_factura": "Recibo Domiciliado",
-      "array_recibos": [
-        { "num_recibo": "recibop3_25_0000004", "numRemesa": "remesap3_25_00000004" }
-      ],
-      "fecha_firma_contrato": "15/09/2025",
-      "id_campana_asociada": "K25_000_032"
-    },
+    "id_contrato": "contr_25_0000000004",
+    "id_agente_contrato": "ag_25_0004",
+    "fecha_cobro_prevista_contrato": "30/09/2025",
+    "forma_cobro_contrato": "Recibo Domiciliado",
+    "fecha_firma_contrato": "15/09/2025",
+    "fecha_fin_contrato": "01/01/2027",
+    "id_campana_asociada": "K25_000_032",
+    "descuento_final_contrato": 0.00,
+    "importe_total_BI_contrato": 1200.00,
+    "iva_aplicable": true,
+    "importe_contrato_con_iva": 1452.00,
+    "array_ordenes_cobro": [
+      {
+        "id_orden": "C25.000.039-1/1",
+        "tipo_cobro": "Recibo Domiciliado",
+        "id_factura": "525077"
+      }
+    ],
     "cuenta_contrato": {
       "id_cuenta_contrato": "62500004",
       "id_contacto": "contact_25_00000000007",
       "cargoContacto": "Gerente General"
     },
-    "datosGenerales": {
-      "fecha_firma_contrato": "01/01/2026",
-      "fecha_fin_contrato": "01/01/2027",
-      "codigo_campana_administrativa": "K25.000.220"
-    },
-    "array_contenidos": [{ "id_contenido": "content_25_00005" }],
+    "array_contenidos": [
+      {
+        "id_contenido": "content_25_00005"
+      }
+    ],
     "contenido_campana": [
       {
         "medio": "Revista del vidrio España",
@@ -184,10 +178,6 @@
         "estado_material_contrato": "No pedido",
         "urlcontenido": "/dashboard/produccion/publicaciones/publ_25_rev_bi_f_al_89/content_25_00005"
       }
-    ],
-    "descuento_final_contrato": 0.00,
-    "importe_total_BI_contrato": 1200.00,
-    "iva_aplicable": true,
-    "importe_factura_con_iva": 1452.00
+    ]
   }
 ]

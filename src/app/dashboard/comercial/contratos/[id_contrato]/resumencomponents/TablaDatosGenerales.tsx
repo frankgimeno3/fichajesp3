@@ -8,15 +8,11 @@ interface TablaDatosGeneralesProps {
 
 const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ contrato }) => {
   const [agenteEditado, setAgenteEditado] = useState<InterfazAgente | undefined>(() =>
-    agentes.find(
-      (a) => a.id_agente === contrato.detalles_contrato.id_agente_contrato
-    )
+    agentes.find((a) => a.id_agente === contrato.id_agente_contrato)
   );
 
   useEffect(() => {
-    const agente = agentes.find(
-      (a) => a.id_agente === contrato.detalles_contrato.id_agente_contrato
-    );
+    const agente = agentes.find((a) => a.id_agente === contrato.id_agente_contrato);
     setAgenteEditado(agente);
   }, [contrato]);
 
@@ -33,16 +29,13 @@ const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ contrato }) => {
       </thead>
       <tbody>
         <tr className="bg-white text-gray-700">
-          <td className="px-4 py-2">
-            {contrato.detalles_contrato.id_contrato || "—"}
-          </td>
-          <td className="px-4 py-2">{contrato.datosGenerales.fecha_firma_contrato}</td>
-          <td className="px-4 py-2">{contrato.datosGenerales.fecha_fin_contrato}</td>
+          <td className="px-4 py-2">{contrato.id_contrato || "—"}</td>
+          <td className="px-4 py-2">{contrato.fecha_firma_contrato || "—"}</td>
+          <td className="px-4 py-2">{contrato.fecha_fin_contrato || "—"}</td>
           <td className="px-4 py-2">
             {agenteEditado ? agenteEditado.nombre_completo_agente : "—"}
           </td>
-
-          <td className="px-4 py-2">{contrato.detalles_contrato.id_campana_asociada}</td>
+          <td className="px-4 py-2">{contrato.id_campana_asociada || "—"}</td>
         </tr>
       </tbody>
     </table>

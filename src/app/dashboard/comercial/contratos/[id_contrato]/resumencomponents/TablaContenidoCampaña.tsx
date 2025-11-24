@@ -10,7 +10,7 @@ const TablaContenidoCampaña: FC<TablaContenidoCampañaProps> = ({ contrato }) =
   const router = useRouter();
   const contenido_campana = contrato.contenido_campana;
 
-   const total_antes_descuento = contenido_campana.reduce(
+  const total_antes_descuento = contenido_campana.reduce(
     (acc, fila) => acc + (Number(fila.precio_producto) || 0),
     0
   );
@@ -44,7 +44,7 @@ const TablaContenidoCampaña: FC<TablaContenidoCampañaProps> = ({ contrato }) =
                   className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 text-sm"
                   onClick={() => router.push(fila.urlcontenido)}
                 >
-                 Ver
+                  Ver
                 </button>
               </td>
               <td className="px-4 py-2">{fila.precio_producto} €</td>
@@ -55,9 +55,7 @@ const TablaContenidoCampaña: FC<TablaContenidoCampañaProps> = ({ contrato }) =
 
       <div className="flex flex-row w-full mb-1">
         <div className="flex flex-row bg-blue-950 text-white px-5 w-full text-sm p-3 border-b border-gray-200 justify-end">
-          <p className="font-bold">
-            Total ofertado antes de descuento
-          </p>
+          <p className="font-bold">Total ofertado antes de descuento</p>
         </div>
         <div className="flex flex-row bg-white text-gray-600 px-5 w-1/8 border-y border-gray-100 items-center text-center">
           <p className="pl-2 mx-auto">{total_antes_descuento} €</p>
@@ -65,7 +63,7 @@ const TablaContenidoCampaña: FC<TablaContenidoCampañaProps> = ({ contrato }) =
       </div>
 
       <div className="w-full flex flex-row">
-        <div className="flex flex-col flex-1 ">
+        <div className="flex flex-col flex-1">
           <div className="flex flex-row w-full h-12">
             <div className="flex flex-row bg-blue-950 text-white px-5 w-2/4 text-sm py-1 border-b border-gray-200 items-center">
               <p>Descuento total</p>
@@ -89,18 +87,18 @@ const TablaContenidoCampaña: FC<TablaContenidoCampañaProps> = ({ contrato }) =
               <p>Precio final</p>
             </div>
             <div className="flex flex-row bg-white text-gray-600 px-5 w-full border-y border-gray-100 items-center text-sm">
-              <p>{contrato.importe_factura_con_iva} €</p>
+              <p>{contrato.importe_contrato_con_iva} €</p>
             </div>
           </div>
         </div>
 
-        <div className="flex flex-col flex-1 ">
+        <div className="flex flex-col flex-1">
           <div className="flex flex-row w-full h-12">
             <div className="flex flex-row bg-blue-950 text-white px-5 w-2/4 text-sm py-1 border-b border-gray-200 items-center">
               <p>Forma de cobro</p>
             </div>
             <div className="flex flex-row bg-white text-gray-600 px-5 w-full border-y border-gray-100 items-center text-sm">
-              <p>{contrato.detalles_contrato.forma_cobro_factura}</p>
+              <p>{contrato.forma_cobro_contrato}</p>
             </div>
           </div>
 
@@ -109,8 +107,7 @@ const TablaContenidoCampaña: FC<TablaContenidoCampañaProps> = ({ contrato }) =
               <p>Términos de pago</p>
             </div>
             <div className="flex flex-row bg-white text-gray-600 px-5 w-full border-y border-gray-100 items-center text-sm">
-              <p>{contrato.detalles_contrato.fecha_cobro_prevista_contrato}</p>
-
+              <p>{contrato.fecha_cobro_prevista_contrato}</p>
             </div>
           </div>
 
@@ -119,7 +116,7 @@ const TablaContenidoCampaña: FC<TablaContenidoCampañaProps> = ({ contrato }) =
               <p>Número de pagos</p>
             </div>
             <div className="flex flex-row bg-white text-gray-600 px-5 w-full border-y border-gray-100 items-center text-sm">
-              <p>{contrato.detalles_contrato.array_recibos.length}</p>
+              <p>{contrato.array_ordenes_cobro.length}</p>
             </div>
           </div>
         </div>
