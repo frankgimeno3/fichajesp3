@@ -9,7 +9,7 @@ interface DatosCobroPropuestaProps {
 const DatosCobroPropuesta: FC<DatosCobroPropuestaProps> = ({ codigoPropuesta }) => {
   const propuestasData = propuestas as InterfazPropuesta[];
   const propuesta_seleccionada = propuestasData.find(
-    (p) => p.detalles_propuesta.id_propuesta === codigoPropuesta
+    (p) => p.id_propuesta === codigoPropuesta
   );
 
   const [cobros, setCobros] = useState<any[]>([]);
@@ -22,8 +22,7 @@ const DatosCobroPropuesta: FC<DatosCobroPropuestaProps> = ({ codigoPropuesta }) 
     }
   }, [propuesta_seleccionada]);
 
-  // Cerrar modal con ESC
-  useEffect(() => {
+   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setShowModal(false);
@@ -122,8 +121,7 @@ const DatosCobroPropuesta: FC<DatosCobroPropuestaProps> = ({ codigoPropuesta }) 
         </tbody>
       </table>
 
-      {/* MODAL */}
-      {showModal && (
+       {showModal && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
           <div className="bg-white rounded-xl shadow-lg w-[90%] max-w-sm p-4 relative">
             <button

@@ -102,8 +102,7 @@ const EditarDatosAnunciante: FC<EditarDatosAnuncianteProps> = ({
         </tbody>
       </table>
 
-      {/* Modal */}
-      {isModalOpen && (
+       {isModalOpen && (
         <ChangeContactModal
           cuentaSeleccionada={cuentaSeleccionada}
           onClose={() => setIsModalOpen(false)}

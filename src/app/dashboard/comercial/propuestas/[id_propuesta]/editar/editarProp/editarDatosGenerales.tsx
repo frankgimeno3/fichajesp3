@@ -13,11 +13,9 @@ interface DatosGenerales {
   agente: string;
 }
 
-// Función auxiliar para convertir fechas DD/MM/YYYY → YYYY-MM-DD
-const formatearFechaAISO = (fecha: string): string => {
+ const formatearFechaAISO = (fecha: string): string => {
   if (!fecha) return "";
-  // Si ya está en formato ISO, la devolvemos tal cual
-  if (fecha.includes("-")) return fecha;
+   if (fecha.includes("-")) return fecha;
   const [dia, mes, anio] = fecha.split("/");
   if (!dia || !mes || !anio) return "";
   return `${anio}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`;
@@ -27,7 +25,7 @@ const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ codigoPropuesta }) 
   const propuestasData = propuestas as InterfazPropuesta[];
 
   const propuesta_seleccionada = propuestasData.find(
-    (p) => p.detalles_propuesta.id_propuesta === codigoPropuesta
+    (p) => p.id_propuesta === codigoPropuesta
   );
 
   const [formData, setFormData] = useState<DatosGenerales>({
@@ -40,10 +38,10 @@ const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ codigoPropuesta }) 
   useEffect(() => {
     if (propuesta_seleccionada) {
       setFormData({
-        codigoPropuesta: propuesta_seleccionada.detalles_propuesta.id_propuesta,
-        fechaEnvio: formatearFechaAISO(propuesta_seleccionada.detalles_propuesta.fecha_envio_propuesta),
+        codigoPropuesta: propuesta_seleccionada.id_propuesta,
+        fechaEnvio: formatearFechaAISO(propuesta_seleccionada.fecha_envio_propuesta),
         fechaValidez: "",
-        agente: propuesta_seleccionada.detalles_propuesta.id_agente_propuesta,
+        agente: propuesta_seleccionada.id_agente_propuesta,
       });
     }
   }, [propuesta_seleccionada]);

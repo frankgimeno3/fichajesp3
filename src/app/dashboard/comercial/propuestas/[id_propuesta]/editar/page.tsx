@@ -1,7 +1,7 @@
 
 "use client";
 
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useRouter, useParams } from "next/navigation";
 
 import EditarDatosGenerales from "./editarProp/editarDatosGenerales";
@@ -18,11 +18,14 @@ const EditarPropuesta: FC = () => {
   const router = useRouter();
   const parametros = useParams();
   const idPropuestaParametro = parametros?.id_propuesta as string | undefined;
+  const [importe_antes_descuento, set_importe_antes_descuento] = useState(0)
+
+
 
   const datosPropuestas = propuestas as InterfazPropuesta[];
 
   const propuestaSeleccionada = datosPropuestas.find(
-    (propuesta) => propuesta.detalles_propuesta.id_propuesta === idPropuestaParametro
+    (propuesta) => propuesta.id_propuesta === idPropuestaParametro
   );
 
   if (!propuestaSeleccionada) {
@@ -46,13 +49,11 @@ const EditarPropuesta: FC = () => {
     );
   }
 
-  const [comentariosAdicionales, setComentariosAdicionales] = useState(
-    propuestaSeleccionada.comentarios_adicionales_propuesta || ""
-  );
+ 
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-200 text-gray-600  ">
-      <MiddleNav tituloprincipal={`Editando propuesta con Código ${propuestaSeleccionada.detalles_propuesta.id_propuesta}`} />
+      <MiddleNav tituloprincipal={`Editando propuesta con Código ${propuestaSeleccionada.id_propuesta}`} />
 
       <div className="flex flex-col px-12">
            <div className="flex flex-row justify-end py-5">
@@ -61,7 +62,7 @@ const EditarPropuesta: FC = () => {
               className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
               onClick={() =>
                 router.push(
-                  `/dashboard/comercial/propuestas/${propuestaSeleccionada.detalles_propuesta.id_propuesta}`
+                  `/dashboard/comercial/propuestas/${propuestaSeleccionada.id_propuesta}`
                 )
               }
             >
@@ -72,7 +73,7 @@ const EditarPropuesta: FC = () => {
               className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
               onClick={() =>
                 router.push(
-                  `/dashboard/comercial/propuestas/${propuestaSeleccionada.detalles_propuesta.id_propuesta}`
+                  `/dashboard/comercial/propuestas/${propuestaSeleccionada.id_propuesta}`
                 )
               }
             >
@@ -92,7 +93,7 @@ const EditarPropuesta: FC = () => {
 
           <p className="font-bold mb-1 text-gray-500">Datos generales:</p>
           <EditarDatosGenerales
-            codigoPropuesta={propuestaSeleccionada.detalles_propuesta.id_propuesta}
+            codigoPropuesta={propuestaSeleccionada.id_propuesta}
           />
 
           <p className="font-bold mb-1 text-gray-500 mt-6">Datos de contacto:</p>
@@ -103,24 +104,20 @@ const EditarPropuesta: FC = () => {
 
           <p className="font-bold mb-1 text-gray-500 mt-6">Contenido en propuesta:</p>
           <EditarContenidoPropuesta
-            codigoPropuesta={propuestaSeleccionada.detalles_propuesta.id_propuesta}
+            codigoPropuesta={propuestaSeleccionada.id_propuesta}
+            importe_antes_descuento={importe_antes_descuento}
+            set_importe_antes_descuento={set_importe_antes_descuento}
           />
 
           <p className="font-bold mb-1 text-gray-500 mt-6">Datos para facturación:</p>
           <EditarOtrosDatosEnFactura
-            codigoPropuesta={propuestaSeleccionada.detalles_propuesta.id_propuesta}
+            codigoPropuesta={propuestaSeleccionada.id_propuesta}
+            importe_antes_descuento={importe_antes_descuento}
           />
 
           <p className="font-bold mb-1 text-gray-500 mt-6">Forma de cobro:</p>
           <EditarDatosCobro
-            codigoPropuesta={propuestaSeleccionada.detalles_propuesta.id_propuesta}
-          />
-
-          <p className="font-bold mb-1 text-gray-500 mt-6">Comentarios adicionales:</p>
-          <textarea
-            className="bg-white rounded text-gray-500 p-5 mb-24 border border-gray-100 shadow-sm  text-sm w-full min-h-[120px]"
-            value={comentariosAdicionales}
-            onChange={(evento) => setComentariosAdicionales(evento.target.value)}
+            codigoPropuesta={propuestaSeleccionada.id_propuesta}
           />
         </div>
       </div>

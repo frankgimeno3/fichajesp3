@@ -4,6 +4,7 @@ import { InterfazPropuesta } from "@/app/interfaces/interfaces";
 
 interface OtrosDatosEnFacturaProps {
   codigoPropuesta: string;
+  importe_antes_descuento:number;
 }
 
 interface FormData {
@@ -14,11 +15,12 @@ interface FormData {
   importe_propuesta_con_iva: number;
 }
 
-const OtrosDatosEnFactura: FC<OtrosDatosEnFacturaProps> = ({ codigoPropuesta }) => {
+
+const OtrosDatosEnFactura: FC<OtrosDatosEnFacturaProps> = ({ codigoPropuesta,   importe_antes_descuento }) => {
   const propuestasData = propuestas as InterfazPropuesta[];
 
   const propuesta_seleccionada = propuestasData.find(
-    (p) => p.detalles_propuesta.id_propuesta === codigoPropuesta
+    (p) => p.id_propuesta === codigoPropuesta
   );
 
   const [formData, setFormData] = useState<FormData>({
@@ -33,7 +35,7 @@ const OtrosDatosEnFactura: FC<OtrosDatosEnFacturaProps> = ({ codigoPropuesta }) 
     if (propuesta_seleccionada) {
       const p = propuesta_seleccionada;
       setFormData({
-        total_previo_propuesta: p.total_previo_propuesta || 0,
+        total_previo_propuesta: p.importe_total_BI_propuesta || 0,
         descuento_final_propuesta: p.descuento_final_propuesta || 0,
         importe_total_BI_propuesta: p.importe_total_BI_propuesta || 0,
         impuesto: p.iva_aplicable ? "21" : "0",
@@ -90,7 +92,7 @@ const OtrosDatosEnFactura: FC<OtrosDatosEnFacturaProps> = ({ codigoPropuesta }) 
             <input
               type="number"
               name="total_previo_propuesta"
-              value={formData.total_previo_propuesta}
+              value={importe_antes_descuento}
               onChange={handleChange}
               className="border border-gray-300 rounded px-2 py-1 w-full text-right"
             />

@@ -1,28 +1,28 @@
-// TablaContenidoPropuesta.tsx
 import React, { FC, useState, useEffect } from "react";
 import propuestas from "@/app/contents/propuestasContents.json";
 import { InterfazPropuesta } from "@/app/interfaces/interfaces";
 import AnadirContenido from "./modals/AnadirContenido";
  
-interface FilaContenido {
+export interface FilaContenido {
   medio: string;
   publicacion: string;
   producto: string;
   precio: number;
-  descuento_unitario?: number;
-  estadoMaterial?: string;
-  urlcontenido?: string;
+  descuento_unitario: number;
+  precio_unitario:number;
 }
 
 interface TablaContenidoPropuestaProps {
   codigoPropuesta: string;
+    importe_antes_descuento:number;
+    set_importe_antes_descuento:  (val: number) => void;
 }
 
-const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropuesta }) => {
+const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropuesta, set_importe_antes_descuento }) => {
   const propuestasData = propuestas as InterfazPropuesta[];
 
   const propuesta_seleccionada = propuestasData.find(
-    (p) => p.detalles_propuesta.id_propuesta === codigoPropuesta
+    (p) => p.id_propuesta === codigoPropuesta
   );
 
   if (!propuesta_seleccionada) {
@@ -34,8 +34,9 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
       medio: item.medio,
       publicacion: item.publicacion,
       producto: item.producto,
-      precio: item.precio_producto,
-      descuento_unitario: item.descuento_unitario,
+      precio: item.precio_tarifa,
+      descuento_unitario: item.descuento_producto,
+      precio_unitario:item.precio_unitario,
       estadoMaterial: "",
       urlcontenido: "",
     })
@@ -52,8 +53,7 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
     }
   };
 
-  // 🔹 Cerrar modales con la tecla Escape
-  useEffect(() => {
+   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         if (showAgregar) setShowAgregar(false);
@@ -65,6 +65,15 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
     return () => window.removeEventListener("keydown", handleEsc);
   }, [showAgregar, filaAEliminar]);
 
+  useEffect(() => {
+    const suma_precios_unitarios = filas.reduce(
+      (total, fila) => total + Number(fila.precio_unitario || 0),
+      0
+  );
+
+  set_importe_antes_descuento(suma_precios_unitarios);
+}, [filas]);
+
   return (
     <div className="overflow-x-auto">
       <table className="w-full border shadow-xs border-gray-100 text-center text-sm">
@@ -75,6 +84,7 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
             <th className="px-4 py-2">Producto</th>
             <th className="px-4 py-2">Precio tarifa</th>
             <th className="px-4 py-2">Descuento unitario</th>
+            <th className="px-4 py-2">Precio unitario</th>
             <th className="px-4 py-2">Eliminar</th>
           </tr>
         </thead>
@@ -86,6 +96,7 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
               <td className="px-4 py-2">{fila.producto}</td>
               <td className="px-4 py-2">{fila.precio}</td>
               <td className="px-4 py-2">{fila.descuento_unitario}</td>
+              <td className="px-4 py-2">{fila.precio_unitario}</td>
               <td className="px-4 py-2">
                 <button
                   onClick={() => setFilaAEliminar(index)}
@@ -107,8 +118,7 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
         + Agregar fila
       </button>
 
-      {/* Modal eliminar */}
-      {filaAEliminar !== null && (
+       {filaAEliminar !== null && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
           <div className="bg-white p-6 rounded shadow-md w-80 text-center">
             <p className="mb-4">¿Seguro que quieres eliminar esta fila?</p>
@@ -130,8 +140,7 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
         </div>
       )}
 
-      {/* Modal Agregar (extraído en componente aparte) */}
-      {showAgregar && (
+       {showAgregar && (
         <AnadirContenido
           onClose={() => setShowAgregar(false)}
           onAgregar={(nuevaFila) => {

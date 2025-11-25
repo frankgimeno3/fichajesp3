@@ -1,16 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
-import servicios from "@/app/contents/ServiciosContents.json"
-import publicaciones from "@/app/contents/publicacionesContents.json"
-
-interface FilaContenido {
-  medio: string;
-  publicacion: string;
-  producto: string;
-  precio: number;
-  descuento_unitario?: number;
-  estadoMaterial?: string;
-  urlcontenido?: string;
-}
+import { FilaContenido } from "../editarContenidoPropuesta";
+ 
 
 interface AnadirContenidoProps {
   onClose: () => void;
@@ -24,6 +14,7 @@ const AnadirContenido: FC<AnadirContenidoProps> = ({ onClose, onAgregar }) => {
     producto: "",
     precio: 0,
     descuento_unitario: 0,
+    precio_unitario:0
   });
 
    useEffect(() => {
