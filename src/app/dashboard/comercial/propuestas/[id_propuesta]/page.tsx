@@ -20,7 +20,7 @@ const ResumenPropuesta: FC = () => {
 
 const propuestas = propuestasRaw as InterfazPropuesta[];
 
-  const propuesta = propuestas.find(p => p.detalles_propuesta.id_propuesta === idPropuesta);
+  const propuesta = propuestas.find(p => p.id_propuesta === idPropuesta);
 
   if (!propuesta) {
     return <div className="text-red-500 p-6">Propuesta no encontrada. {idPropuesta}</div>;
@@ -30,14 +30,14 @@ const propuestas = propuestasRaw as InterfazPropuesta[];
 
   return (
     <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
-      <MiddleNav tituloprincipal={`Propuesta con Código ${propuesta.detalles_propuesta.id_propuesta}`} />
+      <MiddleNav tituloprincipal={`Propuesta con Código ${propuesta.id_propuesta}`} />
 
       <div className=" min-h-screen px-12 text-gray-600">
         <div className="flex flex-row justify-end py-5">
           <div className="flex flex-row justify-end text-right items-right gap-5 text-sm">
             <button
               className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push(`/dashboard/comercial/propuestas/${propuesta.detalles_propuesta.id_propuesta}/editar`)}
+              onClick={() => router.push(`/dashboard/comercial/propuestas/${propuesta.id_propuesta}/editar`)}
             >
               Actualizar
             </button>
@@ -65,23 +65,19 @@ const propuestas = propuestasRaw as InterfazPropuesta[];
       <div className='bg-white rounded-lg p-12'>
 
         <p className="font-bold mb-1 text-gray-500">Datos generales:</p>
-        <TablaDatosGenerales codigoPropuesta={propuesta.detalles_propuesta.id_propuesta} />
+        <TablaDatosGenerales codigoPropuesta={propuesta.id_propuesta} />
 
            <p className="font-bold mb-1 text-gray-500 mt-6">Datos de contacto anunciante:</p>
           <TablaDatosAnunciante empresaAnunciante={propuesta.cuenta_propuesta.id_cuenta_propuesta} contactoPropuesta={propuesta.cuenta_propuesta.id_contacto}  />
  
         <p className="font-bold mb-1 text-gray-500 mt-6">Contenido en propuesta:</p>
-        <TablaContenidoPropuesta contenido={propuesta.contenido_propuesta} />
+        <TablaContenidoPropuesta propuesta={propuesta}/>
 
         <p className="font-bold mb-1 text-gray-500 mt-6">Datos para facturación:</p>
         <OtrosDatosEnPropuesta propuesta={propuesta} />
 
         <p className="font-bold mb-1 text-gray-500 mt-6">Cobros propuestos:</p>
         <TablaDeCobros propuesta={propuesta} />
-
-        <p className="font-bold mb-1 text-gray-500 mt-6">Comentarios adicionales:</p>
-        <textarea className={propuesta.comentarios_adicionales_propuesta}
-        />
       </div>
       </div>
 

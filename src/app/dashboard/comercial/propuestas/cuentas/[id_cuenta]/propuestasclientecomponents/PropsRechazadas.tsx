@@ -17,21 +17,21 @@ const PropsRechazadasContent: FC<PropsRechazadasContentProps> = ({ id_cuenta }) 
 
   const propuestasFiltradas = propuestas.filter(
     (p) =>
-      p.detalles_propuesta.estado_propuesta === 'Rechazada' &&
+      p.estado_propuesta === 'Rechazada' &&
       p.cuenta_propuesta.id_cuenta_propuesta === id_cuenta
   );
 
   const resultadosFiltrados = propuestasFiltradas.filter((p) => {
     const coincideCliente =
       clienteFiltro === '' ||
-      p.detalles_propuesta.id_propuesta.toLowerCase().includes(clienteFiltro.toLowerCase()) ||
+      p.id_propuesta.toLowerCase().includes(clienteFiltro.toLowerCase()) ||
       p.cuenta_propuesta.cargoContacto.toLowerCase().includes(clienteFiltro.toLowerCase());
 
     const coincideAgente =
       agenteFiltro === '' ||
-      p.detalles_propuesta.id_agente_propuesta.toLowerCase().includes(agenteFiltro.toLowerCase());
+      p.id_agente_propuesta.toLowerCase().includes(agenteFiltro.toLowerCase());
 
-    const fechaPropuesta = new Date(p.detalles_propuesta.fecha_envio_propuesta.split('/').reverse().join('-'));
+    const fechaPropuesta = new Date(p.fecha_envio_propuesta.split('/').reverse().join('-'));
 
     const coincideFecha =
       (!fechaInicio || fechaPropuesta >= new Date(fechaInicio)) &&
@@ -55,13 +55,13 @@ const PropsRechazadasContent: FC<PropsRechazadasContentProps> = ({ id_cuenta }) 
         <tbody>
           {resultadosFiltrados.map((p) => (
             <tr
-              key={p.detalles_propuesta.id_propuesta}
+              key={p.id_propuesta}
               className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
-              onClick={() => router.push(`/dashboard/comercial/propuestas/${p.detalles_propuesta.id_propuesta}`)}>
+              onClick={() => router.push(`/dashboard/comercial/propuestas/${p.id_propuesta}`)}>
               <td className="p-2 border-b border-gray-200"><PropSvg /></td>
-              <td className="p-2 border-b border-gray-200">{p.detalles_propuesta.id_propuesta}</td>
-              <td className="p-2 border-b border-gray-200">{p.detalles_propuesta.id_agente_propuesta}</td>
-              <td className="p-2 border-b border-gray-200">{p.detalles_propuesta.fecha_envio_propuesta}</td>
+              <td className="p-2 border-b border-gray-200">{p.id_propuesta}</td>
+              <td className="p-2 border-b border-gray-200">{p.id_agente_propuesta}</td>
+              <td className="p-2 border-b border-gray-200">{p.fecha_envio_propuesta}</td>
               <td className="p-2 border-b border-gray-200">${p.importe_propuesta_con_iva.toLocaleString()}</td>
             </tr>
           ))}

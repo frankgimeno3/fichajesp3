@@ -6,23 +6,23 @@ import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNa
 interface ContratosProps { }
 
 const Contratos: FC<ContratosProps> = ({ }) => {
-  const [agenteActual, setAgenteActual] = useState("usuario")
+  // const [agenteActual, setAgenteActual] = useState("usuario")
 
-    useEffect(() => {
-      try {
-        const payload = JSON.parse(localStorage.getItem("userPayload") || "{}");
-         if (payload) { setAgenteActual(payload.email)}
-      } catch (e) {
-        console.error("Error leyendo payload del usuario:", e);
-      }  
-    }, []);
+  //   useEffect(() => {
+  //     try {
+  //       const payload = JSON.parse(localStorage.getItem("userPayload") || "{}");
+  //        if (payload) { setAgenteActual(payload.email)}
+  //     } catch (e) {
+  //       console.error("Error leyendo payload del usuario:", e);
+  //     }  
+  //   }, []);
   
 
     
   return (
     <div className="flex flex-col bg-gray-200 h-full min-h-screen text-gray-600">
 
-      <MiddleNav tituloprincipal={`Contratos en curso del agente ${agenteActual}  `} />
+      <MiddleNav tituloprincipal={`Contratos en curso  `} />
 
       <div className="bg-gray-100 min-h-screen px-12 text-gray-600">
         <ContenidoPorCliente />

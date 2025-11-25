@@ -2,7 +2,7 @@
   {
     "id_propuesta": "prop_25_0000000001",
     "id_agente_propuesta": "ag_25_0004",
-    "estado_propuesta": "pendiente",
+    "estado_propuesta": "Pendiente",
     "fecha_cobro_prevista_propuesta": "12/12/2025",
     "forma_cobro_propuesta": "Transferencia Bancaria",
     "fecha_envio_propuesta": "11/01/2025",
@@ -37,7 +37,7 @@
   {
     "id_propuesta": "prop_25_0000000002",
     "id_agente_propuesta": "ag_25_0004",
-    "estado_propuesta": "pendiente",
+    "estado_propuesta": "Pendiente",
     "fecha_cobro_prevista_propuesta": "12/12/2025",
     "forma_cobro_propuesta": "Transferencia Bancaria",
     "fecha_envio_propuesta": "12/01/2025",
@@ -64,7 +64,7 @@
   {
     "id_propuesta": "prop_25_0000000003",
     "id_agente_propuesta": "ag_25_0004",
-    "estado_propuesta": "aprobada",
+    "estado_propuesta": "Aprobada",
     "fecha_cobro_prevista_propuesta": "12/12/2025",
     "forma_cobro_propuesta": "Transferencia Bancaria",
     "fecha_envio_propuesta": "13/01/2025",
@@ -91,7 +91,7 @@
   {
     "id_propuesta": "prop_25_0000000004",
     "id_agente_propuesta": "ag_25_0004",
-    "estado_propuesta": "rechazada",
+    "estado_propuesta": "Rechazada",
     "fecha_cobro_prevista_propuesta": "12/12/2025",
     "forma_cobro_propuesta": "Transferencia Bancaria",
     "fecha_envio_propuesta": "14/01/2025",
@@ -118,7 +118,7 @@
   {
     "id_propuesta": "prop_25_0000000005",
     "id_agente_propuesta": "ag_25_0004",
-    "estado_propuesta": "pendiente",
+    "estado_propuesta": "Pendiente",
     "fecha_cobro_prevista_propuesta": "12/12/2025",
     "forma_cobro_propuesta": "Transferencia Bancaria",
     "fecha_envio_propuesta": "15/01/2025",
