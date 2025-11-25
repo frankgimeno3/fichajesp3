@@ -75,28 +75,41 @@ export interface InterfazServicio {
 export interface InterfazPropuesta {
   id_propuesta: string;
   id_agente_propuesta: string;
-  estado_propuesta:string;
+  estado_propuesta: string;
+
   fecha_envio_propuesta: string;
-  fecha_cobro_prevista_propuesta: string;
+
   forma_cobro_propuesta: string;
   descuento_final_propuesta: number;
   importe_total_BI_propuesta: number;
   iva_aplicable: boolean;
   importe_propuesta_con_iva: number;
+
   cuenta_propuesta: {
     id_cuenta_propuesta: string;
     id_contacto: string;
     cargoContacto: string;
   };
+
+   cobros: {
+    cobro: string;    
+    fecha: string;   
+    importe: number | string;  
+  }[];
+
   contenido_propuesta: {
     medio: string;
     publicacion: string;
     producto: string;
-    precio_producto: number;
+    precio_tarifa: number;
+    descuento_producto: number;
+    precio_unitario: number;
     deadline_publicacion: string;
     fecha_publicacion_publicacion: string;
   }[];
 }
+
+
 
 
 export interface InterfazAgente {

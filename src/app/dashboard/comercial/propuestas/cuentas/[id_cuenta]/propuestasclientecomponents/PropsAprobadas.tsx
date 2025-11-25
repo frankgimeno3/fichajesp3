@@ -17,7 +17,7 @@ const PropsAprobadasContent: FC<PropsAprobadasContentProps> = ({ id_cuenta }) =>
 
   const propuestasFiltradas = propuestas.filter(
     (p) =>
-      p.estado_propuesta === 'Aceptada' &&
+      p.estado_propuesta === 'Aprobada' &&
       p.cuenta_propuesta.id_cuenta_propuesta === id_cuenta
   );
 
