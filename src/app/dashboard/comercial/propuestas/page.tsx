@@ -8,7 +8,7 @@ import MisPendientes from './componentesPropuestas/tablaspropuestas/MisPendiente
 import agentes from '@/app/contents/agentesContents.json';
 
 const Propuestas: FC = () => {
-  const [pestana, setPestana] = useState<'miasenproceso' | 'todasporcliente'>('miasenproceso');
+  const [pestana, setPestana] = useState<'miasenproceso' | 'todasporcliente'>('todasporcliente');
   const [clienteFiltro, setClienteFiltro] = useState('');
   const [codigoCRMFiltro, setCodigoCRMFiltro] = useState('');
   const [fechaInicio, setFechaInicio] = useState('');
@@ -63,6 +63,16 @@ const Propuestas: FC = () => {
  
         <div className="mt-5 p-12 rounded-lg shadow-xl bg-white">
           <div className="flex flex-row relative mb-4">
+          <div
+              className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300 ${
+                pestana === 'todasporcliente'
+                  ? 'bg-blue-950 text-white z-30 rounded-tl-lg'
+                  : 'z-10 bg-gray-100 hover:bg-gray-200'
+              }`}
+              onClick={() => setPestana('todasporcliente')}
+            >
+              Todas las propuestas
+            </div>
             <div
               className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300 ${
                 pestana === 'miasenproceso'
@@ -72,16 +82,6 @@ const Propuestas: FC = () => {
               onClick={() => setPestana('miasenproceso')}
             >
               Mis propuestas pendientes
-            </div>
-            <div
-              className={`p-3 rounded-tr-lg cursor-pointer w-60 text-center transition-all duration-300 ${
-                pestana === 'todasporcliente'
-                  ? 'bg-blue-950 text-white z-30 rounded-tl-lg'
-                  : 'z-10 bg-gray-100 hover:bg-gray-200'
-              }`}
-              onClick={() => setPestana('todasporcliente')}
-            >
-              Todas las propuestas
             </div>
           </div>
 
