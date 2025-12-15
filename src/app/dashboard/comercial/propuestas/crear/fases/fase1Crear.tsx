@@ -11,18 +11,21 @@ interface Fase1CrearProps {
   setFaseCreacionPropuesta: (fase: number) => void;
   setCodigoCliente: (codigo: string) => void;
   codigoCliente: string;
+  setSelectedCliente: (cliente: Cuenta | null) => void;
+  selectedCliente: Cuenta | null;
 }
 
 const Fase1Crear: FC<Fase1CrearProps> = ({
   setFaseCreacionPropuesta,
   setCodigoCliente,
-  codigoCliente
+  codigoCliente,
+  setSelectedCliente,
+  selectedCliente
 }) => {
   const [codigoInput, setCodigoInput] = useState(codigoCliente);
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedCliente, setSelectedCliente] = useState<Cuenta | null>(null);
 
   const itemsPerPage = 20;
 
@@ -62,7 +65,8 @@ const Fase1Crear: FC<Fase1CrearProps> = ({
   };
 
   const handleSeleccionarCliente = (cliente: Cuenta) => {
-    setSelectedCliente(cliente);
+    const fullCliente = cuentasContents.find(c => c.id_cuenta === cliente.id_cuenta);
+    setSelectedCliente(fullCliente as any);
     setCodigoInput(cliente.id_cuenta);
     setCodigoCliente(cliente.id_cuenta);
   };

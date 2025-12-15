@@ -23,13 +23,14 @@ interface Producto {
 
 interface Fase3CrearProps {
   setFaseCreacionPropuesta: (fase: number) => void;
+  productos: Producto[];
+  setProductos: React.Dispatch<React.SetStateAction<Producto[]>>;
 }
 
 type Fase = "medio" | "edicion" | "producto" | "descuento" | "confirmacion";
 
-const Fase3Crear: FC<Fase3CrearProps> = ({ setFaseCreacionPropuesta }) => {
+const Fase3Crear: FC<Fase3CrearProps> = ({ setFaseCreacionPropuesta, productos, setProductos }) => {
   const servicios = serviciosData as Servicio[];
-  const [productos, setProductos] = useState<Producto[]>([]);
   const [showPopup, setShowPopup] = useState(false);
   const [fase, setFase] = useState<Fase>("medio");
   const [medioSeleccionado, setMedioSeleccionado] = useState<string>("");
@@ -401,6 +402,16 @@ const Fase3Crear: FC<Fase3CrearProps> = ({ setFaseCreacionPropuesta }) => {
 
   return (
     <div className="p-4 space-y-6">
+      {/* Botón Volver */}
+      <div className="flex justify-end mb-4">
+        <button
+          onClick={() => setFaseCreacionPropuesta(2)}
+          className="px-4 py-2 bg-gray-300 text-gray-700 rounded-xl hover:bg-gray-400"
+        >
+          ← Volver a Fase 2
+        </button>
+      </div>
+
       {/* Tabla de productos */}
       <div className="overflow-x-auto">
         <table className="w-full border shadow-xs border-gray-100 text-center text-sm">
