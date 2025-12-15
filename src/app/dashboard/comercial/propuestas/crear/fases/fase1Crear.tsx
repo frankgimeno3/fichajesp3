@@ -1,9 +1,10 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useMemo, useEffect } from "react";
+import cuentasContents from "@/app/contents/cuentasContents.json";
 
-interface Cliente {
-  codigo: string;
-  nombre: string;
-  agente: string;
+interface Cuenta {
+  id_cuenta: string;
+  nombre_empresa: string;
+  id_agente: string;
 }
 
 interface Fase1CrearProps {
@@ -12,38 +13,70 @@ interface Fase1CrearProps {
   codigoCliente: string;
 }
 
-const mockClientes: Cliente[] = [
-  { codigo: "C001", nombre: "Empresa Alpha", agente: "Juan Pérez" },
-  { codigo: "C002", nombre: "Empresa Beta", agente: "María Gómez" },
-  { codigo: "C003", nombre: "Empresa Gamma", agente: "Luis Martínez" },
-];
-
 const Fase1Crear: FC<Fase1CrearProps> = ({
   setFaseCreacionPropuesta,
   setCodigoCliente,
   codigoCliente
 }) => {
   const [codigoInput, setCodigoInput] = useState(codigoCliente);
-  const [showPopup, setShowPopup] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [clientes, setClientes] = useState<Cliente[]>([]);
-  const [selectedCliente, setSelectedCliente] = useState<Cliente | null>(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedCliente, setSelectedCliente] = useState<Cuenta | null>(null);
+
+  const itemsPerPage = 20;
+
+  // Filtrar cuentas basado en el término de búsqueda
+  const filteredCuentas = useMemo(() => {
+    if (!searchTerm.trim()) {
+      return cuentasContents as Cuenta[];
+    }
+    
+    const term = searchTerm.toLowerCase().trim();
+    return (cuentasContents as Cuenta[]).filter((cuenta) => {
+      const idMatch = cuenta.id_cuenta.toLowerCase().includes(term);
+      const nombreMatch = cuenta.nombre_empresa.toLowerCase().includes(term);
+      return idMatch || nombreMatch;
+    });
+  }, [searchTerm]);
+
+  // Resetear página cuando cambie el término de búsqueda
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm]);
+
+  // Calcular paginación
+  const totalPages = Math.ceil(filteredCuentas.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedCuentas = filteredCuentas.slice(startIndex, endIndex);
 
   const handleBuscar = () => {
-    setShowPopup(true);
     setLoading(true);
+    setSearchTerm(codigoInput);
 
+    // Simular carga
     setTimeout(() => {
-      setClientes(mockClientes);  
       setLoading(false);
-    }, 2000);
+    }, 500);
   };
 
-  const handleSeleccionarCliente = (cliente: Cliente) => {
+  const handleSeleccionarCliente = (cliente: Cuenta) => {
     setSelectedCliente(cliente);
-    setCodigoInput(cliente.codigo);
-    setCodigoCliente(cliente.codigo);
-    setShowPopup(false);
+    setCodigoInput(cliente.id_cuenta);
+    setCodigoCliente(cliente.id_cuenta);
+  };
+
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
   };
 
   return (
@@ -52,10 +85,15 @@ const Fase1Crear: FC<Fase1CrearProps> = ({
       <div className="flex gap-2 items-center mb-4">
         <input
           type="text"
-          placeholder="Código de cliente aquí"
+          placeholder="Código de cliente o nombre de empresa aquí"
           className="flex-1 p-2 border rounded-xl text-gray-400"
           value={codigoInput}
           onChange={(e) => setCodigoInput(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleBuscar();
+            }
+          }}
         />
         <button
           onClick={handleBuscar}
@@ -65,44 +103,100 @@ const Fase1Crear: FC<Fase1CrearProps> = ({
         </button>
       </div>
 
-      {showPopup && (
-        <div className="fixed inset-0 bg-black/30 flex justify-center items-center z-50">
-          <div className="bg-white p-4 rounded-xl w-96 relative">
-            <button
-              className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
-              onClick={() => setShowPopup(false)}
-            >
-              X
-            </button>
-            {loading ? (
-              <div className="flex justify-center items-center py-8">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
-              </div>
-            ) : (
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-gray-100">
-                    <th className="border px-2 py-1 text-left">Código</th>
-                    <th className="border px-2 py-1 text-left">Nombre</th>
-                    <th className="border px-2 py-1 text-left">Agente</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {clientes.map((c) => (
-                    <tr
-                      key={c.codigo}
-                      className="hover:bg-gray-200 cursor-pointer"
-                      onClick={() => handleSeleccionarCliente(c)}
-                    >
-                      <td className="border px-2 py-1">{c.codigo}</td>
-                      <td className="border px-2 py-1">{c.nombre}</td>
-                      <td className="border px-2 py-1">{c.agente}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            )}
+      {loading && (
+        <div className="flex justify-center items-center py-8">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+        </div>
+      )}
+
+      {!loading && (
+        <div className="mt-4">
+          <div className="mb-2 text-sm text-gray-600">
+            {filteredCuentas.length > 0 
+              ? `Mostrando ${startIndex + 1}-${Math.min(endIndex, filteredCuentas.length)} de ${filteredCuentas.length} resultados`
+              : "No se encontraron resultados"}
           </div>
+          
+          {filteredCuentas.length > 0 && (
+            <>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse border border-gray-300">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="border border-gray-300 px-4 py-2 text-left">Código</th>
+                      <th className="border border-gray-300 px-4 py-2 text-left">Nombre Empresa</th>
+                      <th className="border border-gray-300 px-4 py-2 text-left">ID Agente</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {paginatedCuentas.map((cuenta) => (
+                      <tr
+                        key={cuenta.id_cuenta}
+                        className={`hover:bg-gray-200 cursor-pointer ${
+                          selectedCliente?.id_cuenta === cuenta.id_cuenta ? "bg-blue-100" : ""
+                        }`}
+                        onClick={() => handleSeleccionarCliente(cuenta)}
+                      >
+                        <td className="border border-gray-300 px-4 py-2">{cuenta.id_cuenta}</td>
+                        <td className="border border-gray-300 px-4 py-2">{cuenta.nombre_empresa}</td>
+                        <td className="border border-gray-300 px-4 py-2">{cuenta.id_agente}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              {filteredCuentas.length > itemsPerPage && (
+                <div className="flex justify-center items-center gap-2 mt-4">
+                  <button
+                    onClick={handlePreviousPage}
+                    disabled={currentPage === 1}
+                    className={`px-4 py-2 rounded-xl shadow text-sm ${
+                      currentPage === 1
+                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                        : "bg-white text-gray-700 hover:bg-gray-100"
+                    }`}
+                  >
+                    Anterior
+                  </button>
+                  <span className="text-sm text-gray-600">
+                    Página {currentPage} de {totalPages}
+                  </span>
+                  <button
+                    onClick={handleNextPage}
+                    disabled={currentPage === totalPages}
+                    className={`px-4 py-2 rounded-xl shadow text-sm ${
+                      currentPage === totalPages
+                        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                        : "bg-white text-gray-700 hover:bg-gray-100"
+                    }`}
+                  >
+                    Siguiente
+                  </button>
+                </div>
+              )}
+
+              {filteredCuentas.length <= itemsPerPage && (
+                <div className="flex justify-center items-center gap-2 mt-4">
+                  <button
+                    disabled
+                    className="px-4 py-2 rounded-xl shadow text-sm bg-gray-300 text-gray-500 cursor-not-allowed"
+                  >
+                    Anterior
+                  </button>
+                  <span className="text-sm text-gray-600">
+                    Página 1 de 1
+                  </span>
+                  <button
+                    disabled
+                    className="px-4 py-2 rounded-xl shadow text-sm bg-gray-300 text-gray-500 cursor-not-allowed"
+                  >
+                    Siguiente
+                  </button>
+                </div>
+              )}
+            </>
+          )}
         </div>
       )}
 
