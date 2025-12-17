@@ -1,26 +1,41 @@
 import { InterfazContacto } from "@/app/interfaces/interfaces";
-import React, { FC, useState, useEffect } from "react";
+import React, { FC } from "react";
  
 interface OtrosDatosContactoProps {
   contacto: InterfazContacto;
-  onChange: (updatedContacto: InterfazContacto) => void;
+  setContactoEditable: React.Dispatch<React.SetStateAction<InterfazContacto | undefined>>;
+  suscripciones: string[];
+  setSuscripciones: React.Dispatch<React.SetStateAction<string[]>>;
+  otrosDatos: string;
+  setOtrosDatos: React.Dispatch<React.SetStateAction<string>>;
+  idiomas: string;
+  setIdiomas: React.Dispatch<React.SetStateAction<string>>;
+  pais: string;
+  setPais: React.Dispatch<React.SetStateAction<string>>;
+  conocidoEn: string;
+  setConocidoEn: React.Dispatch<React.SetStateAction<string>>;
+  contactadoEnFeria: string;
+  setContactadoEnFeria: React.Dispatch<React.SetStateAction<string>>;
+  onChange: () => void;
 }
 
-const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ contacto, onChange }) => {
-  const [suscripciones, setSuscripciones] = useState<string[]>(contacto.suscripciones || []);
-  const [otrosDatos, setOtrosDatos] = useState<string>(contacto.otros_datos_interes || "");
-  const [idiomas, setIdiomas] = useState<string>(contacto.idiomas);
-  const [pais, setPais] = useState<string>(contacto.pais_contacto);
-  const [conocidoEn, setConocidoEn] = useState<string>(contacto.conocido_en || "");
-  const [contactadoEnFeria, setContactadoEnFeria] = useState<string>(contacto.contactado_en_feria );
-
-  useEffect(() => {
-    setSuscripciones(contacto.suscripciones || []);
-    setOtrosDatos(contacto.otros_datos_interes || "");
-    setIdiomas(contacto.idiomas);
-    setConocidoEn(contacto.conocido_en || "");
-    setContactadoEnFeria(contacto.contactado_en_feria);
-  }, [contacto]);
+const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ 
+  contacto,
+  setContactoEditable,
+  suscripciones,
+  setSuscripciones,
+  otrosDatos,
+  setOtrosDatos,
+  idiomas,
+  setIdiomas,
+  pais,
+  setPais,
+  conocidoEn,
+  setConocidoEn,
+  contactadoEnFeria,
+  setContactadoEnFeria,
+  onChange
+}) => {
 
   const opcionesSuscripciones = [
     "Newsletter Vidrio España",
@@ -47,37 +62,55 @@ const OtrosDatosContacto: FC<OtrosDatosContactoProps> = ({ contacto, onChange })
       : [...suscripciones, opcion];
 
     setSuscripciones(nuevasSuscripciones);
-    onChange({ ...contacto, suscripciones: nuevasSuscripciones });
+    setContactoEditable(prev => 
+      prev ? { ...prev, suscripciones: nuevasSuscripciones } : prev
+    );
+    onChange();
   };
 
   const handleOtrosDatosChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
     setOtrosDatos(value);
-    onChange({ ...contacto, otros_datos_interes: value });
+    setContactoEditable(prev => 
+      prev ? { ...prev, otros_datos_interes: value } : prev
+    );
+    onChange();
   };
 
   const handleIdiomasChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setIdiomas(value);
-    onChange({ ...contacto, idiomas: value});
+    setContactoEditable(prev => 
+      prev ? { ...prev, idiomas: value } : prev
+    );
+    onChange();
   };
 
   const handlePaisChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setPais(value);
-    onChange({ ...contacto, pais_contacto: value});
+    setContactoEditable(prev => 
+      prev ? { ...prev, pais_contacto: value } : prev
+    );
+    onChange();
   };
 
   const handleConocidoEnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setConocidoEn(value);
-    onChange({ ...contacto, conocido_en: value });
+    setContactoEditable(prev => 
+      prev ? { ...prev, conocido_en: value } : prev
+    );
+    onChange();
   };
 
   const handleContactadoEnFeriaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setContactadoEnFeria(value);
-    onChange({ ...contacto, contactado_en_feria: value});
+    setContactoEditable(prev => 
+      prev ? { ...prev, contactado_en_feria: value } : prev
+    );
+    onChange();
   };
 
   return (

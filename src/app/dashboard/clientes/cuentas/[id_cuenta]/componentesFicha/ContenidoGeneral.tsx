@@ -1,29 +1,26 @@
 'use client';
 
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC } from 'react';
 import ContenidoContactosEmpresa from './cards/ContenidoContactosEmpresa';
 import DatosCRM from './general/DatosCrm';
 import DatosComerciales from './general/DatosComerciales';
 import Direcciones from './general/Direcciones';
 import Descripcion from './general/Descripcion';
-import cuentas from "@/app/contents/cuentasContents.json";
 import { InterfazCuenta } from '@/app/interfaces/interfaces';
 
 interface ContenidoGeneralProps {
   id_cuenta: string;
+  cuentaEditable: InterfazCuenta;
+  setCuentaEditable: React.Dispatch<React.SetStateAction<InterfazCuenta | undefined>>;
   setIsContenidoEdited: (val: boolean) => void;
 }
 
-const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenidoEdited }) => {
-  const [cuentaEditable, setCuentaEditable] = useState<InterfazCuenta | undefined>(
-    () => cuentas.find((c) => c.id_cuenta === id_cuenta)
-  );
-
-  useEffect(() => {
-    const cuenta = cuentas.find((c) => c.id_cuenta === id_cuenta);
-    setCuentaEditable(cuenta);
-  }, [id_cuenta]);
-
+const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ 
+  id_cuenta, 
+  cuentaEditable, 
+  setCuentaEditable,
+  setIsContenidoEdited 
+}) => {
   if (!cuentaEditable) {
     return <p className="text-red-500">Cuenta no encontrada</p>;
   }
@@ -43,7 +40,7 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenido
   };
 
   const handleDatosComercialesChange = (field: string, value: string) => {
-     if (field in cuentaEditable.datos_comerciales) {
+    if (field in cuentaEditable.datos_comerciales) {
       setCuentaEditable(prev =>
         prev
           ? {
@@ -55,10 +52,21 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenido
             }
           : prev
       );
-    }
-     else if (field === "pais_cuenta") {
+    } else if (field === "pais_cuenta") {
       setCuentaEditable(prev =>
         prev ? { ...prev, pais_cuenta: value } : prev
+      );
+    } else if (field === "contacto_principal") {
+      setCuentaEditable(prev =>
+        prev
+          ? {
+              ...prev,
+              datos_comerciales: {
+                ...prev.datos_comerciales,
+                contacto_principal: value,
+              },
+            }
+          : prev
       );
     }
 
@@ -84,7 +92,12 @@ const ContenidoGeneral: FC<ContenidoGeneralProps> = ({ id_cuenta, setIsContenido
 
       <Direcciones
         direcciones={cuentaEditable.array_direcciones_cuenta}
-        onChange={() => setIsContenidoEdited(true)}
+        onChange={(updatedDirecciones) => {
+          setCuentaEditable(prev =>
+            prev ? { ...prev, array_direcciones_cuenta: updatedDirecciones } : prev
+          );
+          setIsContenidoEdited(true);
+        }}
       />
 
       <Descripcion

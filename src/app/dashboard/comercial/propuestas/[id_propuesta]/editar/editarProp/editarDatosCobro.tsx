@@ -1,26 +1,25 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import propuestas from "@/app/contents/propuestasContents.json";
 import { InterfazPropuesta } from "@/app/interfaces/interfaces";
 
 interface DatosCobroPropuestaProps {
   codigoPropuesta: string;
+  cobros: any[];
+  setCobros: (cobros: any[] | ((prev: any[]) => any[])) => void;
+  showModal: boolean;
+  setShowModal: (val: boolean) => void;
+  cobroAEliminar: number | null;
+  setCobroAEliminar: (val: number | null) => void;
 }
 
-const DatosCobroPropuesta: FC<DatosCobroPropuestaProps> = ({ codigoPropuesta }) => {
+const DatosCobroPropuesta: FC<DatosCobroPropuestaProps> = ({
+  codigoPropuesta, cobros, setCobros,
+  showModal, setShowModal, cobroAEliminar, setCobroAEliminar,
+}) => {
   const propuestasData = propuestas as InterfazPropuesta[];
   const propuesta_seleccionada = propuestasData.find(
     (p) => p.id_propuesta === codigoPropuesta
   );
-
-  const [cobros, setCobros] = useState<any[]>([]);
-  const [showModal, setShowModal] = useState(false);
-  const [cobroAEliminar, setCobroAEliminar] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (propuesta_seleccionada?.cobros) {
-      setCobros(propuesta_seleccionada.cobros);
-    }
-  }, [propuesta_seleccionada]);
 
    useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -31,7 +30,7 @@ const DatosCobroPropuesta: FC<DatosCobroPropuestaProps> = ({ codigoPropuesta }) 
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [setShowModal, setCobroAEliminar]);
 
   const handleChange = (index: number, field: string, value: string | number) => {
     const updated = [...cobros];

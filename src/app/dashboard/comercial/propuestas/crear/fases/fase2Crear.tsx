@@ -177,8 +177,8 @@ const Fase2Crear: FC<Fase2CrearProps> = ({
         <div className="flex gap-2">
           <input
             type="text"
-            placeholder={modoAnunciante === "porcodigo" ? "código del contacto aquí" : "nombre y apellidos del contacto aquí"}
-            className="flex-1 p-2 border rounded-xl text-gray-200"
+            placeholder={modoAnunciante === "porcodigo" ? " | código del contacto aquí" : " | nombre y apellidos del contacto aquí"}
+            className="flex-1 p-2 border rounded-xl text-gray-200 placeholder:text-gray-400 placeholder:text-sm"
             value={inputAnunciante}
             onChange={(e) => setInputAnunciante(e.target.value)}
             onKeyDown={(e) => {
@@ -228,14 +228,14 @@ const Fase2Crear: FC<Fase2CrearProps> = ({
             <input
               type="text"
               placeholder="Nombre completo"
-              className="w-full p-2 border rounded-xl text-gray-200"
+              className="w-full p-2 border rounded-xl text-gray-200 placeholder:text-gray-400 placeholder:text-sm"
               value={nombrePersonalizado}
               onChange={(e) => setNombrePersonalizado(e.target.value)}
             />
             <input
               type="email"
               placeholder="Email"
-              className="w-full p-2 border rounded-xl text-gray-200"
+              className="w-full p-2 border rounded-xl text-gray-200 placeholder:text-gray-400 placeholder:text-sm"
               value={emailPersonalizado}
               onChange={(e) => setEmailPersonalizado(e.target.value)}
             />
@@ -272,13 +272,13 @@ const Fase2Crear: FC<Fase2CrearProps> = ({
                   </div>
                   
                   <div className="overflow-x-auto">
-                    <table className="w-full border-collapse border border-gray-300">
+                    <table className="w-full border-collapse ">
                       <thead>
-                        <tr className="bg-gray-100">
-                          <th className="border border-gray-300 px-4 py-2 text-left">Código de contacto</th>
-                          <th className="border border-gray-300 px-4 py-2 text-left">Nombre de contacto</th>
-                          <th className="border border-gray-300 px-4 py-2 text-left">Código empresa</th>
-                          <th className="border border-gray-300 px-4 py-2 text-left">Nombre empresa</th>
+                        <tr className="bg-blue-950/80 text-white">
+                          <th className="px-4 py-2 text-left">Código de contacto</th>
+                          <th className="px-4 py-2 text-left">Nombre de contacto</th>
+                          <th className="px-4 py-2 text-left">Código empresa</th>
+                          <th className="px-4 py-2 text-left">Nombre empresa</th>
                         </tr>
                       </thead>
                       <tbody>

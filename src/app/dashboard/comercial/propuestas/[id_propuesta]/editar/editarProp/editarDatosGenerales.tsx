@@ -1,55 +1,41 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC } from "react";
 import propuestas from "@/app/contents/propuestasContents.json";
-import { InterfazPropuesta } from "@/app/interfaces/interfaces";
+import agentes from "@/app/contents/agentesContents.json";
+import { InterfazPropuesta, InterfazAgente } from "@/app/interfaces/interfaces";
 
 interface TablaDatosGeneralesProps {
   codigoPropuesta: string;
+  formData: DatosGenerales;
+  setFormData: (formData: DatosGenerales | ((prev: DatosGenerales) => DatosGenerales)) => void;
 }
 
-interface DatosGenerales {
+export interface DatosGenerales {
   codigoPropuesta: string;
   fechaEnvio: string;
   fechaValidez: string;
   agente: string;
 }
 
- const formatearFechaAISO = (fecha: string): string => {
-  if (!fecha) return "";
-   if (fecha.includes("-")) return fecha;
-  const [dia, mes, anio] = fecha.split("/");
-  if (!dia || !mes || !anio) return "";
-  return `${anio}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}`;
-};
-
-const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ codigoPropuesta }) => {
+const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ codigoPropuesta, formData, setFormData }) => {
   const propuestasData = propuestas as InterfazPropuesta[];
+  const agentesData = agentes as InterfazAgente[];
 
   const propuesta_seleccionada = propuestasData.find(
     (p) => p.id_propuesta === codigoPropuesta
   );
 
-  const [formData, setFormData] = useState<DatosGenerales>({
-    codigoPropuesta: "",
-    fechaEnvio: "",
-    fechaValidez: "",
-    agente: "",
-  });
-
-  useEffect(() => {
-    if (propuesta_seleccionada) {
-      setFormData({
-        codigoPropuesta: propuesta_seleccionada.id_propuesta,
-        fechaEnvio: formatearFechaAISO(propuesta_seleccionada.fecha_envio_propuesta),
-        fechaValidez: "",
-        agente: propuesta_seleccionada.id_agente_propuesta,
-      });
-    }
-  }, [propuesta_seleccionada]);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  // Buscar el agente actual para mostrar su nombre
+  const agenteActual = agentesData.find((a) => a.id_agente === formData.agente);
 
   if (!propuesta_seleccionada) {
     return <div>No se encontró la propuesta con código: {codigoPropuesta}</div>;
@@ -85,13 +71,19 @@ const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ codigoPropuesta }) 
           </td>
        
           <td className="px-4 py-2">
-            <input
-              type="text"
+            <select
               name="agente"
               value={formData.agente}
-              onChange={handleChange}
+              onChange={handleSelectChange}
               className="border border-gray-300 rounded px-2 py-1 w-full"
-            />
+            >
+              <option value="">Seleccione un agente</option>
+              {agentesData.map((agente) => (
+                <option key={agente.id_agente} value={agente.id_agente}>
+                  {agente.nombre_completo_agente}
+                </option>
+              ))}
+            </select>
           </td>
         </tr>
       </tbody>

@@ -1,25 +1,15 @@
 import React, { FC } from 'react';
+import { InterfazContrato, InterfazCuenta } from "@/app/interfaces/interfaces";
 
-interface ContenidoFactura {
-  nombreCompletoEmpresaEnFactura: string;
-  direccionEnFactura: string;
-  codigoPostal: string;
-  estadoZona: string;
-  Pais: string;
-  vat: string;
+interface OtrosDatosEnFacturaProps {
+  contrato: InterfazContrato;
+  cuentaSeleccionada?: InterfazCuenta;
 }
 
-// Datos mock
-const datosTabla: ContenidoFactura = {
-  nombreCompletoEmpresaEnFactura: 'Tecnologías Innovadoras S.A.',
-  direccionEnFactura: 'Av. Reforma 123, Piso 5, Col. Juárez',
-  codigoPostal: '06600',
-  estadoZona: 'Ciudad de México',
-  Pais: 'México',
-  vat: 'MX1234567890'
-};
+const OtrosDatosEnFactura: FC<OtrosDatosEnFacturaProps> = ({ contrato, cuentaSeleccionada }) => {
+  // Obtener la primera dirección de la cuenta si existe
+  const direccionPrincipal = cuentaSeleccionada?.array_direcciones_cuenta?.[0];
 
-const OtrosDatosEnFacturaProps: FC = () => {
   return (
     <table className="table-auto border-collapse text-center w-full">
       <thead>
@@ -34,16 +24,16 @@ const OtrosDatosEnFacturaProps: FC = () => {
       </thead>
       <tbody>
         <tr className="bg-white text-gray-700">
-          <td className="px-4 py-2">{datosTabla.nombreCompletoEmpresaEnFactura}</td>
-          <td className="px-4 py-2">{datosTabla.direccionEnFactura}</td>
-          <td className="px-4 py-2">{datosTabla.codigoPostal}</td>
-          <td className="px-4 py-2">{datosTabla.estadoZona}</td>
-          <td className="px-4 py-2">{datosTabla.Pais}</td>
-          <td className="px-4 py-2">{datosTabla.vat}</td>
+          <td className="px-4 py-2">{cuentaSeleccionada?.nombre_empresa || contrato.cuenta_contrato.id_cuenta_contrato}</td>
+          <td className="px-4 py-2">{direccionPrincipal?.direccion_completa || "—"}</td>
+          <td className="px-4 py-2">{direccionPrincipal?.codigo_postal || "—"}</td>
+          <td className="px-4 py-2">{direccionPrincipal?.region_direccion || direccionPrincipal?.ciudad_direccion || "—"}</td>
+          <td className="px-4 py-2">{direccionPrincipal?.pais_direccion || cuentaSeleccionada?.pais_cuenta || "—"}</td>
+          <td className="px-4 py-2">—</td>
         </tr>
       </tbody>
     </table>
   );
 };
 
-export default OtrosDatosEnFacturaProps;
+export default OtrosDatosEnFactura;

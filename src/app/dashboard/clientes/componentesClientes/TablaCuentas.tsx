@@ -1,8 +1,9 @@
 'use client';
 
-import React, { FC } from 'react';
+import React, { FC, useState, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import resultados from '@/app/contents/cuentasContents.json';
+import agentesContents from '@/app/contents/agentesContents.json';
 
 interface Cuenta {
   id_cuenta: string;
@@ -17,36 +18,56 @@ interface Cuenta {
 
 interface TablacuentasProps {
   clienteFiltro: string;
+  codigoCrmFiltro: string;
   agenteFiltro: string;
   telFiltro: string;
-  dominioFiltro: string;  
 }
 
 const Tablacuentas: FC<TablacuentasProps> = ({
   clienteFiltro,
+  codigoCrmFiltro,
   agenteFiltro,
   telFiltro,
-  dominioFiltro,
 }) => {
   const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 15;
 
-  const resultadosFiltrados = resultados.filter((r: Cuenta) => {
-    const coincideCliente =
-      clienteFiltro === '' ||
-      r.nombre_empresa.toLowerCase().includes(clienteFiltro.toLowerCase()) ||
-      r.id_cuenta.toLowerCase().includes(clienteFiltro.toLowerCase());
+  const resultadosFiltrados = useMemo(() => {
+    return resultados.filter((r: Cuenta) => {
+      const coincideCliente =
+        clienteFiltro === '' ||
+        r.nombre_empresa.toLowerCase().includes(clienteFiltro.toLowerCase());
 
-    const coincideAgente =
-      agenteFiltro === '' || r.id_agente === agenteFiltro;
+      const coincideCodigoCrm =
+        codigoCrmFiltro === '' ||
+        r.id_cuenta.toLowerCase().includes(codigoCrmFiltro.toLowerCase());
 
-    const coincideTelefono =
-      telFiltro === '' ||
-      r.datos_comerciales.telefono_principal_cuenta.includes(telFiltro);
+      const coincideAgente =
+        agenteFiltro === '' || r.id_agente === agenteFiltro;
 
-     const coincideDominio = true;
+      const coincideTelefono =
+        telFiltro === '' ||
+        r.datos_comerciales.telefono_principal_cuenta.includes(telFiltro);
 
-    return coincideCliente && coincideAgente && coincideTelefono && coincideDominio;
-  });
+      return coincideCliente && coincideCodigoCrm && coincideAgente && coincideTelefono;
+    });
+  }, [clienteFiltro, codigoCrmFiltro, agenteFiltro, telFiltro]);
+
+  // Reset to page 1 when filters change
+  React.useEffect(() => {
+    setCurrentPage(1);
+  }, [clienteFiltro, codigoCrmFiltro, agenteFiltro, telFiltro]);
+
+  const totalPages = Math.ceil(resultadosFiltrados.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const resultadosPaginados = resultadosFiltrados.slice(startIndex, endIndex);
+
+  const getNombreCompletoAgente = (idAgente: string) => {
+    const agente = agentesContents.find((a) => a.id_agente === idAgente);
+    return agente ? agente.nombre_completo_agente : idAgente;
+  };
 
   const handleRedirection = (id: string) => {
     router.push(`/dashboard/clientes/cuentas/${id}`);
@@ -65,7 +86,7 @@ const Tablacuentas: FC<TablacuentasProps> = ({
            </tr>
         </thead>
         <tbody>
-          {resultadosFiltrados.map((res) => (
+          {resultadosPaginados.map((res) => (
             <tr
               key={res.id_cuenta}
               className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
@@ -73,7 +94,7 @@ const Tablacuentas: FC<TablacuentasProps> = ({
             >
               <td className="p-2 border-b border-gray-200 pl-6">{res.nombre_empresa}</td>
               <td className="p-2 border-b border-gray-200">{res.id_cuenta}</td>
-              <td className="p-2 border-b border-gray-200">{res.id_agente}</td>
+              <td className="p-2 border-b border-gray-200">{getNombreCompletoAgente(res.id_agente)}</td>
               <td className="p-2 border-b border-gray-200">{res.pais_cuenta}</td>
               <td className="p-2 border-b border-gray-200">
                 {res.datos_comerciales.telefono_principal_cuenta}
@@ -87,6 +108,35 @@ const Tablacuentas: FC<TablacuentasProps> = ({
         <p className="mt-4 text-center text-gray-500">
           No se encontraron resultados.
         </p>
+      )}
+      {resultadosFiltrados.length > 0 && (
+        <div className="flex justify-center items-center gap-2 mt-4">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
+            disabled={currentPage === 1}
+            className={`px-4 py-2 rounded-lg ${
+              currentPage === 1
+                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-blue-950 text-white hover:bg-blue-900 cursor-pointer'
+            }`}
+          >
+            Anterior
+          </button>
+          <span className="text-gray-600">
+            Página {currentPage} de {totalPages}
+          </span>
+          <button
+            onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
+            disabled={currentPage === totalPages}
+            className={`px-4 py-2 rounded-lg ${
+              currentPage === totalPages
+                ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                : 'bg-blue-950 text-white hover:bg-blue-900 cursor-pointer'
+            }`}
+          >
+            Siguiente
+          </button>
+        </div>
       )}
     </div>
   );

@@ -1,7 +1,7 @@
 "use client";
 import React, { FC } from "react";
 import { useRouter } from "next/navigation";
-import { ContratoResumen } from "../contratos/contratosTypes";
+import { ContratoResumen } from "@/app/interfaces/interfaces";
 
 interface TablaContratosProps {
   contratos: ContratoResumen[];

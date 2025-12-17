@@ -14,11 +14,26 @@ export interface FilaContenido {
 
 interface TablaContenidoPropuestaProps {
   codigoPropuesta: string;
-    importe_antes_descuento:number;
-    set_importe_antes_descuento:  (val: number) => void;
+  importe_antes_descuento: number;
+  set_importe_antes_descuento: (val: number) => void;
+  filas: FilaContenido[];
+  setFilas: (filas: FilaContenido[] | ((prev: FilaContenido[]) => FilaContenido[])) => void;
+  filaAEliminar: number | null;
+  setFilaAEliminar: (val: number | null) => void;
+  showAgregar: boolean;
+  setShowAgregar: (val: boolean) => void;
 }
 
-const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropuesta, set_importe_antes_descuento }) => {
+const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({
+  codigoPropuesta,
+  set_importe_antes_descuento,
+  filas,
+  setFilas,
+  filaAEliminar,
+  setFilaAEliminar,
+  showAgregar,
+  setShowAgregar,
+}) => {
   const propuestasData = propuestas as InterfazPropuesta[];
 
   const propuesta_seleccionada = propuestasData.find(
@@ -28,23 +43,6 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
   if (!propuesta_seleccionada) {
     return <div>No se encontró la propuesta con código: {codigoPropuesta}</div>;
   }
-
-  const contenidoInicial: FilaContenido[] = propuesta_seleccionada.contenido_propuesta.map(
-    (item) => ({
-      medio: item.medio,
-      publicacion: item.publicacion,
-      producto: item.producto,
-      precio: item.precio_tarifa,
-      descuento_unitario: item.descuento_producto,
-      precio_unitario:item.precio_unitario,
-      estadoMaterial: "",
-      urlcontenido: "",
-    })
-  );
-
-  const [filas, setFilas] = useState<FilaContenido[]>(contenidoInicial);
-  const [filaAEliminar, setFilaAEliminar] = useState<number | null>(null);
-  const [showAgregar, setShowAgregar] = useState(false);
 
   const confirmarEliminar = () => {
     if (filaAEliminar !== null) {
@@ -65,14 +63,7 @@ const TablaContenidoPropuesta: FC<TablaContenidoPropuestaProps> = ({ codigoPropu
     return () => window.removeEventListener("keydown", handleEsc);
   }, [showAgregar, filaAEliminar]);
 
-  useEffect(() => {
-    const suma_precios_unitarios = filas.reduce(
-      (total, fila) => total + Number(fila.precio_unitario || 0),
-      0
-  );
-
-  set_importe_antes_descuento(suma_precios_unitarios);
-}, [filas]);
+  // El cálculo de importe_antes_descuento se hace en el componente padre
 
   return (
     <div className="overflow-x-auto">

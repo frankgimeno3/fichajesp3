@@ -17,7 +17,7 @@ interface Direccion {
 
 interface DireccionesProps {
   direcciones: Direccion[];
-  onChange: () => void;
+  onChange: (updatedDirecciones: Direccion[]) => void;
 }
 
 const Direcciones: FC<DireccionesProps> = ({ direcciones: initialDirecciones, onChange }) => {
@@ -28,26 +28,34 @@ const Direcciones: FC<DireccionesProps> = ({ direcciones: initialDirecciones, on
   const [isDeleteOpen, setIsDeleteOpen] = useState(false);
   const [direccionDelete, setDireccionDelete] = useState<Direccion | null>(null);
 
+  // Sync with parent when initialDirecciones changes
+  React.useEffect(() => {
+    setDirecciones(initialDirecciones);
+  }, [initialDirecciones]);
+
    const handleAdd = (newDir: Direccion) => {
-    setDirecciones([...direcciones, newDir]);
+    const updated = [...direcciones, newDir];
+    setDirecciones(updated);
     setIsAddOpen(false);
-    onChange();
+    onChange(updated);
   };
 
    const handleEdit = (updatedDir: Direccion) => {
     if (direccionEdit) {
-      setDirecciones(direcciones.map(d => d === direccionEdit ? updatedDir : d));
+      const updated = direcciones.map(d => d === direccionEdit ? updatedDir : d);
+      setDirecciones(updated);
       setIsEditOpen(false);
       setDireccionEdit(null);
-      onChange();
+      onChange(updated);
     }
   };
 
    const handleDelete = (dir: Direccion) => {
-    setDirecciones(direcciones.filter(d => d !== dir));
+    const updated = direcciones.filter(d => d !== dir);
+    setDirecciones(updated);
     setIsDeleteOpen(false);
     setDireccionDelete(null);
-    onChange();
+    onChange(updated);
   };
 
   return (

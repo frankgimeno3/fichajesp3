@@ -3,10 +3,24 @@ import React, { FC, ChangeEvent } from 'react';
  
 interface DatosGralesContactoProps {
   contacto: InterfazContacto;
+  setContactoEditable: React.Dispatch<React.SetStateAction<InterfazContacto | undefined>>;
   onChange: () => void;
 }
 
-const DatosGralesContacto: FC<DatosGralesContactoProps> = ({ contacto, onChange }) => {
+const DatosGralesContacto: FC<DatosGralesContactoProps> = ({ contacto, setContactoEditable, onChange }) => {
+  const handleChange = (field: keyof InterfazContacto, value: string) => {
+    setContactoEditable(prev => {
+      if (!prev) return prev;
+      const updated = { ...prev, [field]: value };
+      // Actualizar nombre_completo_contacto si cambia nombre o apellidos
+      if (field === 'nombre_contacto' || field === 'apellidos_contacto') {
+        updated.nombre_completo_contacto = `${updated.nombre_contacto} ${updated.apellidos_contacto}`;
+      }
+      return updated;
+    });
+    onChange();
+  };
+
   return (
     <div className="p-4">
       <h2 className="text-xl font-bold mb-4">Datos generales del contacto</h2>
@@ -25,16 +39,16 @@ const DatosGralesContacto: FC<DatosGralesContactoProps> = ({ contacto, onChange 
             <td className="p-2 border-b border-gray-200">
               <input
                 type="text"
-                defaultValue={contacto.nombre_contacto}
-                onChange={onChange}
+                value={contacto.nombre_contacto}
+                onChange={(e) => handleChange('nombre_contacto', e.target.value)}
                 className="w-full border border-gray-200 rounded p-1"
               />
             </td>
             <td className="p-2 border-b border-gray-200">
               <input
                 type="text"
-                defaultValue={contacto.apellidos_contacto}
-                onChange={onChange}
+                value={contacto.apellidos_contacto}
+                onChange={(e) => handleChange('apellidos_contacto', e.target.value)}
                 className="w-full border border-gray-200 rounded p-1"
               />
             </td>
@@ -42,17 +56,16 @@ const DatosGralesContacto: FC<DatosGralesContactoProps> = ({ contacto, onChange 
             <td className="p-2 border-b border-gray-200">
               <input
                 type="text"
-                defaultValue={contacto.telefono_contacto
-                }
-                onChange={onChange}
+                value={contacto.telefono_contacto}
+                onChange={(e) => handleChange('telefono_contacto', e.target.value)}
                 className="w-full border border-gray-200 rounded p-1"
               />
             </td>
             <td className="p-2 border-b border-gray-200">
               <input
                 type="email"
-                defaultValue={contacto.email_contacto}
-                onChange={onChange}
+                value={contacto.email_contacto}
+                onChange={(e) => handleChange('email_contacto', e.target.value)}
                 className="w-full border border-gray-200 rounded p-1"
               />
             </td>

@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 import { useRouter } from "next/navigation";
-import { ContenidoCampana } from "../contratosTypes"; // Usa el tipo real
+import { InterfazContrato } from "@/app/interfaces/interfaces";
 
 interface Props {
-  contenidos: ContenidoCampana[];
+  contenidos: InterfazContrato['contenido_campana'];
 }
 
 const TablaContenidoCampaña: FC<Props> = ({ contenidos }) => {

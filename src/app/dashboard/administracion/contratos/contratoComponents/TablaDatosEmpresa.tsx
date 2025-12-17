@@ -1,20 +1,14 @@
 import React, { FC } from "react";
 import { useRouter } from "next/navigation";
-
-interface Empresa {
-  nombreEmpresa: string;
-  codigoCrm: string;
-  codigoEdisoft: string;
-  pais: string;
-  nombreContacto: string;
-  cargoContacto: string;
-}
+import { InterfazContrato, InterfazCuenta, InterfazContacto } from "@/app/interfaces/interfaces";
 
 interface Props {
-  empresa: Empresa;
+  contrato: InterfazContrato;
+  cuentaSeleccionada?: InterfazCuenta;
+  contactoSeleccionado?: InterfazContacto;
 }
 
-const TablaDatosEmpresa: FC<Props> = ({ empresa }) => {
+const TablaDatosEmpresa: FC<Props> = ({ contrato, cuentaSeleccionada, contactoSeleccionado }) => {
   const router = useRouter();
 
   return (
@@ -35,25 +29,25 @@ const TablaDatosEmpresa: FC<Props> = ({ empresa }) => {
             <td className="px-4 py-2 flex-1/6">
               <button
                 className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-                onClick={() => router.push("/dashboard/clientes/ficha")}
+                onClick={() => router.push(`/dashboard/clientes/cuentas/${cuentaSeleccionada?.id_cuenta}`)}
               >
-                {empresa.nombreEmpresa}
+                {cuentaSeleccionada?.nombre_empresa || contrato.cuenta_contrato.id_cuenta_contrato}
               </button>
             </td>
-            <td className="px-4 py-2 flex-1/6">{empresa.codigoCrm}</td>
-            <td className="px-4 py-2 flex-1/6">{empresa.codigoEdisoft}</td>
-            <td className="px-4 py-2 flex-1/6">{empresa.pais}</td>
+            <td className="px-4 py-2 flex-1/6">{contrato.cuenta_contrato.id_cuenta_contrato}</td>
+            <td className="px-4 py-2 flex-1/6">{contrato.cuenta_contrato.id_cuenta_contrato}</td>
+            <td className="px-4 py-2 flex-1/6">{cuentaSeleccionada?.pais_cuenta || "—"}</td>
             <td className="px-4 py-2 flex-1/6">
               <button
                 className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
                 onClick={() =>
-                  router.push("/dashboard/clientes/contactos/contacto")
+                  router.push(`/dashboard/clientes/contactos/${contrato.cuenta_contrato.id_contacto}`)
                 }
               >
-                {empresa.nombreContacto}
+                {contactoSeleccionado?.nombre_completo_contacto || contrato.cuenta_contrato.id_contacto}
               </button>
             </td>
-            <td className="px-4 py-2 flex-1/6">{empresa.cargoContacto}</td>
+            <td className="px-4 py-2 flex-1/6">{contrato.cuenta_contrato.cargoContacto}</td>
           </tr>
         </tbody>
       </table>

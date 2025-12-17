@@ -1,11 +1,22 @@
 'use client';
 
 import { useRouter, useParams } from 'next/navigation';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ContenidoGeneral from './componentesFicha/ContenidoGeneral';
 import ContenidoComentarios from './componentesFicha/ContenidoComentarios';
 import MiddleNav from '@/app/general_components/componentes_recurrentes/MiddleNav';
 import BotonFlotante from '@/app/general_components/componentes_recurrentes/BotonFlotante';
+import cuentas from "@/app/contents/cuentasContents.json";
+import comentariosCuentas from "@/app/contents/comentariosCuentasContents.json";
+import agentes from "@/app/contents/agentesContents.json";
+import { InterfazCuenta } from '@/app/interfaces/interfaces';
+
+interface Comentario {
+  id_comentario: string;
+  autor: string;
+  fecha: string;
+  contenido: string;
+}
 
 const FichaCliente = () => {
   const router = useRouter();
@@ -15,6 +26,54 @@ const FichaCliente = () => {
 
   const [pestana, setPestana] = useState<'general' | 'comentarios'>('general');
   const [isContenidoEdited, setIsContenidoEdited] = useState(false);
+  
+  // Estados de cuenta (desde ContenidoGeneral)
+  const [cuentaEditable, setCuentaEditable] = useState<InterfazCuenta | undefined>(
+    () => cuentas.find((c) => c.id_cuenta === id_cuenta)
+  );
+
+  // Estados de comentarios (desde ContenidoComentarios)
+  const [comentarios, setComentarios] = useState<Comentario[]>([]);
+  const [nuevoComentario, setNuevoComentario] = useState("");
+  const [mostrarInput, setMostrarInput] = useState(false);
+  const [modal, setModal] = useState<{
+    tipo: "editar" | "borrar" | null;
+    comentario?: Comentario;
+  }>({ tipo: null });
+
+  useEffect(() => {
+    const cuenta = cuentas.find((c) => c.id_cuenta === id_cuenta);
+    setCuentaEditable(cuenta);
+  }, [id_cuenta]);
+
+  // Cargar comentarios desde JSON
+  useEffect(() => {
+    const cuenta = comentariosCuentas.cuentasConComentarios.find(
+      (c) => c.id_cuenta === id_cuenta
+    );
+    if (!cuenta) {
+      setComentarios([]);
+      return;
+    }
+
+    const comentariosFormateados = cuenta.array_comentarios_cuenta.map((c) => {
+      const agente = agentes.find((a) => a.id_agente === c.id_autor);
+      const nombreAutor = agente ? agente.nombre_agente : c.id_autor;
+
+      return {
+        id_comentario: c.id_comentario,
+        autor: nombreAutor,
+        fecha: new Date(c.fecha_comentario).toLocaleDateString("es-ES", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        }),
+        contenido: c.contenido_comentario,
+      };
+    });
+
+    setComentarios(comentariosFormateados);
+  }, [id_cuenta]);
 
   if (!id_cuenta) {
     return <p className="text-red-500">El id_cuenta introducido no corresponde a ninguna cuenta</p>;
@@ -58,15 +117,27 @@ const FichaCliente = () => {
         </div>
 
         <div className="bg-white p-12 shadow-xl rounded-b-lg">
-          {pestana === 'general' && (
+          {pestana === 'general' && cuentaEditable && (
             <ContenidoGeneral
               id_cuenta={id_cuenta}
+              cuentaEditable={cuentaEditable}
+              setCuentaEditable={setCuentaEditable}
               setIsContenidoEdited={setIsContenidoEdited}
             />
           )}
 
           {pestana === 'comentarios' && (
-            <ContenidoComentarios id_cuenta={id_cuenta} />
+            <ContenidoComentarios 
+              id_cuenta={id_cuenta}
+              comentarios={comentarios}
+              setComentarios={setComentarios}
+              nuevoComentario={nuevoComentario}
+              setNuevoComentario={setNuevoComentario}
+              mostrarInput={mostrarInput}
+              setMostrarInput={setMostrarInput}
+              modal={modal}
+              setModal={setModal}
+            />
           )}
         </div>
       </div>

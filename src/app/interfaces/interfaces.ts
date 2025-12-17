@@ -79,6 +79,9 @@ export interface InterfazPropuesta {
 
   fecha_envio_propuesta: string;
 
+  nombre_propuesta: string;
+  comentarios_adicionales?: string;
+
   forma_cobro_propuesta: string;
   descuento_final_propuesta: number;
   importe_total_BI_propuesta: number;
@@ -166,4 +169,14 @@ export interface InterfazContrato {
     estado_material_contrato: 'Publicado' | 'Pedido, no recibido' | 'No pedido' | string;
     urlcontenido: string;
   }[];
+}
+
+export interface ContratoResumen {
+  codigo: string;
+  cliente: string;
+  agente: string;
+  estado: string;
+  fechaFirma: string;
+  importe: string;
+  campania: string;
 }

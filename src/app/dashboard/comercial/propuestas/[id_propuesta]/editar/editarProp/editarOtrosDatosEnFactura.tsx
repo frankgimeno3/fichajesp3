@@ -1,60 +1,33 @@
-import React, { FC, useState, useEffect, ChangeEvent } from "react";
+import React, { FC, ChangeEvent } from "react";
 import propuestas from "@/app/contents/propuestasContents.json";
 import { InterfazPropuesta } from "@/app/interfaces/interfaces";
 
 interface OtrosDatosEnFacturaProps {
   codigoPropuesta: string;
-  importe_antes_descuento:number;
+  importe_antes_descuento: number;
+  formData: FormDataFactura;
+  setFormData: (formData: FormDataFactura | ((prev: FormDataFactura) => FormDataFactura)) => void;
 }
 
-interface FormData {
+export interface FormDataFactura {
   total_previo_propuesta: number;
   descuento_final_propuesta: number;
   importe_total_BI_propuesta: number;
-  impuesto: string;  
+  impuesto: string;
   importe_propuesta_con_iva: number;
 }
 
-
-const OtrosDatosEnFactura: FC<OtrosDatosEnFacturaProps> = ({ codigoPropuesta,   importe_antes_descuento }) => {
+const OtrosDatosEnFactura: FC<OtrosDatosEnFacturaProps> = ({
+  codigoPropuesta,
+  importe_antes_descuento,
+  formData,
+  setFormData,
+}) => {
   const propuestasData = propuestas as InterfazPropuesta[];
 
   const propuesta_seleccionada = propuestasData.find(
     (p) => p.id_propuesta === codigoPropuesta
   );
-
-  const [formData, setFormData] = useState<FormData>({
-    total_previo_propuesta: 0,
-    descuento_final_propuesta: 0,
-    importe_total_BI_propuesta: 0,
-    impuesto: "21",
-    importe_propuesta_con_iva: 0,
-  });
-
-   useEffect(() => {
-    if (propuesta_seleccionada) {
-      const p = propuesta_seleccionada;
-      setFormData({
-        total_previo_propuesta: p.importe_total_BI_propuesta || 0,
-        descuento_final_propuesta: p.descuento_final_propuesta || 0,
-        importe_total_BI_propuesta: p.importe_total_BI_propuesta || 0,
-        impuesto: p.iva_aplicable ? "21" : "0",
-        importe_propuesta_con_iva: p.importe_propuesta_con_iva || 0,
-      });
-    }
-  }, [propuesta_seleccionada]);
-
-   useEffect(() => {
-    const baseImponible = formData.total_previo_propuesta - formData.descuento_final_propuesta;
-    const precioFinal =
-      formData.impuesto === "21" ? baseImponible * 1.21 : baseImponible;
-
-    setFormData((prev) => ({
-      ...prev,
-      importe_total_BI_propuesta: parseFloat(baseImponible.toFixed(2)),
-      importe_propuesta_con_iva: parseFloat(precioFinal.toFixed(2)),
-    }));
-  }, [formData.total_previo_propuesta, formData.descuento_final_propuesta, formData.impuesto]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -93,8 +66,8 @@ const OtrosDatosEnFactura: FC<OtrosDatosEnFacturaProps> = ({ codigoPropuesta,   
               type="number"
               name="total_previo_propuesta"
               value={importe_antes_descuento}
-              onChange={handleChange}
-              className="border border-gray-300 rounded px-2 py-1 w-full text-right"
+              readOnly
+              className="border border-gray-200 bg-gray-100 rounded px-2 py-1 w-full text-right cursor-not-allowed"
             />
           </td>
 

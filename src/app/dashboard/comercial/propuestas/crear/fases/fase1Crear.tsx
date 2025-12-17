@@ -124,12 +124,12 @@ const Fase1Crear: FC<Fase1CrearProps> = ({
           {filteredCuentas.length > 0 && (
             <>
               <div className="overflow-x-auto">
-                <table className="w-full border-collapse border border-gray-300">
+                <table className="w-full border-collapse border border-gray-100">
                   <thead>
-                    <tr className="bg-gray-100">
-                      <th className="border border-gray-300 px-4 py-2 text-left">Código</th>
-                      <th className="border border-gray-300 px-4 py-2 text-left">Nombre Empresa</th>
-                      <th className="border border-gray-300 px-4 py-2 text-left">ID Agente</th>
+                    <tr className="bg-blue-950/80 text-white">
+                      <th className=" px-4 py-2 text-left">Código</th>
+                      <th className=" px-4 py-2 text-left">Nombre Empresa</th>
+                      <th className=" px-4 py-2 text-left">ID Agente</th>
                     </tr>
                   </thead>
                   <tbody>

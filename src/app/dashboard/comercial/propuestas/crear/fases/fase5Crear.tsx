@@ -2,6 +2,7 @@ import { useRouter } from 'next/navigation';
 import React, { FC, useMemo } from 'react';
 import cuentasContents from "@/app/contents/cuentasContents.json";
 import contactsContents from "@/app/contents/contactsContents.json";
+import agentesContents from "@/app/contents/agentesContents.json";
 
 interface Producto {
   medio: string;
@@ -96,6 +97,28 @@ const Fase5Crear: FC<Fase5CrearProps> = ({
     return (contactsContents as any[]).find(c => c.id_contacto === contactoAnunciante);
   }, [contactoAnunciante, contactoPersonalizado]);
 
+  // Obtener datos del agente
+  const agenteData = useMemo(() => {
+    if (cuenta?.id_agente) {
+      return (agentesContents as any[]).find(a => a.id_agente === cuenta.id_agente);
+    }
+    return null;
+  }, [cuenta]);
+
+  // Validar que el nombre de la propuesta esté cumplimentado
+  const nombrePropuestaValido = useMemo(() => {
+    return nombrePropuesta.trim().length > 0;
+  }, [nombrePropuesta]);
+
+  // Función para obtener clase CSS según si el campo está vacío
+  const getInputClassName = (fieldName: string) => {
+    const baseClass = "border rounded p-2";
+    if (fieldName === "nombrePropuesta" && !nombrePropuestaValido) {
+      return `${baseClass} bg-yellow-100 text-yellow-800`;
+    }
+    return baseClass;
+  };
+
   return (
     <div className="p-4 space-y-6">
       {/* Botón Volver */}
@@ -128,8 +151,8 @@ const Fase5Crear: FC<Fase5CrearProps> = ({
               <p className="font-semibold">{cuenta.pais_cuenta}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-600">ID Agente:</p>
-              <p className="font-semibold">{cuenta.id_agente}</p>
+              <p className="text-sm text-gray-600">Agente:</p>
+              <p className="font-semibold">{agenteData?.nombre_completo_agente || cuenta.id_agente}</p>
             </div>
           </div>
         )}
@@ -289,16 +312,16 @@ const Fase5Crear: FC<Fase5CrearProps> = ({
         <h3 className="font-semibold text-lg bg-blue-950 text-white p-2 -m-4 mb-2 rounded-t-xl">Fase 5: Información Final</h3>
         <div className="mt-4 space-y-4">
           <div className="flex flex-col">
-            <label className="text-sm font-semibold mb-1">Nombre de la propuesta</label>
+            <label className="text-sm font-semibold mb-1">Nombre de la propuesta <span className="text-red-500">*</span></label>
             <input 
-              className="border rounded p-2" 
+              className={getInputClassName("nombrePropuesta")}
               placeholder='Prop 01.433241212'
               value={nombrePropuesta}
               onChange={(e) => setNombrePropuesta(e.target.value)}
             />
           </div>
           <div className="flex flex-col">
-            <label className="text-sm font-semibold mb-1">Comentarios adicionales</label>
+            <label className="text-sm font-semibold mb-1">Comentarios adicionales (opcional)</label>
             <textarea 
               className="border rounded p-2" 
               placeholder='Introduce aquí comentarios adicionales si los hay'

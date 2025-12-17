@@ -1,42 +1,20 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC } from "react";
 import { useRouter } from "next/navigation";
 import { InterfazContacto, InterfazContrato, InterfazCuenta } from "@/app/interfaces/interfaces";
-import cuentas from "@/app/contents/cuentasContents.json"
-import contactos from "@/app/contents/contactsContents.json"
 
 interface TablaDatosEmpresaProps {
   contrato: InterfazContrato;
+  cuentaSeleccionada?: InterfazCuenta;
+  contactoSeleccionado?: InterfazContacto;
 }
 
-const TablaDatosEmpresa: FC<TablaDatosEmpresaProps> = ({ contrato }) => {
+const TablaDatosEmpresa: FC<TablaDatosEmpresaProps> = ({ 
+  contrato, 
+  cuentaSeleccionada, 
+  contactoSeleccionado 
+}) => {
   const router = useRouter();
   const { cuenta_contrato } = contrato;
-
-  const [cuentaSeleccionada, setCuentaSeleccionada] = useState<InterfazCuenta | undefined>(() =>
-    cuentas.find(
-      (cu) => cu.id_cuenta === contrato.cuenta_contrato.id_cuenta_contrato    )
-  ); 
-
-  useEffect(() => {
-  const cuenta = cuentas.find(
-    (cu) => cu.id_cuenta === contrato.cuenta_contrato.id_cuenta_contrato
-  );
-  setCuentaSeleccionada(cuenta);
-}, [contrato]);
-
-    const [contactoSeleccionado, setContactoSeleccionado] = useState<InterfazContacto | undefined>(() =>
-    contactos.find(
-      (co) => co.id_contacto === contrato.cuenta_contrato.id_contacto
-    )
-  );
-
-
-useEffect(() => {
-  const contacto = contactos.find(
-    (co) => co.id_contacto === contrato.cuenta_contrato.id_contacto
-  );
-  setContactoSeleccionado(contacto);
-}, [contrato]);
 
   return (
     <div className="overflow-x-auto">

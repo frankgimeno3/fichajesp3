@@ -1,6 +1,6 @@
 'use client'
 import React, { FC, useState } from 'react';
-import Filtroscuentas from '../componentesClientes/FiltrosClientes';
+import Filtroscuentas from '../componentesClientes/FiltrosCuentas';
 import Tablacuentas from '../componentesClientes/TablaCuentas';
 import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
 import { useRouter } from 'next/navigation';
@@ -8,9 +8,9 @@ import { useRouter } from 'next/navigation';
 const Cuentas: FC = () => {
 
   const [clienteFiltro, setClienteFiltro] = useState('');
+  const [codigoCrmFiltro, setCodigoCrmFiltro] = useState('');
   const [agenteFiltro, setAgenteFiltro] = useState('');
   const [telFiltro, setTelFiltro] = useState('');
-  const [dominioFiltro, setDominioFiltro] = useState('');
 
     const router = useRouter();
   
@@ -32,19 +32,19 @@ const Cuentas: FC = () => {
           <Filtroscuentas
             clienteFiltro={clienteFiltro}
             setClienteFiltro={setClienteFiltro}
+            codigoCrmFiltro={codigoCrmFiltro}
+            setCodigoCrmFiltro={setCodigoCrmFiltro}
             agenteFiltro={agenteFiltro}
             setAgenteFiltro={setAgenteFiltro}
             telFiltro={telFiltro}
             setTelFiltro={setTelFiltro}
-            dominioFiltro={dominioFiltro}
-            setDominioFiltro={setDominioFiltro}
           />
 
           <Tablacuentas
             clienteFiltro={clienteFiltro}
+            codigoCrmFiltro={codigoCrmFiltro}
             agenteFiltro={agenteFiltro}
             telFiltro={telFiltro}
-            dominioFiltro={dominioFiltro}
           />
         </div>
       </div>

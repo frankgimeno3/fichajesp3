@@ -1,55 +1,42 @@
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useEffect } from "react";
 import CardComentario from "./cards/CardComentario";
-import comentariosCuentas from "@/app/contents/comentariosCuentasContents.json";
-import agentes from "@/app/contents/agentesContents.json";
 
-interface ContenidoComentariosProps {
-  id_cuenta: string;
-}
-
-interface Comentario {
+export interface Comentario {
   id_comentario: string;
   autor: string;
   fecha: string;
   contenido: string;
 }
 
-const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ id_cuenta }) => {
-  const [comentarios, setComentarios] = useState<Comentario[]>([]);
-  const [nuevoComentario, setNuevoComentario] = useState("");
-  const [mostrarInput, setMostrarInput] = useState(false);
-  const [modal, setModal] = useState<{
+interface ContenidoComentariosProps {
+  id_cuenta: string;
+  comentarios: Comentario[];
+  setComentarios: React.Dispatch<React.SetStateAction<Comentario[]>>;
+  nuevoComentario: string;
+  setNuevoComentario: React.Dispatch<React.SetStateAction<string>>;
+  mostrarInput: boolean;
+  setMostrarInput: React.Dispatch<React.SetStateAction<boolean>>;
+  modal: {
     tipo: "editar" | "borrar" | null;
     comentario?: Comentario;
-  }>({ tipo: null });
+  };
+  setModal: React.Dispatch<React.SetStateAction<{
+    tipo: "editar" | "borrar" | null;
+    comentario?: Comentario;
+  }>>;
+}
 
-  useEffect(() => {
-    const cuenta = comentariosCuentas.cuentasConComentarios.find(
-      (c) => c.id_cuenta === id_cuenta
-    );
-    if (!cuenta) {
-      setComentarios([]);
-      return;
-    }
-
-    const comentariosFormateados = cuenta.array_comentarios_cuenta.map((c) => {
-      const agente = agentes.find((a) => a.id_agente === c.id_autor);
-      const nombreAutor = agente ? agente.nombre_agente : c.id_autor;
-
-      return {
-        id_comentario: c.id_comentario,
-        autor: nombreAutor,
-        fecha: new Date(c.fecha_comentario).toLocaleDateString("es-ES", {
-          day: "2-digit",
-          month: "long",
-          year: "numeric",
-        }),
-        contenido: c.contenido_comentario,
-      };
-    });
-
-    setComentarios(comentariosFormateados);
-  }, [id_cuenta]);
+const ContenidoComentarios: FC<ContenidoComentariosProps> = ({ 
+  id_cuenta,
+  comentarios,
+  setComentarios,
+  nuevoComentario,
+  setNuevoComentario,
+  mostrarInput,
+  setMostrarInput,
+  modal,
+  setModal
+}) => {
 
   const agregarComentario = () => {
     if (nuevoComentario.trim() === "") return;

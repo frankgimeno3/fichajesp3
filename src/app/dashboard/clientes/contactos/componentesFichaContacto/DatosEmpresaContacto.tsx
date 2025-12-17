@@ -5,11 +5,13 @@ import PopupEmpresa from "./PopupEmpresa";
 
 interface DatosEmpresaContactoProps {
   contacto: InterfazContacto;
+  setContactoEditable: React.Dispatch<React.SetStateAction<InterfazContacto | undefined>>;
   onChange: () => void;
 }
 
 const DatosEmpresaContacto: FC<DatosEmpresaContactoProps> = ({
   contacto,
+  setContactoEditable,
   onChange,
 }) => {
 
@@ -101,8 +103,13 @@ const DatosEmpresaContacto: FC<DatosEmpresaContactoProps> = ({
             <td className="p-2 border-b border-gray-200">
               <input
                 type="text"
-                defaultValue={contacto.cargo_contacto}
-                onChange={onChange}
+                value={contacto.cargo_contacto}
+                onChange={(e) => {
+                  setContactoEditable(prev => 
+                    prev ? { ...prev, cargo_contacto: e.target.value } : prev
+                  );
+                  onChange();
+                }}
                 className="w-full border border-gray-200 rounded p-1"
               />
             </td>
@@ -120,6 +127,13 @@ const DatosEmpresaContacto: FC<DatosEmpresaContactoProps> = ({
             empresa: e.nombre_empresa,
             codigoEmpresa: e.id_cuenta,
           });
+          setContactoEditable(prev => 
+            prev ? { 
+              ...prev, 
+              id_cuenta: e.id_cuenta,
+              nombre_empresa: e.nombre_empresa
+            } : prev
+          );
           onChange();
         }}
       />

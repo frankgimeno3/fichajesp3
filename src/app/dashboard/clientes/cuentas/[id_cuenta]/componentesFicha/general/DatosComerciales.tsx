@@ -34,7 +34,7 @@ const DatosComerciales: FC<DatosComercialesProps> = ({ datos_comerciales, pais_c
 
       const handleContactoSeleccionado = (contacto: InterfazContacto) => {
     setContactoSeleccionado(contacto);
-    onChange("id_contacto", contacto.id_contacto);
+    onChange("contacto_principal", contacto.id_contacto);
   };
   return (
     <div className="p-4 space-y-6 w-full">

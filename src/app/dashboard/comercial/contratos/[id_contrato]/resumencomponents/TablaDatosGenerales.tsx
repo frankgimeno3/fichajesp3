@@ -1,20 +1,12 @@
 import { InterfazAgente, InterfazContrato } from "@/app/interfaces/interfaces";
-import React, { FC, useEffect, useState } from "react";
-import agentes from "@/app/contents/agentesContents.json";
+import React, { FC } from "react";
 
 interface TablaDatosGeneralesProps {
   contrato: InterfazContrato;
+  agenteSeleccionado?: InterfazAgente;
 }
 
-const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ contrato }) => {
-  const [agenteSeleccionado, setAgenteSeleccionado] = useState<InterfazAgente | undefined>(() =>
-    agentes.find((a) => a.id_agente === contrato.id_agente_contrato)
-  );
-
-  useEffect(() => {
-    const agente = agentes.find((a) => a.id_agente === contrato.id_agente_contrato);
-    setAgenteSeleccionado(agente);
-  }, [contrato]);
+const TablaDatosGenerales: FC<TablaDatosGeneralesProps> = ({ contrato, agenteSeleccionado }) => {
 
   return (
     <table className="table-auto border-collapse text-center w-full">
