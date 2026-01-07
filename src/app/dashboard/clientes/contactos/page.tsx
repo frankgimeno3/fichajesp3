@@ -7,7 +7,7 @@ import MiddleNav from '../../../general_components/componentes_recurrentes/Middl
 import ButtonsRow from '@/app/general_components/componentes_recurrentes/ButtonsRow';
 import contactosJSON from "@/app/contents/contactsContents.json";
 import { InterfazContacto } from '@/app/interfaces/interfaces';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const Contactos: FC = () => {
   const [contactoFiltro, setContactoFiltro] = useState('');
@@ -22,8 +22,6 @@ const Contactos: FC = () => {
   const itemsPerPage = 15;
 
   const [allContactos, setAllContactos] = useState<InterfazContacto[]>([]);
-
-  const router = useRouter();
 
  useEffect(() => {
   const mapeados: InterfazContacto[] = contactosJSON.map((c) => ({
@@ -58,12 +56,12 @@ const Contactos: FC = () => {
       <MiddleNav tituloprincipal="Contactos" />
       <div className="bg-gray-100 min-h-screen px-8 text-gray-600">
         <div className="flex flex-row justify-end py-4">
-          <button
+          <Link
+            href="/dashboard/clientes/contactos/crear"
             className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 text-sm"
-            onClick={() => router.push('/dashboard/clientes/contactos/crear')}
           >
             <p>Crear contacto</p>
-          </button>
+          </Link>
         </div>
 
         <FiltrosContactos

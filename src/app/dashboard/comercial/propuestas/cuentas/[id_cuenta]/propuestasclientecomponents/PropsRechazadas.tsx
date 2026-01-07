@@ -1,3 +1,4 @@
+'use client';
 import React, { FC, useState } from 'react';
 import PropSvg from '../../../componentesPropuestas/svg/PropSvg';
 import { useRouter } from 'next/navigation';
@@ -8,12 +9,20 @@ interface PropsRechazadasContentProps {
 }
 
 const PropsRechazadasContent: FC<PropsRechazadasContentProps> = ({ id_cuenta }) => {
+  const router = useRouter();
   const [clienteFiltro, setClienteFiltro] = useState('');
   const [agenteFiltro, setAgenteFiltro] = useState('');
   const [fechaInicio, setFechaInicio] = useState('');
   const [fechaFin, setFechaFin] = useState('');
 
-  const router = useRouter();
+  const handleRowClick = (e: React.MouseEvent<HTMLTableRowElement>, href: string) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+      window.open(href, '_blank');
+    } else {
+      router.push(href);
+    }
+  };
 
   const propuestasFiltradas = propuestas.filter(
     (p) =>
@@ -56,8 +65,9 @@ const PropsRechazadasContent: FC<PropsRechazadasContentProps> = ({ id_cuenta }) 
           {resultadosFiltrados.map((p) => (
             <tr
               key={p.id_propuesta}
+              onClick={(e) => handleRowClick(e, `/dashboard/comercial/propuestas/${p.id_propuesta}`)}
               className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
-              onClick={() => router.push(`/dashboard/comercial/propuestas/${p.id_propuesta}`)}>
+            >
               <td className="p-2 border-b border-gray-200"><PropSvg /></td>
               <td className="p-2 border-b border-gray-200">{p.id_propuesta}</td>
               <td className="p-2 border-b border-gray-200">{p.id_agente_propuesta}</td>

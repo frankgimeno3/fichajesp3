@@ -2,7 +2,8 @@
 "use client";
 
 import React, { FC, useEffect, useState } from "react";
-import { useRouter, useParams } from "next/navigation";
+import { useParams } from "next/navigation";
+import Link from 'next/link';
 
 import EditarDatosGenerales from "./editarProp/editarDatosGenerales";
 import EditarDatosAnunciante from "./editarProp/editarDatosAnunciante";
@@ -19,7 +20,6 @@ import { FormDataFactura } from "./editarProp/editarOtrosDatosEnFactura";
 import contactos from "@/app/contents/contactsContents.json";
 
 const EditarPropuesta: FC = () => {
-  const router = useRouter();
   const parametros = useParams();
   const idPropuestaParametro = parametros?.id_propuesta as string | undefined;
   
@@ -187,12 +187,12 @@ const EditarPropuesta: FC = () => {
           <strong>{idPropuestaParametro}</strong>
         </p>
         <div className="flex gap-3">
-          <button
+          <Link
+            href="/dashboard/comercial/propuestas"
             className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl"
-            onClick={() => router.push(`/dashboard/comercial/propuestas`)}
           >
             Volver a la lista de propuestas
-          </button>
+          </Link>
         </div>
       </div>
     );
@@ -207,34 +207,26 @@ const EditarPropuesta: FC = () => {
       <div className="flex flex-col px-12">
            <div className="flex flex-row justify-end py-5">
           <div className="flex flex-row justify-end text-right items-right gap-5 text-sm">
-            <button
+            <Link
+              href={`/dashboard/comercial/propuestas/${propuestaSeleccionada.id_propuesta}`}
               className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() =>
-                router.push(
-                  `/dashboard/comercial/propuestas/${propuestaSeleccionada.id_propuesta}`
-                )
-              }
             >
               Guardar cambios
-            </button>
+            </Link>
 
-            <button
+            <Link
+              href={`/dashboard/comercial/propuestas/${propuestaSeleccionada.id_propuesta}`}
               className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() =>
-                router.push(
-                  `/dashboard/comercial/propuestas/${propuestaSeleccionada.id_propuesta}`
-                )
-              }
             >
               Cancelar
-            </button>
+            </Link>
 
-            <button
+            <Link
+              href="/dashboard/comercial/propuestas"
               className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push(`/dashboard/comercial/propuestas`)}
             >
               Guardar como nueva
-            </button>
+            </Link>
           </div>
         </div>
 

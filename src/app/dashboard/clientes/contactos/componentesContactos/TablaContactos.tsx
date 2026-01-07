@@ -13,8 +13,13 @@ interface TablaContactosProps {
 const TablaContactos: FC<TablaContactosProps> = ({ contactosFiltrados }) => {
   const router = useRouter();
 
-  const handleRedirection = (id: string) => {
-    router.push(`/dashboard/clientes/contactos/${id}`);
+  const handleRowClick = (e: React.MouseEvent<HTMLTableRowElement>, href: string) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+      window.open(href, '_blank');
+    } else {
+      router.push(href);
+    }
   };
 
   return (
@@ -35,8 +40,8 @@ const TablaContactos: FC<TablaContactosProps> = ({ contactosFiltrados }) => {
             contactosFiltrados.map((res) => (
               <tr
                 key={res.id_contacto}
+                onClick={(e) => handleRowClick(e, `/dashboard/clientes/contactos/${res.id_contacto}`)}
                 className="border-t border-gray-200 hover:bg-gray-100/40 cursor-pointer transition-colors"
-                onClick={() => handleRedirection(res.id_contacto)}
               >
                 <td className="p-2 border-b border-gray-200 pl-6">{res.nombre_contacto}</td>
                 <td className="p-2 border-b border-gray-200">{res.apellidos_contacto}</td>

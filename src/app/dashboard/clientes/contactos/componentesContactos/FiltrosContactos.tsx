@@ -1,6 +1,6 @@
 'use client'
 
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import React, { FC } from 'react';
 
 interface FiltrosContactosProps {
@@ -36,7 +36,6 @@ const FiltrosContactos: FC<FiltrosContactosProps> = ({
   paisFiltro,
   setPaisFiltro
 }) => {
-  const router = useRouter();
 
   return (
     <div className="flex flex-col justify-left w-full  bg-white rounded p-5">
@@ -117,12 +116,12 @@ const FiltrosContactos: FC<FiltrosContactosProps> = ({
           </div>
           <div className='flex flex-1 flex-col mt-2'>
 
-          <button
+          <Link
+            href="/dashboard/clientes/contactos/crear"
             className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 mt-2'
-            onClick={() => router.push('/dashboard/cuentas/contactos/crear')}
           >
             <p>Buscar</p>
-          </button>
+          </Link>
                     </div>
 
         </div>

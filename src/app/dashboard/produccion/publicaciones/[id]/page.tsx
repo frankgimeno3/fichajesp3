@@ -1,17 +1,26 @@
 "use client";
-import { useRouter, useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import React, { FC } from "react";
 import contenidos from "@/app/contents/contenidosContents.json";
 import MiddleNav from "@/app/general_components/componentes_recurrentes/MiddleNav";
 
 const MaterialesRevista: FC = () => {
-  const router = useRouter();
   const params = useParams();
+  const router = useRouter();
   const idPublicacion = params?.id as string;
 
   const contenidoSeleccionados = contenidos.filter(
     (item) => item.id_publicacion === idPublicacion
   );
+
+  const handleRowClick = (e: React.MouseEvent<HTMLTableRowElement>, href: string) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+      window.open(href, '_blank');
+    } else {
+      router.push(href);
+    }
+  };
 
   console.log("idPublicacion:", idPublicacion);
   console.log("Coincidencias:", contenidoSeleccionados);
@@ -44,12 +53,8 @@ const MaterialesRevista: FC = () => {
                 contenidoSeleccionados.map((item, index) => (
                   <tr
                     key={index}
+                    onClick={(e) => handleRowClick(e, `/dashboard/produccion/publicaciones/${idPublicacion}/${item.id_contenido}`)}
                     className="hover:bg-gray-50 cursor-pointer"
-                    onClick={() =>
-                      router.push(
-                        `/dashboard/produccion/publicaciones/${idPublicacion}/${item.id_contenido}`
-                      )
-                    }
                   >
                     <td className="p-2 border-b border-gray-200">{item.id_cuenta}</td>
                     <td className="p-2 border-b border-gray-200">

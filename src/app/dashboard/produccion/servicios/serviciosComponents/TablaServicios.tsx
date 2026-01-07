@@ -20,6 +20,15 @@ const TablaServicios: FC<TablaServiciosProps> = ({
   const router = useRouter();
   const [Servicios, setServicios] = useState<InterfazServicio[]>([]);
 
+  const handleRowClick = (e: React.MouseEvent<HTMLTableRowElement>, href: string) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+      window.open(href, '_blank');
+    } else {
+      router.push(href);
+    }
+  };
+
   useEffect(() => {
     const ServiciosMapeadas: InterfazServicio[] = ServiciosContents.map((t) => ({
       id_servicio: t.id_servicio,
@@ -80,12 +89,8 @@ const TablaServicios: FC<TablaServiciosProps> = ({
           {ServiciosFiltrados.map((servicio) => (
             <tr
               key={servicio.id_servicio}
-              className='hover:bg-gray-50 cursor-pointer'
-              onClick={() =>
-                router.push(
-                  `/dashboard/produccion/servicios/${servicio.id_servicio}`
-                )
-              }
+              onClick={(e) => handleRowClick(e, `/dashboard/produccion/servicios/${servicio.id_servicio}`)}
+              className="hover:bg-gray-50 cursor-pointer"
             >
               <td className='p-2 border-b border-gray-200 w-24'>
                 {servicio.id_servicio}

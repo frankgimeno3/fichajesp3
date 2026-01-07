@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FC, useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import Link from 'next/link';
 import cuentas from "@/app/contents/cuentasContents.json";
 import contactos from "@/app/contents/contactsContents.json";
 import { InterfazContacto, InterfazCuenta } from "@/app/interfaces/interfaces";
@@ -27,7 +27,6 @@ const EditarDatosAnunciante: FC<EditarDatosAnuncianteProps> = ({
   setIsModalOpen,
   setEmpresaAnunciante,
 }) => {
-  const router = useRouter();
   const [isSearchAccountModalOpen, setIsSearchAccountModalOpen] = useState(false);
   const [currentAccountId, setCurrentAccountId] = useState(empresaAnunciante);
 
@@ -110,16 +109,12 @@ const EditarDatosAnunciante: FC<EditarDatosAnuncianteProps> = ({
         <tbody>
           <tr className="bg-white text-gray-700">
             <td className="px-4 py-2">
-              <button
+              <Link
+                href={`/dashboard/clientes/cuentas/${cuentaSeleccionada.id_cuenta}`}
                 className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-                onClick={() =>
-                  router.push(
-                    `/dashboard/clientes/cuentas/${cuentaSeleccionada.id_cuenta}`
-                  )
-                }
               >
                 {cuentaSeleccionada.nombre_empresa}
-              </button>
+              </Link>
             </td>
             <td className="px-4 py-2 flex items-center justify-center gap-2">
               {cuentaSeleccionada.id_cuenta}
@@ -150,18 +145,18 @@ const EditarDatosAnunciante: FC<EditarDatosAnuncianteProps> = ({
             <td className="px-4 py-2 flex items-center justify-center gap-2">
               {tieneContactos || contactoActual ? (
                 <>
-                  <button
-                    className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-                    onClick={() => {
-                      if (contactoActual?.id_contacto) {
-                        router.push(
-                          `/dashboard/clientes/contactos/${contactoActual.id_contacto}`
-                        );
-                      }
-                    }}
-                  >
-                    {contactoActual?.nombre_completo_contacto || contactoActual?.nombre_contacto || "Sin contacto"}
-                  </button>
+                  {contactoActual?.id_contacto ? (
+                    <Link
+                      href={`/dashboard/clientes/contactos/${contactoActual.id_contacto}`}
+                      className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+                    >
+                      {contactoActual?.nombre_completo_contacto || contactoActual?.nombre_contacto || "Sin contacto"}
+                    </Link>
+                  ) : (
+                    <span className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl">
+                      {contactoActual?.nombre_completo_contacto || contactoActual?.nombre_contacto || "Sin contacto"}
+                    </span>
+                  )}
                   <button
                     className="p-1 rounded hover:bg-gray-200 cursor-pointer"
                     onClick={() => setIsModalOpen(true)}

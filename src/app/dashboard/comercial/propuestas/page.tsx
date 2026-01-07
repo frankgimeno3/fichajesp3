@@ -2,7 +2,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import FiltrosPropuestas from './componentesPropuestas/FiltrosPropuestas';
 import MiddleNav from '../../../general_components/componentes_recurrentes/MiddleNav';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import TodasPropuestas from './componentesPropuestas/tablaspropuestas/TodasPropuestas';
 import MisPendientes from './componentesPropuestas/tablaspropuestas/MisPendientes';
 import agentes from '@/app/contents/agentesContents.json';
@@ -16,7 +16,6 @@ const Propuestas: FC = () => {
   const [agenteFiltro, setAgenteFiltro] = useState('');
   const [estadoFiltro, setEstadoFiltro] = useState('');
   const [agenteActual, setAgenteActual] = useState('ag_25_0004');
-  const router = useRouter();
 
   useEffect(() => {
     if (pestana === 'miasenproceso') {
@@ -36,12 +35,12 @@ const Propuestas: FC = () => {
       />
       <div className="bg-gray-100 min-h-screen px-12 text-gray-600">
         <div className="flex flex-row justify-end py-5">
-          <button
+          <Link
+            href="/dashboard/comercial/propuestas/crear"
             className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900 text-md"
-            onClick={() => router.push('/dashboard/comercial/propuestas/crear')}
           >
             <p>Crear propuesta</p>
-          </button>
+          </Link>
         </div>
  
           <FiltrosPropuestas

@@ -33,7 +33,14 @@ const ContenidoPorCliente: FC<ContenidoPorClienteProps> = () => {
   const cuentas = cuentasContents as InterfazCuenta[];
   const contactos = contactosContents as InterfazContacto[];
 
-
+  const handleRowClick = (e: React.MouseEvent<HTMLTableRowElement>, href: string) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+      window.open(href, '_blank');
+    } else {
+      router.push(href);
+    }
+  };
   
   return (
     <div className="flex flex-col gap-3 mt-12 rounded-xl">
@@ -75,8 +82,8 @@ const ContenidoPorCliente: FC<ContenidoPorClienteProps> = () => {
               return (
                 <tr
                   key={idContrato}
+                  onClick={(e) => handleRowClick(e, `/dashboard/comercial/contratos/${idContrato}`)}
                   className="hover:bg-gray-50 cursor-pointer"
-                  onClick={() => router.push(`/dashboard/comercial/contratos/${idContrato}`) }
                 >
                   <td className="p-2 border-b border-gray-200 pl-6">{cuentaSeleccionada?.nombre_empresa }</td>
                   <td className="p-2 border-b border-gray-200">{fechaFirma}</td>

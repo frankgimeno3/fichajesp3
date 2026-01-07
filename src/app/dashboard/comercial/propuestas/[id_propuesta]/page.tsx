@@ -1,6 +1,7 @@
 "use client";
 import React, { FC, useState } from 'react';
-import { useRouter, useParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 
 import TablaDatosGenerales from './propuestacomponents/TablaDatosGenerales';
 import TablaDatosAnunciante from './propuestacomponents/TablaDatosAnunciante';
@@ -12,7 +13,6 @@ import TablaDeCobros from './propuestacomponents/TablaDeCobros';
 import { TablaContenidoPropuesta } from './propuestacomponents/TablaContenidoPropuesta';
 
 const ResumenPropuesta: FC = () => {
-  const router = useRouter();
   const params = useParams();
   const idPropuesta = params.id_propuesta;
   const [modalOpen, setModalOpen] = useState(false);
@@ -34,30 +34,30 @@ const ResumenPropuesta: FC = () => {
       <div className=" min-h-screen px-12 text-gray-600">
         <div className="flex flex-row justify-end py-5">
           <div className="flex flex-row justify-end text-right items-right gap-5 text-sm">
-            <button
+            <Link
+              href={`/dashboard/comercial/propuestas/${propuesta.id_propuesta}/editar`}
               className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() => router.push(`/dashboard/comercial/propuestas/${propuesta.id_propuesta}/editar`)}
             >
               Actualizar
-            </button>
+            </Link>
             <button
               className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
               onClick={() => setModalOpen(true)}
             >
               Eliminar
             </button>
-            <button
+            <Link
+              href="/dashboard/comercial/propuestas"
               className="bg-green-600/60 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-green-600"
-              onClick={() => router.push(`/dashboard/comercial/propuestas`)}
             >
               Marcar como aceptada
-            </button>
-            <button
+            </Link>
+            <Link
+              href="/dashboard/comercial/propuestas"
               className="bg-red-600/60 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-red-600"
-              onClick={() => router.push(`/dashboard/comercial/propuestas`)}
             >
               Marcar como rechazada
-            </button>
+            </Link>
           </div>
         </div>
 

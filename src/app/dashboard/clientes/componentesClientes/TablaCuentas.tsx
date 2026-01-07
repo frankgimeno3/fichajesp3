@@ -69,8 +69,13 @@ const Tablacuentas: FC<TablacuentasProps> = ({
     return agente ? agente.nombre_completo_agente : idAgente;
   };
 
-  const handleRedirection = (id: string) => {
-    router.push(`/dashboard/clientes/cuentas/${id}`);
+  const handleRowClick = (e: React.MouseEvent<HTMLTableRowElement>, href: string) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+      window.open(href, '_blank');
+    } else {
+      router.push(href);
+    }
   };
 
   return (
@@ -89,8 +94,8 @@ const Tablacuentas: FC<TablacuentasProps> = ({
           {resultadosPaginados.map((res) => (
             <tr
               key={res.id_cuenta}
+              onClick={(e) => handleRowClick(e, `/dashboard/clientes/cuentas/${res.id_cuenta}`)}
               className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
-              onClick={() => handleRedirection(res.id_cuenta)}
             >
               <td className="p-2 border-b border-gray-200 pl-6">{res.nombre_empresa}</td>
               <td className="p-2 border-b border-gray-200">{res.id_cuenta}</td>
@@ -99,7 +104,6 @@ const Tablacuentas: FC<TablacuentasProps> = ({
               <td className="p-2 border-b border-gray-200">
                 {res.datos_comerciales.telefono_principal_cuenta}
               </td>
-             
             </tr>
           ))}
         </tbody>

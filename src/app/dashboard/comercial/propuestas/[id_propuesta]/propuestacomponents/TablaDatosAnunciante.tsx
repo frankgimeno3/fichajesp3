@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import cuentas from "@/app/contents/cuentasContents.json"
 import contactos from "@/app/contents/contactsContents.json"
 import { InterfazContacto } from '@/app/interfaces/interfaces';
@@ -10,7 +10,6 @@ interface TablaDatosAnuncianteProps {
 }
 
 const TablaDatosAnunciante: FC<TablaDatosAnuncianteProps> = ({ empresaAnunciante, contactoPropuesta }) => {
-  const router = useRouter()
   const cuentaSeleccionada = cuentas.find (c => c.id_cuenta === empresaAnunciante);
   const contactoSeleccionado = contactos.find (c => c.id_contacto === contactoPropuesta) as InterfazContacto;
 
@@ -31,18 +30,22 @@ const TablaDatosAnunciante: FC<TablaDatosAnuncianteProps> = ({ empresaAnunciante
         <tbody>
           <tr className="bg-white text-gray-700">
             <td className="px-4 py-2 flex-1/6">
-              <button className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-                onClick={() => router.push(`/dashboard/clientes/cuentas/${cuentaSeleccionada.id_cuenta}`)}  >
+              <Link 
+                href={`/dashboard/clientes/cuentas/${cuentaSeleccionada.id_cuenta}`}
+                className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              >
                 {cuentaSeleccionada.nombre_empresa}
-              </button>
+              </Link>
             </td>
             <td className="px-4 py-2 flex-1/6">{cuentaSeleccionada.id_cuenta}</td>
             <td className="px-4 py-2 flex-1/6">{cuentaSeleccionada.pais_cuenta}</td>
             <td className="px-4 py-2 flex-1/6">
-              <button className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-                onClick={() => router.push(`/dashboard/clientes/contactos/${contactoPropuesta}`)} >
+              <Link 
+                href={`/dashboard/clientes/contactos/${contactoPropuesta}`}
+                className="bg-blue-950/80 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
+              >
                 {contactoSeleccionado?.nombre_completo_contacto}
-              </button>
+              </Link>
             </td>
             <td className="px-4 py-2 flex-1/6">{contactoSeleccionado?.cargo_contacto}</td>
           </tr>

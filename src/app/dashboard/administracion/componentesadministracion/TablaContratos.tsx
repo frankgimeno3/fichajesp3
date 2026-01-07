@@ -1,6 +1,6 @@
 "use client";
 import React, { FC } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter } from 'next/navigation';
 import { ContratoResumen } from "@/app/interfaces/interfaces";
 
 interface TablaContratosProps {
@@ -9,6 +9,15 @@ interface TablaContratosProps {
 
 const TablaContratos: FC<TablaContratosProps> = ({ contratos }) => {
   const router = useRouter();
+
+  const handleRowClick = (e: React.MouseEvent<HTMLTableRowElement>, href: string) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+      window.open(href, '_blank');
+    } else {
+      router.push(href);
+    }
+  };
 
   return (
     <div className="bg-white shadow-lg rounded-2xl overflow-hidden mt-6">
@@ -28,10 +37,8 @@ const TablaContratos: FC<TablaContratosProps> = ({ contratos }) => {
           {contratos.map((contrato) => (
             <tr
               key={contrato.codigo}
+              onClick={(e) => handleRowClick(e, `/dashboard/administracion/contratos/${contrato.codigo}`)}
               className="hover:bg-gray-100 cursor-pointer transition-colors"
-              onClick={() =>
-                router.push(`/dashboard/administracion/contratos/${contrato.codigo}`)
-              }
             >
               <td className="p-3 font-semibold">{contrato.codigo}</td>
               <td className="p-3">{contrato.cliente}</td>

@@ -1,5 +1,6 @@
 'use client';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import React, { FC } from 'react';
 import contactos from "@/app/contents/contactsContents.json";
 import cuentas from "@/app/contents/cuentasContents.json";
@@ -12,6 +13,15 @@ const ContenidoContactosEmpresa: FC<ContenidoContactosEmpresaProps> = ({ id_cuen
   const router = useRouter();
 
   const cuentaSeleccionada = cuentas.find((c) => c.id_cuenta === id_cuenta);
+
+  const handleRowClick = (e: React.MouseEvent<HTMLTableRowElement>, href: string) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+      window.open(href, '_blank');
+    } else {
+      router.push(href);
+    }
+  };
 
   const idsContactos = cuentaSeleccionada?.array_contactos_cuenta.map(c => c.id_contacto) || [];
 
@@ -30,12 +40,12 @@ const ContenidoContactosEmpresa: FC<ContenidoContactosEmpresaProps> = ({ id_cuen
       <div className='flex flex-row justify-between items-center'>
         <h2 className="text-xl font-bold mb-4">Contactos de la Empresa</h2>
 
-        <button
+        <Link
+          href="/dashboard/clientes/contactos/crear"
           className='p-2 px-4 text-sm mb-2 rounded-lg shadow-xl bg-blue-950/80 hover:bg-blue-950/70 text-white cursor-pointer'
-          onClick={() => router.push("/dashboard/clientes/contactos/crear")}
         >
           Crear
-        </button>
+        </Link>
       </div>
       <table className="min-w-full">
         <thead className="bg-blue-950/80 text-white">
@@ -50,10 +60,8 @@ const ContenidoContactosEmpresa: FC<ContenidoContactosEmpresaProps> = ({ id_cuen
           {contactosFiltrados.map((contacto) => (
             <tr
               key={contacto.id_contacto}
+              onClick={(e) => handleRowClick(e, `/dashboard/clientes/contactos/${contacto.id_contacto}`)}
               className="border-t border-gray-200 hover:bg-gray-100/30 cursor-pointer"
-              onClick={() =>
-                router.push(`/dashboard/clientes/contactos/${contacto.id_contacto}`)
-              }
             >
               <td className="p-2 border-b border-gray-200">
                 {contacto.id_contacto}

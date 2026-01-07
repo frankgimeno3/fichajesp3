@@ -40,7 +40,6 @@ const ContenidoEnRevista: FC<ContenidoEnRevistaProps> = () => {
           <div>
             <strong>Empresa:</strong> {contenido.id_cuenta}
           </div>
-       
           <div>
             <strong>Especificaciones:</strong> {contenido.especificaciones_contenido}
           </div>
@@ -66,7 +65,6 @@ const ContenidoEnRevista: FC<ContenidoEnRevistaProps> = () => {
           </div>
         </div>
                <BotonFlotante isContenidoEdited={estado !== estadoOriginal} />
-
       </div>
 
    );

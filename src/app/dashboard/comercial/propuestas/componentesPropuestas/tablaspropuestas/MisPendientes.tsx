@@ -22,6 +22,15 @@ const MisPendientes: FC<MisPendientesProps> = ({
 }) => {
   const router = useRouter();
 
+  const handleRowClick = (e: React.MouseEvent<HTMLTableRowElement>, href: string) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+      window.open(href, '_blank');
+    } else {
+      router.push(href);
+    }
+  };
+
   const resultadosFiltrados = propuestas.filter((p: any) => {
     const coincideEstado = p?.detalles_propuesta?.estado_propuesta === 'Pendiente';
     const coincideAgente =
@@ -81,19 +90,18 @@ const MisPendientes: FC<MisPendientesProps> = ({
               res?.detalles_propuesta?.fecha_envio_propuesta ??
               'Sin fecha';
 
+            const idPropuesta = res?.detalles_propuesta?.id_propuesta;
+            if (!idPropuesta) return null;
+            
             return (
               <tr
-                key={`${res?.detalles_propuesta?.id_propuesta ?? 'sin-id'}-${index}`}
+                key={`${idPropuesta}-${index}`}
+                onClick={(e) => handleRowClick(e, `/dashboard/comercial/propuestas/${idPropuesta}`)}
                 className="hover:bg-gray-50 cursor-pointer"
-                onClick={() =>
-                  router.push(
-                    `/dashboard/comercial/propuestas/${res?.detalles_propuesta?.id_propuesta}`
-                  )
-                }
               >
                 <td className="flex flex-row gap-2 items-center p-2 border-b border-gray-200">
                   <PropSvg />
-                  {res?.detalles_propuesta?.id_propuesta ?? '—'}
+                  {idPropuesta}
                 </td>
                 <td className="p-2 border-b border-gray-200 pl-3">{nombreEmpresa}</td>
                 <td className="p-2 border-b border-gray-200 pl-3">

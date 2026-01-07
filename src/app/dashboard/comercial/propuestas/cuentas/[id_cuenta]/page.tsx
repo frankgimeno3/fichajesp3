@@ -1,7 +1,8 @@
 'use client'
 
 import React, { FC, useState, useMemo } from 'react';
-import { useRouter, useParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import PropsAprobadasContent from './propuestasclientecomponents/PropsAprobadas';
 import PropsPendientesContent from './propuestasclientecomponents/PropsPendientes';
 import PropsRechazadasContent from './propuestasclientecomponents/PropsRechazadas';
@@ -11,7 +12,6 @@ import cuentas from '@/app/contents/cuentasContents.json';
 interface PropuestasClienteProps { }
 
 const PropuestasCliente: FC<PropuestasClienteProps> = () => {
-  const router = useRouter();
   const params = useParams();
   const id_cuenta = params?.id_cuenta as string;
 
@@ -34,19 +34,19 @@ const PropuestasCliente: FC<PropuestasClienteProps> = () => {
             </h2>
 
             <div className='flex flex-row gap-8 h-10'>
-              <button
+              <Link
+                href={`/dashboard/clientes/cuentas/${id_cuenta}`}
                 className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-                onClick={() => router.push(`/dashboard/clientes/cuentas/${id_cuenta}`)}
               >
                 <p>Ficha del cliente</p>
-              </button>
+              </Link>
 
-              <button
+              <Link
+                href="/dashboard/comercial/propuestas/crear"
                 className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-                onClick={() => router.push('/dashboard/comercial/propuestas/crear')}
               >
                 <p>Crear propuesta</p>
-              </button>
+              </Link>
             </div>
           </div>
 

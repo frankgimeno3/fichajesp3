@@ -1,7 +1,8 @@
 'use client';
 
 import React, { FC } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { Home } from 'lucide-react'; 
 
 interface MiddleNavProps {
@@ -10,7 +11,6 @@ interface MiddleNavProps {
 
 const MiddleNav: FC<MiddleNavProps> = ({ tituloprincipal }) => {
   const pathname = usePathname();
-  const router = useRouter();
 
   const pathSegments = pathname.split('/').filter(Boolean);
 
@@ -28,12 +28,12 @@ const MiddleNav: FC<MiddleNavProps> = ({ tituloprincipal }) => {
     '/dashboard/operaciones/data/exportar'
     ];
 
-  const handleClick = (index: number) => {
+  const getHref = (index: number) => {
     const fullPath = buildPath(index);
     if (problematicSegments.includes(fullPath)) {
-      router.push('/dashboard');
+      return '/dashboard';
     } else {
-      router.push(fullPath);
+      return fullPath;
     }
   };
 
@@ -54,16 +54,20 @@ const MiddleNav: FC<MiddleNavProps> = ({ tituloprincipal }) => {
 
           return (
             <div className="flex items-center" key={index}>
-              <p
-                className={`flex items-center gap-1 px-3 py-1 rounded bg-white text-sm text-gray-400  ${
-                  isProblematic
-                    ? 'cursor-not-allowed text-gray-300'
-                    : 'cursor-pointer hover:bg-gray-200 text-gray-600 font-base  '
-                }`}
-                onClick={() => handleClick(index)}
-              >
-                {renderSegmentLabel(segment, fullPath)}
-              </p>
+              {isProblematic ? (
+                <p
+                  className="flex items-center gap-1 px-3 py-1 rounded bg-white text-sm text-gray-400 cursor-not-allowed text-gray-300"
+                >
+                  {renderSegmentLabel(segment, fullPath)}
+                </p>
+              ) : (
+                <Link
+                  href={getHref(index)}
+                  className="flex items-center gap-1 px-3 py-1 rounded bg-white text-sm text-gray-400 cursor-pointer hover:bg-gray-200 text-gray-600 font-base"
+                >
+                  {renderSegmentLabel(segment, fullPath)}
+                </Link>
+              )}
               {index < pathSegments.length - 1 && (
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

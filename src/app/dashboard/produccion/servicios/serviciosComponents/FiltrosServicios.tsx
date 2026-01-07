@@ -1,6 +1,6 @@
 'use client';
 import React, { FC } from 'react';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface FiltrosServiciosProps {
   medioFiltro: string;
@@ -19,19 +19,18 @@ const FiltrosServicios: FC<FiltrosServiciosProps> = ({
   servicioFiltro,
   setServicioFiltro,
 }) => {
-  const router = useRouter();
 
   return (
     <div className='flex flex-col justify-between mb-3'>
       <div className='flex flex-row justify-between px-4'>
         <h2 className="text-lg font-semibold mb-4">Buscador de Servicios</h2>
         <div className='my-auto'>
-        <button
+        <Link
+          href="/dashboard/produccion/servicios/crear"
           className='bg-blue-950 text-xs text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/produccion/servicios/crear')}
         >
           <p>Crear nuevo servicio</p>
-        </button>
+        </Link>
         </div>
       </div>
 
@@ -79,12 +78,12 @@ const FiltrosServicios: FC<FiltrosServiciosProps> = ({
           />
         </div>
 
-        <button
+        <Link
+          href="/dashboard/produccion/servicios/crear"
           className='bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900'
-          onClick={() => router.push('/dashboard/produccion/servicios/crear')}
         >
           <p>Buscar</p>
-        </button>
+        </Link>
       </div>
     </div>
   );

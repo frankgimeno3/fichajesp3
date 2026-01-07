@@ -1,6 +1,7 @@
 'use client';
 
-import { useRouter, useParams } from 'next/navigation';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import ContenidoGeneral from './componentesFicha/ContenidoGeneral';
 import ContenidoComentarios from './componentesFicha/ContenidoComentarios';
@@ -19,7 +20,6 @@ interface Comentario {
 }
 
 const FichaCliente = () => {
-  const router = useRouter();
   const params = useParams();
 
   const id_cuenta = params?.id_cuenta as string;
@@ -105,14 +105,12 @@ const FichaCliente = () => {
             ))}
           </div>
           <div className="flex flex-row gap-4 mb-4 items-center">
-            <button
+            <Link
+              href={`/dashboard/comercial/propuestas/cuentas/${id_cuenta}`}
               className="bg-blue-950 text-gray-100 p-2 px-4 rounded-lg shadow-xl cursor-pointer hover:bg-blue-900"
-              onClick={() =>
-                router.push(`/dashboard/comercial/propuestas/cuentas/${id_cuenta}`)
-              }
             >
               <p>Propuestas</p>
-            </button>
+            </Link>
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { useRouter } from "next/navigation";
+import Link from 'next/link';
 
 const ArrowIcon: FC<{ isOpen: boolean }> = ({ isOpen }) => (
   <svg
@@ -14,7 +14,6 @@ const ArrowIcon: FC<{ isOpen: boolean }> = ({ isOpen }) => (
 );
 
 const LoggedLeftMenu: FC = () => {
-  const router = useRouter();
 
   const [isFichajesOpen, setIsFichajesOpen] = useState(false);
   const [isComercialOpen, setIsComercialOpen] = useState(false);
@@ -38,20 +37,20 @@ const LoggedLeftMenu: FC = () => {
         </div>
         {isFichajesOpen && (
           <div className="ml-4 mt-2 space-y-2">
-            <button
-              onClick={() => router.push('/dashboard/fichajes/fichar')}
+            <Link
+              href="/dashboard/fichajes/fichar"
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Fichar eventos
-            </button>
-            <button
-              onClick={() => router.push('/dashboard/fichajes/historial')}
+            </Link>
+            <Link
+              href="/dashboard/fichajes/historial"
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Historial de fichajes
-            </button>
+            </Link>
           </div>
         )}
       </div>
@@ -66,21 +65,21 @@ const LoggedLeftMenu: FC = () => {
         </div>
         {isClientesOpen && (
           <div className="ml-4 mt-2 space-y-2">
-            <button
-              onClick={() => router.push('/dashboard/clientes/cuentas')}
+            <Link
+              href="/dashboard/clientes/cuentas"
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Cuentas
-            </button>
+            </Link>
 
-            <button
-              onClick={() => router.push('/dashboard/clientes/contactos')}
+            <Link
+              href="/dashboard/clientes/contactos"
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Contactos
-            </button>
+            </Link>
 
           </div>
         )}
@@ -97,20 +96,20 @@ const LoggedLeftMenu: FC = () => {
         </div>
         {isComercialOpen && (
           <div className="ml-4 mt-2 space-y-2">
-            <button
-              onClick={() => router.push('/dashboard/comercial/propuestas')}
+            <Link
+              href="/dashboard/comercial/propuestas"
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Propuestas
-            </button>
-            <button
-              onClick={() => router.push('/dashboard/comercial/contratos')}
+            </Link>
+            <Link
+              href="/dashboard/comercial/contratos"
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Mis contratos
-            </button>
+            </Link>
           </div>
         )}
       </div>
@@ -126,20 +125,20 @@ const LoggedLeftMenu: FC = () => {
         </div>
         {isProduccionOpen && (
           <div className="ml-4 mt-2 space-y-2">
-             <button
-              onClick={() => router.push('/dashboard/produccion/servicios')}
+             <Link
+              href="/dashboard/produccion/servicios"
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Servicios
-            </button>
-            <button
-              onClick={() => router.push('/dashboard/produccion/publicaciones')}
+            </Link>
+            <Link
+              href="/dashboard/produccion/publicaciones"
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Contenidos
-            </button>
+            </Link>
          
 
           </div>
@@ -161,13 +160,13 @@ const LoggedLeftMenu: FC = () => {
           <div className="ml-4 mt-2 space-y-2">
            
 
-             <button
-              onClick={() => router.push('/dashboard/administracion/contratos')}
+             <Link
+              href="/dashboard/administracion/contratos"
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Contratos
-            </button>
+            </Link>
  
            </div>
 
@@ -185,34 +184,34 @@ const LoggedLeftMenu: FC = () => {
         </div>
         {isOperacionesOpen && (
           <div className="ml-4 mt-2 space-y-2">
-            <button
-              onClick={() => router.push('/dashboard/operaciones/fichajes')}
+            <Link
+              href="/dashboard/operaciones/fichajes"
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Gestión de fichajes
-            </button>
-            <button
-              onClick={() => router.push('/dashboard/operaciones/data')}
+            </Link>
+            <Link
+              href="/dashboard/operaciones/data"
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Gestión de BBDD
-            </button>
-            <button
-              onClick={() => router.push('/dashboard/operaciones/usuariosyroles')}
+            </Link>
+            <Link
+              href="/dashboard/operaciones/usuariosyroles"
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Gestión de usuarios y roles
-            </button>
-            <button
-              onClick={() => router.push('/dashboard/operaciones/eventos')}
+            </Link>
+            <Link
+              href="/dashboard/operaciones/eventos"
               className="block  px-3 py-1.5 text-left rounded hover:bg-blue-950 w-full
               hover:text-white transition cursor-pointer"
             >
               Registro global de eventos
-            </button>
+            </Link>
            
           </div>
 

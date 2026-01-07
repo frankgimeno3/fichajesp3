@@ -57,6 +57,15 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
 }) => {
   const router = useRouter();
 
+  const handleRowClick = (e: React.MouseEvent<HTMLTableRowElement>, href: string) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+      window.open(href, '_blank');
+    } else {
+      router.push(href);
+    }
+  };
+
   const agrupadasPorCliente = (propuestas as InterfazPropuesta[]).reduce(
     (acc: Record<string, any>, p: InterfazPropuesta) => {
       const idCuenta = p.cuenta_propuesta.id_cuenta_propuesta;
@@ -144,10 +153,8 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
           {resultadosFiltrados.map((res) => (
             <tr
               key={res.id}
+              onClick={(e) => handleRowClick(e, `/dashboard/comercial/propuestas/cuentas/${res.codigoCRM}`)}
               className="hover:bg-gray-50 cursor-pointer"
-              onClick={() =>
-                router.push(`/dashboard/comercial/propuestas/cuentas/${res.codigoCRM}`)
-              }
             >
               <td className="p-2 border-b border-gray-200">
                 <FolderSvg />
@@ -157,7 +164,7 @@ const TodasPropuestas: FC<TodasPropuestasProps> = ({
               <td className="p-2 border-b border-gray-200">{res.agenteAsignado}</td>
               <td className="p-2 border-b border-gray-200">{res.estadosIncluidos.join(', ')}</td>
               <td className="p-2 border-b border-gray-200">{res.fechaUltimaPropuesta}</td>
-             </tr>
+            </tr>
           ))}
         </tbody>
       </table>

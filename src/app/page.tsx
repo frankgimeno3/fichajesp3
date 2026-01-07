@@ -12,10 +12,28 @@ export default function Home() {
     const [showPassword, setShowPassword] = useState(false);
 
     useEffect(() => {
-        const storedPayload = localStorage.getItem("userPayload");
-        if (storedPayload) {
-            router.replace('/dashboard');
-        }
+        const checkAuth = async () => {
+            // Primero verificar localStorage
+            const storedPayload = localStorage.getItem("userPayload");
+            if (storedPayload) {
+                router.replace('/dashboard');
+                return;
+            }
+
+            // Luego verificar sesión de Cognito
+            try {
+                const sessionPayload = await AuthenticationService.checkSession();
+                if (sessionPayload) {
+                    localStorage.setItem("userPayload", JSON.stringify(sessionPayload));
+                    router.replace('/dashboard');
+                }
+            } catch (e) {
+                // Si no hay sesión, no hacer nada
+                console.log('No hay sesión activa');
+            }
+        };
+
+        checkAuth();
     }, [router]);
 
     const handleLogin = async (e: React.FormEvent) => {
@@ -30,6 +48,19 @@ export default function Home() {
             router.replace('/dashboard');
         } catch (e: any) {
             console.error(e);
+            // Si el error es "There is already a signed in user", verificar sesión y redirigir
+            if (e?.message?.includes('already a signed in user') || e?.message?.includes('already signed in')) {
+                try {
+                    const sessionPayload = await AuthenticationService.checkSession();
+                    if (sessionPayload) {
+                        localStorage.setItem("userPayload", JSON.stringify(sessionPayload));
+                        router.replace('/dashboard');
+                        return;
+                    }
+                } catch (sessionError) {
+                    // Si no se puede obtener la sesión, mostrar error
+                }
+            }
             setError(e?.message || 'Error al iniciar sesión. Verifica tus credenciales.');
         }
     };

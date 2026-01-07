@@ -1,4 +1,4 @@
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import React, { FC, useEffect } from 'react';
 
 interface ModalBorrarPropuestaProps {
@@ -7,8 +7,6 @@ interface ModalBorrarPropuestaProps {
  }
 
 const ModalBorrarPropuesta: FC<ModalBorrarPropuestaProps> = ({ isOpen, onClose }) => {
-
-    const router = useRouter()
 
    useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
@@ -37,12 +35,13 @@ const ModalBorrarPropuesta: FC<ModalBorrarPropuestaProps> = ({ isOpen, onClose }
         </h2>
 
         <div className="flex justify-center gap-4 mt-6">
-          <button
-            onClick={()=>{router.push("/dashboard/comercial/propuestas")}}
+          <Link
+            href="/dashboard/comercial/propuestas"
             className="bg-red-600 text-white px-4 py-2 rounded-lg shadow hover:bg-red-700 cursor-pointer"
+            onClick={onClose}
           >
             Confirmar
-          </button>
+          </Link>
           <button
             onClick={onClose}
             className="bg-gray-300 text-gray-700 px-4 py-2 rounded-lg shadow hover:bg-gray-400 cursor-pointer"

@@ -8,6 +8,15 @@ interface TablaPublicacionesProps { }
 const TablaPublicaciones: FC<TablaPublicacionesProps> = ({ }) => {
   const router = useRouter();
 
+  const handleRowClick = (e: React.MouseEvent<HTMLTableRowElement>, href: string) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+      window.open(href, '_blank');
+    } else {
+      router.push(href);
+    }
+  };
+
   return (
     <div className='flex flex-row justify-between w-full items-center bg-white rounded'>
       <table className='min-w-full'>
@@ -25,8 +34,8 @@ const TablaPublicaciones: FC<TablaPublicacionesProps> = ({ }) => {
           {data.map((item, index) => (
             <tr
               key={index}
-              className='hover:bg-gray-50 cursor-pointer'
-              onClick={() => router.push(`/dashboard/produccion/publicaciones/${item.id_publicacion}`)}
+              onClick={(e) => handleRowClick(e, `/dashboard/produccion/publicaciones/${item.id_publicacion}`)}
+              className="hover:bg-gray-50 cursor-pointer"
             >
               <td className='p-2 border-b border-gray-200'>{item.medio_publicacion}</td>
               <td className='p-2 border-b border-gray-200'>{item.edicion_publicacion}</td>
