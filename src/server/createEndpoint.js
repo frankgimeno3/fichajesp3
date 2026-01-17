@@ -6,7 +6,6 @@ import {errorHandler} from "./errorHandler.js";
 import {decodeJWT} from "@aws-amplify/core";
 
 async function validate(request, schema) {
-    if (!schema) return;
     const contentType = request.headers.get('content-type') ?? '';
     const method = request.method
     let data;
@@ -23,12 +22,24 @@ async function validate(request, schema) {
     } else if (contentType.includes('multipart/form-data')) {
         body = await request.formData();
         data = Object.fromEntries(body);
-    } else {
-        throw Error('Solicitud incorrecta');
+    } else if (method !== "GET") {
+        // Para métodos que no son GET y no tienen content-type conocido, intentar parsear como JSON
+        try {
+            body = await request.json();
+            data = body;
+        } catch (e) {
+            // Si falla, retornar undefined
+            return undefined;
+        }
     }
-    const {value, error} = schema.validate(data);
-    if (error) {
-        throw new Error(`Solicitud no paso validacion: ${error}`);
+
+    // Solo validar si hay schema
+    if (schema) {
+        const {value, error} = schema.validate(data);
+        if (error) {
+            throw new Error(`Solicitud no paso validacion: ${error}`);
+        }
+        return value;
     }
 
     return body;
@@ -86,7 +97,7 @@ export function createEndpoint(callback, schema = null, isProtected = false, rol
             } catch (error) {
                 console.error(error);
 
-                return new Response(error.message, {status: 400});
+                return new Response(error.message || 'No autenticado', {status: 401});
             }
         }
 

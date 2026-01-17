@@ -76,3 +76,33 @@ export async function getCuentaById(idCuenta) {
 
     return cuenta;
 }
+
+export async function updateCuenta(username, idCuenta, cuentaData) {
+    if (!cuentaData) {
+        throw new Error('Datos de cuenta no proporcionados');
+    }
+
+    const cuenta = await CuentaModel.findOne({
+        where: { id_cuenta: idCuenta }
+    });
+
+    if (!cuenta) {
+        throw new Error('Cuenta no encontrada');
+    }
+
+    await cuenta.update({
+        nombre_empresa: cuentaData.nombre_empresa,
+        pais_cuenta: cuentaData.pais_cuenta,
+        id_agente: cuentaData.id_agente,
+        descripcion_cuenta: cuentaData.descripcion_cuenta,
+        actividades_cuenta: cuentaData.actividades_cuenta,
+        presente_en_qq: cuentaData.presente_en_qq || false,
+        fuente_novedades_cuenta: cuentaData.fuente_novedades_cuenta,
+        datos_comerciales: cuentaData.datos_comerciales,
+        array_direcciones_cuenta: cuentaData.array_direcciones_cuenta || [],
+        array_contactos_cuenta: cuentaData.array_contactos_cuenta || [],
+        array_comentarios_cuenta: cuentaData.array_comentarios_cuenta || [],
+    });
+
+    return cuenta;
+}

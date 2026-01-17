@@ -1,5 +1,5 @@
-import {createEndpoint} from "../../../../../server/createEndpoint.js";
-import {getCuentaById} from "../../../../../server/features/cuenta/CuentaService.js";
+import {createEndpoint} from "../../../../../../server/createEndpoint.js";
+import {getCuentaById, updateCuenta} from "../../../../../../server/features/cuenta/CuentaService.js";
 import {NextResponse} from "next/server";
 
 export async function GET(request, context) {
@@ -9,13 +9,29 @@ export async function GET(request, context) {
         return new NextResponse('ID de cuenta requerido', { status: 400 });
     }
 
-    try {
-        // Extract email from request for authentication
-        const baseKey = `CognitoIdentityServiceProvider.${process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID || ''}`;
-        const username = request.cookies.get(`${baseKey}.LastAuthUser`)?.value;
-        
-        if (!username) {
-            return new NextResponse('No autenticado', { status: 401 });
+    const handler = createEndpoint(async (request) => {
+        const cuenta = await getCuentaById(idCuenta);
+
+        if (!cuenta) {
+            return new NextResponse('Cuenta no encontrada', { status: 404 });
+        }
+
+        return NextResponse.json(cuenta);
+    }, null, true); // isProtected = true
+
+    return handler(request);
+}
+
+export async function PUT(request, context) {
+    const idCuenta = context?.params?.id_cuenta;
+    
+    if (!idCuenta) {
+        return new NextResponse('ID de cuenta requerido', { status: 400 });
+    }
+
+    const handler = createEndpoint(async (request, body) => {
+        if (!body) {
+            return new NextResponse('Datos de cuenta requeridos', { status: 400 });
         }
 
         const cuenta = await getCuentaById(idCuenta);
@@ -24,9 +40,10 @@ export async function GET(request, context) {
             return new NextResponse('Cuenta no encontrada', { status: 404 });
         }
 
-        return NextResponse.json(cuenta);
-    } catch (error) {
-        console.error('Error fetching cuenta:', error);
-        return new NextResponse(error.message || 'Error al obtener la cuenta', { status: 500 });
-    }
+        const cuentaActualizada = await updateCuenta(request.username, idCuenta, body);
+
+        return NextResponse.json(cuentaActualizada);
+    }, null, true); // isProtected = true
+
+    return handler(request);
 }

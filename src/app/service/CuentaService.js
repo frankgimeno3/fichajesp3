@@ -17,4 +17,9 @@ export class CuentaService {
         const response = await apiClient.get(`/api/v1/clientes/cuentas/${idCuenta}`);
         return response.data;
     }
+
+    static async updateCuenta(idCuenta, cuentaData) {
+        const response = await apiClient.put(`/api/v1/clientes/cuentas/${idCuenta}`, cuentaData);
+        return response.data;
+    }
 }
