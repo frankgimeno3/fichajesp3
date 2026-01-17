@@ -21,8 +21,8 @@ const Registro: FC<RegistroProps> = () => {
       try {
           await TimeLogService.createTimeLog(event, comments);
           alert("Evento registrado correctamente");
-      } catch (e){
-          alert(e);
+      } catch (e: any){
+          alert(e?.message || e || 'Error al registrar el evento');
       } finally {
           setShowPopup(false);
       }

@@ -44,8 +44,8 @@ const Historial: FC = () => {
                 String(now.getMonth() + 1),
                 String(now.getFullYear())
             );
-        } catch (error) {
-            alert(error)
+        } catch (error: any) {
+            alert(error?.message || error || 'Error desconocido')
         }
     }, [])
 
@@ -54,8 +54,8 @@ const Historial: FC = () => {
             const timeLogs = await TimeLogService.getUserTimeLogs(afterTime, beforeTime);
             setTimeLogs(timeLogs);
             console.log("timelogs", timeLogs)
-        } catch (error) {
-            alert(error)
+        } catch (error: any) {
+            alert(error?.message || error || 'Error al obtener los registros de fichaje')
         }
     }
 
