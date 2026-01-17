@@ -1,6 +1,6 @@
 import React, { FC, ChangeEvent, useState } from 'react';
-import cuentas from "@/app/contents/cuentasContents.json";
 import { useRouter } from 'next/navigation';
+import {CuentaService} from '@/app/service/CuentaService';
 
 interface Agente {
   id_usuario: string;
@@ -117,11 +117,16 @@ const Fase0: FC<Fase0Props> = ({
   const handleComprobar = async () => {
     setLoading(true);
     setCuentaExiste(null);
-    setTimeout(() => {
+    try {
+      const cuentas = await CuentaService.getCuentas({ codigoCrmFiltro: codigoEdisoft });
       const existe = cuentas.some((cuenta) => cuenta.id_cuenta === codigoEdisoft);
       setCuentaExiste(existe);
+    } catch (error) {
+      console.error('Error checking cuenta:', error);
+      setCuentaExiste(false); // Assume it doesn't exist if there's an error
+    } finally {
       setLoading(false);
-    }, 1000);
+    }
   };
 
   // Validación de campos obligatorios

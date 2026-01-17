@@ -4,6 +4,7 @@ import TimeLogModel from "../features/timeLog/TimeLogModel.js";
 import Database from "./database.js";
 import {ModificationStatusEnum} from "../features/modification/ModificationStatusEnum.js";
 import ModificationModel from "../features/modification/ModificationModel.js";
+import CuentaModel from "../features/cuenta/CuentaModel.js";
 import {defineAssociations} from "./associations.js";
 
 const database = Database.getInstance();
@@ -52,6 +53,33 @@ ModificationModel.init({
     ]
 });
 
+CuentaModel.init({
+    id_cuenta: {type: DataTypes.STRING, primaryKey: true, unique: true},
+    nombre_empresa: {type: DataTypes.STRING, allowNull: false},
+    pais_cuenta: {type: DataTypes.STRING, allowNull: false},
+    id_agente: {type: DataTypes.STRING, allowNull: false},
+    descripcion_cuenta: {type: DataTypes.TEXT},
+    actividades_cuenta: {type: DataTypes.TEXT},
+    presente_en_qq: {type: DataTypes.BOOLEAN, defaultValue: false},
+    fuente_novedades_cuenta: {type: DataTypes.STRING},
+    datos_comerciales: {type: DataTypes.JSONB, defaultValue: {}},
+    array_direcciones_cuenta: {type: DataTypes.JSONB, defaultValue: []},
+    array_contactos_cuenta: {type: DataTypes.JSONB, defaultValue: []},
+    array_comentarios_cuenta: {type: DataTypes.JSONB, defaultValue: []},
+    createdBy: {type: DataTypes.STRING, allowNull: false},
+}, {
+    sequelize,
+    modelName: 'cuenta',
+    underscored: true,
+    indexes: [
+        {fields: ['id_cuenta']},
+        {fields: ['nombre_empresa']},
+        {fields: ['id_agente']},
+        {fields: ['created_by']},
+        {fields: ['created_at']}
+    ]
+});
+
 defineAssociations();
 
-export { TimeLogModel, ModificationModel };
+export { TimeLogModel, ModificationModel, CuentaModel };

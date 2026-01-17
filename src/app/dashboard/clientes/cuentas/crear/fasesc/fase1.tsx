@@ -2,6 +2,7 @@
 
 import React, { FC, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import {CuentaService} from '@/app/service/CuentaService';
 
 interface Agente {
   id_usuario: string;
@@ -55,6 +56,7 @@ const Fase1: FC<Fase1Props> = ({
   const router = useRouter();
   const [isCreating, setIsCreating] = useState(false);
   const [cuentaCreada, setCuentaCreada] = useState(false);
+  const [createdCuentaId, setCreatedCuentaId] = useState<string | null>(null);
   const [loadingTime, setLoadingTime] = useState(0);
 
   const agentes: Agente[] = [
@@ -73,23 +75,80 @@ const Fase1: FC<Fase1Props> = ({
 
   const handleCrearCuenta = async () => {
     setIsCreating(true);
-    const startTime = Date.now();
-    
-    // Simular creación de cuenta (aquí iría la llamada real a la API)
-    await new Promise(resolve => setTimeout(resolve, 4000));
-    
-    const elapsed = Date.now() - startTime;
-    if (elapsed < 4000) {
-      await new Promise(resolve => setTimeout(resolve, 4000 - elapsed));
+    try {
+      // Generate id_cuenta if not provided
+      let idCuenta = codigoEdisoft;
+      if (noExisteEdisoft || !codigoEdisoft) {
+        // Generate a unique ID - you might want to use a better ID generation strategy
+        const timestamp = Date.now();
+        idCuenta = `625${timestamp.toString().slice(-5)}`;
+      }
+
+      // Build datos_comerciales
+      const datosComerciales = {
+        ciudad_principal_cuenta: ciudadUbicacion || '',
+        telefono_principal_cuenta: telefonoPrincipal || telefonoCuenta || '',
+        categoria_principal_cuenta: '', // Not collected in form, can be added later
+        contacto_principal: '', // Will be set after contact creation if needed
+        resumen_actividad_cuenta: descripcionCuenta || '',
+      };
+
+      // Build array_direcciones_cuenta
+      const direccion = {
+        nombre_direccion: 'Dirección Principal',
+        pais_direccion: paisUbicacion || '',
+        region_direccion: estadoUbicacion || '',
+        ciudad_direccion: ciudadUbicacion || '',
+        codigo_postal: codigoPostal || '',
+        direccion_completa: direccionCompleta || '',
+        telefono_direccion: telefonoPrincipal || '',
+        descripcion_direccion: descripcionUbicacion || '',
+      };
+      const arrayDirecciones = [direccion];
+
+      // Build array_contactos_cuenta (if contact info is provided)
+      const arrayContactos = [];
+      if (nombreContacto || apellidosContacto || telefonoContacto || mailContacto) {
+        // Generate a contact ID - you might want to use a better ID generation strategy
+        const contactId = `contact_25_${Date.now().toString().padStart(11, '0')}`;
+        arrayContactos.push({ id_contacto: contactId });
+        
+        // Update contacto_principal in datos_comerciales
+        datosComerciales.contacto_principal = contactId;
+      }
+
+      // Build the cuenta data object
+      const cuentaData = {
+        id_cuenta: idCuenta,
+        nombre_empresa: nombreCuenta,
+        pais_cuenta: paisCuenta,
+        id_agente: agenteAsignado,
+        descripcion_cuenta: descripcionCuenta || '',
+        actividades_cuenta: '', // Not collected in form, can be added later
+        presente_en_qq: false, // Default value
+        fuente_novedades_cuenta: '', // Not collected in form, can be added later
+        datos_comerciales: datosComerciales,
+        array_direcciones_cuenta: arrayDirecciones,
+        array_contactos_cuenta: arrayContactos,
+        array_comentarios_cuenta: [], // Empty initially
+      };
+
+      const createdCuenta = await CuentaService.createCuenta(cuentaData);
+      setCreatedCuentaId(createdCuenta.id_cuenta || idCuenta);
+      setCuentaCreada(true);
+    } catch (error) {
+      console.error('Error creating cuenta:', error);
+      alert(error?.message || 'Error al crear la cuenta. Por favor, inténtelo de nuevo.');
+      setIsCreating(false);
     }
-    
-    setCuentaCreada(true);
   };
 
   const handleIrAFicha = () => {
-    // Aquí deberías redirigir a la ficha de la cuenta creada
-    // Por ahora redirigimos a la lista de cuentas
-    router.push('/dashboard/clientes/cuentas');
+    // Redirect to the account detail page
+    const idCuenta = createdCuentaId || (noExisteEdisoft || !codigoEdisoft 
+      ? `625${Date.now().toString().slice(-5)}` 
+      : codigoEdisoft);
+    router.push(`/dashboard/clientes/cuentas/${idCuenta}`);
   };
 
   return (

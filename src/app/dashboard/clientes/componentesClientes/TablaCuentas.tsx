@@ -1,8 +1,8 @@
 'use client';
 
-import React, { FC, useState, useMemo } from 'react';
+import React, { FC, useState, useMemo, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import resultados from '@/app/contents/cuentasContents.json';
+import {CuentaService} from '@/app/service/CuentaService';
 import agentesContents from '@/app/contents/agentesContents.json';
 
 interface Cuenta {
@@ -31,28 +31,46 @@ const Tablacuentas: FC<TablacuentasProps> = ({
 }) => {
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
+  const [resultados, setResultados] = useState<Cuenta[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const itemsPerPage = 15;
 
-  const resultadosFiltrados = useMemo(() => {
-    return resultados.filter((r: Cuenta) => {
-      const coincideCliente =
-        clienteFiltro === '' ||
-        r.nombre_empresa.toLowerCase().includes(clienteFiltro.toLowerCase());
+  // Fetch cuentas from API
+  useEffect(() => {
+    const fetchCuentas = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const filters = {
+          clienteFiltro: clienteFiltro || '',
+          codigoCrmFiltro: codigoCrmFiltro || '',
+          agenteFiltro: agenteFiltro || '',
+          telFiltro: telFiltro || '',
+        };
+        const data = await CuentaService.getCuentas(filters);
+        setResultados(Array.isArray(data) ? data : []);
+      } catch (err: any) {
+        console.error('Error fetching cuentas:', err);
+        // Si es un error 400, podría ser un problema de autenticación o validación
+        if (err?.response?.status === 400) {
+          setError('Error de autenticación o validación. Por favor, verifica tu sesión.');
+        } else {
+          setError(err?.message || 'Error al cargar las cuentas');
+        }
+        setResultados([]);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      const coincideCodigoCrm =
-        codigoCrmFiltro === '' ||
-        r.id_cuenta.toLowerCase().includes(codigoCrmFiltro.toLowerCase());
-
-      const coincideAgente =
-        agenteFiltro === '' || r.id_agente === agenteFiltro;
-
-      const coincideTelefono =
-        telFiltro === '' ||
-        r.datos_comerciales.telefono_principal_cuenta.includes(telFiltro);
-
-      return coincideCliente && coincideCodigoCrm && coincideAgente && coincideTelefono;
-    });
+    fetchCuentas();
   }, [clienteFiltro, codigoCrmFiltro, agenteFiltro, telFiltro]);
+
+  const resultadosFiltrados = useMemo(() => {
+    // Server-side filtering is already done, but we can do additional client-side filtering if needed
+    return resultados;
+  }, [resultados]);
 
   // Reset to page 1 when filters change
   React.useEffect(() => {
@@ -78,6 +96,31 @@ const Tablacuentas: FC<TablacuentasProps> = ({
     }
   };
 
+  if (loading) {
+    return (
+      <div className="mt-5 flex justify-center items-center py-12">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+        <p className="ml-4 text-gray-600">Cargando cuentas...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="mt-5 p-4 bg-red-100 border border-red-300 text-red-700 rounded-lg">
+        <p className="text-center">{error}</p>
+      </div>
+    );
+  }
+
+  if (resultadosFiltrados.length === 0 && !loading) {
+    return (
+      <div className="mt-5 p-4 bg-white rounded-lg shadow-xl">
+        <p className="text-center text-gray-500">No hay datos en la base de datos.</p>
+      </div>
+    );
+  }
+
   return (
         <div className="">
       <table className="mt-5  rounded-lg shadow-xl bg-white min-w-full">
@@ -102,17 +145,12 @@ const Tablacuentas: FC<TablacuentasProps> = ({
               <td className="p-2 border-b border-gray-200">{getNombreCompletoAgente(res.id_agente)}</td>
               <td className="p-2 border-b border-gray-200">{res.pais_cuenta}</td>
               <td className="p-2 border-b border-gray-200">
-                {res.datos_comerciales.telefono_principal_cuenta}
+                {res.datos_comerciales?.telefono_principal_cuenta || ''}
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-      {resultadosFiltrados.length === 0 && (
-        <p className="mt-4 text-center text-gray-500">
-          No se encontraron resultados.
-        </p>
-      )}
       {resultadosFiltrados.length > 0 && (
         <div className="flex justify-center items-center gap-2 mt-4">
           <button
