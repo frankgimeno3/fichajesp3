@@ -12,8 +12,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FichajesP3",
-  description: "Sistema fichajes p3",
+  title: "P3ERP",
+  description: "Sistema P3ERP",
 };
 
 export default function RootLayout({
